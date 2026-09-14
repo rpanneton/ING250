@@ -1,26 +1,26 @@
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="GENERATOR" content="Microsoft FrontPage 6.0">
 <meta name="ProgId" content="FrontPage.Editor.Document">
-<title>Solution de l'exercice - effectuer la somme des éléments d'un vecteur
+<title>Solution de l'exercice - effectuer la somme des Ã©lÃ©ments d'un vecteur
 contenu dans un fichier</title>
 <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
 
 <body>
 
-<h2>Effectuer la somme des éléments d'un vecteur contenu dans un fichier</h2>
+<h2>Effectuer la somme des Ã©lÃ©ments d'un vecteur contenu dans un fichier</h2>
 <ol>
-  <li>Lire le fichier Distance.dat et l'attribuer au tableau «&nbsp;cm&nbsp;».</li>
-  <li>Déterminer la longueur du vecteur cm, attribuer cette valeur à
-    «&nbsp;Taille&nbsp;» et l'afficher</li>
-  <li>Calculer la somme des éléments de cm.</li>
+  <li>Lire le fichier Distance.dat et l'attribuer au tableau Â«&nbsp;cm&nbsp;Â».</li>
+  <li>DÃ©terminer la longueur du vecteur cm, attribuer cette valeur Ã 
+    Â«&nbsp;Taille&nbsp;Â» et l'afficher</li>
+  <li>Calculer la somme des Ã©lÃ©ments de cm.</li>
 </ol>
 <ul>
-  <li>Boucle comptée, car le nombre d'éléments est déterminé.</li>
-  <li>Sommateur à initialiser et à utiliser pour accumuler la somme.</li>
+  <li>Boucle comptÃ©e, car le nombre d'Ã©lÃ©ments est dÃ©terminÃ©.</li>
+  <li>Sommateur Ã  initialiser et Ã  utiliser pour accumuler la somme.</li>
   <li>Utiliser <i>load</i>.</li>
 </ul>
 <h3>Solution</h3>
@@ -39,19 +39,19 @@ Somme</pre>
       <li>cm = Distance; ou pire.</li>
     </ul>
   </li>
-  <li>Oubli du point-virgule lors de la somme; somme n'est pas affichée à la
+  <li>Oubli du point-virgule lors de la somme; somme n'est pas affichÃ©e Ã  la
     fin.</li>
-  <li>Oubli du point-virgule lors de la lecture, ce qui encombre la fenêtre
+  <li>Oubli du point-virgule lors de la lecture, ce qui encombre la fenÃªtre
     Matlab.</li>
   <li>Plus d'une utilisation de <i>length</i>(cm).</li>
-  <li>Utilisation de <i>size</i> ou de <i>whos</i> (outils non appropriés).</li>
+  <li>Utilisation de <i>size</i> ou de <i>whos</i> (outils non appropriÃ©s).</li>
   <li>Utilisation de la fonction <i>sum</i> (ce n'est pas le but de l'exercice).</li>
-  <li>Ajout d'un compteur pour identifier les éléments de cm.</li>
-  <li>Mettre la valeur numérique de la taille comme limite supérieure de la
+  <li>Ajout d'un compteur pour identifier les Ã©lÃ©ments de cm.</li>
+  <li>Mettre la valeur numÃ©rique de la taille comme limite supÃ©rieure de la
     boucle for.
     <ul>
       <li>Exemple for i=1:27<br>
-        cela réduit la portée générale du programme et invalide le programme
+        cela rÃ©duit la portÃ©e gÃ©nÃ©rale du programme et invalide le programme
         en cas de modification du fichier Distance.dat.</li>
     </ul>
   </li>

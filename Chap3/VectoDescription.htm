@@ -1,7 +1,7 @@
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="GENERATOR" content="Microsoft FrontPage 6.0">
 <meta name="ProgId" content="FrontPage.Editor.Document">
 <title>Vectorisation</title>
@@ -28,48 +28,48 @@
 
 <body>
 
-<h1>Vectorisation – description</h1>
+<h1>Vectorisation â€“ description</h1>
 <p>Matlab est un langage de programmation qui utilise des 
-matrices et des vecteurs comme données élémentaires et il 
-est spécialement conçu pour effectuer des calculs sur ce 
-type de données.</p>
-<p>La vectorisation consiste à convertir des boucles 
-comptées <font color="#0000FF"><i>fo</i></font>r en 
-opérations vectorielles équivalentes. Elle 
+matrices et des vecteurs comme donnÃ©es Ã©lÃ©mentaires et il 
+est spÃ©cialement conÃ§u pour effectuer des calculs sur ce 
+type de donnÃ©es.</p>
+<p>La vectorisation consiste Ã  convertir des boucles 
+comptÃ©es <font color="#0000FF"><i>fo</i></font>r en 
+opÃ©rations vectorielles Ã©quivalentes. Elle 
 comporte deux avantages&nbsp;:</p>
 <ul>
 	<li>le code est plus concis,</li>
 	<li>le programme tourne plus rapidement, car il tire 
 	profit des algorithmes d'optimisation de Matlab.</li>
 </ul>
-<p>Cette section présente les opérateurs Matlab permettant de générer
+<p>Cette section prÃ©sente les opÃ©rateurs Matlab permettant de gÃ©nÃ©rer
 implicitement des boucles pour effectuer des calculs.</p>
 <dl>
-  <dt><b>Opération pouvant être vectorisée</b></dt>
-  <dd>Une opération peut être vectorisée lorsqu'elle 
-	contient une boucle&nbsp;for et s'applique successivement à des 
-	éléments entre 2&nbsp;tableaux, ou entre 1&nbsp;tableau et un 
-	scalaire. Matlab est conçu pour tirer profit de l'aspect 
-	matriciel ou vectoriel des données.</dd>
+  <dt><b>OpÃ©ration pouvant Ãªtre vectorisÃ©e</b></dt>
+  <dd>Une opÃ©ration peut Ãªtre vectorisÃ©e lorsqu'elle 
+	contient une boucle&nbsp;for et s'applique successivement Ã  des 
+	Ã©lÃ©ments entre 2&nbsp;tableaux, ou entre 1&nbsp;tableau et un 
+	scalaire. Matlab est conÃ§u pour tirer profit de l'aspect 
+	matriciel ou vectoriel des donnÃ©es.</dd>
 </dl>
-<h3>Exemple&nbsp;1 – constituer un vecteur</h3>
+<h3>Exemple&nbsp;1 â€“ constituer un vecteur</h3>
 <p>Calculer 4001 valeurs de 3&nbsp;sin&nbsp;(&theta;) entre 
-0° et 400° .</p>
-<h4>Méthode traditionnelle</h4>
+0Â° et 400Â° .</p>
+<h4>MÃ©thode traditionnelle</h4>
 <pre>i = 0;
 for theta = 0:0.1:400
    i = i + 1;
    y(i) = 3*sind(theta);
 end</pre>
-<h4>Version vectorisée</h4>
-<pre>theta = 0:0.1:400; <b><font color="#008000">% opérateur deux points (:)</font></b>
+<h4>Version vectorisÃ©e</h4>
+<pre>theta = 0:0.1:400; <b><font color="#008000">% opÃ©rateur deux points (:)</font></b>
 y = 3*sind(theta);</pre>
-<p>Le calcul de y est plus rapide et Matlab est conçu pour être 
-utilisé de cette façon.</p>
-<h4>Autre version vectorisée</h4>
+<p>Le calcul de y est plus rapide et Matlab est conÃ§u pour Ãªtre 
+utilisÃ© de cette faÃ§on.</p>
+<h4>Autre version vectorisÃ©e</h4>
 <pre>theta = linspace(0,400,4001); <b><font color="#008000">% fonction linspace</font></b>
 y = 3*sind(theta);</pre>
-<h3>Exemple 2 – multiplier deux vecteurs élément par élément</h3>
+<h3>Exemple 2 â€“ multiplier deux vecteurs Ã©lÃ©ment par Ã©lÃ©ment</h3>
 <table border="1" width="17%" id="table2">
 	<tr>
 		<td>X</td>
@@ -91,24 +91,24 @@ y = 3*sind(theta);</pre>
 		120</td>
 	</tr>
 </table>
-<h4>Méthode traditionnelle</h4>
+<h4>MÃ©thode traditionnelle</h4>
 <pre>X = [10, 20, 30, 40];
 Y = [6, 2, 7, 3];
 for i = 1:4
    XY(i) = X(i)*Y(i)
 end</pre>
-<h4>Version vectorisée</h4>
+<h4>Version vectorisÃ©e</h4>
 <pre>XY = X.*Y</pre>
-<h4>Versions antérieures de Matlab</h4>
+<h4>Versions antÃ©rieures de Matlab</h4>
 <ul>
-	<li>Matlab 6.1 - Il est nécessaire d'écrire une expression vectorisée
+	<li>Matlab 6.1 - Il est nÃ©cessaire d'Ã©crire une expression vectorisÃ©e
         pour tirer profit de l'augmentation de performance.</li>
-	<li>Matlab 6.5 et suivantes - Le logiciel est capable de reconnaître que la boucle
-        comptée devrait être vectorisée. Matlab effectue alors automatiquement
-        la vectorisation sans qu'il soit nécessaire d'écrire l'instruction
-        vectorisée. Pour plus de détails, voir la documentation de MatWorks
+	<li>Matlab 6.5 et suivantes - Le logiciel est capable de reconnaÃ®tre que la boucle
+        comptÃ©e devrait Ãªtre vectorisÃ©e. Matlab effectue alors automatiquement
+        la vectorisation sans qu'il soit nÃ©cessaire d'Ã©crire l'instruction
+        vectorisÃ©e. Pour plus de dÃ©tails, voir la documentation de MatWorks
         dans Ing250\Zip\<a href="../Zip/pdf/VectoM65.pdf">VectoM65.pdf</a> et prendre note que ce document n'est pas
-        matière à examen.</li>
+        matiÃ¨re Ã  examen.</li>
 </ul>
 <p><img border="0" src="Ligne.GIF" width="492" height="19"></p>
 

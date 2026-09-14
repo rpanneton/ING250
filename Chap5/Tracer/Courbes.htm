@@ -1,7 +1,7 @@
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="Generator" content="Microsoft FrontPage 4.0">
 <meta name="ProgId" content="FrontPage.Editor.Document">
 <title>Tracer des courbes simples</title>
@@ -14,123 +14,123 @@
 <font face="CG Times,CG Times">
 <h1>Tracer des courbes simples</h1>
 <ul>
-  <li>Description mathématique de courbes simples
+  <li>Description mathÃ©matique de courbes simples
     <ul>
       <li>la forme explicite : y = f(x)</li>
       <li>la forme implicite : f(x,y) = 0</li>
-      <li>la forme paramétrique&nbsp;: x = f(t) ; y = g(t)</li>
+      <li>la forme paramÃ©trique&nbsp;: x = f(t) ; y = g(t)</li>
     </ul>
   </li>
-  <li>Utiliser la forme paramétrique</li>
+  <li>Utiliser la forme paramÃ©trique</li>
 </ul>
-<h2>Description mathématique de courbes simples</h2>
+<h2>Description mathÃ©matique de courbes simples</h2>
 </font>
-<p>Obtenir le tracé d'une courbe définie par une ou des relations
-mathématiques, afin de pouvoir en déduire certaines propriétés, représente
-une des activités importantes pour les scientifiques qui utilisent les
-ordinateurs. Disons tout de suite qu'à de très rares exceptions près, un
+<p>Obtenir le tracÃ© d'une courbe dÃ©finie par une ou des relations
+mathÃ©matiques, afin de pouvoir en dÃ©duire certaines propriÃ©tÃ©s, reprÃ©sente
+une des activitÃ©s importantes pour les scientifiques qui utilisent les
+ordinateurs. Disons tout de suite qu'Ã  de trÃ¨s rares exceptions prÃ¨s, un
 dispositif de sortie graphique ne produira pas de courbes, mais des segments de
-droite (ou bien des points isolés). Ce sera à l'utilisateur d'approcher la
+droite (ou bien des points isolÃ©s). Ce sera Ã  l'utilisateur d'approcher la
 courbe par une suite de segments, en effectuant un compromis entre le temps de
-calcul et le nombre de segments employés. Il y a de nombreuses façons de se
+calcul et le nombre de segments employÃ©s. Il y a de nombreuses faÃ§ons de se
 donner une courbe plane; nous en mentionnons trois&nbsp;:</p>
 <ul>
   <li>la forme explicite : y = f(x)</li>
   <li>la forme implicite : f(x,y) = 0</li>
-  <li>la forme paramétrique&nbsp;: x = f(t) ; y = g(t)</li>
+  <li>la forme paramÃ©trique&nbsp;: x = f(t) ; y = g(t)</li>
 </ul>
 <h3>La forme explicite</h3>
-<p>Traditionnellement la plus étudiée, la forme explicite est rarement la
-meilleure pour un tracé; les tangentes verticales ne sont pas admises, la
-longueur d'un segment pour un _x donné varie suivant la valeur de la dérivée
-y'; la forme de la fonction f dépend fortement du système d'axes choisi.
-Cependant, certaines de ces courbes sont souvent &quot;sans problèmes&quot;,
-comme les polynômes ou bien les exponentielles.</p>
-<p>Pour tracer une telle courbe pour un intervalle en x allant de xmin à xmax,
-on utilisera la méthode triviale suivante&nbsp;:<br>
+<p>Traditionnellement la plus Ã©tudiÃ©e, la forme explicite est rarement la
+meilleure pour un tracÃ©; les tangentes verticales ne sont pas admises, la
+longueur d'un segment pour un _x donnÃ© varie suivant la valeur de la dÃ©rivÃ©e
+y'; la forme de la fonction f dÃ©pend fortement du systÃ¨me d'axes choisi.
+Cependant, certaines de ces courbes sont souvent &quot;sans problÃ¨mes&quot;,
+comme les polynÃ´mes ou bien les exponentielles.</p>
+<p>Pour tracer une telle courbe pour un intervalle en x allant de xmin Ã  xmax,
+on utilisera la mÃ©thode triviale suivante&nbsp;:<br>
 <font face="CG Times,CG Times">&nbsp;&nbsp;&nbsp;N := {se donner le nombre
 d'intervalles};<br>
 &nbsp;&nbsp;&nbsp;dx := (xmax - xmin)/N;<br>
 &nbsp;&nbsp;&nbsp;x(1) := xmin;<br>
 &nbsp;&nbsp;&nbsp;y(1) := f(x(1));<br>
-&nbsp;&nbsp;&nbsp;pour i := 1 à N faire<br>
-&nbsp;&nbsp;&nbsp;début<br>
+&nbsp;&nbsp;&nbsp;pour i := 1 Ã  N faire<br>
+&nbsp;&nbsp;&nbsp;dÃ©but<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x(i+1):= x(i) + dx<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y(i+1):= f(x(i));<br>
 &nbsp;&nbsp;&nbsp;fin ;</p>
-<p>Ensuite on trace. Il convient naturellement, pour agrémenter le dessin,
+<p>Ensuite on trace. Il convient naturellement, pour agrÃ©menter le dessin,
 d'ajouter les axes, des titres, un cadre, le nom du programmeur, la date, une
-échelle, etc., toutes choses sans difficulté mais demandant des soins.</p>
+Ã©chelle, etc., toutes choses sans difficultÃ© mais demandant des soins.</p>
 </font>
 <h3>La forme implicite</h3>
-<p align="JUSTIFY">Les courbes données sous forme implicite sont les plus
-difficiles à traiter graphiquement et nous n'allons traiter de la méthode pour
-les tracer. On peut parfois les transformer en une autre catégorie, comme
-l'exemple type que l'on retrouve partout&nbsp;: l'équation d'un cercle peut
-être donnée par x<sup>2</sup>&nbsp;+&nbsp;y<sup>2</sup>&nbsp;-&nbsp;1&nbsp;=&nbsp;0.
-On effectue le tracé en deux moitiés, définies respectivement par<br>
+<p align="JUSTIFY">Les courbes donnÃ©es sous forme implicite sont les plus
+difficiles Ã  traiter graphiquement et nous n'allons traiter de la mÃ©thode pour
+les tracer. On peut parfois les transformer en une autre catÃ©gorie, comme
+l'exemple type que l'on retrouve partout&nbsp;: l'Ã©quation d'un cercle peut
+Ãªtre donnÃ©e par x<sup>2</sup>&nbsp;+&nbsp;y<sup>2</sup>&nbsp;-&nbsp;1&nbsp;=&nbsp;0.
+On effectue le tracÃ© en deux moitiÃ©s, dÃ©finies respectivement par<br>
 <img src="Courbes1.gif" width="84" height="25"><br>
 et<br>
 <img src="Courbes2.gif" width="80" height="25">&nbsp;&nbsp;&nbsp;&nbsp;<img src="Courbes3.gif" width="64" height="18">.</p>
-<p align="JUSTIFY">Il s'agit évidemment d'un exemple malhonnête, car l'aspect
-implicite de la première équation n'a pas été résolu&nbsp;: que faire quand
-on ne peut justement pas &quot;résoudre&quot; en y&nbsp;? Il faut pour cela
+<p align="JUSTIFY">Il s'agit Ã©videmment d'un exemple malhonnÃªte, car l'aspect
+implicite de la premiÃ¨re Ã©quation n'a pas Ã©tÃ© rÃ©solu&nbsp;: que faire quand
+on ne peut justement pas &quot;rÃ©soudre&quot; en y&nbsp;? Il faut pour cela
 obtenir d'abord un point sur la courbe: (x<sub>o</sub>,&nbsp;y<sub>o</sub>) tel
-que f(x<sub>o</sub>,&nbsp;y<sub>o</sub>) = 0, problème qui par lui-même est
-quelquefois difficile. On doit ensuite suivre la courbe par des méthodes
-numériques, en obtenant une suite de points sur cette courbe, ou du moins à
-proximité. Ceci implique l'utilisation de méthode numérique comme celle de
+que f(x<sub>o</sub>,&nbsp;y<sub>o</sub>) = 0, problÃ¨me qui par lui-mÃªme est
+quelquefois difficile. On doit ensuite suivre la courbe par des mÃ©thodes
+numÃ©riques, en obtenant une suite de points sur cette courbe, ou du moins Ã 
+proximitÃ©. Ceci implique l'utilisation de mÃ©thode numÃ©rique comme celle de
 Newton.</p>
 <font face="CG Times,CG Times">
-<h3>La forme paramétrique</h3>
+<h3>La forme paramÃ©trique</h3>
 </font>
-<p>Les courbes paramétriques sont les plus agréables: il suffit de se donner
-une valeur du paramètre pour obtenir un point sur la courbe. De plus, le
-paramètre peut généralement être assimilé à une variable de temps
-associée à une particule suivant la courbe, ce qui fournit une représentation
-mentale très commode. Des formes très variées sont accessibles par ce
-procédé. Le problème du fenêtrage est cependant parfois délicat, car il
-n'est pas évident de déterminer à priori pour quelles valeurs du paramètre
+<p>Les courbes paramÃ©triques sont les plus agrÃ©ables: il suffit de se donner
+une valeur du paramÃ¨tre pour obtenir un point sur la courbe. De plus, le
+paramÃ¨tre peut gÃ©nÃ©ralement Ãªtre assimilÃ© Ã  une variable de temps
+associÃ©e Ã  une particule suivant la courbe, ce qui fournit une reprÃ©sentation
+mentale trÃ¨s commode. Des formes trÃ¨s variÃ©es sont accessibles par ce
+procÃ©dÃ©. Le problÃ¨me du fenÃªtrage est cependant parfois dÃ©licat, car il
+n'est pas Ã©vident de dÃ©terminer Ã  priori pour quelles valeurs du paramÃ¨tre
 seront obtenus les extremums en x et y. Lorsqu'on veut tracer une courbe
-paramétrique pour des valeurs du paramètre t allant de tmin à tmax, on
-adaptera de façon naturelle l'algorithme donné plus haut.<br>
+paramÃ©trique pour des valeurs du paramÃ¨tre t allant de tmin Ã  tmax, on
+adaptera de faÃ§on naturelle l'algorithme donnÃ© plus haut.<br>
 &nbsp;&nbsp;&nbsp;N := {nombre d'intervalles};<br>
 &nbsp;&nbsp;&nbsp;dt := (tmax = tmin)/N;<br>
 &nbsp;&nbsp;&nbsp;x(1) := f(tmin); y(1):= y(tmin);<br>
 &nbsp;&nbsp;&nbsp;t := tmin;<br>
-&nbsp;&nbsp;&nbsp;pour i:= 1 à N faire<br>
-&nbsp;&nbsp;&nbsp;début<br>
+&nbsp;&nbsp;&nbsp;pour i:= 1 Ã  N faire<br>
+&nbsp;&nbsp;&nbsp;dÃ©but<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t:= t + dt;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x(i+1):= f(t) ; y(i+1):= g(t);<br>
 &nbsp;&nbsp;&nbsp;fin;<br>
-Remarquons aussi qu'il n'y a pas unicité dans la forme que peut revêtir
-l'équation d'une figure géométrique donnée. Exemples&nbsp;:</p>
+Remarquons aussi qu'il n'y a pas unicitÃ© dans la forme que peut revÃªtir
+l'Ã©quation d'une figure gÃ©omÃ©trique donnÃ©e. Exemples&nbsp;:</p>
 <font face="CG Times,CG Times">
-<p>(1) Une droite peut apparaître sous les formes<br>
+<p>(1) Une droite peut apparaÃ®tre sous les formes<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y = mx + b (explicite)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ax + by + c = 0 (implicite)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x = f(t), y = m f(t) + b, (paramétrique)</p>
-<p>(2)Un quart de cercle peut être donné par<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x = f(t), y = m f(t) + b, (paramÃ©trique)</p>
+<p>(2)Un quart de cercle peut Ãªtre donnÃ© par<br>
 une forme explicite&nbsp;:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="Courbes4.gif" width="132" height="25"><br>
 une forme implicite&nbsp;:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="Courbes5.gif" width="217" height="25"><br>
-une forme paramétrique&nbsp;:<br>
+une forme paramÃ©trique&nbsp;:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="Courbes6.gif" width="222" height="41"><br>
-une seconde forme paramétrique&nbsp;:<br>
+une seconde forme paramÃ©trique&nbsp;:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="Courbes7.gif" width="217" height="44"></p>
-<p>Une autre variante consiste parfois à utiliser les coordonnées polaires
-pour simplifier la formulation mathématique. Les bonnes vieilles relations<br>
+<p>Une autre variante consiste parfois Ã  utiliser les coordonnÃ©es polaires
+pour simplifier la formulation mathÃ©matique. Les bonnes vieilles relations<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="Courbes8.gif" width="84" height="21"><br>
 et<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="Courbes9.gif" width="82" height="21"><br>
-permettront de revenir sans difficulté au plan cartésien afin d'effectuer le
-tracé.</p>
+permettront de revenir sans difficultÃ© au plan cartÃ©sien afin d'effectuer le
+tracÃ©.</p>
 </font>
-<p>On remarquera d'ailleurs que l'aspect du tracé obtenu, en prenant le même
-nombre de points pour approximer la courbe, dépend généralement de la forme
+<p>On remarquera d'ailleurs que l'aspect du tracÃ© obtenu, en prenant le mÃªme
+nombre de points pour approximer la courbe, dÃ©pend gÃ©nÃ©ralement de la forme
 choisie.</p>
-<h2>Utiliser la forme paramétrique</h2>
+<h2>Utiliser la forme paramÃ©trique</h2>
 <p><img src="ARC_PG.GIF" width="308" height="407">&nbsp; <img src="ARC.GIF" width="289" height="282"></p>
 <p><img src="ROSA_PG.GIF" width="243" height="326">&nbsp; <img src="ROSACE.GIF" width="238" height="228"></p>
 <hr size="4" color="#0000FF">

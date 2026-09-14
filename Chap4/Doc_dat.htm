@@ -2,7 +2,7 @@
 
 <head>
 <meta http-equiv="Content-Language" content="fr-ca">
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="GENERATOR" content="Microsoft FrontPage 6.0">
 <meta name="ProgId" content="FrontPage.Editor.Document">
 <title>Documenter un fichier *.dat et lecture par load</title>
@@ -12,28 +12,28 @@
 <body>
 
 <h3>Documenter un fichier *.dat</h3>
-<p>Le chapitre <i>Organiser un programme </i>insiste sur la nécessité de
-documenter les programmes. Il faut faire de même avec les fichiers de données.
-Matlab facilite cette tâche en permettant l'ajout de commentaires directement
-dans le fichier en employant l'instruction «&nbsp;%&nbsp;» habituelle. Le
-fichier peut alors être lu par la fonction&nbsp;<i>load</i>.</p>
+<p>Le chapitre <i>Organiser un programme </i>insiste sur la nÃ©cessitÃ© de
+documenter les programmes. Il faut faire de mÃªme avec les fichiers de donnÃ©es.
+Matlab facilite cette tÃ¢che en permettant l'ajout de commentaires directement
+dans le fichier en employant l'instruction Â«&nbsp;%&nbsp;Â» habituelle. Le
+fichier peut alors Ãªtre lu par la fonction&nbsp;<i>load</i>.</p>
 <p>Pour illustrer, examiner le contenu du fichier Refract.dat, lequel contient
-des données sur des alliages utilisés pour des applications à de hautes températures. 
-En supposant que le fichier est dans le répertoire de 
-travail, écrire&nbsp;:<br>
+des donnÃ©es sur des alliages utilisÃ©s pour des applications Ã  de hautes tempÃ©ratures. 
+En supposant que le fichier est dans le rÃ©pertoire de 
+travail, Ã©crire&nbsp;:<br>
 <b>
 <code>&gt;&gt; edit Refract.dat</code></b></p>
 <table border="1" width="374">
   <tr>
     <td width="364">
-      <pre><font color="#008000">% Alliages pour hautes températures
+      <pre><font color="#008000">% Alliages pour hautes tempÃ©ratures
 % - o o o o o o o o o o o o o o o -
 % Nom     Explication
 % ------- ---------------------------------
 % Mvo     Masse volumique (Mg/m^3)
-% Sy      Limite élastique (MPa)
-% Kc      Ténacité (MPa.m^{1/2})
-% E       Module d'élasticité (GPa)
+% Sy      Limite Ã©lastique (MPa)
+% Kc      TÃ©nacitÃ© (MPa.m^{1/2})
+% E       Module d'Ã©lasticitÃ© (GPa)
 % Tmax    Temp. maxi. moyenne d'utilisation
 % Alliage Le nombre indique le pourcentage</font>
 
@@ -55,7 +55,7 @@ travail, écrire&nbsp;:<br>
     </td>
   </tr>
 </table>
-<p>Exemple de lecture à même la fenêtre de Matlab.</p>
+<p>Exemple de lecture Ã  mÃªme la fenÃªtre de Matlab.</p>
 <pre>&gt;&gt; clear
 &gt;&gt; load Refract.dat
 &gt;&gt; whos

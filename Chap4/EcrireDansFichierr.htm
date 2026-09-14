@@ -1,10 +1,10 @@
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="Generator" content="Microsoft FrontPage 6.0">
 <meta name="ProgId" content="FrontPage.Editor.Document">
-<title>Écriture de données dans un fichier ASCII (fopen, fprintf, fclose)</title>
+<title>Ã‰criture de donnÃ©es dans un fichier ASCII (fopen, fprintf, fclose)</title>
 <meta name="Template" content="C:\Program Files\Microsoft Office\Office\HTML.DOT">
 <link rel="stylesheet" type="text/css" href="../css/index.css">
 <style>
@@ -27,22 +27,22 @@ pre.codeoutput {
 
 <body link="#0000FF" vlink="#800080">
 
-<h2>Écriture de données dans un fichier ASCII (<i>fopen, fprintf, fclose</i>)</h2>
-<p>La fonction <i>fprintf</i> permet également d'écrire directement dans un
-fichier. Il suffit de spécifier le nom du fichier et de modifier légèrement
-le format d'écriture.</p>
+<h2>Ã‰criture de donnÃ©es dans un fichier ASCII (<i>fopen, fprintf, fclose</i>)</h2>
+<p>La fonction <i>fprintf</i> permet Ã©galement d'Ã©crire directement dans un
+fichier. Il suffit de spÃ©cifier le nom du fichier et de modifier lÃ©gÃ¨rement
+le format d'Ã©criture.</p>
 <h5>Terminer une ligne<br>
 par \r\n</h5>
-<p>Il faut modifier légèrement le format d'écriture, car, le symbole généré par <code>\n</code> (<i>nouvelle ligne</i>)<i> </i>n'entraîne
-pas automatiquement le passage au début de la ligne suivante dans un fichier.
-Il faut effectuer un retour à la ligne en ajoutant le caractère \r (<i>retour
-au début de la ligne</i>) avant le caractère \n. Le code <i>\r\n</i> signifie
-donc <i>retour au début de la ligne</i> et <i>nouvelle ligne</i>.</p>
+<p>Il faut modifier lÃ©gÃ¨rement le format d'Ã©criture, car, le symbole gÃ©nÃ©rÃ© par <code>\n</code> (<i>nouvelle ligne</i>)<i> </i>n'entraÃ®ne
+pas automatiquement le passage au dÃ©but de la ligne suivante dans un fichier.
+Il faut effectuer un retour Ã  la ligne en ajoutant le caractÃ¨re \r (<i>retour
+au dÃ©but de la ligne</i>) avant le caractÃ¨re \n. Le code <i>\r\n</i> signifie
+donc <i>retour au dÃ©but de la ligne</i> et <i>nouvelle ligne</i>.</p>
 <h5>Utiliser fopen(...,'wt')</h5>
 <p>Ouvrir le fichier en mode wt, qui se traduit par <b><i>write&nbsp;text</i></b>. 
-Matlab génère alors automatiquement les caractères de fin de ligne afin de 
+Matlab gÃ©nÃ¨re alors automatiquement les caractÃ¨res de fin de ligne afin de 
 rendre le fichier compatible avec d'autres applications qui utilisent des 
-fichiers de texte bien formulés.</p>
+fichiers de texte bien formulÃ©s.</p>
 <p>Exemple&nbsp;:</p>
 <pre class="codeinput"><span class="comment">% Fichier Etoile2.m</span>
 clear; clc;
@@ -102,36 +102,36 @@ Voir &Eacute;toileTrad.dat
 ------------------------------
 &Eacute;criture avec un m&ecirc;me format dans EtoileNonOk.dat
 &Eacute;criture avec argument wt : EtoileAvecArgWt.dat</pre>
-<p>Résultat&nbsp;:<br>
+<p>RÃ©sultat&nbsp;:<br>
 <img border="0" src="AvecBlocNotes.gif" width="439" height="479"></p>
 <h4><i>fopen</i></h4>
 <pre>fid&nbsp;=&nbsp;fopen(Nom_du_fichier,'permission')</pre>
-<p>Cette instruction ouvre un fichier pour la lecture ou l'écriture. Matlab
+<p>Cette instruction ouvre un fichier pour la lecture ou l'Ã©criture. Matlab
 retourne alors un nombre entier utilisable par une fonction de lecture ou
-d'écriture comme <i>fprintf</i>.</p>
+d'Ã©criture comme <i>fprintf</i>.</p>
 <ul>
-  <li>Le Nom_du_fichier est une constante ou une variable caractère.</li>
-  <li>La chaîne 'permission' peut prendre plusieurs valeurs dont&nbsp;:
+  <li>Le Nom_du_fichier est une constante ou une variable caractÃ¨re.</li>
+  <li>La chaÃ®ne 'permission' peut prendre plusieurs valeurs dont&nbsp;:
     <ul>
       <li>'r' {<i>read</i>} ouvre le fichier pour la lecture ;</li>
-      <li>'w' {<i>write</i>} ouvre un nouveau fichier pour l'écriture. Si le
-        fichier existe déjà, il est d'abord effacé;</li>
-      <li>'a' {<i>append</i>} ouvre un fichier pour l'écriture à la suite des
-        données déjà contenues dans le fichier. Si le fichier n'existe pas,
-        il est alors créé.</li>
+      <li>'w' {<i>write</i>} ouvre un nouveau fichier pour l'Ã©criture. Si le
+        fichier existe dÃ©jÃ , il est d'abord effacÃ©;</li>
+      <li>'a' {<i>append</i>} ouvre un fichier pour l'Ã©criture Ã  la suite des
+        donnÃ©es dÃ©jÃ  contenues dans le fichier. Si le fichier n'existe pas,
+        il est alors crÃ©Ã©.</li>
     </ul>
   </li>
 </ul>
 <h4><i>fclose</i></h4>
 <pre><i>fclose(fid)</i></pre>
-<p>Cette fonction ferme le fichier identifié par la variable <i>fid</i>.</p>
+<p>Cette fonction ferme le fichier identifiÃ© par la variable <i>fid</i>.</p>
 <ul>
   <li><i>fclose('all')</i> permet de fermer tous les fichiers. Lors de la mise
-    au point d'un programme, c'est une instruction à retenir et à écrire
-    directement dans la fenêtre de Matlab ou au début du programme.</li>
+    au point d'un programme, c'est une instruction Ã  retenir et Ã  Ã©crire
+    directement dans la fenÃªtre de Matlab ou au dÃ©but du programme.</li>
   </ul>
 <dl>
-	<dt>Informations supplémentaires&nbsp;:
+	<dt>Informations supplÃ©mentaires&nbsp;:
     </dt>
 	<dd>
 	<pre>&gt;&gt; doc fprintf</pre>

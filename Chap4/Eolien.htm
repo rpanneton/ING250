@@ -1,10 +1,10 @@
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="Generator" content="Microsoft FrontPage 6.0">
 <meta name="ProgId" content="FrontPage.Editor.Document">
-<title>Refroidissement éolien en janvier</title>
+<title>Refroidissement Ã©olien en janvier</title>
 <meta name="Template" content="C:\Program Files\Microsoft Office\Office\HTML.DOT">
 <link rel="stylesheet" type="text/css" href="../css/index.css">
 <link rel="stylesheet" type="text/css" href="../css/indexco.css">
@@ -12,14 +12,14 @@
 
 <body link="#0000FF" vlink="#800080">
 
-<h1>Refroidissement éolien en janvier</h1>
-<p>Le fichier TempC.txt contient les mesures horaires de température en&nbsp;°C du 
-mois de janvier&nbsp;2008 à Sherbrooke. Lire le fichier et attribuer les 
-	données à la variable&nbsp;<font color="#0000FF"><b>T</b></font><i>.</i></p>
-<p>Sans utiliser les fonctions <i>min</i>, <i>max</i>, <i>mean</i> ou <i>sum</i>, répondre aux questions suivantes en affichant adéquatement les 
-	réponses avec fprintf&nbsp;:<br>a) Déterminer le jour et l'heure où il a fait le plus froid.<br>b) Quelle est alors la température&nbsp;?<br>c) Quelle est la moyenne des températures horaires de cette journée la plus froide&nbsp;?</p>
+<h1>Refroidissement Ã©olien en janvier</h1>
+<p>Le fichier TempC.txt contient les mesures horaires de tempÃ©rature en&nbsp;Â°C du 
+mois de janvier&nbsp;2008 Ã  Sherbrooke. Lire le fichier et attribuer les 
+	donnÃ©es Ã  la variable&nbsp;<font color="#0000FF"><b>T</b></font><i>.</i></p>
+<p>Sans utiliser les fonctions <i>min</i>, <i>max</i>, <i>mean</i> ou <i>sum</i>, rÃ©pondre aux questions suivantes en affichant adÃ©quatement les 
+	rÃ©ponses avec fprintf&nbsp;:<br>a) DÃ©terminer le jour et l'heure oÃ¹ il a fait le plus froid.<br>b) Quelle est alors la tempÃ©rature&nbsp;?<br>c) Quelle est la moyenne des tempÃ©ratures horaires de cette journÃ©e la plus froide&nbsp;?</p>
 <p>Afficher cet <b>extrait</b> de la matrice&nbsp;<font color="#0000FF"><b>T</b></font> 
-	exactement comme ci-dessous, en affichant les éléments demandés de&nbsp;<font color="#0000FF"><b>T</b></font> 
+	exactement comme ci-dessous, en affichant les Ã©lÃ©ments demandÃ©s de&nbsp;<font color="#0000FF"><b>T</b></font> 
 	avec fprintf&nbsp;:</p>
 <pre><b>Jour     1h     6h    11h    16h    21h
    1   -5.4   -6.0   -3.3   -3.4   -4.0
@@ -30,28 +30,28 @@ mois de janvier&nbsp;2008 à Sherbrooke. Lire le fichier et attribuer les
   26   -9.7  -10.4   -9.5   -7.8  -15.6
   31  -10.3  -11.3   -8.5   -7.2  -15.8
 <font face="Courier New">&#8710;&#8710;&#8710;&#8710;&#9643;&#9643;&#9643;&#9643;&#9643;&#9643;&#9643;&#8710;&#8710;&#8710;&#8710;&#8710;&#8710;&#8710;&#9643;&#9643;&#9643;&#9643;&#9643;&#9643;&#9643;&#8710;&#8710;&#8710;&#8710;&#8710;&#8710;&#8710;&#9643;&#9643;&#9643;&#9643;&#9643;&#9643;&#9643;
-</font><font face="Times New Roman" color="#008000">La ligne ci-dessus est un gabarit; elle ne doit pas être reproduite.</font></b></pre>
-<p>Le fichier Vents.txt contient la vitesse des vents pendant la même 
-	période de janvier&nbsp;2008. Avant de poursuivre, examiner la définition et l'équation pour 
-	calculer le <a href="Refroidissement.htm">refroidissement éolien</a>.</p>
+</font><font face="Times New Roman" color="#008000">La ligne ci-dessus est un gabarit; elle ne doit pas Ãªtre reproduite.</font></b></pre>
+<p>Le fichier Vents.txt contient la vitesse des vents pendant la mÃªme 
+	pÃ©riode de janvier&nbsp;2008. Avant de poursuivre, examiner la dÃ©finition et l'Ã©quation pour 
+	calculer le <a href="Refroidissement.htm">refroidissement Ã©olien</a>.</p>
 <ul>
-	<li>Calculer le refroidissement éolien à chaque heure du 21&nbsp;janvier&nbsp;2008 
-	et attribuer les résultats au <b>vecteur</b>&nbsp;<font color="#0000FF"><b>R</b></font> 
-	(voir l'équation).</li>
+	<li>Calculer le refroidissement Ã©olien Ã  chaque heure du 21&nbsp;janvier&nbsp;2008 
+	et attribuer les rÃ©sultats au <b>vecteur</b>&nbsp;<font color="#0000FF"><b>R</b></font> 
+	(voir l'Ã©quation).</li>
 	<li>Afficher le <b>vecteur</b>&nbsp;<font color="#0000FF"><b>R</b></font> 
 	comme ci-dessous avec fprintf.</li>
 </ul>
-<pre><b>Vecteur R (refroidissement éolien) :
+<pre><b>Vecteur R (refroidissement Ã©olien) :
   -29.0  -32.4  -33.8  -30.4  -32.7  -32.5
   -32.9  -32.7  -28.3  -25.5  -25.5  -25.4
   -27.1  -24.9  -22.6  -22.2  -22.4  -20.7
   -20.9  -21.5  -22.4  -22.0  -25.6  -24.6</b></pre>
-<p>Comparer les deux températures sur un même graphique.<br>
-<font face="Symbol" color="#FF0000">·</font><font color="#800080"> </font>tracer en rouge la température réelle (axe&nbsp;des&nbsp;Y) en fonction de l'heure 
+<p>Comparer les deux tempÃ©ratures sur un mÃªme graphique.<br>
+<font face="Symbol" color="#FF0000">Â·</font><font color="#800080"> </font>tracer en rouge la tempÃ©rature rÃ©elle (axe&nbsp;des&nbsp;Y) en fonction de l'heure 
 	(axe des&nbsp;X),<br>
-<font face="Symbol" color="#0000FF">·</font><font color="#FF0000"> </font>tracer en bleu le refroidissement éolien (<font color="#0000FF"><b>R</b></font>) 
-	en fonction de l'heure.<br><font color="#008000"><font face="Symbol">·</font>
-</font>Compléter le graphique avec 
+<font face="Symbol" color="#0000FF">Â·</font><font color="#FF0000"> </font>tracer en bleu le refroidissement Ã©olien (<font color="#0000FF"><b>R</b></font>) 
+	en fonction de l'heure.<br><font color="#008000"><font face="Symbol">Â·</font>
+</font>ComplÃ©ter le graphique avec 
 	<i>title</i>, <i>xlabel</i>,
 <i>ylabel</i>, <i>legend</i>, <i>grid</i>.</p>
 <p>Documentation<br><font color="#008000"><b><code>&gt;&gt; help plot<br>&gt;&gt; doc plot</code></b></font></p>

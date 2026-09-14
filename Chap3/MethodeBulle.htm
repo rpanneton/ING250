@@ -1,34 +1,34 @@
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="Generator" content="Microsoft FrontPage 6.0">
 <meta name="ProgId" content="FrontPage.Editor.Document">
-<title>Tri par la méthode de la bulle</title>
+<title>Tri par la mÃ©thode de la bulle</title>
 <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
 
 <body link="#0000FF" vlink="#800080">
 
-<h1>Tri par la méthode de la bulle</h1>
-<p>Cette méthode est esthétique, mais elle n'est pas rapide. Pour classer des 
-données par ordre
-<b>ascendant</b>, le principe consiste à échanger des couples d'éléments contigus dans le
-vecteur et faire flotter ainsi les variables <i>légères</i> vers le début du 
-vecteur. On dit qu'on les ramène à la surface, d'où le nom de bulle.</p>
+<h1>Tri par la mÃ©thode de la bulle</h1>
+<p>Cette mÃ©thode est esthÃ©tique, mais elle n'est pas rapide. Pour classer des 
+donnÃ©es par ordre
+<b>ascendant</b>, le principe consiste Ã  Ã©changer des couples d'Ã©lÃ©ments contigus dans le
+vecteur et faire flotter ainsi les variables <i>lÃ©gÃ¨res</i> vers le dÃ©but du 
+vecteur. On dit qu'on les ramÃ¨ne Ã  la surface, d'oÃ¹ le nom de bulle.</p>
 <ul>
 	<li>Si la
-première valeur du couple est supérieure à la seconde, il faut les échanger.</li>
-	<li>Un booléen retient qu'un échange a eu lieu.</li>
-	<li>Après que le dernier couple a été comparé et avant de commencer un nouveau cycle de
-comparaison dans le vecteur, on vérifie s'il y a eu un échange.</li>
-	<li>Lorsqu'il n'y a pas eu d'échange, le vecteur est classé. Sinon, 
+premiÃ¨re valeur du couple est supÃ©rieure Ã  la seconde, il faut les Ã©changer.</li>
+	<li>Un boolÃ©en retient qu'un Ã©change a eu lieu.</li>
+	<li>AprÃ¨s que le dernier couple a Ã©tÃ© comparÃ© et avant de commencer un nouveau cycle de
+comparaison dans le vecteur, on vÃ©rifie s'il y a eu un Ã©change.</li>
+	<li>Lorsqu'il n'y a pas eu d'Ã©change, le vecteur est classÃ©. Sinon, 
 	on recommence.</li>
 </ul>
-<h3>Échanger deux valeurs dans un vecteur</h3>
-<p>Pour échanger deux valeurs dans un vecteur, il faut utiliser une variable 
-intermédiaire pour conserver temporairement une des valeurs.</p>
-<p>Exemple&nbsp;: échanger V(2) avec V(3)&nbsp;:</p>
+<h3>Ã‰changer deux valeurs dans un vecteur</h3>
+<p>Pour Ã©changer deux valeurs dans un vecteur, il faut utiliser une variable 
+intermÃ©diaire pour conserver temporairement une des valeurs.</p>
+<p>Exemple&nbsp;: Ã©changer V(2) avec V(3)&nbsp;:</p>
 <pre><b>V =
     11    <font color="#FF0000">12</font>    <font color="#0000FF">13</font>    14    15
 &gt;&gt; V(2)=V(3); V(3)=V(2);
@@ -41,16 +41,16 @@ V =
 &gt;&gt; tmp=V(2); V(2)=V(3); V(3)=tmp;
 V =
     11    <font color="#0000FF">13</font>    <font color="#FF0000">12</font>    14    15
-&gt;&gt; <font color="#008000">% V(2) et V(3) ont été échangés.</font></b></pre>
+&gt;&gt; <font color="#008000">% V(2) et V(3) ont Ã©tÃ© Ã©changÃ©s.</font></b></pre>
 <h2>Algorithme de la bulle</h2>
-<p>Déterminer V, sa grandeur n<br>
+<p>DÃ©terminer V, sa grandeur n<br>
 Afficher le vecteur V<br>
-Mettre UnChangement à vrai pour entrer dans la boucle<br>
+Mettre UnChangement Ã  vrai pour entrer dans la boucle<br>
 Tant_que UnChangement<br>
 &nbsp;&nbsp;&nbsp;UnChangement = faux<br>
-&nbsp;&nbsp;&nbsp;Pour i = 2 à n<br>
+&nbsp;&nbsp;&nbsp;Pour i = 2 Ã  n<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Si {V(i-1) &gt; V(i)}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;échanger V(i-1) avec V(i)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ã©changer V(i-1) avec V(i)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UnChangement = vrai<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000FF"><b>afficher
 V</b></font><br>
@@ -59,8 +59,8 @@ V</b></font><br>
 FinTant_que<br>
 Afficher V</p>
 <p>Noter&nbsp;: l'instruction<font color="#0000FF"> <b>afficher V</b></font> doit
-être la dernière instruction. Elle est placée dans la boucle interne pour
-permettre de suivre l'effet de l'algorithme sur les éléments du vecteur.</p>
+Ãªtre la derniÃ¨re instruction. Elle est placÃ©e dans la boucle interne pour
+permettre de suivre l'effet de l'algorithme sur les Ã©lÃ©ments du vecteur.</p>
 <p>Exemple&nbsp;: <a href="Scripts/html/Bulle.html">Bulle.m</a></p>
 <hr>
 

@@ -2,7 +2,7 @@
 
 <head>
 <meta http-equiv="Content-Language" content="fr-ca">
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="GENERATOR" content="Microsoft FrontPage 6.0">
 <meta name="ProgId" content="FrontPage.Editor.Document">
 <title>Lecture d'un fichier Excel (*.xls)</title>
@@ -12,14 +12,14 @@
 <body>
 
 <h3>Lire un fichier Excel (*.xls)</h3>
-<p>Matlab permet de lire directement un fichier Excel contenant un tableau <b>numérique.</b></p>
+<p>Matlab permet de lire directement un fichier Excel contenant un tableau <b>numÃ©rique.</b></p>
 <ul>
-  <li>Le fichier Refr_num.xls contient la portion numérique du fichier
+  <li>Le fichier Refr_num.xls contient la portion numÃ©rique du fichier
     Refract.dat.<br>
     Exemple&nbsp;:<br>
     <img border="0" src="Refr_num.gif" width="225" height="257"></li>
 </ul>
-<p>On peut charger le fichier dans la mémoire en exécutant la fonction <i>xlsread</i>.<br>
+<p>On peut charger le fichier dans la mÃ©moire en exÃ©cutant la fonction <i>xlsread</i>.<br>
 Exemple&nbsp;:</p>
 <pre>&gt;&gt; clear
 &gt;&gt; Mat = xlsread('<font color="#FF0000">Refr_num.xls</font>');
@@ -34,7 +34,7 @@ Exemple&nbsp;:</p>
    fichier  1x12   24  char array
    matrice  14x5  560  double array</pre>
 <h4>Rappel - load</h4>
-<p>C'est une méthode similaire à la lecture d'un fichier ASCII par la fonction
+<p>C'est une mÃ©thode similaire Ã  la lecture d'un fichier ASCII par la fonction
 <i>load</i>,<br>
 Exemple (rappel)&nbsp;:</p>
 <pre>&gt;&gt; fichier ='<font color="#FF0000">Refract.dat</font>';
@@ -43,9 +43,9 @@ Exemple (rappel)&nbsp;:</p>
    Name     Size  Bytes  Class
    fichier  1x11     22  char array
    matrice  14x5    560  double array</pre>
-<h4>Lecture plus complète d'un fichier Excel</h4>
-<p>Il&nbsp; est également possible de lire un fichier Excel contenant aussi des
-titres à chacune des colonnes (et seulement).<br>
+<h4>Lecture plus complÃ¨te d'un fichier Excel</h4>
+<p>Il&nbsp; est Ã©galement possible de lire un fichier Excel contenant aussi des
+titres Ã  chacune des colonnes (et seulement).<br>
 Exemple&nbsp;:</p>
 <pre>&gt;&gt; clear
 &gt;&gt; Mat = xlsread('Refract.xls');
@@ -53,7 +53,7 @@ Exemple&nbsp;:</p>
   Name  Size  Bytes  Class
   Mat   14x5  560  double array</pre>
 <p><img border="0" src="Refract1.gif" width="268" height="371"></p>
-<p>Pour plus de détails&nbsp;:<br>
+<p>Pour plus de dÃ©tails&nbsp;:<br>
 <code>&lt;&lt; doc xlsread</code></p>
 <hr>
 <p>&nbsp;</p>

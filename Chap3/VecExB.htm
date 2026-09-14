@@ -2,7 +2,7 @@
 
 <head>
 <meta http-equiv="Content-Language" content="fr-ca">
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="GENERATOR" content="Microsoft FrontPage 6.0">
 <meta name="ProgId" content="FrontPage.Editor.Document">
 <title>Transaction$ bancaire$</title>
@@ -13,7 +13,7 @@
 
 <h1>Transaction$ bancaire$</h1>
 <h3>Contexte</h3>
-<p>Chaque type de transaction bancaire est classé selon un code, par
+<p>Chaque type de transaction bancaire est classÃ© selon un code, par
 exemple&nbsp;:</p>
 <table border="1" width="274">
   <tr>
@@ -24,12 +24,12 @@ exemple&nbsp;:</p>
   <tr>
     <td width="87">300.00</td>
     <td width="63">104</td>
-    <td width="169"><font color="#800000">Dépôt</font></td>
+    <td width="169"><font color="#800000">DÃ©pÃ´t</font></td>
   </tr>
   <tr>
     <td width="87">39.45</td>
     <td width="63">109</td>
-    <td width="169"><font color="#008000">Chèque</font></td>
+    <td width="169"><font color="#008000">ChÃ¨que</font></td>
   </tr>
   <tr>
     <td width="87">20.00</td>
@@ -49,26 +49,26 @@ exemple&nbsp;:</p>
   <tr>
     <td width="87">82.19</td>
     <td width="63">109</td>
-    <td width="169"><font color="#008000">Chèque</font></td>
+    <td width="169"><font color="#008000">ChÃ¨que</font></td>
   </tr>
 </table>
-<p>Considérer seulement les trois types de codes<br>
+<p>ConsidÃ©rer seulement les trois types de codes<br>
 <b><font color="#800000">104,</font></b> <b><font color="#008000">109</font></b> 
 et <b><font color="#FF00FF">108</font></b>. Ignorer les
 autres.</p>
-<p>Les informations sont conservées dans deux vecteurs de taille
+<p>Les informations sont conservÃ©es dans deux vecteurs de taille
 identique&nbsp;:<br>
 Montant.dat et Code.dat.</p>
-<h3>Programme à résoudre de manière conventionnelle (boucle, décision)</h3>
+<h3>Programme Ã  rÃ©soudre de maniÃ¨re conventionnelle (boucle, dÃ©cision)</h3>
 <ul>
   <li>Lire Montant.dat et
-    l'attribuer à la variable indicée <b><font color="#0000FF">Montant</font></b>
+    l'attribuer Ã  la variable indicÃ©e <b><font color="#0000FF">Montant</font></b>
     (pas d'affichage).</li>
   <li>Lire Code.dat et
-    l'attribuer à la variable indicée <b><font color="#0000FF">Code</font></b>
+    l'attribuer Ã  la variable indicÃ©e <b><font color="#0000FF">Code</font></b>
     (pas d'affichage).</li>
-  <li>Calculer la somme des dépôts, des chèques et des retraits dans trois
-    variables séparées appelées&nbsp;:
+  <li>Calculer la somme des dÃ©pÃ´ts, des chÃ¨ques et des retraits dans trois
+    variables sÃ©parÃ©es appelÃ©es&nbsp;:
     <ul>
       <li><font color="#0000FF"><b>Total_depot</b></font></li>
       <li><font color="#0000FF"><b>Total_cheque</b></font></li>
@@ -77,9 +77,9 @@ Montant.dat et Code.dat.</p>
   </li>
   <li>Afficher ces trois variables en utilisant leur nom.</li>
   <li>La fonction <b><i>sum</i></b>
-    ne peut pas être utilisée.</li>
+    ne peut pas Ãªtre utilisÃ©e.</li>
 </ul>
-<h3>Résoudre le même problème en utilisant des instructions vectorisées ainsi 
+<h3>RÃ©soudre le mÃªme problÃ¨me en utilisant des instructions vectorisÃ©es ainsi 
 que la fonction <i>sum</i>.</h3>
 <p>Solution&nbsp;: <a href="Scripts/html/VectoBanque.html">VectoBanque.m</a></p>
 <hr>

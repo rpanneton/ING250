@@ -2,10 +2,10 @@
 
 <head>
 <meta http-equiv="Content-Language" content="fr-ca">
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="GENERATOR" content="Microsoft FrontPage 6.0">
 <meta name="ProgId" content="FrontPage.Editor.Document">
-<title>Tableau 3D et image en intensité</title>
+<title>Tableau 3D et image en intensitÃ©</title>
 <link rel="stylesheet" type="text/css" href="../css/index.css">
 <style>
 <!--
@@ -27,15 +27,15 @@ pre.codeoutput {
 
 <body>
 
-<h1>Tableau 3D et image en intensité</h1>
-<p>Matlab offre la possibilité d'utiliser des tableaux 1D ou vecteur, 2D ou
-matrice. Ce sont les structures de données les plus courantes en programmation.
-Matlab peut aussi utiliser des tableaux de dimension supérieure. Cependant, les
-tableaux de dimension supérieure à 2D sont peu utilisés, car ils occupent
-beaucoup d'espace mémoire. Toutefois, les tableaux&nbsp;3D sont appropriés pour représenter les
-couleurs (RGB) d'une image en intensité.</p>
+<h1>Tableau 3D et image en intensitÃ©</h1>
+<p>Matlab offre la possibilitÃ© d'utiliser des tableaux 1D ou vecteur, 2D ou
+matrice. Ce sont les structures de donnÃ©es les plus courantes en programmation.
+Matlab peut aussi utiliser des tableaux de dimension supÃ©rieure. Cependant, les
+tableaux de dimension supÃ©rieure Ã  2D sont peu utilisÃ©s, car ils occupent
+beaucoup d'espace mÃ©moire. Toutefois, les tableaux&nbsp;3D sont appropriÃ©s pour reprÃ©senter les
+couleurs (RGB) d'une image en intensitÃ©.</p>
 <h3>Notation des tableaux 3D&nbsp;: 3 indices</h3>
-<p>Voici un exemple numérique (classe <i>double</i>) pour illustrer la notation 
+<p>Voici un exemple numÃ©rique (classe <i>double</i>) pour illustrer la notation 
 d'un tableau&nbsp;3D&nbsp;:</p>
 <table border="1" width="272" id="table1">
   <tr>
@@ -76,60 +76,60 @@ Name  Size  Bytes  Class
 <p><br>
 &nbsp;</p>
 <h3>Perception de la couleur</h3>
-<p>L'œil est capable de différencier 256 tons différents en monochrome (tons de 
-gris). Il en est de même pour chacune des trois couleurs chromatiques
-physiologiques RGB (<i>red, green, blue</i>). C'est un nombre qui convient bien à l'ordinateur, car un octet peut
+<p>L'Å“il est capable de diffÃ©rencier 256 tons diffÃ©rents en monochrome (tons de 
+gris). Il en est de mÃªme pour chacune des trois couleurs chromatiques
+physiologiques RGB (<i>red, green, blue</i>). C'est un nombre qui convient bien Ã  l'ordinateur, car un octet peut
 conserver 256 informations (2<sup>8</sup>&nbsp;bits).</p>
-<p>La classe de données uint8 (entier non signé à 8&nbsp;bits, <i><b><font color="#0000FF">un</font></b>signed
+<p>La classe de donnÃ©es uint8 (entier non signÃ© Ã  8&nbsp;bits, <i><b><font color="#0000FF">un</font></b>signed
 <b><font color="#0000FF">int</font></b>eger <b><font color="#0000FF">8</font></b>
-bits</i>) est particulièrement bien adaptée pour contenir les données des 
+bits</i>) est particuliÃ¨rement bien adaptÃ©e pour contenir les donnÃ©es des 
 images.</p>
-<p>Les images numériques sont constituées d'un ensemble de <i>pixels (picture
-éléments) </i>juxtaposés en lignes et en colonnes. Le pixel, qui correspond
-à un point ou à un&nbsp; petit carré, est le plus petit élément que l'on
-peut trouver dans une image. Chaque pixel possède des caractéristiques
-propres, couleurs, luminosité, brillance, qui permettent de les différencier
+<p>Les images numÃ©riques sont constituÃ©es d'un ensemble de <i>pixels (picture
+Ã©lÃ©ments) </i>juxtaposÃ©s en lignes et en colonnes. Le pixel, qui correspond
+Ã  un point ou Ã  un&nbsp; petit carrÃ©, est le plus petit Ã©lÃ©ment que l'on
+peut trouver dans une image. Chaque pixel possÃ¨de des caractÃ©ristiques
+propres, couleurs, luminositÃ©, brillance, qui permettent de les diffÃ©rencier
 et de composer les images.</p>
-<h3>Écran d'ordinateur et couleur</h3>
-Les écrans d'ordinateur sont aussi formés de petits points appelés pixels. Un 
-pixel&nbsp;est constitué d'une&nbsp; triade de 3 grains luminophores rouge, vert et 
+<h3>Ã‰cran d'ordinateur et couleur</h3>
+Les Ã©crans d'ordinateur sont aussi formÃ©s de petits points appelÃ©s pixels. Un 
+pixel&nbsp;est constituÃ© d'une&nbsp; triade de 3 grains luminophores rouge, vert et 
 bleu.<br>
 <img border="0" src="Ecran.gif" width="257" height="226"><br>
-Caractéristiques&nbsp;:&nbsp;
+CaractÃ©ristiques&nbsp;:&nbsp;
 <ul>
-  <li>Dimension physique (diagonale) de 19&quot; à 24&quot; (écran pour ordinateur)</li>
-  <li>Valeur courante de la dimension ou définition de la trame&nbsp;:
-    1920&nbsp;<font face="Times New Roman">×&nbsp;1080&nbsp;pixels.</font></li>
+  <li>Dimension physique (diagonale) de 19&quot; Ã  24&quot; (Ã©cran pour ordinateur)</li>
+  <li>Valeur courante de la dimension ou dÃ©finition de la trame&nbsp;:
+    1920&nbsp;<font face="Times New Roman">Ã—&nbsp;1080&nbsp;pixels.</font></li>
   <li>Cet arrangement permet un espacement identique des pixels selon les axes
     vertical et horizontal.</li>
-	<li>Élancement typique&nbsp;: 1920/1080 = 16/9</li>
+	<li>Ã‰lancement typique&nbsp;: 1920/1080 = 16/9</li>
 </ul>
-<p>Chaque pixel peut afficher selon un mode de couleur véritable, c'est-à-dire
+<p>Chaque pixel peut afficher selon un mode de couleur vÃ©ritable, c'est-Ã -dire
 selon trois couleurs. Toutefois, les processeurs graphiques affichent selon deux
 modes :</p>
 <ul>
-  <li><b>En intensité</b> (RGB <i>true color</i>), 256*256*256, soit 16
+  <li><b>En intensitÃ©</b> (RGB <i>true color</i>), 256*256*256, soit 16
     millions de couleurs. Il faut donc trois octets d'information ou
-    24&nbsp;bits par pixel. Un écran 1920*1080 (*3&nbsp;octets par pixels) requiert une mémoire de
+    24&nbsp;bits par pixel. Un Ã©cran 1920*1080 (*3&nbsp;octets par pixels) requiert une mÃ©moire de
     6&nbsp;Mo pour conserver l'information requise pour l'affichage.<br>
     <img border="0" src="Intensite.gif" width="205" height="234"></li>
-  <li><b>En indexant</b> les couleurs. Par exemple, on affiche en 256 couleurs à
-    partir d'une palette de couleurs. Chaque pixel nécessite un octet
+  <li><b>En indexant</b> les couleurs. Par exemple, on affiche en 256 couleurs Ã 
+    partir d'une palette de couleurs. Chaque pixel nÃ©cessite un octet
     d'information pour conserver l'index de la couleur, soit un nombre compris
     entre 0 et 255.
     <p><img border="0" src="Index.gif" width="336" height="192">
-    <p>Le processeur balaie la mémoire (typiquement 75&nbsp;fois par seconde)
-    et affiche les trois tons de couleur (RGB) selon l'information conservée
-    dans un tableau de couleurs que l'on appelle généralement la <b><font color="#0000FF">palette
+    <p>Le processeur balaie la mÃ©moire (typiquement 75&nbsp;fois par seconde)
+    et affiche les trois tons de couleur (RGB) selon l'information conservÃ©e
+    dans un tableau de couleurs que l'on appelle gÃ©nÃ©ralement la <b><font color="#0000FF">palette
     de couleurs</font></b>.</li>
 </ul>
-<h3>Système RGB</h3>
-<p>Les couleurs sont affichées en réglant l'intensité des trois luminophores
-de chaque pixel de l'écran. Par convention, les valeurs normalisées vont de 0
-à 1 (intensité maximale). Souvent, les valeurs sont conservées dans un entier
-de 1&nbsp;octet et elles vont ainsi de 0 à 255. Par exemple, RGB&nbsp;=&nbsp;[255,0,0]
-représente le rouge le plus pur, soit [1,0,0] selon la forme
-normalisée.</p>
+<h3>SystÃ¨me RGB</h3>
+<p>Les couleurs sont affichÃ©es en rÃ©glant l'intensitÃ© des trois luminophores
+de chaque pixel de l'Ã©cran. Par convention, les valeurs normalisÃ©es vont de 0
+Ã  1 (intensitÃ© maximale). Souvent, les valeurs sont conservÃ©es dans un entier
+de 1&nbsp;octet et elles vont ainsi de 0 Ã  255. Par exemple, RGB&nbsp;=&nbsp;[255,0,0]
+reprÃ©sente le rouge le plus pur, soit [1,0,0] selon la forme
+normalisÃ©e.</p>
 <table border="1" height="286">
   <tr>
     <td height="26">&nbsp;R G B</td>
@@ -173,12 +173,12 @@ normalisée.</p>
   </tr>
   <tr>
     <td height="26">[.3 .3 .3]</td>
-    <td height="26">gris foncé</td>
+    <td height="26">gris foncÃ©</td>
     <td height="26"><i>dark gray</i></td>
   </tr>
   <tr>
     <td height="26">[.6 .6 .6]</td>
-    <td height="26">gris pâle</td>
+    <td height="26">gris pÃ¢le</td>
     <td height="26"><i>light gray</i></td>
   </tr>
   <tr>
@@ -188,41 +188,41 @@ normalisée.</p>
   </tr>
 </table>
 <h3>Imprimante couleur</h3>
-<p>Les écrans d'ordinateur sont noirs avant l'affichage, tandis qu'une
-imprimante à jets d'encre imprime sur du papier blanc, qui est la couleur
-complémentaire du noir. Pour obtenir un meilleur effet, on utilise
-habituellement des couleurs complémentaires pour l'impression&nbsp;:</p>
+<p>Les Ã©crans d'ordinateur sont noirs avant l'affichage, tandis qu'une
+imprimante Ã  jets d'encre imprime sur du papier blanc, qui est la couleur
+complÃ©mentaire du noir. Pour obtenir un meilleur effet, on utilise
+habituellement des couleurs complÃ©mentaires pour l'impression&nbsp;:</p>
 <ul>
   <li>Jaune</li>
   <li>Cyan</li>
   <li>Magenta</li>
 </ul>
-<p>Pour économiser la couleur, on ajoute souvent une cartouche noire pour
-imprimer le texte. Pour un meilleur rendu des photos, on ajoute également des cartouches
+<p>Pour Ã©conomiser la couleur, on ajoute souvent une cartouche noire pour
+imprimer le texte. Pour un meilleur rendu des photos, on ajoute Ã©galement des cartouches
 rouge, verte et bleue.</p>
 <h2>Fichiers d'images</h2>
-<p>Les fichiers d'images sont constitués de données entières non signées
-formant des tableaux. D'une manière analogue aux écrans, les couleurs des
-images sont conservées selon un mode de couleurs véritables ou un mode
-indexé. De plus, il existe des algorithmes de compression pour diminuer la
+<p>Les fichiers d'images sont constituÃ©s de donnÃ©es entiÃ¨res non signÃ©es
+formant des tableaux. D'une maniÃ¨re analogue aux Ã©crans, les couleurs des
+images sont conservÃ©es selon un mode de couleurs vÃ©ritables ou un mode
+indexÃ©. De plus, il existe des algorithmes de compression pour diminuer la
 taille des fichiers d'images (png, gif, jpg, etc.).</p>
-<p>Cette section présente quelques-unes des fonctions permettant de lire et
+<p>Cette section prÃ©sente quelques-unes des fonctions permettant de lire et
 d'afficher les images. Le logiciel d'aide de Matlab fournit beaucoup
-d'informations à ce sujet.</p>
-<h3>Image en intensité RGB (256<sup>3</sup>&nbsp;couleurs)</h3>
-<p>Fonctions étudiées&nbsp;: <font color="#008000"><b><code>imfinfo, imread, imshow</code></b></font></p>
-<p>La fonction <font color="#008000"><b> <i>imfinfo</i></b></font> (<i>image format information</i>) génère une
-structure de données qui renseigne sur la manière dont est contenue l'image
+d'informations Ã  ce sujet.</p>
+<h3>Image en intensitÃ© RGB (256<sup>3</sup>&nbsp;couleurs)</h3>
+<p>Fonctions Ã©tudiÃ©es&nbsp;: <font color="#008000"><b><code>imfinfo, imread, imshow</code></b></font></p>
+<p>La fonction <font color="#008000"><b> <i>imfinfo</i></b></font> (<i>image format information</i>) gÃ©nÃ¨re une
+structure de donnÃ©es qui renseigne sur la maniÃ¨re dont est contenue l'image
 dans le fichier.</p>
 <p>Voici une image dont chaque pixel utilise 24&nbsp;bits<br>
 (1 octet pour chacune des couleurs rouge, vert bleu)&nbsp;:</p>
 <table border="0">
   <tr>
     <td><img border="0" src="Fulleren.jpg" width="114" height="116"></td>
-    <td>Le fullerène, une « cage » formée<br>
-      d’atomes de carbone, peut contenir<br>
-      d’autres atomes (ici, de l’hélium).<br>
-      Réf. Magazine Québec Science,<br>
+    <td>Le fullerÃ¨ne, une Â« cage Â» formÃ©e<br>
+      dâ€™atomes de carbone, peut contenir<br>
+      dâ€™autres atomes (ici, de lâ€™hÃ©lium).<br>
+      RÃ©f. Magazine QuÃ©bec Science,<br>
       &nbsp;<a href="http://www.cybersciences.com">http://www.cybersciences.com</a></td>
   </tr>
   <tr>
@@ -245,8 +245,8 @@ ans = FileSize: 4216
   Dessin   116x114x3  39672  uint8 array
   fichier    1x12        24  char array</pre>
 <ul>
-  <li>Interprétation<br>
-    uint8 - <i>unsigned integer</i> - entier non signé de 8 bits (1 octet)<br>
+  <li>InterprÃ©tation<br>
+    uint8 - <i>unsigned integer</i> - entier non signÃ© de 8 bits (1 octet)<br>
 	Il contient un nombre compris entre 0&nbsp;et&nbsp;255.<br>
 	Rappel&nbsp;: 1&nbsp;octet&nbsp;= 8&nbsp;bits, 2<sup>8</sup>&nbsp;=&nbsp;256&nbsp;nombres.</li>
 </ul>
@@ -254,7 +254,7 @@ ans = FileSize: 4216
   <tr>
     <td><img border="0" src="Rgb.gif" width="198" height="107"></td>
     <td>Un tableau 3D, soit<br>
-      116 rangées x&nbsp; 114 col.,<br>
+      116 rangÃ©es x&nbsp; 114 col.,<br>
       par 3 couleurs (RGB)&nbsp;:<br>
       256 tons de rouge<br>
       256 tons de vert<br>
@@ -269,13 +269,13 @@ ans = FileSize: 4216
       <p>&nbsp;&nbsp;&nbsp;&nbsp;La fonction <font color="#008000"><b><i>imshow</i></b></font>&nbsp;<br>
       &nbsp;&nbsp;&nbsp;&nbsp;(<i>image show</i>)&nbsp;<br>
       &nbsp;&nbsp;&nbsp;&nbsp;affiche l'image dans une<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;fenêtre <i>figure</i> Matlab.</p>
+      &nbsp;&nbsp;&nbsp;&nbsp;fenÃªtre <i>figure</i> Matlab.</p>
       <pre>&gt;&gt; imshow('Fulleren.jpg')</pre>
     </td>
   </tr>
 </table>
-<p>Ce sujet est présenté dans le cours ing258 en S2.</p>
-<p>Voilà pour une image encodée en intensité&nbsp;!</p>
+<p>Ce sujet est prÃ©sentÃ© dans le cours ing258 en S2.</p>
+<p>VoilÃ  pour une image encodÃ©e en intensitÃ©&nbsp;!</p>
 <p><img border="0" src="../css/Feuilles.gif" width="500" height="19"></p>
 
 </body>
