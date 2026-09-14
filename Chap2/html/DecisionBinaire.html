@@ -1,0 +1,224 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>D&eacute;cision binaire</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-09-11"><meta name="DC.source" content="DecisionBinaire.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>D&eacute;cision binaire</h1><!--introduction--><p>La d&eacute;cision binaire permet de choisir parmi deux s&eacute;quences d'instructions, modifiant ainsi le d&eacute;roulement du programme. La structure de d&eacute;cision binaire est intuitive.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#2">S&eacute;quence &#8211; rappel</a></li><li><a href="#3">Proposition logique</a></li><li><a href="#6">D&eacute;cision binaire en pseudo-code</a></li><li><a href="#7">Traduction Matlab de la d&eacute;cision binaire</a></li><li><a href="#9">Application au moment</a></li></ul></div><p><img vspace="5" hspace="5" src="..\OndulationOrange.gif" alt=""> </p><h2 id="2">S&eacute;quence &#8211; rappel</h2><p>Une s&eacute;quence d'instructions comporte un groupe d'instructions s'ex&eacute;cutant toujours dans le m&ecirc;me ordre.</p><p>La d&eacute;cision binaire permet d'effectuer un choix qui modifie le d&eacute;roulement d'un script.</p><h2 id="3">Proposition logique</h2><p>Une proposition logique est la relation entre deux variables ou entre une variable et une constante de m&ecirc;me type et de m&ecirc;me dimension, qui s'&eacute;tablit &agrave; l'aide d'op&eacute;rateurs de relation.</p><p>Une proposition logique est soit vraie, soit fausse.</p><p>Habituellement, les langages de programmation utilisent des bool&eacute;ens pour conserver le r&eacute;sultat de propositions logiques.</p><p>Exemple</p><pre>L1 : est-ce que A est &eacute;gal &agrave; pi ?
+L2 : est-ce que A est plus grand que pi ?</pre><pre class="codeinput">clear; close <span class="string">all</span>; clc
+A = 3.1416;
+fprintf(<span class="string">'pi vaut %.6f etc.\n\n'</span>,pi);
+L1 = ( A == pi ) <span class="comment">% C'est faux.</span>
+L2 = ( A &gt;  pi ) <span class="comment">% C'est vrai.</span>
+</pre><pre class="codeoutput">pi vaut 3.141593 etc.
+
+L1 =
+  logical
+   0
+L2 =
+  logical
+   1
+</pre><pre class="codeinput">whos
+</pre><pre class="codeoutput">  Name      Size            Bytes  Class      Attributes
+
+  A         1x1                 8  double               
+  L1        1x1                 1  logical              
+  L2        1x1                 1  logical              
+
+</pre><p>L'instruction (A == pi) est une proposition logique qui donne un r&eacute;sultat faux (0), tandis que (A &gt; pi) est vrai (1).</p><p>L'expression (A == pi) est attribu&eacute;e &agrave; la variable bool&eacute;enne (logical) L1.</p><p>Utiliser le terme bool&eacute;en plut&ocirc;t que &laquo; logique &raquo; (logical).</p><p>L1 et L2 sont des objets de la classe bool&eacute;enne et elles peuvent contenir deux &eacute;tats : 1 ou 0, soit vrai ou faux.</p><p>Cette nouvelle classe s'ajoute aux classes double (nombres), caract&egrave;re (mots) et symbolique (expressions math&eacute;matiques).</p><p>Les symboles &#8220; == &#8221; et &#8220; &gt; &#8221; sont des op&eacute;rateurs de relation :</p><pre>&lt;&nbsp;&nbsp;&nbsp;plus petit que
+&lt;=&nbsp;&nbsp;plus petit ou &eacute;gal &agrave;
+&gt;&nbsp;&nbsp;&nbsp;plus grand que
+&gt;=&nbsp;&nbsp;plus grand ou &eacute;gal &agrave;
+==&nbsp;&nbsp;&eacute;gal &agrave;
+~=&nbsp;&nbsp;non &eacute;gal &agrave;</pre><p><img vspace="5" hspace="5" src="..\OndulationOrange.gif" alt=""> </p><h2 id="6">D&eacute;cision binaire en pseudo-code</h2><p>Suite de l'exemple ci-dessus :</p><pre>Si L2 est vrai
+   &Eacute;crire que L2 est plus grand que pi
+      (et aller &agrave; FinSi).
+Sinon
+   &Eacute;crire que L2 est plus petit ou &eacute;gal &agrave; pi.
+FinSi</pre><h2 id="7">Traduction Matlab de la d&eacute;cision binaire</h2><pre class="codeinput"><span class="keyword">if</span>(L2)
+   fprintf(<span class="string">'L2 est plus grand que pi.\n'</span>);
+<span class="keyword">else</span>
+   fprintf(<span class="string">'L2 est plus petit ou &eacute;gal &agrave; pi.\n'</span>);
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">L2 est plus grand que pi.
+</pre><p><img vspace="5" hspace="5" src="..\Crayon.gif" alt=""> </p><h2 id="9">Application au moment</h2><p>Dans chacun des probl&egrave;mes en statique sur les moments, il faut identifier le sens (horaire ou antihoraire) du moment. Supposer que</p><pre class="codeinput">Moment = [0 0 -4]; <span class="comment">% composantes selon x, y et z</span>
+ComposantePositiveEnZ = Moment(3)&gt;0;
+<span class="keyword">if</span>(ComposantePositiveEnZ)
+   fprintf(<span class="string">'Le moment est antihoraire.\n'</span>);
+<span class="keyword">else</span>
+   fprintf(<span class="string">'Le moment est horaire.\n'</span>);
+<span class="keyword">end</span>
+fprintf(<span class="string">'-- Fin de l''exemple --\n'</span>);
+</pre><pre class="codeoutput">Le moment est horaire.
+-- Fin de l'exemple --
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Décision binaire
+% La décision binaire permet de choisir parmi deux
+% séquences d'instructions, modifiant ainsi le
+% déroulement du programme. La structure de
+% décision binaire est intuitive.
+
+%%
+% <<..\OndulationOrange.gif>>
+%% Séquence – rappel
+% Une séquence d'instructions comporte un groupe
+% d'instructions s'exécutant toujours dans le même
+% ordre.
+% 
+% La décision binaire permet d'effectuer un choix
+% qui modifie le déroulement d'un script.
+
+%% Proposition logique
+% Une proposition logique est la relation entre
+% deux variables ou entre une variable et une
+% constante de même type et de même dimension, qui
+% s'établit à l'aide d'opérateurs de relation.
+%
+% Une proposition logique est soit vraie, soit
+% fausse.
+%
+% Habituellement, les langages de programmation
+% utilisent des booléens pour conserver le
+% résultat de propositions logiques.
+%
+% Exemple
+% 
+%  L1 : est-ce que A est égal à pi ?
+%  L2 : est-ce que A est plus grand que pi ?
+%
+clear; close all; clc
+A = 3.1416;
+fprintf('pi vaut %.6f etc.\n\n',pi);
+L1 = ( A == pi ) % C'est faux.
+L2 = ( A >  pi ) % C'est vrai.
+
+%%
+whos
+
+%%
+% L'instruction (A == pi) est une proposition
+% logique qui donne un résultat faux (0), tandis que
+% (A > pi) est vrai (1).
+%
+% L'expression (A == pi) est attribuée à la
+% variable booléenne (logical) L1.
+%
+% Utiliser le terme booléen plutôt
+% que « logique » (logical).
+%
+% L1 et L2 sont des objets de la classe booléenne
+% et elles peuvent contenir deux états :
+% 1 ou 0, soit vrai ou faux.
+%
+% Cette nouvelle classe s'ajoute aux classes
+% double (nombres), caractère (mots) et
+% symbolique (expressions mathématiques).
+%
+% Les symboles “ == ” et “ > ” sont des opérateurs de
+% relation :
+%
+%  <   plus petit que
+%  <=  plus petit ou égal à
+%  >   plus grand que
+%  >=  plus grand ou égal à
+%  ==  égal à
+%  ~=  non égal à
+%
+% <<..\OndulationOrange.gif>>
+
+%% Décision binaire en pseudo-code
+% Suite de l'exemple ci-dessus :
+%
+%  Si L2 est vrai
+%     Écrire que L2 est plus grand que pi
+%        (et aller à FinSi).
+%  Sinon
+%     Écrire que L2 est plus petit ou égal à pi.
+%  FinSi
+
+%%  Traduction Matlab de la décision binaire
+if(L2)
+   fprintf('L2 est plus grand que pi.\n');
+else
+   fprintf('L2 est plus petit ou égal à pi.\n');
+end
+
+%%
+% <<..\Crayon.gif>>
+%% Application au moment
+% Dans chacun des problèmes en statique sur les
+% moments, il faut identifier le sens (horaire ou
+% antihoraire) du moment. Supposer que
+Moment = [0 0 -4]; % composantes selon x, y et z
+ComposantePositiveEnZ = Moment(3)>0;
+if(ComposantePositiveEnZ)
+   fprintf('Le moment est antihoraire.\n');
+else
+   fprintf('Le moment est horaire.\n');
+end
+fprintf('REPLACE_WITH_DASH_DASH Fin de l''exemple REPLACE_WITH_DASH_DASH\n');
+##### SOURCE END #####
+--></body></html>

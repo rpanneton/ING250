@@ -1,0 +1,200 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Poutrelles en acier doux (SAE 1015)</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-11-28">
+      <meta name="m-file" content="PoutrellesContrainte"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Poutrelles en acier doux (SAE 1015)</h1>
+         <introduction>
+            <p>Essais de traction r&eacute;alis&eacute;s sur vingt poutrelles</p>
+         </introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#4">Affichage des deux matrices pr&eacute;c&eacute;dentes</a></li>
+               <li><a href="#6">Calculer la limite &eacute;lastique en MPa</a></li>
+               <li><a href="#9">Calculer la moyenne de la limite &eacute;lastique</a></li>
+               <li><a href="#12">Valeurs hors norme</a></li>
+            </ul>
+         </div><pre class="codeinput">clear <span class="string">all</span>; clc; close <span class="string">all</span>;
+</pre><p>Force en kN mesur&eacute;e &agrave; la limite &eacute;lastique</p><pre class="codeinput">F_kN = [
+   15.2  16.0  15.0  15.3  15.9
+   15.7  15.6  15.5  14.9  15.7
+   15.6  16.1  15.3  15.3  15.6
+   15.2  15.2  15.2  16.0  15.5 ];
+<span class="comment">%--1234--1234--1234--1234--1234   champs</span>
+</pre><p>Section en mm&sup2; mesur&eacute;e au repos</p><pre class="codeinput">Section_mm2 = [
+   76.14  77.62  76.56  77.85  79.62
+   77.55  77.72  78.61  78.25  78.63
+   77.35  77.27  76.68  77.92  78.09
+   78.21  77.94  77.34  79.74  77.19];
+<span class="comment">%--12345--12345--12345--12345--12345   champs</span>
+</pre><h2>Affichage des deux matrices pr&eacute;c&eacute;dentes<a name="4"></a></h2>
+         <p>Force en kN &#8211; utiliser deux boucles <i>for</i>.
+         </p>
+         <p>Section en mm&sup2; &#8211; utiliser une boucle <i>for</i> et la vectorisation du format.
+         </p>
+         <h2>Calculer la limite &eacute;lastique en MPa<a name="6"></a></h2>
+         <p>Utiliser deux boucles <i>for</i> pour le calcul.
+         </p>
+         <p>Afficher sans point d&eacute;cimal et avec deux espaces entre chaque colonne en utilisant la m&eacute;thode de votre choix.</p>
+         <p>R&eacute;p&eacute;ter le calcul en utilisant deux boucles <i>while</i>.
+         </p>
+         <p>R&eacute;p&eacute;ter en utilisant la vectorisation.</p>
+         <h2>Calculer la moyenne de la limite &eacute;lastique<a name="9"></a></h2>
+         <p>Utiliser deux boucle <i>for</i>.
+         </p>
+         <p>Utiliser deux boucles <i>while</i>.
+         </p>
+         <p>Utiliser la fonction <i>mean</i>.
+         </p>
+         <h2>Valeurs hors norme<a name="12"></a></h2>
+         <p>Calculer combien de poutrelles ont une limite &eacute;lastique &agrave; l'ext&eacute;rieur des bornes sp&eacute;cifi&eacute;es de 195 &agrave; 205 MPa ?</p>
+         <p>Utiliser 2 boucles <i>for</i>.
+         </p>
+         <p>Utiliser 2 boucles <i>while</i>.
+         </p>
+         <p>Utiliser la vectorisation et la fonction <i>sum</i>.
+         </p>
+         <p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Poutrelles en acier doux (SAE 1015)
+% Essais de traction réalisés sur vingt poutrelles
+
+%%
+clear all; clc; close all;
+
+%%
+% Force en kN mesurée à la limite élastique
+F_kN = [
+   15.2  16.0  15.0  15.3  15.9
+   15.7  15.6  15.5  14.9  15.7
+   15.6  16.1  15.3  15.3  15.6
+   15.2  15.2  15.2  16.0  15.5 ];
+%REPLACE_WITH_DASH_DASH1234REPLACE_WITH_DASH_DASH1234REPLACE_WITH_DASH_DASH1234REPLACE_WITH_DASH_DASH1234REPLACE_WITH_DASH_DASH1234   champs
+
+%%
+% Section en mm² mesurée au repos
+Section_mm2 = [
+   76.14  77.62  76.56  77.85  79.62
+   77.55  77.72  78.61  78.25  78.63
+   77.35  77.27  76.68  77.92  78.09
+   78.21  77.94  77.34  79.74  77.19];
+%REPLACE_WITH_DASH_DASH12345REPLACE_WITH_DASH_DASH12345REPLACE_WITH_DASH_DASH12345REPLACE_WITH_DASH_DASH12345REPLACE_WITH_DASH_DASH12345   champs
+
+%% Affichage des deux matrices précédentes
+% Force en kN – utiliser deux boucles _for_.
+
+%%
+% Section en mm² – utiliser une boucle _for_ et la
+% vectorisation du format.
+
+%% Calculer la limite élastique en MPa
+% Utiliser deux boucles _for_ pour le calcul.
+%
+% Afficher sans point décimal et avec deux espaces
+% entre chaque colonne en utilisant la méthode de
+% votre choix.
+
+%%
+% Répéter le calcul en utilisant deux boucles
+% _while_.
+
+%%
+% Répéter en utilisant la vectorisation.
+
+%% Calculer la moyenne de la limite élastique
+% Utiliser deux boucle _for_.
+
+%%
+% Utiliser deux boucles _while_.
+
+%%
+% Utiliser la fonction _mean_.
+
+%% Valeurs hors norme
+% Calculer combien de poutrelles ont une limite
+% élastique à l'extérieur des bornes spécifiées de
+% 195 à 205 MPa ?
+%
+% Utiliser 2 boucles _for_.
+
+%%
+% Utiliser 2 boucles _while_.
+
+%%
+% Utiliser la vectorisation et la fonction _sum_.
+##### SOURCE END #####
+-->
+   </body>
+</html>

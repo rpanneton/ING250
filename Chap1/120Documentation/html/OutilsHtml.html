@@ -1,0 +1,478 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Outils Matlab pour l'&eacute;criture d'une page html</title><meta name="generator" content="MATLAB 8.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2014-09-01"><meta name="DC.source" content="OutilsHtml.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, tt, code { font-size:12px; }
+pre { margin:0px 0px 20px; }
+pre.error { color:red; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Outils Matlab pour l'&eacute;criture d'une page html</h1><!--introduction--><p>L'&eacute;criture d'une page html s'apppuie sur la proc&eacute;dure <i>Publish to html</i>. Cela permet de composer une page html contenant des lignes d'instructions Matlab, des commentaires et des &eacute;quations &eacute;crites selon le protocole TeX Equation.</p><p>Une page html se compose habituellement de plusieurs sections. Dans un script chaque section correspond &agrave; une cellule. Une cellule commence par les symboles %% au d&eacute;but d'une nouvelle ligne, suivis ou pas par un titre de section &eacute;crit sur la m&ecirc;me ligne. Le texte de la section est form&eacute; des lignes suivantes contigu&euml;s. Chaque ligne d&eacute;bute par le symbole % suivi d'un espace.</p><p>Matlab g&eacute;n&egrave;re une table des mati&egrave;res &agrave; partir des titres de section.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Description des outils propos&eacute;s par Matlab</a></li><li><a href="#2">&Eacute;crire une &eacute;quation en langage TeX</a></li><li><a href="#3">&Eacute;crire le texte et reformater les commentaires</a></li><li><a href="#4">R&eacute;f&eacute;rences</a></li></ul></div><h2>Description des outils propos&eacute;s par Matlab<a name="1"></a></h2><p>Le menu <i>Cell\Insert Cell Markup</i> de l'&eacute;diteur propose les outils html les plus courants. Ils sont tous appropri&eacute;s sauf LaTeX Markup, qui est utilis&eacute; pour g&eacute;n&eacute;rer un document LaTeX.</p><p><img vspace="5" hspace="5" src="..\OutilsBalises.gif" alt=""> </p><p><b>Bold Text</b> &#8211; texte en gras &#8211; borner le texte entre deux symboles * (multiplication).</p><pre>Le gras s'emploie g&eacute;n&eacute;ralement pour mettre en
+valeur un *titre*, ou encore...</pre><p>Le gras s'emploie g&eacute;n&eacute;ralement pour mettre en valeur un <b>titre</b>, ou encore pour mettre un mot ou une expression en relief dans un texte o&ugrave; l'italique est d&eacute;j&agrave; utilis&eacute;. &#8212; OLF</p><p><b>Italic Text</b>  &#8211; texte en italique &#8211; borner le texte entre deux symboles _ (soulign&eacute;).</p><pre>% C'est l'imprimeur italien Alde Manuce qui...
+% D'o&ugrave; le mot _italique_. L'italique s'emploie...</pre><p>C'est l'imprimeur italien Alde Manuce qui, au d&eacute;but du XVIe si&egrave;cle, a invent&eacute; ce caract&egrave;re en cherchant &agrave; reproduire l'&eacute;criture manuscrite de son temps. D'o&ugrave; le mot <i>italique</i>. L'italique s'emploie notamment dans les titres d'&#339;uvres et dans les mots de langue &eacute;trang&egrave;re. &#8212; OLF</p><p><b>Monospaced text</b> &#8211; police &agrave; espacement constant &#8211; borner le texte entre deux symboles | (ou logique).</p><pre>% Police dans laquelle tous les |caract&egrave;res ont
+% la m&ecirc;me largeur.| La police Courier, par...</pre><p>Police dans laquelle tous les <tt>caract&egrave;res ont la m&ecirc;me largeur.</tt> La police Courier, par exemple, est &agrave; espacement constant. &#8212; OLF</p><p><b>Hyperlinked Text</b>  &#8211; lien hypertexte &#8211; inscrire le lien entre les symboles &lt; et &gt;, par exemple, le lien vers <a href="..\html\Projet250.html">Annexe A</a>, &eacute;crire :</p><pre>&lt;html\Projet250.html Annexe A&gt;
+ ^ NomDeLaPagehtml   ^ TitreDuLienAPara&icirc;tre</pre><p><b>Preformatted Text</b> &#8211; texte pr&eacute;format&eacute; &#8211; Dans une page html, texte qui appara&icirc;t en police &agrave; espacement constant et dont tous les espaces blancs sont lus par le navigateur. Le texte pr&eacute;format&eacute; permet de disposer des donn&eacute;es ou du texte en colonnes et en rang&eacute;es dans une page html. &#8212; OLF</p><p>Pour sp&eacute;cifier un texte pr&eacute;format&eacute;, il faut le faire pr&eacute;c&eacute;der d'une ligne de commentaire vide et commencer la ligne suivante &agrave; la colonne 4. Pour terminer, laisser une ligne de commentaire vide.</p><pre>%
+%  Nom                 Re(MPa)  Rm(MPa)    A(%)
+%  Inox. AISI 304 recuit  260      565      52
+%  Al 2024-T4             290      400      13
+%  Acier 1040 recuit      350      525      30
+%  Acier 3140 recuit      425      690      25
+%</pre><p>donne :</p><pre>Nom                 Re(MPa)  Rm(MPa)    A(%)
+Inox. AISI 304 recuit  260      565      52
+Al 2024-T4             290      400      13
+Acier 1040 recuit      350      525      30
+Acier 3140 recuit      425      690      25</pre><p><b>Image</b> &#8211; Pour inclure une image, sp&eacute;cifier sur une ligne le nom de l'image entre deux paires de symboles &lt; &lt; et &gt; &gt;. Cette ligne doit &ecirc;tre pr&eacute;c&eacute;d&eacute;e et suivie d'une ligne vide, par exemple, pour faire afficher la liste des balises du d&eacute;but de page, &eacute;crire :</p><pre>%
+% &lt;&lt;..\OutilsBalises.gif&gt;&gt;
+%</pre><p><b>Bulleted List</b> &#8211; liste non num&eacute;rot&eacute;e &#8211; Liste dans laquelle les &eacute;l&eacute;ments de liste sont pr&eacute;c&eacute;d&eacute;s d'un symbole graphique qui peut varier &agrave; la visualisation selon le navigateur html utilis&eacute;, mais qui est g&eacute;n&eacute;ralement une puce. &#8212; OLF</p><pre>%
+% Contenu en fibres pour 100 g de c&eacute;r&eacute;ale
+%
+% * Avoine, 10 g
+% * &Eacute;peautre, 12 g
+% * Kamut, 23 g
+% * Seigle, 19 g
+%</pre><p>donne</p><p>Contenu en fibres pour 100 g de c&eacute;r&eacute;ale</p><div><ul><li>Avoine, 10 g</li><li>&Eacute;peautre, 12 g</li><li>Kamut, 23 g</li><li>Seigle, 19 g</li></ul></div><p><b>Numbered List</b> &#8211; liste num&eacute;rot&eacute;e &#8211; Liste dans laquelle les &eacute;l&eacute;ments de liste sont pr&eacute;c&eacute;d&eacute;s d'un chiffre en ordre croissant.  &#8211; OLF</p><pre>%
+% Contenu en fibres par ordre d&eacute;croissant
+%
+% # Kamut, 23 g
+% # Seigle, 19 g
+% # &Eacute;peautre, 12 g
+% # Avoine, 10 g
+%</pre><p>donne</p><p>Contenu en fibres par ordre d&eacute;croissant</p><div><ol><li>Kamut, 23 g</li><li>Seigle, 19 g</li><li>&Eacute;peautre, 12 g</li><li>Avoine, 10 g</li></ol></div><p><b>Html Markup</b> &#8211; balise html &#8211; Commande html constitu&eacute;e d'une directive sous forme de mot-cl&eacute; encadr&eacute; par les signes &lt; et &gt;, qui permet de mettre en forme un texte et qui indique au navigateur html comment devrait &ecirc;tre affich&eacute; un document. &#8212; OLF</p><p>Pour &eacute;crire un tableau de 2 lignes et 2 colonnes, &eacute;crire :</p><pre>%
+% &lt;html&gt;
+% &lt;table border=1&gt;
+% &lt;tr&gt;
+% &lt;td&gt;Ligne 1, colonne 1&lt;/td&gt;
+% &lt;td&gt;Ligne 1, colonne 2&lt;/td&gt;
+% &lt;/tr&gt;
+% &lt;tr&gt;
+% &lt;td&gt;Ligne 2, colonne 1&lt;/td&gt;
+% &lt;td&gt;Ligne 2, colonne 2&lt;/td&gt;
+% &lt;/tr&gt;
+% &lt;/table&gt;
+% &lt;/html&gt;
+%</pre><p>
+<table border=1>
+<tr>
+<td>Ligne 1, colonne 1</td>
+<td>Ligne 1, colonne 2</td>
+</tr>
+<tr>
+<td>Ligne 2, colonne 1</td>
+<td>Ligne 2, colonne 2</td>
+</tr>
+</table>
+</p><p>Pour &eacute;crire une ligne horizontale, &eacute;crire hr (horizontal rule) comme suit :</p><pre>%
+% &lt;html&gt; &lt;hr&gt; &lt;/html&gt;
+%</pre><p> <hr> </p><h2>&Eacute;crire une &eacute;quation en langage TeX<a name="2"></a></h2><p>Une &eacute;quation est &eacute;crite entre une paire de deux signes de dollars $$. Elle doit &ecirc;tre pr&eacute;c&eacute;d&eacute;e et suivie d'une ligne vide d&eacute;butant par un commentaire.</p><pre>%
+% $$y = \sin(x) + sin(z)$$
+%</pre><p>Noter la fa&ccedil;on correcte de sp&eacute;cifier le sinus (<b>\sin</b>).</p><p><img src="OutilsHtml_eq23936.png" alt="$$ y = \sin(x) + sin(z) $$"></p><p>Pour afficher une lettre grecque, il suffit de l'&eacute;crire en fran&ccedil;ais sans accent et pr&eacute;c&eacute;d&eacute;e du signe \.</p><pre>%
+% $$ y = \sin{\theta} + \sqrt[3]{\pi/2x} $$
+%</pre><p>Noter l'effet de l'utilisation des accolades (<b>{</b> et <b>}</b>) sur l'affichage du sinus.</p><p><img src="OutilsHtml_eq65563.png" alt="$$ y = \sin{\theta} + \sqrt[3]{\pi/2x} $$"></p><p>&Eacute;lever &agrave; une puissance (^) et ajouter un indice(_). Noter les paires d'accolades.</p><pre>%
+% $$ y^{a+b} =  x_{1} + x_{2}^{3}$$
+%</pre><p><img src="OutilsHtml_eq27722.png" alt="$$ y^{a+b} =  x_{1} + x_{2}^{3} $$"></p><p>L'instruction <b>\frac</b>{num&eacute;rateur}{d&eacute;nominateur} permet d'&eacute;crire une fraction.</p><pre>%
+% $$ y = \frac{x + a^2}{x +a/2} $$
+%</pre><p><img src="OutilsHtml_eq71532.png" alt="$$ y = \frac{x + a^2}{x +a/2} $$"></p><p>Il est possible de sp&eacute;cifier des parenth&egrave;res.</p><pre>% $$ y = \left(
+% \frac{x + a^2}{x +a/2}
+% \right)
+% $$</pre><p><img src="OutilsHtml_eq68332.png" alt="$$ y = \left(&#xA;\frac{x + a^2}{x +a/2}&#xA;\right)&#xA;$$"></p><p>Les logarithmes ob&eacute;issent &agrave; la relation suivante :</p><pre>%
+% $$ 2 \times \log xy =
+% \log x^{2} + \log y^{2} $$
+%</pre><p><img src="OutilsHtml_eq35911.png" alt="$$ 2 \times \log xy =&#xA;\log x^{2} + \log y^{2} $$"></p><p>L'instruction <b>\int</b> produit le symbole de l'int&eacute;grale.</p><pre>%
+% $$ \int_{0}^{1} f = \sum_{i=1}^{n} x_{i} $$
+%</pre><p><img src="OutilsHtml_eq39491.png" alt="$$ \int_{0}^{1} f = \sum_{i=1}^{n} x_{i} $$"></p><h2>&Eacute;crire le texte et reformater les commentaires<a name="3"></a></h2><div><ul><li>Le texte est &eacute;crit sous forme de commentaire (%) dans le script Matlab.</li><li>Apr&egrave;s chaque phrase, on peut aller &agrave; la ligne. Matlab relie automatiquement les lignes contigu&euml;s.</li><li>Pour une lecture ergonomique, limiter la largeur de la ligne. Ajuster les param&egrave;tres de l'&eacute;diteur de Matlab (menu : File, Preferences).</li></ul></div><p><img vspace="5" hspace="5" src="..\OutilsColon50.gif" alt=""> </p><p><img vspace="5" hspace="5" src="..\OutilsMaxWidth.gif" alt=""> </p><div><ul><li>Lors de la r&eacute;daction, il arrive que l'on d&eacute;borde vers la droite. Il suffit alors de reformater &agrave; l'aide de la commande <b>Wrap selected comments</b> &agrave; l'aide du bouton de droite de la souris.</li></ul></div><p><img vspace="5" hspace="5" src="..\OutilsWrapSelec.gif" alt=""> </p><p>Effet de l'instruction :</p><p><img vspace="5" hspace="5" src="..\OutilsWrapEffetDu.gif" alt=""> </p><h2>R&eacute;f&eacute;rences<a name="4"></a></h2><div><ul><li>Math into LaTeX, www.ctan.org/pub/tex-archive/info/mil/mil.pdf, 432 pages. Le document est disponible dans le r&eacute;pertoire ing250\Chap5\LaTex_Ref\MathIntoLaTeX.pdf. Noter que le manuel est orient&eacute; surtout pour la r&eacute;daction de texte LaTeX. Consulter les sections expliquant les &eacute;quations &agrave; l'aide des symboles $$.</li></ul></div><p>Le r&eacute;pertoire ing250\Chap5\LaTex_Ref contient aussi d'autres r&eacute;f&eacute;rences.</p><pre>&gt;&gt; doc tex</pre><p> <hr> </p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2013a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Outils Matlab pour l'écriture d'une page html
+% L'écriture d'une page html s'apppuie sur la
+% procédure _Publish to html_.
+% Cela permet de composer une page html contenant
+% des lignes d'instructions Matlab, des
+% commentaires et des équations écrites selon le
+% protocole TeX Equation.
+%
+% Une page html se compose habituellement de
+% plusieurs sections.
+% Dans un script chaque section correspond à une
+% cellule.
+% Une cellule commence par les symboles %% au
+% début d'une nouvelle ligne, suivis ou pas par un
+% titre de section écrit sur la même ligne.
+% Le texte de la section est formé des lignes
+% suivantes contiguës.
+% Chaque ligne débute par le symbole % suivi d'un
+% espace.
+%
+% Matlab génère une table des matières à partir
+% des titres de section.
+
+%% Description des outils proposés par Matlab
+% Le menu _Cell\Insert Cell Markup_ de l'éditeur
+% propose les outils html les plus
+% courants.
+% Ils sont tous appropriés sauf LaTeX Markup, qui
+% est utilisé pour générer un document LaTeX.
+% 
+% <<..\OutilsBalises.gif>>
+% 
+% *Bold Text* – texte en gras – borner le texte
+% entre deux symboles * (multiplication).
+%
+%  Le gras s'emploie généralement pour mettre en
+%  valeur un *titre*, ou encore...
+%
+% Le gras s'emploie généralement pour mettre en
+% valeur un *titre*, ou encore pour mettre un mot
+% ou une expression en relief dans un texte où
+% l'italique est déjà utilisé. — OLF
+%
+% *Italic Text*  – texte en italique – borner le
+% texte entre deux symboles _ (souligné).
+%
+%  % C'est l'imprimeur italien Alde Manuce qui...
+%  % D'où le mot _italique_. L'italique s'emploie...
+%
+% C'est l'imprimeur italien Alde Manuce qui, au
+% début du XVIe siècle, a inventé ce caractère en
+% cherchant à reproduire l'écriture manuscrite de
+% son temps. D'où le mot _italique_. L'italique
+% s'emploie notamment dans les titres d'œuvres et
+% dans les mots de langue étrangère. — OLF
+%
+% *Monospaced text* – police à espacement
+% constant – borner le texte entre deux symboles
+% | (ou logique).
+%
+%  % Police dans laquelle tous les |caractères ont
+%  % la même largeur.| La police Courier, par...
+%
+% Police dans laquelle tous les |caractères ont la
+% même largeur.| La police Courier, par exemple,
+% est à espacement constant. — OLF
+%
+% *Hyperlinked Text*  – lien hypertexte – 
+% inscrire le lien entre les symboles < et >, par
+% exemple, le lien vers <..\html\Projet250.html
+% Annexe A>, écrire : 
+%
+%  <html\Projet250.html Annexe A> 
+%   ^ NomDeLaPagehtml   ^ TitreDuLienAParaître
+%
+% *Preformatted Text* – texte préformaté – Dans
+% une page html, texte qui apparaît en police à
+% espacement constant et dont tous les espaces
+% blancs sont lus par le navigateur. Le texte
+% préformaté permet de disposer des données ou du
+% texte en colonnes et en rangées dans une page
+% html. — OLF
+%
+% Pour spécifier un texte préformaté, il faut le
+% faire précéder d'une ligne de commentaire vide et
+% commencer la ligne suivante à la colonne 4. Pour
+% terminer, laisser une ligne de commentaire vide.
+%
+%  %
+%  %  Nom                 Re(MPa)  Rm(MPa)    A(%)
+%  %  Inox. AISI 304 recuit  260      565      52
+%  %  Al 2024-T4             290      400      13
+%  %  Acier 1040 recuit      350      525      30
+%  %  Acier 3140 recuit      425      690      25
+%  %
+%
+% donne :
+%
+%  Nom                 Re(MPa)  Rm(MPa)    A(%)
+%  Inox. AISI 304 recuit  260      565      52
+%  Al 2024-T4             290      400      13
+%  Acier 1040 recuit      350      525      30
+%  Acier 3140 recuit      425      690      25
+%
+% *Image* – Pour inclure une image, spécifier sur
+% une ligne le nom de l'image entre deux paires de
+% symboles < < et > >. Cette ligne doit être
+% précédée et suivie d'une ligne vide, par
+% exemple, pour faire afficher la liste des
+% balises du début de page, écrire :
+%
+%  %
+%  % <<..\OutilsBalises.gif>>
+%  %
+% 
+% *Bulleted List* – liste non numérotée – Liste
+% dans laquelle les éléments de liste sont
+% précédés d'un symbole graphique qui peut varier
+% à la visualisation selon le navigateur html
+% utilisé, mais qui est généralement une puce.
+% — OLF
+% 
+%  %
+%  % Contenu en fibres pour 100 g de céréale
+%  %
+%  % * Avoine, 10 g
+%  % * Épeautre, 12 g
+%  % * Kamut, 23 g
+%  % * Seigle, 19 g
+%  % 
+%
+% donne
+%
+% Contenu en fibres pour 100 g de céréale
+%
+% * Avoine, 10 g
+% * Épeautre, 12 g
+% * Kamut, 23 g
+% * Seigle, 19 g
+%
+% *Numbered List* – liste numérotée – Liste dans
+% laquelle les éléments de liste sont précédés
+% d'un chiffre en ordre croissant.  – OLF
+% 
+%  %
+%  % Contenu en fibres par ordre décroissant
+%  %
+%  % # Kamut, 23 g
+%  % # Seigle, 19 g
+%  % # Épeautre, 12 g
+%  % # Avoine, 10 g
+%  % 
+%
+% donne
+%
+% Contenu en fibres par ordre décroissant
+%
+% # Kamut, 23 g
+% # Seigle, 19 g
+% # Épeautre, 12 g
+% # Avoine, 10 g
+% 
+% *Html Markup* – balise html – Commande html
+% constituée d'une directive sous forme de mot-clé
+% encadré par les signes < et >, qui permet de
+% mettre en forme un texte et qui indique au
+% navigateur html comment devrait être affiché un
+% document. — OLF
+%
+% Pour écrire un tableau de 2 lignes et 2
+% colonnes, écrire :
+%
+%  %
+%  % <html>
+%  % <table border=1>
+%  % <tr>
+%  % <td>Ligne 1, colonne 1</td>
+%  % <td>Ligne 1, colonne 2</td>
+%  % </tr>
+%  % <tr>
+%  % <td>Ligne 2, colonne 1</td>
+%  % <td>Ligne 2, colonne 2</td>
+%  % </tr>
+%  % </table>
+%  % </html>
+%  %
+% 
+% <html>
+% <table border=1>
+% <tr>
+% <td>Ligne 1, colonne 1</td>
+% <td>Ligne 1, colonne 2</td>
+% </tr>
+% <tr>
+% <td>Ligne 2, colonne 1</td>
+% <td>Ligne 2, colonne 2</td>
+% </tr>
+% </table>
+% </html>
+% 
+% Pour écrire une ligne horizontale, écrire hr
+% (horizontal rule) comme suit : 
+%
+%  % 
+%  % <html> <hr> </html>
+%  %
+%
+% <html> <hr> </html>
+% 
+%% Écrire une équation en langage TeX
+% Une équation est écrite entre une paire de deux
+% signes de dollars $$. Elle doit être précédée et
+% suivie d'une ligne vide débutant par un
+% commentaire.
+%
+%  %
+%  % $$y = \sin(x) + sin(z)$$
+%  %
+%
+% Noter la façon correcte de spécifier le sinus
+% (*\sin*).
+%
+% $$ y = \sin(x) + sin(z) $$
+%
+% Pour afficher une lettre grecque, il
+% suffit de l'écrire en français sans accent et précédée du signe
+% \.
+%
+%  %
+%  % $$ y = \sin{\theta} + \sqrt[3]{\pi/2x} $$
+%  %
+%
+% Noter l'effet de l'utilisation des accolades (*{*
+% et *}*) sur l'affichage du sinus.
+%
+% $$ y = \sin{\theta} + \sqrt[3]{\pi/2x} $$
+%
+% Élever à une puissance (^) et ajouter un
+% indice(_). Noter les paires d'accolades.
+%
+%  %
+%  % $$ y^{a+b} =  x_{1} + x_{2}^{3}$$
+%  %
+%
+% $$ y^{a+b} =  x_{1} + x_{2}^{3} $$
+%
+% L'instruction
+% *\frac*{numérateur}{dénominateur}
+% permet d'écrire une fraction.
+%
+%  %
+%  % $$ y = \frac{x + a^2}{x +a/2} $$
+%  %
+%
+% $$ y = \frac{x + a^2}{x +a/2} $$
+%
+% Il est possible de spécifier des parenthères.
+%
+%  % $$ y = \left(
+%  % \frac{x + a^2}{x +a/2}
+%  % \right)
+%  % $$
+%
+% $$ y = \left(
+% \frac{x + a^2}{x +a/2}
+% \right)
+% $$
+%
+% Les logarithmes obéissent à la relation suivante
+% :
+%
+%  % 
+%  % $$ 2 \times \log xy = 
+%  % \log x^{2} + \log y^{2} $$
+%  %
+% 
+% $$ 2 \times \log xy = 
+% \log x^{2} + \log y^{2} $$
+%
+% L'instruction *\int* produit 
+% le symbole de l'intégrale.
+%
+%  %
+%  % $$ \int_{0}^{1} f = \sum_{i=1}^{n} x_{i} $$
+%  %
+%
+% $$ \int_{0}^{1} f = \sum_{i=1}^{n} x_{i} $$
+%
+
+%% Écrire le texte et reformater les commentaires
+% * Le texte est écrit sous forme de commentaire (%) dans le
+% script Matlab.
+% * Après chaque phrase, on peut aller à la ligne.
+% Matlab relie automatiquement les lignes
+% contiguës.
+% * Pour une lecture ergonomique, limiter la
+% largeur de la ligne.
+% Ajuster les paramètres de l'éditeur de Matlab
+% (menu : File, Preferences).
+%
+% <<..\OutilsColon50.gif>>
+%
+% <<..\OutilsMaxWidth.gif>>
+%
+% * Lors de la rédaction, il arrive que l'on
+% déborde vers la droite.
+% Il suffit alors de reformater à l'aide de la
+% commande *Wrap selected comments* à l'aide du
+% bouton de droite de la souris.
+%
+% <<..\OutilsWrapSelec.gif>>
+%
+% Effet de l'instruction :
+%
+% <<..\OutilsWrapEffetDu.gif>>
+%
+
+%% Références
+%
+% * Math into LaTeX,
+% www.ctan.org/pub/tex-archive/info/mil/mil.pdf,
+% 432 pages.
+% Le document est disponible dans le répertoire
+% ing250\Chap5\LaTex_Ref\MathIntoLaTeX.pdf.
+% Noter que le manuel est orienté surtout pour la
+% rédaction de texte LaTeX.
+% Consulter les sections expliquant les équations
+% à l'aide des symboles $$.
+%
+% Le répertoire ing250\Chap5\LaTex_Ref contient
+% aussi d'autres références.
+%
+%  >> doc tex
+%
+% <html> <hr> </html>
+##### SOURCE END #####
+--></body></html>

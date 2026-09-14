@@ -1,0 +1,137 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>GraphEx2</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-10-10">
+      <meta name="m-file" content="GraphEx2"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>GraphEx2</h1>
+         <introduction></introduction><pre class="codeinput">clear <span class="string">all</span>; clc; close <span class="string">all</span>
+v0 = 23; <span class="comment">% m/s</span>
+angle = 38; <span class="comment">% degr&eacute;s en &eacute;l&eacute;vation</span>
+h0 = 35; <span class="comment">% hauteur du b&acirc;timent en m</span>
+g = -9.8; <span class="comment">% m/s&sup2; vers le bas</span>
+<span class="comment">% Il n'y a pas d'acc&eacute;l&eacute;ration en x.</span>
+</pre><p>G&eacute;n&eacute;rer un vecteur temps, par exemple de 0 &agrave; 3.5s environ.</p><pre class="codeinput"><span class="keyword">for</span> i = 1:100
+   t(i) = (i-1)*(3.5/100);
+   v_x0 =  v0 * cosd(angle);
+   s_x(i) =  v_x0*t(i); <span class="comment">% distance horizontale.</span>
+   v_y0 = v0 * sind(angle);
+   s_y(i) = h0 + v_y0*t(i) + 0.5*g*t(i)^2; <span class="comment">% hauteur</span>
+<span class="keyword">end</span>
+
+<span class="comment">% S_x en bleu, s_y en rouge :</span>
+plot(t,s_x,<span class="string">'b-'</span>, t,s_y,<span class="string">'r-'</span>);
+<span class="comment">% Compl&eacute;ter le graphique.</span>
+grid <span class="string">on</span>;
+xlabel(<span class="string">'temps (s)'</span>);
+ylabel(<span class="string">'Distance (m)'</span>);
+title(<span class="string">'Balle lanc&eacute;e vers le haut'</span>);
+legend(<span class="string">'dist. horiz.'</span>, <span class="string">'hauteur'</span>);
+</pre><img vspace="5" hspace="5" src="GraphEx2_01.png"> <p>Utiliser la loupe du menu pour mieux visualiser la solution au point de croisement.</p>
+         <p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% GraphEx2
+%%
+clear all; clc; close all
+v0 = 23; % m/s
+angle = 38; % degrés en élévation
+h0 = 35; % hauteur du bâtiment en m
+g = -9.8; % m/s² vers le bas
+% Il n'y a pas d'accélération en x.
+
+%%
+% Générer un vecteur temps, par exemple
+% de 0 à 3.5s environ.
+for i = 1:100
+   t(i) = (i-1)*(3.5/100);
+   v_x0 =  v0 * cosd(angle);
+   s_x(i) =  v_x0*t(i); % distance horizontale.
+   v_y0 = v0 * sind(angle);
+   s_y(i) = h0 + v_y0*t(i) + 0.5*g*t(i)^2; % hauteur
+end
+
+% S_x en bleu, s_y en rouge :
+plot(t,s_x,'b-', t,s_y,'r-');
+% Compléter le graphique.
+grid on;
+xlabel('temps (s)');
+ylabel('Distance (m)');
+title('Balle lancée vers le haut');
+legend('dist. horiz.', 'hauteur');
+%%
+% Utiliser la loupe du menu pour mieux visualiser
+% la solution au point de croisement.
+##### SOURCE END #####
+-->
+   </body>
+</html>

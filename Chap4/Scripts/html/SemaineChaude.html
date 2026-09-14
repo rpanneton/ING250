@@ -1,0 +1,237 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Analyse du fichier 1996sur7jours.txt</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-11-16">
+      <meta name="m-file" content="SemaineChaude"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Analyse du fichier 1996sur7jours.txt</h1>
+         <introduction></introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#1">Afficher les semaines 4 &agrave; 7</a></li>
+               <li><a href="#2">Jour le plus chaud de l'ann&eacute;e</a></li>
+               <li><a href="#3">Semaine la plus chaude de l'ann&eacute;e</a></li>
+               <li><a href="#4">Par vectorisation</a></li>
+            </ul>
+         </div>
+         <h2>Afficher les semaines 4 &agrave; 7<a name="1"></a></h2>
+         <div>
+            <ul>
+               <li>Afficher d'abord la portion de matrice demand&eacute;e.</li>
+               <li>Ajouter les no de semaine</li>
+               <li>Compl&eacute;ter l'en-t&ecirc;te des colonnes.</li>
+            </ul>
+         </div><pre class="codeinput">clear <span class="string">all</span>; clc; close <span class="string">all</span>;
+M = load(<span class="string">'1996sur7jours.txt'</span>);
+[nR, nC] = size(M);
+
+fprintf([<span class="string">'sem   lundi  mardi  mercr  jeudi'</span>,<span class="keyword">...</span>
+   <span class="string">'    ven    sam    dim\n'</span>]);
+<span class="keyword">for</span> i = 4:7
+   fprintf(<span class="string">' %02.0f  '</span>,i);
+   fprintf(<span class="string">'%6.1f '</span>,M(i,:));
+   fprintf(<span class="string">'\n'</span>)
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">sem   lundi  mardi  mercr  jeudi    ven    sam    dim
+ 04    -4.5   -3.2   -8.1  -19.1  -11.0   -0.7  -14.3 
+ 05   -15.5  -12.9  -24.5  -23.8  -21.6  -25.5  -24.1 
+ 06   -21.2  -19.5   -8.8    1.1   -5.7  -10.9  -12.4 
+ 07   -20.8  -19.3  -20.7  -17.5  -16.5  -15.6  -19.8 
+</pre><h2>Jour le plus chaud de l'ann&eacute;e<a name="2"></a></h2>
+         <p>S'il y en a plus d'un jour, choisir le premier.</p><pre class="codeinput">imax=1; jmax=1;
+<span class="keyword">for</span> i=1:nR
+   <span class="keyword">for</span> j=1:nC
+      <span class="keyword">if</span>(M(i,j)&gt;M(imax,jmax))
+         imax=i; jmax=j;
+      <span class="keyword">end</span>
+   <span class="keyword">end</span>
+<span class="keyword">end</span>
+fprintf([<span class="keyword">...</span>
+   <span class="string">'Le jour %.0f de la %.0fe semaine est le\n'</span>,<span class="keyword">...</span>
+   <span class="string">'plus chaud de l''ann&eacute;e, T = %.1f &deg;C\n'</span>],<span class="keyword">...</span>
+   jmax, imax, M(imax,jmax));
+</pre><pre class="codeoutput">Le jour 3 de la 32e semaine est le
+plus chaud de l'ann&eacute;e, T = 25.0 &deg;C
+</pre><h2>Semaine la plus chaude de l'ann&eacute;e<a name="3"></a></h2>
+         <p>C'est la moyenne sur 7 jours la plus &eacute;lev&eacute;e, soit la somme la plus &eacute;lev&eacute;e de chaque semaine. Sachant que la premi&egrave;re semaine
+            est tr&egrave;s froide, poser que la somme = 0 et comparer avec la somme des colonnes de chaque rang&eacute;e.
+         </p><pre class="codeinput">imax = 1; Smax =0;
+<span class="keyword">for</span> i = 1:nR
+   S = 0;
+   <span class="keyword">for</span> j = 1:nC
+      S = S + M(i,j);
+   <span class="keyword">end</span>
+   <span class="keyword">if</span>(S&gt;Smax)
+      imax = i;
+      Smax = S;
+   <span class="keyword">end</span>
+<span class="keyword">end</span>
+fprintf([<span class="string">'La %.0fe semaine est la plus chaude'</span>,<span class="keyword">...</span>
+   <span class="string">' de l''ann&eacute;e\navec une temp&eacute;rature moyenne'</span>,<span class="keyword">...</span>
+   <span class="string">' de %.1f&deg;C.\n'</span>],imax, Smax/nC);
+</pre><pre class="codeoutput">La 36e semaine est la plus chaude de l'ann&eacute;e
+avec une temp&eacute;rature moyenne de 20.4&deg;C.
+</pre><h2>Par vectorisation<a name="4"></a></h2><pre class="codeinput">[Temp,Rangees]=max(M);
+[Temp,Colonne]=max(Temp);
+fprintf([<span class="keyword">...</span>
+   <span class="string">'Le jour %.0f de la %.0fe semaine est le\n'</span>,<span class="keyword">...</span>
+   <span class="string">'plus chaud de l''ann&eacute;e, T = %.1f &deg;C\n\n'</span>],<span class="keyword">...</span>
+   Colonne, Rangees(Colonne), Temp);
+
+MoyenneDeChaqueSemaine = mean(M,2);
+[Temp, noDeLaSemaine] = max(MoyenneDeChaqueSemaine);
+fprintf([<span class="string">'La %.0fe semaine est la plus chaude'</span>,<span class="keyword">...</span>
+   <span class="string">' de l''ann&eacute;e\navec une temp&eacute;rature moyenne'</span>,<span class="keyword">...</span>
+   <span class="string">' de %.1f&deg;C.\n'</span>],noDeLaSemaine, Temp);
+</pre><pre class="codeoutput">Le jour 3 de la 32e semaine est le
+plus chaud de l'ann&eacute;e, T = 25.0 &deg;C
+
+La 36e semaine est la plus chaude de l'ann&eacute;e
+avec une temp&eacute;rature moyenne de 20.4&deg;C.
+</pre><p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Analyse du fichier 1996sur7jours.txt
+
+%% Afficher les semaines 4 à 7
+% * Afficher d'abord la portion de matrice
+% demandée.
+% * Ajouter les no de semaine
+% * Compléter l'en-tête des colonnes.
+clear all; clc; close all;
+M = load('1996sur7jours.txt');
+[nR, nC] = size(M);
+
+fprintf(['sem   lundi  mardi  mercr  jeudi',...
+   '    ven    sam    dim\n']);
+for i = 4:7
+   fprintf(' %02.0f  ',i);
+   fprintf('%6.1f ',M(i,:));
+   fprintf('\n')
+end
+
+%% Jour le plus chaud de l'année
+% S'il y en a plus d'un jour, choisir le premier.
+imax=1; jmax=1;
+for i=1:nR
+   for j=1:nC
+      if(M(i,j)>M(imax,jmax))
+         imax=i; jmax=j;
+      end
+   end
+end
+fprintf([...
+   'Le jour %.0f de la %.0fe semaine est le\n',...
+   'plus chaud de l''année, T = %.1f °C\n'],...
+   jmax, imax, M(imax,jmax));
+
+%% Semaine la plus chaude de l'année
+% C'est la moyenne sur 7 jours la plus élevée,
+% soit la somme la plus élevée de chaque semaine.
+% Sachant que la première semaine est très froide,
+% poser que la somme = 0 et comparer avec la somme
+% des colonnes de chaque rangée.
+imax = 1; Smax =0;
+for i = 1:nR
+   S = 0;
+   for j = 1:nC
+      S = S + M(i,j);
+   end
+   if(S>Smax)
+      imax = i;
+      Smax = S;
+   end
+end
+fprintf(['La %.0fe semaine est la plus chaude',...
+   ' de l''année\navec une température moyenne',...
+   ' de %.1f°C.\n'],imax, Smax/nC);
+
+%% Par vectorisation
+[Temp,Rangees]=max(M);
+[Temp,Colonne]=max(Temp);
+fprintf([...
+   'Le jour %.0f de la %.0fe semaine est le\n',...
+   'plus chaud de l''année, T = %.1f °C\n\n'],...
+   Colonne, Rangees(Colonne), Temp);
+
+MoyenneDeChaqueSemaine = mean(M,2);
+[Temp, noDeLaSemaine] = max(MoyenneDeChaqueSemaine);
+fprintf(['La %.0fe semaine est la plus chaude',...
+   ' de l''année\navec une température moyenne',...
+   ' de %.1f°C.\n'],noDeLaSemaine, Temp);
+
+
+##### SOURCE END #####
+-->
+   </body>
+</html>

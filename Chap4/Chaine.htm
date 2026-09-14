@@ -1,0 +1,274 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="Generator" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Les chaînes de caractères</title>
+<meta name="Template" content="C:\Program Files\Microsoft Office\Office\HTML.DOT">
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+</head>
+
+<body link="#0000ff" vlink="#800080">
+
+<h2>Les chaînes de caractères</h2>
+<p>Objectif&nbsp;: être capable de manipuler les éléments des chaînes de
+caractères (ou vecteurs de caractères).</p>
+<ul>
+  <li>Représentation dans la mémoire de l'ordinateur</li>
+  <li><i>fcanf</i> - lecture d'un fichier de caractères</li>
+  <li><i>textread</i> - lecture d'un fichier de différents types de données</li>
+  <li><i>fgetl</i> - lecture ligne à ligne d'un fichier de différents types de
+    données</li>
+</ul>
+<h3>Représentation dans la mémoire de l'ordinateur</h3>
+<p>Le type de base <i>chaîne de caractères</i> se trouve dans la plupart des
+logiciels de programmation. Une chaîne est une vecteur dont les éléments sont
+des caractères.</p>
+<p>Les caractères sont conservés sous la forme de nombres entiers dans la
+mémoire de l'ordinateur.</p>
+<p><code>&gt;&gt; 'Bonjour !' + 0<br>
+ans = 66 111 110 106 111 117 114 32 33<br>
+&gt;&gt; 'B'==66<br>
+ans = 1<br>
+&gt;&gt; 'o'== 111<br>
+ans = 1<br>
+&gt;&gt; 'n'== 110<br>
+ans = 1</code></p>
+<p>Les codes de 1 à 127 représentent les caractères appelés ASCII. Windows
+utilise des codes de 1 à 255 pour représenter des caractères appelés ANSI.
+Les 127 premiers correspondent aux codes ASCII.</p>
+<p>Matlab possède une bibliothèque de fonctions pour traiter les
+caractères&nbsp;:</p>
+<pre>&gt;&gt; doc strfun
+
+char - Create character array (string).
+double - Convert string to numeric character codes.
+cellstr - Create cell array of strings from character array.
+blanks - String of blanks.
+deblank - Remove trailing blanks.
+eval - Execute string with MATLAB expression.
+etc.</pre>
+<h3><i>fscanf</i> - lecture d'un fichier de caractères -</h3>
+<ul>
+  <li>La fonction <i>load</i> est appropriée pour lire des fichiers ne
+    contenant que des nombres.</li>
+  <li>La fonction <i>fscanf</i> permet de lire le contenu d'un fichier comme une
+    longue chaîne de caractères.
+    <ul>
+      <li>C'est une fonction qui ressemble à <i>fprintf</i>.</li>
+      <li>On peut lire également des données numériques, mais nous allons
+        nous limiter à la lecture de fichiers contenant du texte.</li>
+    </ul>
+  </li>
+</ul>
+<h4>Utilisation typique de <i>fscanf</i></h4>
+<p><b><i>fid</i> = <i>open</i>('Nom_du_fichier','r');<br>
+A = <i>fscanf</i></b>(où,comment);</p>
+<ul>
+  <li><i>où</i> : no de fichier (correspond à <b><i>fid</i></b> ci-haut)
+    <ul>
+      <li><b><i>open</i></b> ouvre le fichier appelé Nom_de_fichier en lecture
+        seulement ('r') et lui attribue un numéro.</li>
+      <li><b><i>fid</i></b> obtient ce numéro.</li>
+    </ul>
+  </li>
+  <li><i>comment</i> : le format de lecture. On utilise des caractères dans
+    cette présentation, <code>%c</code>.</li>
+  <li><b>A</b> contient la chaîne de caractères lus.</li>
+</ul>
+<h4>Exemple de lecture</h4>
+<pre>% Ch_fscan.m  Lire un fichier
+%    comme une grande chaîne.
+clear; clc
+fclose('all'); % Ferme tous les fichiers.
+fid=fopen('Sommeil.txt','r');
+Texte=fscanf(fid,'%c');
+Auteure=Texte(1820:1848)
+fclose(fid);
+% Compte le nombre de lettres e dans Texte
+NombreDeLettre_e=0;
+for i=1:length(Texte)
+   if(Texte(i)=='e')
+      NombreDeLettre_e=NombreDeLettre_e+1;
+   end
+end
+fprintf(1,'%s %d\n',...
+   'Nombre de caractères « e » :',...
+   NombreDeLettre_e);</pre>
+<p>Résultat&nbsp;:</p>
+<pre>Auteure =
+Lisa Lipman, Associated Press
+Nombre de caractères « e » : 220</pre>
+<h3><i>textread</i> - lecture d'un fichier de différents types de données</h3>
+<p>La fonction <i>textread</i> permet de lire facilement des fichiers où des
+données caractères et numériques sont bien formulées, c'est-à-dire lorsque
+les données sont alignées en colonnes et séparées par des virgules ou des
+espaces. Il suffit alors de spécifier un format correspondant au type de
+données à lire.<br>
+Exemple&nbsp;:</p>
+<table border="1">
+  <tr>
+    <td>
+      <pre>Sirius   8.7 -1.42
+Altair  16.0  0.77
+Pollux  33.0  1.16
+Becrux 500.0  1.28
+Castor  47.0  1.58
+Adhara 330.0  1.63
+Alioth  49.0  1.68
+Shaula 200.0  1.71
+Alkaid 190.0  1.91
+Alhena  78.0  1.92</pre>
+    </td>
+    <td><b>colonne&nbsp;1</b> - caractères,<br>
+      <i>nom</i>, sans apostrophes
+      <p><b>colonne&nbsp;2</b> - nombre,<br>
+      <i>distance</i>, années-lunières</p>
+      <p><b>colonne&nbsp;3</b> - nombre,<br>
+      magnitude.</td>
+  </tr>
+</table>
+<ul>
+  <li>[<i>quoi</i>] = <i>textread</i>('<i>où</i>', '<i>comment</i>']
+    <ul>
+      <li><i>quoi</i> : nom du vecteur pour chacune des colonnes,</li>
+      <li><i>où</i>&nbsp;: nom du fichier à lire,</li>
+      <li><i>comment</i>&nbsp;: indique le type de données à lire. Le format
+        peut comprendre la largeur du champ. Les formats les plus utiles sont
+        <ul>
+          <li>%c - caractère, le champ ou nombre de caractères est requis.</li>
+          <li>%n - numérique, le champ est souvent superflu.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+<p>Exemple&nbsp;(fichier Texte_lu.m)&nbsp;:</p>
+<table border="1">
+  <tr>
+    <td>
+      <pre>&gt;&gt; [nom,distance,magnitude] = ...
+ textread('Etoile.dat','%6c %n %n');
+&gt;&gt; whos
+  Name      Size Bytes  Class
+  distance  10x1    80  double
+  magnitude 10x1    80  double
+  nom       10x6   120  char</pre>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <pre>'%6c%n%n'
+%6c - 6 caractères pour <i>nom</i>
+%n  - un nombre pour <i>distance</i>
+%n  - un nombre pour <i>magnitude</i></pre>
+    </td>
+  </tr>
+</table>
+<h3><i>fgetl</i> - lecture ligne à ligne d'un fichier de différents types de
+données</h3>
+<ul>
+  <li><i>fgetl</i> - Lecture ligne par ligne</li>
+  <li>Détection de la fin du fichier</li>
+</ul>
+<p>Supposer qu'il faut lire un très long fichier, et que l'analyse doit
+s'effectuer ligne par ligne. Les fonctions <i>textread</i> et <i>fscanf</i>
+effectueraient la lecture du fichier complet en mémoire, ce qui pourrait ne pas
+être approprié. Solution alternative&nbsp;: <i>fgetl</i></p>
+<h4>Lecture ligne par ligne - fonction <i>fgetl</i></h4>
+<p>Cette opération est plus complexe que la lecture par <i>textread.</i></p>
+<p>Exemple&nbsp;: lire la première ligne du fichier <i>Etoile.dat</i>.</p>
+<ul>
+  <li>
+    <pre><font color="#228b22">%Fichier Etoile3.m</font>
+clear
+fid=fopen(<font color="#b22222">'Etoile.dat'</font>,<font color="#b22222">'r'</font>);
+Ligne = fgetl(fid);
+fclose(fid);
+Nombre_de_caracteres=length(Ligne)
+<font color="#228b22">%Arrangement permettant de repérer
+% la position des caractères.
+</font>Ligne
+disp(<font color="#b22222">'----+----+----+----+'</font>)
+<font color="#228b22">%Conversion d'une chaîne en nombre
+%   (string to number).
+</font>Etoile=Ligne(1:6);
+Distance = str2num(Ligne(8:12));
+Magnitude = str2num(Ligne(14:18));
+fprintf(<font color="#b22222">'Étoile : %s\nDistance :%5.1f\nMagnitude :%6.2f\n'</font>,<font color="#0000ff">...
+&nbsp;&nbsp;</font>&nbsp;&nbsp;&nbsp;Etoile,Distance,Magnitude);</pre>
+  </li>
+</ul>
+<p>Résultat :</p>
+<ul>
+  <li>
+    <pre>Nombre_de_caracteres =
+18
+Ligne =
+Sirius 8.7 -1.42
+----+----+----+----+
+Étoile : Sirius
+Distance : 8.7
+Magnitude : -1.42</pre>
+    <ul>
+      <li>La lecture s'effectue sous la forme d'une ligne de caractères.</li>
+      <li>Il faut manipuler le contenu pour en extraire les informations
+        souhaitées.</li>
+    </ul>
+  </li>
+</ul>
+<h4>Détection de la fin du fichier</h4>
+<p>On peut ainsi lire successivement toutes les lignes du fichier. Mais que se
+passe-t-il à la fin du fichier&nbsp;?&nbsp;</p>
+<p>Lorsque Matlab détecte la fin du fichier, il indique {-1} comme donnée, ce
+qui permet de terminer la lecture.</p>
+<ul>
+  <li>
+    <pre><font color="#008000">%Fichier&nbsp;etoile4.m
+</font>clear&nbsp;
+disp(<font color="#800000">'Début&nbsp;de&nbsp;la&nbsp;lecture&nbsp;:'</font>);
+fid=fopen(<font color="#800000">'Etoile.dat'</font>,<font color="#800000">'r'</font>);
+Ligne&nbsp;=&nbsp;fgetl(fid);
+j=0;
+<font color="#0000ff">while</font>(Ligne&nbsp;~=&nbsp;-1)
+&nbsp;&nbsp;&nbsp;j=j+1;
+&nbsp;&nbsp;&nbsp;Etoile(j,:)&nbsp;=&nbsp;Ligne(1:6);
+&nbsp;&nbsp;&nbsp;Distance(j)&nbsp;=&nbsp;str2num(Ligne(8:12));
+&nbsp;&nbsp;&nbsp;Magnitude(j)&nbsp;=&nbsp;str2num(Ligne(14:18));&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;Ligne&nbsp;=&nbsp;fgetl(fid);
+&nbsp;&nbsp;&nbsp;fprintf(<font color="#800000">'%d,&nbsp;'</font>,j);
+<font color="#0000ff">end
+</font>fclose(fid);
+fprintf(<font color="#800000">'fin.\n\n'</font>)
+
+<font color="#0000ff">for&nbsp;</font>i=1:j
+&nbsp;&nbsp;&nbsp;fprintf(<font color="#800000">'%s&nbsp;%5.1f&nbsp;%5.2f\n'</font>,<font color="#0000ff">...
+</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Etoile(i,:),Distance(i),Magnitude(i));
+<font color="#0000ff">end</font></pre>
+  </li>
+</ul>
+<p>Résultat&nbsp;:</p>
+<ul>
+  <li>
+    <pre>&gt;&gt;&nbsp;etoile4
+Début&nbsp;de&nbsp;la&nbsp;lecture&nbsp;:
+1,&nbsp;2,&nbsp;3,&nbsp;4,&nbsp;5,&nbsp;6,&nbsp;7,&nbsp;8,&nbsp;9,&nbsp;10,&nbsp;fin.
+&nbsp;
+Sirius&nbsp;&nbsp;&nbsp;8.7&nbsp;-1.42
+Altair&nbsp;&nbsp;16.0&nbsp;&nbsp;0.77
+Pollux&nbsp;&nbsp;33.0&nbsp;&nbsp;1.16
+Becrux&nbsp;500.0&nbsp;&nbsp;1.28
+Castor&nbsp;&nbsp;47.0&nbsp;&nbsp;1.58
+Adhara&nbsp;330.0&nbsp;&nbsp;1.63
+Alioth&nbsp;&nbsp;49.0&nbsp;&nbsp;1.68
+Shaula&nbsp;200.0&nbsp;&nbsp;1.71
+Alkaid&nbsp;190.0&nbsp;&nbsp;1.91
+Alhena&nbsp;&nbsp;78.0&nbsp;&nbsp;1.92</pre>
+  </li>
+</ul>
+<hr>
+
+</body>
+
+</html>

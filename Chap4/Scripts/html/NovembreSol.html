@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>Novembre &agrave; Sherbrooke</title>
+<meta name="generator" content="MATLAB 24.2">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2025-11-19">
+<meta name="DC.source" content="NovembreSol.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<h1>Novembre &agrave; Sherbrooke</h1>
+<!--introduction-->
+<!--/introduction-->
+<h2>Contents</h2>
+<div>
+<ul>
+<li>
+<a href="#2">Jour et heure o&ugrave; T est la plus basse du mois</a>
+</li>
+<li>
+<a href="#3">T moyenne du jour o&ugrave; T est la plus basse</a>
+</li>
+<li>
+<a href="#4">Temp&eacute;ratures du mois&nbsp;en 4 classes</a>
+</li>
+</ul>
+</div>
+<pre class="codeinput">clear; clc; close <span class="string">all</span>;
+T = readmatrix(<span class="string">'Nov2010matrice.xls'</span>);
+<span class="comment">% Remarque : les indices i et j sont une</span>
+<span class="comment">% convention en maths pour identifier un &eacute;l&eacute;ment</span>
+<span class="comment">% de matrice comme T(i,j).</span>
+<span class="comment">%</span>
+<span class="comment">% Pr&eacute;f&eacute;rer les variables i et j aux autres noms</span>
+<span class="comment">% pour les boucles manipulant des matrices.</span>
+</pre>
+<h2 id="2">Jour et heure o&ugrave; T est la plus basse du mois</h2>
+<pre class="codeinput">imin=1;jmin=1; [nL,nc]=size(T);
+<span class="keyword">for</span> i = 1:nL
+   <span class="keyword">for</span> j = 1:nc
+      <span class="keyword">if</span>(T(i,j)&lt;T(imin,jmin));
+         imin = i; jmin = j;
+      <span class="keyword">end</span>
+   <span class="keyword">end</span>
+<span class="keyword">end</span>
+fprintf([<span class="string">'Le %.0f novembre &agrave; %.0fh, '</span>,<span class="keyword">...</span>
+   <span class="string">'T = %.1f&deg;C.\n'</span>],imin, jmin, T(imin,jmin));
+</pre>
+<pre class="codeoutput">Le 1 novembre &agrave; 1h, T = NaN&deg;C.
+</pre>
+<h2 id="3">T moyenne du jour o&ugrave; T est la plus basse</h2>
+<p>Suite de l'&eacute;tape pr&eacute;c&eacute;dente</p>
+<pre class="codeinput">somme = 0;
+<span class="keyword">for</span> j = 1:nc
+   somme = somme + T(imin,j);
+<span class="keyword">end</span>
+fprintf(<span class="string">'Moyenne du %.0f novembre = %.1f&deg;C\n'</span>,<span class="keyword">...</span>
+   imin, somme/nc);
+</pre>
+<pre class="codeoutput">Moyenne du 1 novembre = NaN&deg;C
+</pre>
+<h2 id="4">Temp&eacute;ratures du mois&nbsp;en 4 classes</h2>
+<pre class="codeinput">Compteur = [0 0 0 0];
+<span class="keyword">for</span> i = 1:nL
+   <span class="keyword">for</span> j = 1:nc
+      <span class="keyword">if</span>(T(i,j)&lt;0)
+         Compteur(1)=Compteur(1)+1;
+      <span class="keyword">elseif</span>(T(i,j)&lt;5)
+         Compteur(2)=Compteur(2)+1;
+      <span class="keyword">elseif</span>(T(i,j)&lt;10)
+         Compteur(3)=Compteur(3)+1;
+      <span class="keyword">else</span>
+         Compteur(4)=Compteur(4)+1;
+      <span class="keyword">end</span>
+   <span class="keyword">end</span>
+<span class="keyword">end</span>
+batons(Compteur)
+</pre>
+<img vspace="5" hspace="5" src="NovembreSol_01.png" alt=""> <p>donne 294, 276, 115 et 35.</p>
+<p>
+<img vspace="5" hspace="5" src="..\Feuilles.gif" alt=""> </p>
+<p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2024b</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+%% Novembre à Sherbrooke
+%%
+clear; clc; close all;
+T = readmatrix('Nov2010matrice.xls');
+% Remarque : les indices i et j sont une
+% convention en maths pour identifier un élément
+% de matrice comme T(i,j).
+%
+% Préférer les variables i et j aux autres noms
+% pour les boucles manipulant des matrices.
+
+%% Jour et heure où T est la plus basse du mois
+imin=1;jmin=1; [nL,nc]=size(T);
+for i = 1:nL
+   for j = 1:nc
+      if(T(i,j)<T(imin,jmin));
+         imin = i; jmin = j;
+      end
+   end
+end
+fprintf(['Le %.0f novembre à %.0fh, ',...
+   'T = %.1f°C.\n'],imin, jmin, T(imin,jmin));
+
+%% T moyenne du jour où T est la plus basse
+% Suite de l'étape précédente
+somme = 0;
+for j = 1:nc
+   somme = somme + T(imin,j);
+end
+fprintf('Moyenne du %.0f novembre = %.1f°C\n',...
+   imin, somme/nc);
+
+%% Températures du mois en 4 classes
+Compteur = [0 0 0 0];
+for i = 1:nL
+   for j = 1:nc
+      if(T(i,j)<0)
+         Compteur(1)=Compteur(1)+1;
+      elseif(T(i,j)<5)
+         Compteur(2)=Compteur(2)+1;
+      elseif(T(i,j)<10)
+         Compteur(3)=Compteur(3)+1;
+      else
+         Compteur(4)=Compteur(4)+1;
+      end
+   end
+end
+batons(Compteur)
+%%
+% donne 294, 276, 115 et 35.
+%
+% <<..\Feuilles.gif>>
+##### SOURCE END #####
+-->
+</body>
+</html>

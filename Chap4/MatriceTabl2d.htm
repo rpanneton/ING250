@@ -1,0 +1,122 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="fr-ca">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Matrices</title>
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+<link rel="stylesheet" type="text/css" href="../css/indexco.css">
+<style>
+<!--
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+span.string {color: #A020F0}
+span.comment {color: #228B22}
+span.keyword {color: #0000FF}
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+-->
+</style>
+</head>
+
+<body>
+
+<h1>Matrices ou tableaux&nbsp;2D</h1>
+
+<B>
+<P>&Eacute;crire des matrices dans Matlab</P>
+</B><P><IMG SRC="IMG00025.GIF" WIDTH=141 HEIGHT=92>&nbsp;&nbsp;&nbsp; <IMG SRC="IMG00026.GIF" width="149" height="92">&nbsp;&nbsp;&nbsp; <IMG SRC="IMG00027.GIF" WIDTH=189 HEIGHT=92>&nbsp;&nbsp;&nbsp; <IMG SRC="IMG00028.GIF" WIDTH=128 HEIGHT=59>&nbsp;&nbsp;&nbsp; <IMG SRC="IMG00029.GIF" WIDTH=71 HEIGHT=92></P>
+<B><DL>
+<DT>Matrice&nbsp;</B>: c'est une structuration de donn&eacute;es en <B>deux dimensions</B> qui contient une s&eacute;quence de plusieurs lignes par plusieurs colonnes d'&eacute;l&eacute;ments du m&ecirc;me type. </DT>
+</DL>
+<P>�crire une matrice � rappel</P>
+
+<UL>
+<LI>Une fa&ccedil;on intuitive consiste &agrave; &eacute;crire la matrice ligne par ligne&nbsp;:<BR>
+&gt;&gt;&nbsp;A=[<BR>
+&nbsp;5&nbsp;-2&nbsp;&nbsp;1<BR>
+&nbsp;1&nbsp;&nbsp;0&nbsp;&nbsp;4<BR>
+-3&nbsp;&nbsp;7&nbsp;&nbsp;2]<BR>
+A&nbsp;=<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;-2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 <BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 <BR>
+&nbsp;&nbsp;&nbsp;&nbsp;-3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 </LI>
+<LI>Utiliser le point-virgule pour s&eacute;parer les lignes&nbsp;:<BR>
+&gt;&gt;&nbsp;B=[2&nbsp;-1&nbsp;2;&nbsp;-1&nbsp;5&nbsp;-3;&nbsp;6&nbsp;-4&nbsp;1] <BR>
+B&nbsp;=<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 <BR>
+&nbsp;&nbsp;&nbsp;&nbsp;-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;-3 <BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;&nbsp;&nbsp;&nbsp;-4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 </LI>
+</UL>
+
+<h2>Op&eacute;rations matricielles famili&egrave;res</h2>
+<P>Matlab est con�u pour effectuer facilement des op�rations matricielles. La commande <I>help</I> donne un aper&ccedil;u des op&eacute;rateurs matriciels disponibles dans Matlab&nbsp;:<BR>
+&gt;&gt;&nbsp;help *</P>
+<DL>
+<dt>En utilisant les matrices du d�but du chapitre&nbsp;:</dt>
+<P><IMG SRC="IMG00025.GIF" WIDTH=141 HEIGHT=92>&nbsp;&nbsp;&nbsp; <IMG SRC="IMG00026.GIF" width="149" height="92">&nbsp;&nbsp;&nbsp; <IMG SRC="IMG00027.GIF" WIDTH=189 HEIGHT=92>&nbsp;<br>
+&nbsp;&nbsp; <IMG SRC="IMG00028.GIF" WIDTH=128 HEIGHT=59>&nbsp;&nbsp;&nbsp; <IMG SRC="IMG00029.GIF" WIDTH=71 HEIGHT=92></P>
+</DL>
+
+<UL>
+<LI>Addition de deux matrices<BR>
+&gt;&gt;&nbsp;A&nbsp;+&nbsp;B<BR>
+ans&nbsp;=<BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;&nbsp;&nbsp;&nbsp;-3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3</CODE>&nbsp; <BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1</CODE>&nbsp; <BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3</CODE>&nbsp; </LI>
+<LI>Soustraction de deux matrices<BR>
+&gt;&gt;&nbsp;A&nbsp;-&nbsp;B<BR>
+ans&nbsp;=<BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;-1&nbsp;&nbsp;&nbsp;&nbsp;-1</CODE>&nbsp; <BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;-5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7</CODE>&nbsp; <BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;-9&nbsp;&nbsp;&nbsp;&nbsp;11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1</CODE>&nbsp; </LI>
+<LI>Transpos&eacute;e d'une matrice <BR>
+signe apostrophe accol&eacute; &agrave; la variable<BR>
+&gt;&gt;&nbsp;A'<BR>
+ans =<BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;-3</CODE>&nbsp; <BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;-2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7</CODE>&nbsp; <BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2</CODE>&nbsp; </LI>
+<LI>Multiplication de deux matrices (dans le sens d'alg&ebre lin&eaire)<BR>
+&gt;&gt;&nbsp;A*B<BR>
+ans&nbsp;=<BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;18&nbsp;&nbsp;&nbsp;-19&nbsp;&nbsp;&nbsp;&nbsp;17</CODE>&nbsp; <BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;26&nbsp;&nbsp;&nbsp;-17&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6</CODE>&nbsp; <BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;-1&nbsp;&nbsp;&nbsp;&nbsp;30&nbsp;&nbsp;&nbsp;-25</CODE>&nbsp; </LI>
+<LI>Multiplication de deux matrices &eacute;l&eacute;ment par &eacute;l&eacute;ment<BR>
+&gt;&gt;&nbsp;A.*B<BR>
+ans&nbsp;=<BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2</CODE>&nbsp; <BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;-12</CODE>&nbsp; <BR>
+<CODE>&nbsp;&nbsp;&nbsp;-18&nbsp;&nbsp;&nbsp;-28&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2</CODE>&nbsp; </LI>
+<LI>Matrice �lev�e &agrave; une puissance<BR>
+&gt;&gt;&nbsp;B^3<BR>
+ans&nbsp;=<BR>
+<CODE>&nbsp;&nbsp;&nbsp;103&nbsp;&nbsp;-128&nbsp;&nbsp;&nbsp;&nbsp;88</CODE>&nbsp; <BR>
+<CODE>&nbsp;&nbsp;-208&nbsp;&nbsp;&nbsp;295&nbsp;&nbsp;-184</CODE>&nbsp; <BR>
+<CODE>&nbsp;&nbsp;&nbsp;224&nbsp;&nbsp;-272&nbsp;&nbsp;&nbsp;159</CODE>&nbsp; <BR>
+Rappel&nbsp;: B^3 est &eacute;gal &agrave; B*B*B<BR>
+&gt;&gt;&nbsp;B*B*B<BR>
+ans&nbsp;=<BR>
+<CODE>&nbsp;&nbsp;&nbsp;103&nbsp;&nbsp;-128&nbsp;&nbsp;&nbsp;&nbsp;88</CODE>&nbsp; <BR>
+<CODE>&nbsp;&nbsp;-208&nbsp;&nbsp;&nbsp;295&nbsp;&nbsp;-184</CODE>&nbsp; <BR>
+<CODE>&nbsp;&nbsp;&nbsp;224&nbsp;&nbsp;-272&nbsp;&nbsp;&nbsp;159</CODE>&nbsp; </LI>
+<LI>Chaque &eacute;l&eacute;ment d'une matrice �lev� � une puissance<BR>
+B.^3<BR>
+ans&nbsp;=<BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8</CODE>&nbsp; <BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;-1&nbsp;&nbsp;&nbsp;125&nbsp;&nbsp;&nbsp;-27</CODE>&nbsp; <BR>
+<CODE>&nbsp;&nbsp;&nbsp;216&nbsp;&nbsp;&nbsp;-64&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1</CODE>&nbsp; </LI></UL>
+
+<p>La vectorisation est le concept sous-jacent � ces op�rations.</p>
+<p><img border="0" src="../css/Feuilles.gif" width="500" height="19"></p>
+
+</body>
+
+</html>

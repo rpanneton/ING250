@@ -1,0 +1,130 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>GraphEx5</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-10-10">
+      <meta name="m-file" content="GraphEx5"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>GraphEx5</h1>
+         <introduction></introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#3">Graphique</a></li>
+            </ul>
+         </div><pre class="codeinput">clear; clc; close <span class="string">all</span>;
+</pre><p>G&eacute;n&eacute;rer une centaine de valeurs entre</p>
+         <p><img vspace="5" hspace="5" src="GraphEx5_eq6603.png"> </p><pre class="codeinput">x=linspace(-pi,pi);
+<span class="keyword">for</span> i = 1:100
+   x(i) = -pi + (i-1)*(2*pi)/100;
+   y1(i) = -4*x(i)^2 +3*x(i) +5;
+   y2(i) = -2*x(i)^3 +10*sin(x(i))-3^x(i);
+<span class="keyword">end</span>
+</pre><h2>Graphique<a name="3"></a></h2>
+         <p>Tracer y1 en bleu, y2 en rouge.</p><pre class="codeinput">plot(x,y1,<span class="string">'b-'</span>, x,y2,<span class="string">'r-'</span>);
+
+<span class="comment">% Compl&eacute;ter le graphique.</span>
+grid <span class="string">on</span>;
+xlabel(<span class="string">'x'</span>);
+ylabel(<span class="string">'y'</span>);
+title(<span class="string">'intersection'</span>);
+legend(<span class="string">'y1'</span>, <span class="string">'y2'</span>);
+</pre><img vspace="5" hspace="5" src="GraphEx5_01.png"> <p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% GraphEx5
+%%
+clear; clc; close all;
+%%
+% Générer une centaine de valeurs entre
+%
+% $$ -\pi $$ et $$ +\pi $$
+%
+x=linspace(-pi,pi);
+for i = 1:100
+   x(i) = -pi + (i-1)*(2*pi)/100;
+   y1(i) = -4*x(i)^2 +3*x(i) +5;
+   y2(i) = -2*x(i)^3 +10*sin(x(i))-3^x(i);
+end
+%% Graphique
+% Tracer y1 en bleu, y2 en rouge.
+plot(x,y1,'b-', x,y2,'r-');
+
+% Compléter le graphique.
+grid on;
+xlabel('x');
+ylabel('y');
+title('intersection');
+legend('y1', 'y2');
+##### SOURCE END #####
+-->
+   </body>
+</html>

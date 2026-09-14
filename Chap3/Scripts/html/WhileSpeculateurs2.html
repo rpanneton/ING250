@@ -1,0 +1,121 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Recherche de donn&eacute;es</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-10-29">
+      <meta name="m-file" content="WhileSpeculateurs2"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Recherche de donn&eacute;es</h1><pre class="codeinput">clear; clc; close <span class="string">all</span>;
+V = load(<span class="string">'Speculateurs.txt'</span>);
+</pre><p>La sentinelle 1 est identifi&eacute;e (c'est faux).</p><pre class="codeinput">Sentinelle1 = false; <span class="comment">% = z&eacute;ro</span>
+S = 0; <span class="comment">% sommateur</span>
+k = 0; <span class="comment">% compteur de donn&eacute;es valides</span>
+j = 1;
+<span class="keyword">while</span>(V(j)~=60.3)
+   k = k + Sentinelle1;
+   S = S + V(j)*Sentinelle1;
+   Sentinelle1 = Sentinelle1 || V(j)==60.2;
+   j = j + 1;
+<span class="keyword">end</span>
+fprintf(<span class="string">'Nombre de donn&eacute;es valides = %.0f\n'</span>,k);
+fprintf(<span class="string">'Moyenne = %.2f\n'</span>,S/k);
+</pre><pre class="codeoutput">Nombre de donn&eacute;es valides = 29
+Moyenne = 62.48
+</pre><p>Le bool&eacute;en sentinelle1 est utilis&eacute; comme une donn&eacute;e num&eacute;rique.</p>
+         <p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Recherche de données
+clear; clc; close all;
+V = load('Speculateurs.txt');
+
+%%
+% La sentinelle 1 est identifiée (c'est faux).
+Sentinelle1 = false; % = zéro
+S = 0; % sommateur
+k = 0; % compteur de données valides
+j = 1;
+while(V(j)~=60.3)
+   k = k + Sentinelle1;
+   S = S + V(j)*Sentinelle1;
+   Sentinelle1 = Sentinelle1 || V(j)==60.2;
+   j = j + 1;
+end
+fprintf('Nombre de données valides = %.0f\n',k);
+fprintf('Moyenne = %.2f\n',S/k);
+
+%%
+% Le booléen sentinelle1 est utilisé comme une
+% donnée numérique.
+##### SOURCE END #####
+-->
+   </body>
+</html>

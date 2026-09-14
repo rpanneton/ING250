@@ -1,0 +1,264 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Boucle &agrave; fin conditionnelle</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-10-28">
+      <meta name="m-file" content="TantQue"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Boucle &agrave; fin conditionnelle</h1>
+         <introduction>
+            <p>Une boucle &agrave; fin conditionnelle est utilis&eacute;e lorsque l'arr&ecirc;t du traitement a lieu apr&egrave;s l'apparition ou la disparition d'une
+               condition. Elle n&eacute;cessite une initialisation portant sur la condition avant le premier passage dans la boucle.
+            </p>
+         </introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#1">Description</a></li>
+               <li><a href="#2">S&eacute;quence A = [1, 3, 5, 7, 9]</a></li>
+               <li><a href="#4">S&eacute;quence de nombres al&eacute;atoires</a></li>
+            </ul>
+         </div>
+         <h2>Description<a name="1"></a></h2>
+         <p>TantQue la condition est vraie, la s&eacute;quence 1 est ex&eacute;cut&eacute;e.</p>
+         <p><img vspace="5" hspace="5" src="..\TantQue.gif"> </p>
+         <div>
+            <ul>
+               <li>La condition initiale produit un bool&eacute;en <b>vrai</b>, faute de quoi la s&eacute;quence 1 n'est jamais ex&eacute;cut&eacute;e.
+               </li>
+            </ul>
+         </div>
+         <div>
+            <ul>
+               <li>La s&eacute;quence 1 rend &eacute;ventuellement le bool&eacute;en <b>faux</b>, autrement la s&eacute;quence 1 est r&eacute;p&eacute;t&eacute;e sans fin.
+               </li>
+            </ul>
+         </div>
+         <h2>S&eacute;quence A = [1, 3, 5, 7, 9]<a name="2"></a></h2>
+         <p>La boucle &agrave; fin conditionnelle n'est pas un choix judicieux lorsque le nombre de cycles est connu, comme c'est le cas pour
+            une s&eacute;quence bien d&eacute;finie. Toutefois, l'exemple permet une analogie avec la boucle <i>for-end</i>.
+         </p><pre class="codeinput">clear <span class="string">all</span>; clc;
+<span class="keyword">for</span> i=1:1:5     <span class="comment">% Pour i=1 &agrave; 5, par pas de 1</span>
+   Af(i)=2*i-1; <span class="comment">%    calculer Af(i)</span>
+<span class="keyword">end</span>             <span class="comment">% FinPour</span>
+fprintf(<span class="string">'Af ='</span>),fprintf(<span class="string">'%2.0f'</span>,Af); fprintf(<span class="string">'\n'</span>);
+
+i = 1;          <span class="comment">% initialisation du compteur</span>
+<span class="keyword">while</span>(i&lt;=5)     <span class="comment">% TantQue i &lt;= 5</span>
+   Aw(i)=2*i-1; <span class="comment">%    calculer Aw(i)</span>
+   i = i+1;     <span class="comment">%    accro&icirc;tre le compteur de 1</span>
+<span class="keyword">end</span>             <span class="comment">% FinTantQue</span>
+fprintf(<span class="string">'Aw ='</span>),fprintf(<span class="string">'%2.0f'</span>,Aw); fprintf(<span class="string">'\n'</span>);
+</pre><pre class="codeoutput">Af = 1 3 5 7 9
+Aw = 1 3 5 7 9
+</pre><p>Initialisation du compteur contenu dans le bool&eacute;en de l'instruction <i>while</i></p>
+         <div>
+            <ul>
+               <li>Calcul du bool&eacute;en i&lt;=5, la condition permettant la r&eacute;p&eacute;tition.</li>
+               <li>Lorsque le bool&eacute;en est vrai, la s&eacute;quence comprise entre les instructions <i>while</i> et <i>end</i> est ex&eacute;cut&eacute;e, dont la modification du compteur en lien avec la condition permettant la r&eacute;p&eacute;tition.
+               </li>
+            </ul>
+         </div>
+         <p>Tant que la condition est satisfaite, la s&eacute;quence est r&eacute;p&eacute;t&eacute;e.</p>
+         <p>Lorsque la condition n'est plus satisfaite, Matlab continue avec l'instruction qui suit l'instruction <i>end</i>.
+         </p>
+         <p><b>S&eacute;mantique</b></p><pre>Si la condition est satisfaite, boucle.</pre><p>C'est une erreur qui peut conduire &agrave; utiliser une structure de d&eacute;cision plut&ocirc;t qu'une boucle. Formuler plut&ocirc;t</p><pre>TantQue la condition est satisfaite, boucle.</pre><p>Les programmeurs font en sorte que la condition soit modifi&eacute;e &agrave; la toute fin de la s&eacute;quence de la boucle. La condition initiale
+            est habituellement le plus pr&egrave;s possible du d&eacute;but de la boucle.
+         </p>
+         <h2>S&eacute;quence de nombres al&eacute;atoires<a name="4"></a></h2>
+         <p>Constituer une s&eacute;quence contenant des nombres entiers positifs al&eacute;atoires. La s&eacute;quence se termine d&egrave;s que la somme est sup&eacute;rieure
+            &agrave; 20.
+         </p><pre class="codeinput">S = 0; <span class="comment">% sommateur</span>
+i = 0; <span class="comment">% indice de N</span>
+<span class="keyword">while</span>(S&lt;=20)
+   i = i+1;
+   N(i)=round(9*rand); <span class="comment">% entier al&eacute;atoire de 0 &agrave; 9</span>
+   S = S + N(i);
+<span class="keyword">end</span>
+fprintf(<span class="string">'N ='</span>),fprintf(<span class="string">'%2.0f'</span>,N); fprintf(<span class="string">'\n'</span>);
+fprintf(<span class="string">'La somme = %.0f\n'</span>,S);
+</pre><pre class="codeoutput">N = 6 8 9
+La somme = 23
+</pre><p>Le choix d'une boucle &agrave; fin conditionnelle est tout &agrave; fait appropri&eacute;, car on ne conna&icirc;t pas le nombre de cycles &agrave; effectuer.
+            Il n'est pas possible d'utiliser la boucle compt&eacute;e sans recourir &agrave; un artifice.
+         </p>
+         <p><img vspace="5" hspace="5" src="..\TantQue.gif"> </p>
+         <p><img vspace="5" hspace="5" src="..\Feuilles.gif"> </p>
+         <p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Boucle à fin conditionnelle
+% Une boucle à fin conditionnelle est utilisée
+% lorsque l'arrêt du traitement a lieu
+% après l'apparition ou la disparition d'une
+% condition. Elle nécessite une initialisation
+% portant sur la condition avant le premier
+% passage dans la boucle.
+
+%% Description
+% TantQue la condition est vraie, la séquence 1
+% est exécutée.
+%
+% <<..\TantQue.gif>>
+%
+% * La condition initiale
+% produit un booléen *vrai*, faute de quoi la
+% séquence 1 n'est jamais exécutée.
+%
+% * La séquence 1 rend éventuellement le
+% booléen *faux*, autrement la séquence 1 est
+% répétée sans fin.
+
+%% Séquence A = [1, 3, 5, 7, 9]
+% La boucle à fin conditionnelle n'est pas un
+% choix judicieux lorsque le nombre de cycles est
+% connu, comme c'est le cas pour une séquence bien
+% définie. Toutefois, l'exemple
+% permet une analogie avec la boucle _for-end_.
+
+clear all; clc;
+for i=1:1:5     % Pour i=1 à 5, par pas de 1
+   Af(i)=2*i-1; %    calculer Af(i)
+end             % FinPour
+fprintf('Af ='),fprintf('%2.0f',Af); fprintf('\n');
+
+i = 1;          % initialisation du compteur
+while(i<=5)     % TantQue i <= 5
+   Aw(i)=2*i-1; %    calculer Aw(i)
+   i = i+1;     %    accroître le compteur de 1
+end             % FinTantQue
+fprintf('Aw ='),fprintf('%2.0f',Aw); fprintf('\n');
+
+%%
+% Initialisation du compteur contenu dans le
+% booléen de l'instruction _while_
+%
+% * Calcul du booléen i<=5, la
+% condition permettant la répétition.
+% * Lorsque le booléen est vrai, la séquence
+% comprise entre les instructions _while_ et
+% _end_ est exécutée, dont la modification du
+% compteur en lien avec la condition permettant la
+% répétition.
+%
+% Tant que la condition est satisfaite, la
+% séquence est répétée.
+%
+% Lorsque la condition n'est plus satisfaite,
+% Matlab continue avec l'instruction qui suit
+% l'instruction _end_.
+%
+% *Sémantique*
+% 
+%  Si la condition est satisfaite, boucle.
+% 
+% C'est une erreur qui peut conduire à utiliser
+% une structure de décision plutôt qu'une boucle.
+% Formuler plutôt
+%
+%  TantQue la condition est satisfaite, boucle.
+%
+% Les programmeurs font en sorte que la condition
+% soit modifiée à la toute fin de la séquence de
+% la boucle. La condition initiale est
+% habituellement le plus près possible du début de
+% la boucle.
+
+%% Séquence de nombres aléatoires
+% Constituer une séquence contenant des nombres
+% entiers positifs aléatoires.
+% La séquence se termine dès que la somme est
+% supérieure à 20.
+
+S = 0; % sommateur
+i = 0; % indice de N
+while(S<=20)
+   i = i+1;
+   N(i)=round(9*rand); % entier aléatoire de 0 à 9
+   S = S + N(i);
+end
+fprintf('N ='),fprintf('%2.0f',N); fprintf('\n');
+fprintf('La somme = %.0f\n',S);
+
+%%
+% Le choix d'une boucle à fin conditionnelle est
+% tout à fait approprié, car on ne connaît pas
+% le nombre de cycles à effectuer. Il n'est pas
+% possible d'utiliser la boucle comptée sans
+% recourir à un artifice.
+%
+% <<..\TantQue.gif>>
+%
+% <<..\Feuilles.gif>>
+##### SOURCE END #####
+-->
+   </body>
+</html>

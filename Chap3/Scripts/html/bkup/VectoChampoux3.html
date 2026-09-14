@@ -1,0 +1,137 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Filtre &eacute;lectrique de type passe-bas</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-10-29">
+      <meta name="m-file" content="VectoChampoux3"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Filtre &eacute;lectrique de type passe-bas</h1>
+         <introduction>
+            <p>Module de la fonction de transfert entre la tension d'entr&eacute;e du filtre et la tension de sortie exprim&eacute;e en dB en fonction
+               de la fr&eacute;quence
+            </p>
+         </introduction><pre class="codeinput">clear <span class="string">all</span>; clc; close <span class="string">all</span>
+R = 10;     <span class="comment">% r&eacute;sistance  (Ohm)</span>
+C = 0.001;  <span class="comment">% capacitance (Farad)</span>
+omega = linspace(0,100,300); <span class="comment">% fr&eacute;quence angulaire (rad/s)</span>
+numerateur=1;
+denominateur=<span class="keyword">...</span>
+   (omega*R*C).^2+1;     <span class="comment">% g&eacute;n&egrave;re un vecteur de</span>
+                         <span class="comment">% la m&ecirc;me taille que omega.</span>
+H=numerateur ./  <span class="keyword">...</span>
+   sqrt(denominateur);   <span class="comment">% division &eacute;l&eacute;ment par &eacute;l&eacute;ment</span>
+                         <span class="comment">% H est un vecteur</span>
+H_dB=10*log10(H.^2);     <span class="comment">% Module de la fonction de</span>
+                         <span class="comment">% transfert en dB</span>
+frequence=omega/(2*pi);  <span class="comment">% Pour tracer l'axe en</span>
+                         <span class="comment">% fr&eacute;quence Hz (ou s^-1)</span>
+                         <span class="comment">% au lien de la fr&eacute;quence</span>
+                         <span class="comment">% angulaire (rad/s)</span>
+plot(frequence,H_dB);
+ylabel(<span class="string">'Fonction de transfert (dB)'</span>);
+xlabel(<span class="string">'Fr&eacute;quence (Hz)'</span>);
+title(<span class="string">'Gabarit d''un filtre passe-bas'</span>);
+grid <span class="string">on</span>;
+</pre><img vspace="5" hspace="5" src="VectoChampoux3_01.png"> <p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Filtre électrique de type passe-bas
+% Module de la fonction de transfert
+% entre la tension d'entrée du filtre
+% et la tension de sortie exprimée en dB
+% en fonction de la fréquence
+%%
+clear all; clc; close all
+R = 10;     % résistance  (Ohm)
+C = 0.001;  % capacitance (Farad)
+omega = linspace(0,100,300); % fréquence angulaire (rad/s)
+numerateur=1;
+denominateur=...
+   (omega*R*C).^2+1;     % génère un vecteur de
+                         % la même taille que omega.
+H=numerateur ./  ...
+   sqrt(denominateur);   % division élément par élément
+                         % H est un vecteur
+H_dB=10*log10(H.^2);     % Module de la fonction de
+                         % transfert en dB
+frequence=omega/(2*pi);  % Pour tracer l'axe en
+                         % fréquence Hz (ou s^-1)
+                         % au lien de la fréquence
+                         % angulaire (rad/s)
+plot(frequence,H_dB);
+ylabel('Fonction de transfert (dB)');
+xlabel('Fréquence (Hz)');
+title('Gabarit d''un filtre passe-bas');
+grid on;
+##### SOURCE END #####
+-->
+   </body>
+</html>

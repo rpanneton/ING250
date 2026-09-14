@@ -1,0 +1,863 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html class="win firefox firefox3 gecko gecko1" dir="ltr" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+
+<title>MATLAB Programming/Symbolic Toolbox - Wikibooks, collection of open-content textbooks</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="generator" content="MediaWiki 1.16alpha-wmf">
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="http://en.wikibooks.org/w/index.php?title=MATLAB_Programming/Symbolic_Toolbox&amp;action=edit">
+<link rel="edit" title="Edit this page" href="http://en.wikibooks.org/w/index.php?title=MATLAB_Programming/Symbolic_Toolbox&amp;action=edit">
+<link rel="stylesheet" type="text/css" href="Symbolic_Toolbox_fichiers/combined.css">
+<link rel="stylesheet" type="text/css" href="Symbolic_Toolbox_fichiers/jquery-ui-1.css">
+<link rel="shortcut icon" href="http://en.wikibooks.org/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://en.wikibooks.org/w/opensearch_desc.php" title="Wikibooks (en)">
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/">
+<link rel="alternate" type="application/rss+xml" title="Wikibooks RSS Feed" href="http://en.wikibooks.org/w/index.php?title=Special:RecentChanges&amp;feed=rss">
+<link rel="alternate" type="application/atom+xml" title="Wikibooks Atom Feed" href="http://en.wikibooks.org/w/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="Symbolic_Toolbox_fichiers/shared.css" type="text/css" media="screen">
+<link rel="stylesheet" href="Symbolic_Toolbox_fichiers/commonPrint.css" type="text/css" media="print">
+<link rel="stylesheet" href="Symbolic_Toolbox_fichiers/main_002.css" type="text/css" media="screen">
+<link rel="stylesheet" href="Symbolic_Toolbox_fichiers/main.css" type="text/css" media="handheld">
+<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins-1.5/monobook/IE50Fixes.css?257z2" type="text/css" media="screen" /><![endif]-->
+<!--[if IE 5.5000]><link rel="stylesheet" href="/skins-1.5/monobook/IE55Fixes.css?257z2" type="text/css" media="screen" /><![endif]-->
+<!--[if IE 6]><link rel="stylesheet" href="/skins-1.5/monobook/IE60Fixes.css?257z2" type="text/css" media="screen" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/skins-1.5/monobook/IE70Fixes.css?257z2" type="text/css" media="screen" /><![endif]-->
+<link rel="stylesheet" href="Symbolic_Toolbox_fichiers/flaggedrevs.css" type="text/css" media="all">
+<link rel="stylesheet" href="Symbolic_Toolbox_fichiers/index_003.css" type="text/css" media="all">
+<link rel="stylesheet" href="Symbolic_Toolbox_fichiers/index_002.css" type="text/css" media="print">
+<link rel="stylesheet" href="Symbolic_Toolbox_fichiers/index_005.css" type="text/css" media="handheld">
+<link rel="stylesheet" href="Symbolic_Toolbox_fichiers/index.css" type="text/css" media="all">
+<link rel="stylesheet" href="Symbolic_Toolbox_fichiers/index_004.css" type="text/css" media="all">
+<script type="text/javascript">
+var skin="monobook",
+stylepath="/skins-1.5",
+wgArticlePath="/wiki/$1",
+wgScriptPath="/w",
+wgScriptExtension=".php",
+wgScript="/w/index.php",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="http://en.wikibooks.org",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="MATLAB_Programming/Symbolic_Toolbox",
+wgTitle="MATLAB Programming/Symbolic Toolbox",
+wgAction="view",
+wgArticleId=88753,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=1646798,
+wgVersion="1.16alpha-wmf",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "Wikibooks", "5": "Wikibooks talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk", "102": "Cookbook", "103": "Cookbook talk", "108": "Transwiki", "109": "Transwiki talk", "110": "Wikijunior", "111": "Wikijunior talk", "112": "Subject", "113": "Subject talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "wikibooks": 4, "wikibooks_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "cookbook": 102, "cookbook_talk": 103, "transwiki": 108, "transwiki_talk": 109, "wikijunior": 110, "wikijunior_talk": 111, "subject": 112, "subject_talk": 113, "image": 6, "image_talk": 7},
+wgMWSuggestTemplate="http://en.wikibooks.org/w/api.php?action=opensearch\x26search={searchTerms}\x26namespace={namespaces}\x26suggest",
+wgDBname="enwikibooks",
+wgSearchNamespaces=[0, 4, 112],
+wgMWSuggestMessages=["with suggestions", "no suggestions"],
+wgRestrictionEdit=[],
+wgRestrictionMove=[],
+wgFlaggedRevsParams={"tags": {"composition": 3, "accuracy": 2, "coverage": 2}},
+wgStableRevisionId=0,
+wgAjaxReview={"sendingMsg": "Submitting...", "sentMsgOk": "Review complete!", "sentMsgBad": "Review failed!", "actioncomplete": "Action complete", "actionfailed": "Action failed"},
+wgTrackingToken="8c12a65ddc3c3d71b6da7232fe8cb176",
+wgClickTrackingIsThrottled=true,
+wgNotice="",
+wgNoticeLocal="";
+</script>
+<script src="Symbolic_Toolbox_fichiers/wikibits.js" type="text/javascript"></script>
+<script src="Symbolic_Toolbox_fichiers/ajax.js" type="text/javascript"></script>
+<script src="Symbolic_Toolbox_fichiers/mwsuggest.js" type="text/javascript"></script>
+<script type="text/javascript" src="Symbolic_Toolbox_fichiers/js2.js"></script>
+<script type="text/javascript" src="Symbolic_Toolbox_fichiers/plugins.js"></script>
+<script type="text/javascript" src="Symbolic_Toolbox_fichiers/CollapsibleTabs.js"></script>
+<script type="text/javascript" src="Symbolic_Toolbox_fichiers/ClickTracking.js"></script>
+<script type="text/javascript" src="Symbolic_Toolbox_fichiers/centralnotice.js"></script><style type="text/css">
+#centralNotice .siteNoticeSmall{display:none;}
+#centralNotice .siteNoticeSmallAnon{display:none;}
+#centralNotice .siteNoticeSmallUser{display:none;}
+#centralNotice.collapsed .siteNoticeBig{display:none;}
+#centralNotice.collapsed .siteNoticeSmall{display:block;}
+#centralNotice.collapsed .siteNoticeSmallUser{display:block;}
+#centralNotice.collapsed .siteNoticeSmallAnon{display:block;}
+#centralNotice.anonnotice .siteNoticeSmallUser{display:none !important;}
+#centralNotice.usernotice .siteNoticeSmallAnon{display:none !important;}
+</style>
+
+
+<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?257z2"></script>
+	<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+<script src="Symbolic_Toolbox_fichiers/index.php" type="text/javascript"></script><script type="text/javascript" src="Symbolic_Toolbox_fichiers/index_002.php"></script><script type="text/javascript" src="Symbolic_Toolbox_fichiers/index_009.php"></script><script type="text/javascript" src="Symbolic_Toolbox_fichiers/index_008.php"></script><script type="text/javascript" src="Symbolic_Toolbox_fichiers/index_006.php"></script><script type="text/javascript" src="Symbolic_Toolbox_fichiers/index_007.php"></script><script type="text/javascript" src="Symbolic_Toolbox_fichiers/index_005.php"></script><script type="text/javascript" src="Symbolic_Toolbox_fichiers/index_003.php"></script><script type="text/javascript" src="Symbolic_Toolbox_fichiers/index_004.php"></script>
+
+<script type="text/javascript" src="Symbolic_Toolbox_fichiers/flaggedrevs.js"></script></head><body class="mediawiki ltr ns-0 ns-subject page-MATLAB_Programming_Symbolic_Toolbox skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a id="top"></a>
+		<div id="siteNotice"><script type="text/javascript">if (wgNotice != '') document.writeln(wgNotice);</script><div id="centralNotice" class="expanded anonnotice"><style type="text/css">
+/* Styles for Notices */
+.notice-all a {
+ text-decoration: none;
+}
+.notice-all a:hover span {
+ text-decoration: underline;
+}
+div.notice-all div, div.notice-all span {
+ margin: 0 !important;
+}
+.notice-pitch {
+ display: inline-block;
+ background-color: transparent;
+}
+.notice-pitch-text {
+ overflow: visible;
+ color: black;
+ font-family: sans-serif;
+ font-weight: bold;
+ text-align: center;
+ font-size: 2.25em;
+ line-height: 1em;
+ padding: 0.5em !important;
+ cursor: pointer;
+}
+.notice-slogan {
+ color: black;
+ font-weight: bold;
+ padding-right: 1em;
+}
+.siteNoticeBig {
+ position: relative;
+ float: left;
+ width: 100%;
+ border: solid 5px navy;
+ background-color: white;
+ margin-bottom: 1em;
+ padding-top: 1em;
+ padding-bottom: 1em;
+}
+ .siteNoticeBig .notice-toggle {
+  position: absolute;
+  top: 0em;
+  right: 0.5em;
+  font-size: 0.75em;
+ }
+.siteNoticeSmallAnon {
+ position: relative;
+ float: left;
+ width: 100%;
+ border: solid 1px navy;
+ background-color: white;
+ text-align: center;
+ padding: 0.1em 0;
+ margin-bottom: 1em;
+}
+ .siteNoticeSmallAnon .notice-toggle {
+  float: right;
+  font-size: 0.75em;
+  padding-right: 0.5em;
+ }
+ .siteNoticeSmallAnon .notice-slogan {
+  padding-left: 0.5em;
+ }
+.siteNoticeSmallUser {
+ position: relative;
+ float: left;
+ width: 100%;
+ text-align: center;
+ margin-bottom: 1em;
+}
+ .siteNoticeSmallUser .notice-toggle {
+  float: right;
+  font-size: 0.75em;
+ }
+</style>
+<script>
+/* @param mode string to be appended to the utm_source paramter like "utm_source=[notice]_[mode]" */
+function goToDonationPage( mode ) {
+ var url = 'http://meta.wikimedia.org/wiki/Special:GeoLite?lang=en&&utm_medium=sitenotice&utm_campaign=fundraiser2009&utm_source=2009_Jimmy_Appeal9';
+ if ( mode && mode.length ) { 
+  url += '_' + mode;
+ }
+ var targets = String( 'Appeal, Appeal2' ).split(',');
+ if ( targets.length ) {
+  url += '&target=' + targets[Math.floor( Math.random() * targets.length )].replace(/^\s+|\s+$/, '');
+ }
+ window.location = url;
+}
+</script>
+<div class="notice-all siteNoticeBig" align="center">
+ <a class="notice-pitch" href="javascript:goToDonationPage()">
+  <div class="notice-pitch-text">
+   <span>Please read:<br>A personal appeal from Wikipedia founder Jimmy Wales</span>
+  </div>
+  <div style="clear: both;"></div>
+ </a>
+ <div class="notice-toggle">[<a href="#" onclick="toggleNotice();return false"><span>Hide</span></a>]</div>
+ <div style="clear: both;"></div>
+</div>
+<div class="notice-all siteNoticeSmallAnon">
+ <div class="notice-toggle">[<a href="#" onclick="toggleNotice()"><span>Show</span></a>]</div>
+ <a class="notice-slogan" href="javascript:goToDonationPage('collapsed')">
+   <span>Wikibooks</span>
+   <img src="Symbolic_Toolbox_fichiers/Wikipedia-logo-small_Fundraising_2009.png" alt="">
+   <span>Forever</span>
+ </a>
+ <span>Our shared knowledge. Our shared treasure.</span>
+ <a href="javascript:goToDonationPage('collapsed')">
+  <span>Help us protect it.</span>
+ </a>
+ <div style="clear: both;"></div>
+</div>
+<div class="notice-all siteNoticeSmallUser">
+ <div class="notice-toggle">[<a href="#" onclick="toggleNotice()"><span>Show</span></a>]</div>
+ <a class="notice-slogan" href="javascript:goToDonationPage('collapsed')">
+  <span>Wikibooks</span>
+  <img src="Symbolic_Toolbox_fichiers/Wikipedia-logo-small_Fundraising_2009.png" alt="">
+  <span>Forever</span>
+ </a>
+ <span>Our shared knowledge. Our shared treasure.</span>
+ <a href="javascript:goToDonationPage('collapsed')">
+  <span>Help us protect it.</span>
+ </a>
+ <div style="clear: both;"></div>
+</div>
+<div style="clear: both;"></div></div>
+</div>		<h1 id="firstHeading" class="firstHeading">MATLAB Programming/Symbolic Toolbox</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikibooks, the open-content textbooks collection</h3>
+			<div id="contentSub"><span class="subpages">&lt; <a href="http://en.wikibooks.org/wiki/MATLAB_Programming" title="MATLAB Programming">MATLAB Programming</a></span><div id="mw-revisiontag" class="flaggedrevs_short plainlinks noprint"><span class="fr-icon-current plainlinks"></span><b><a href="http://en.wikibooks.org/wiki/Help:Revision_review" title="Help:Revision review">Current revision</a></b> (unreviewed)</div></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p><br></p>
+<div class="noprint" style="border: 1px solid rgb(136, 187, 136); margin: 0.5em; padding: 0.5em; background-color: rgb(238, 255, 238); font-size: small; text-align: left; float: right; clear: right; width: 25%;">
+<p><a href="http://en.wikibooks.org/wiki/MATLAB_Programming" title="MATLAB Programming">MATLAB Programming</a></p>
+<p><b>Chapter 1: A Tutorial Introduction</b></p>
+<p><b>Chapter 2: Basic MATLAB Concepts</b></p>
+<dl>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Saving_and_loading_a_MAT-file" title="MATLAB Programming/Saving and loading a MAT-file">Saving and loading a MAT-file</a></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/The_MATLAB_Command_Prompt" title="MATLAB Programming/The MATLAB Command Prompt">MATLAB's Command Prompt</a></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Basic_Reading_and_Writing_data_from_a_file" title="MATLAB Programming/Basic Reading and Writing data from a file">Basic Reading and Writing Data from a File</a></dd>
+</dl>
+<p><b>Chapter 3: Data Storage and Manipulation</b></p>
+<p><i>Data Types and Operations on Point Values</i></p>
+<dl>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Boolean_and_Rational" title="MATLAB Programming/Boolean and Rational">Boolean and Rational</a></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Strings" title="MATLAB Programming/Strings">Strings</a></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Portable_Functions" title="MATLAB Programming/Portable Functions">Portable Functions</a></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Complex_Numbers" title="MATLAB Programming/Complex Numbers">Complex Numbers</a></dd>
+</dl>
+<p><i>Arrays and Matrices</i></p>
+<dl>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Arrays" title="MATLAB Programming/Arrays">What is an array?</a></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Introduction_to_array_operations" title="MATLAB Programming/Introduction to array operations">Introduction to array operations</a></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Basic_vector_operations" title="MATLAB Programming/Basic vector operations">Vectors and basic vector operations</a></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Struct_Arrays" title="MATLAB Programming/Struct Arrays">Struct Arrays</a></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Cell_Arrays" title="MATLAB Programming/Cell Arrays">Cell Arrays</a></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Sparse_Matrices" title="MATLAB Programming/Sparse Matrices">Sparse Matrices</a></dd>
+</dl>
+<p><b>Chapter 4: Graphics</b></p>
+<dl>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Graphics" title="MATLAB Programming/Graphics">Basic Graphics Commands</a></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Annotate" title="MATLAB Programming/Annotate">Annotating Plots</a></dd>
+</dl>
+<p><b>Chapter 5: M File Programming</b></p>
+<dl>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Scripts" title="MATLAB Programming/Scripts">Scripts</a></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Comments" title="MATLAB Programming/Comments">Comments</a></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Entering_data_at_the_command_line" title="MATLAB Programming/Entering data at the command line">The Input Function</a></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Control_Flow" title="MATLAB Programming/Control Flow">Control Flow</a></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Loops_and_Branches" title="MATLAB Programming/Loops and Branches">Loops and Branches</a></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Error_Messages" title="MATLAB Programming/Error Messages">Error Messages</a></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/MATLAB_Caveats" title="MATLAB Programming/MATLAB Caveats">MATLAB Caveats</a></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Debugging_M_Files" title="MATLAB Programming/Debugging M Files">Debugging M Files</a></dd>
+</dl>
+<p><b>Chapter 6: Mathematical Manipulations</b></p>
+<p><i>Linear Algebra</i></p>
+<dl>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Simple_matrix_manipulation" title="MATLAB Programming/Simple matrix manipulation">Simple matrix manipulation</a></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/More_complicated_matrix_operations" title="MATLAB Programming/More complicated matrix operations">More complicated matrix operations</a></dd>
+</dl>
+<p><i>Differential Equations</i></p>
+<dl>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Ordinary_Differential_Equations" title="MATLAB Programming/Ordinary Differential Equations">Ordinary Differential Equations</a></dd>
+<dd><a href="http://en.wikibooks.org/w/index.php?title=MATLAB_Programming/Partial_Differential_Equations&amp;action=edit&amp;redlink=1" class="new" title="MATLAB Programming/Partial Differential Equations (does not exist)">Partial Differential Equations</a></dd>
+</dl>
+<p><b>Chapter 7: More advanced I/O</b></p>
+<dl>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Writing_and_Reading_to_A_Serial_Port" title="MATLAB Programming/Writing and Reading to A Serial Port">Writing and Reading to a Serial Port</a></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Writing_to_a_USB_port" title="MATLAB Programming/Writing to a USB port">Writing to a USB Port</a></dd>
+</dl>
+<p><b>Chapter 8: Examples</b></p>
+<dl>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Filtering" title="MATLAB Programming/Filtering">Filtering</a></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Controls" title="MATLAB Programming/Controls">Controls</a></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Phase_Vocoder_and_Encoder" title="MATLAB Programming/Phase Vocoder and Encoder">Phase Vocoder and Encoder</a></dd>
+</dl>
+<p><b>Chapter 9: Object-Oriented Programming</b></p>
+<dl>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Struct_arrays" title="MATLAB Programming/Struct arrays">Struct arrays</a></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/MATlab_Classes" title="MATLAB Programming/MATlab Classes">MATLAB Classes</a></dd>
+</dl>
+<p><b>Chapter 10: An alternative to MATLAB: Octave</b></p>
+<dl>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/GNU_Octave" title="MATLAB Programming/GNU Octave">What is Octave ?</a></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Differences_between_Octave_and_MATLAB" title="MATLAB Programming/Differences between Octave and MATLAB">Octave/MATLAB differences</a></dd>
+</dl>
+<p><b>Chapter 11: Toolboxes</b></p>
+<dl>
+<dd><strong class="selflink">Symbolic Math Toolbox</strong></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/GUIDE" title="MATLAB Programming/GUIDE">GUIDE</a></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Simulink" title="MATLAB Programming/Simulink">Simulink</a></dd>
+<dd><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Psychtoolbox" title="MATLAB Programming/Psychtoolbox">Psych Toolbox</a></dd>
+</dl>
+<p><small><a href="http://en.wikibooks.org/w/index.php?title=Template:MATLAB_Programming/Nav&amp;action=edit" class="external text" rel="nofollow">edit this box</a></small></p>
+</div>
+<p><br></p>
+<p><br></p>
+<table id="toc" class="toc">
+<tbody><tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+ <span class="toctoggle">[<a href="javascript:toggleToc()" class="internal" id="togglelink">hide</a>]</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Introduction_to_the_Symbolic_Math_Toolbox"><span class="tocnumber">1</span> <span class="toctext">Introduction to the Symbolic Math Toolbox</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Symbolic_Variables"><span class="tocnumber">2</span> <span class="toctext">Symbolic Variables</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Symbolic_Numbers"><span class="tocnumber">3</span> <span class="toctext">Symbolic Numbers</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Symbolic_Functions"><span class="tocnumber">4</span> <span class="toctext">Symbolic Functions</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Substituting_Values_into_Symbolic_Variables"><span class="tocnumber">4.1</span> <span class="toctext">Substituting Values into Symbolic Variables</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Algebraic_Function_Manipulations"><span class="tocnumber">4.2</span> <span class="toctext">Algebraic Function Manipulations</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Algebraic_Equations"><span class="tocnumber">5</span> <span class="toctext">Algebraic Equations</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="#Solving_Algebraic_Equations_With_a_Single_Variable"><span class="tocnumber">5.1</span> <span class="toctext">Solving Algebraic Equations With a Single Variable</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Solving_Symbolic_Functions_for_Particular_Variables"><span class="tocnumber">5.2</span> <span class="toctext">Solving Symbolic Functions for Particular Variables</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Solving_Algebraic_Systems"><span class="tocnumber">5.3</span> <span class="toctext">Solving Algebraic Systems</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#Analytic_Calculus"><span class="tocnumber">6</span> <span class="toctext">Analytic Calculus</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="#Differentiation_and_Integration_with_One_Variable"><span class="tocnumber">6.1</span> <span class="toctext">Differentiation and Integration with One Variable</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Differentiation_and_Integration_of_Multivariable_Functions"><span class="tocnumber">6.2</span> <span class="toctext">Differentiation and Integration of Multivariable Functions</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Analytic_Solutions_to_ODEs"><span class="tocnumber">6.3</span> <span class="toctext">Analytic Solutions to ODEs</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#Integral_Transforms"><span class="tocnumber">6.4</span> <span class="toctext">Integral Transforms</span></a></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+<script type="text/javascript">
+//<![CDATA[
+if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=MATLAB_Programming/Symbolic_Toolbox&amp;action=edit&amp;section=1" title="Edit section: Introduction to the Symbolic Math Toolbox">edit</a>]</span> <span class="mw-headline" id="Introduction_to_the_Symbolic_Math_Toolbox">Introduction to the Symbolic Math Toolbox</span></h2>
+<p>The symbolic toolbox is a bit difficult to use but it is of great
+utility in applications in which symbolic expressions are necessary for
+reasons of accuracy in calculations. The toolbox simply calls the MAPLE
+kernel with whatever symbolic expressions you have declared, and then
+returns a (usually symbolic) expression back to MATLAB. It is important
+to remember that MAPLE is <i>not</i> a numeric engine, which means
+that there are certain things it doesn't let you do that MATLAB can do.
+Rather, it is useful as a supplement to provide functions which MATLAB,
+as a numerical engine, has difficulty with.</p>
+<p>The symbolic math toolbox takes some time to initialize, so if
+nothing happens for a few seconds after you declare your first symbolic
+variable of the session, it doesn't mean you did anything wrong.</p>
+<p>The MATLAB student version comes with a copy of the symbolic math toolbox.</p>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=MATLAB_Programming/Symbolic_Toolbox&amp;action=edit&amp;section=2" title="Edit section: Symbolic Variables">edit</a>]</span> <span class="mw-headline" id="Symbolic_Variables">Symbolic Variables</span></h2>
+<p>You can declare a single symbolic variable using the 'sym' function as follows.</p>
+<pre>&gt;&gt; a = sym('a1')
+a = a1
+</pre>
+<p>You can create arrays of symbolic expressions like everything else:</p>
+<p><br></p>
+<pre>&gt;&gt; a2 = sym('a2');
+&gt;&gt; a  = [a1, a2]
+a = [ a1,  a2]
+</pre>
+<p><br>
+Symbolic variables can also be declared many at a time using the 'syms'
+function. By default, the symbolic variables created have the same
+names as the arguments of the 'syms' function. The following creates
+three symbolic variables, a b and c.</p>
+<pre>&gt;&gt; syms a b c
+&gt;&gt; a
+a = a
+</pre>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=MATLAB_Programming/Symbolic_Toolbox&amp;action=edit&amp;section=3" title="Edit section: Symbolic Numbers">edit</a>]</span> <span class="mw-headline" id="Symbolic_Numbers">Symbolic Numbers</span></h2>
+<p>Symbolic numbers allow exact representations of fractions, intended
+to help avoid rounding errors and representation errors. This section
+helps explain how to declare them.</p>
+<p>If you try to add a number into a symbolic array it will automatically turn it into a <i>symbolic</i> number.</p>
+<pre>&gt;&gt; syms a1, a2;
+&gt;&gt; a = [a1, a2];
+&gt;&gt; a(3) = 1; %would normally be class 'double'
+&gt;&gt; class(a(3))
+ans = sym
+</pre>
+<p>Symbolic numbers can also be declared using the syntax a(3) =
+sym('number'). The difference between symbolic numbers and normal
+MATLAB numbers is that, if possible, MAPLE will keep the symbolic
+number as a fraction, which is an exact representation of the answer.
+For example, to represent the number 0.5 as a fraction, you can use:</p>
+<pre>&gt;&gt; sym(0.5)
+ans = 1/2
+</pre>
+<p>Here, of course, MATLAB would normally return 0.5. To make MATLAB change this back into a 'double', type:</p>
+<pre>&gt;&gt; double(ans)
+ans = 0.5000
+</pre>
+<p>Other class conversions are possible as well; for instance, to change it into a <i>string</i> use the 'char' function. There is no function to directly change a symbolic variable into a function handle, unfortunately.</p>
+<p>A caveat: Making a symbolic variable of negative exponentials can
+create problems if you don't use the correct syntax. You cannot do this:</p>
+<pre>&gt;&gt;  sym('2^-5')
+??? Error using ==&gt; sym.sym&gt;char2sym
+Not a valid symbolic expression.
+</pre>
+<p>Instead, you must do this:</p>
+<pre>&gt;&gt;  sym('2^(-5)')
+ans = 2^(-5)
+</pre>
+<p>MAPLE is thus more picky about what operators you can use than MATLAB.</p>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=MATLAB_Programming/Symbolic_Toolbox&amp;action=edit&amp;section=4" title="Edit section: Symbolic Functions">edit</a>]</span> <span class="mw-headline" id="Symbolic_Functions">Symbolic Functions</span></h2>
+<p>You can create functions of symbolic variables, not just the
+variables themselves. This is probably the most intuitive way to do it:</p>
+<pre>&gt;&gt; syms a b c %declare variables
+&gt;&gt; f = a + b + c
+ans = a + b + c
+</pre>
+<p>If you do it this way, you can then subsequently perform
+substitutions, differentiations, and so on with respect to any one of
+these variables.</p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=MATLAB_Programming/Symbolic_Toolbox&amp;action=edit&amp;section=5" title="Edit section: Substituting Values into Symbolic Variables">edit</a>]</span> <span class="mw-headline" id="Substituting_Values_into_Symbolic_Variables">Substituting Values into Symbolic Variables</span></h3>
+<p>Substitutions can be made into functions of symbolic variables.
+Suppose you defined the function f = a + b + c and wish to substitute a
+= 3 into f. You can do this with the following syntax:</p>
+<pre>&gt;&gt; syms a b c  %declare variables
+&gt;&gt; f = a + b + c;
+&gt;&gt; subs(f, a, 3)
+ans = 3+b+c
+</pre>
+<p>Notice the form of this function call. The first argument is the name of the <i>function</i> you wish to substitute into. The second can be either the name of the symbolic variable you want to plug in for <i>or</i>
+its present value, but if you want to avoid confusion they should be
+the same anyway. The third argument is the value you want to plug in
+for that variable.</p>
+<p>The value you're plugging in need not be a number. You can also plug
+in other variables (including those already present in the function) by
+using strings. Using the same f:</p>
+<pre>&gt;&gt; subs(f, a, 'x')
+ans = x+b+c
+&gt;&gt; subs(f, a, 'b')
+ans = 2*b + c
+</pre>
+<p>If x is already a symbolic variable you can omit the quotes (but if it's not you'll get an undefined variable error):</p>
+<pre>&gt;&gt; syms x
+&gt;&gt; subs(f,a,x)
+ans = x+b+c
+</pre>
+<p>Multiple substitutions are allowed; to do it, just declare each of
+them as an array. For example, to plug in 1 for a and 2 for b use:</p>
+<pre>&gt;&gt; subs(f, [a,b], [1,2])
+ans = 3+c
+</pre>
+<p>Finally, if you substitute for <i>all</i> of the symbolic values in
+a function MATLAB automatically changes the value back into a double so
+that you can manipulate it in the MATLAB workspace.</p>
+<pre>&gt;&gt; subs(f, [a,b,c], [1,2,3])
+ans = 6
+&gt;&gt; class(ans)
+ans = double
+</pre>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=MATLAB_Programming/Symbolic_Toolbox&amp;action=edit&amp;section=6" title="Edit section: Algebraic Function Manipulations">edit</a>]</span> <span class="mw-headline" id="Algebraic_Function_Manipulations">Algebraic Function Manipulations</span></h3>
+<p>The symbolic math toolbox allows you several different ways to
+manipulate functions. First off you can factor a function using
+'factor' and multiply it out using 'expand':</p>
+<pre>&gt;&gt; syms a b
+&gt;&gt; f = a^2 - 2*a*b + b^2;
+&gt;&gt; factor(f);
+ans =  (a - b)^2
+&gt;&gt; expand(ans)
+ans =  a^2 - 2*a*b + b^2
+</pre>
+<p>The 'collect' function does the same thing as the 'expand' function
+but only effects polynomial terms. 'Expand' can also be used to expand
+trigonometric and logarithmic/exponential functions with the
+appropriate identities.</p>
+<p>The Horner (nested) representation for a function is given by 'horner':</p>
+<pre>&gt;&gt; horner(f)
+ans = b^2+(-2*b+a)*a
+</pre>
+<p>This representation has a relatively low number of operations
+required for its evaluation compared to the expanded version and is
+therefore helpful in making calculations more efficient.</p>
+<p>A common problem with symbolic calculations is that the answer
+returned is often not in its simplest form. MATLAB's function 'simple'
+will perform all of the possible function manipulations and then return
+the one that is the <i>shortest</i>. To do this do something like:</p>
+<pre>&gt;&gt; Y = simple(f)
+Y =  (a - b)^2
+</pre>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=MATLAB_Programming/Symbolic_Toolbox&amp;action=edit&amp;section=7" title="Edit section: Algebraic Equations">edit</a>]</span> <span class="mw-headline" id="Algebraic_Equations">Algebraic Equations</span></h2>
+<p>The symbolic math toolbox is able to solve an algebraic expression
+for any variable, provided that it is mathematically possible to do so.
+It can also solve both single equations and algebraic systems.</p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=MATLAB_Programming/Symbolic_Toolbox&amp;action=edit&amp;section=8" title="Edit section: Solving Algebraic Equations With a Single Variable">edit</a>]</span> <span class="mw-headline" id="Solving_Algebraic_Equations_With_a_Single_Variable">Solving Algebraic Equations With a Single Variable</span></h3>
+<p>MATLAB uses the 'solve' function to solve an algebraic equation. The
+syntax is solve(f, var) where f is the function you wish to solve and
+var is the variable to solve for. If f is a function of a single
+variable you will get a <i>number</i>, while if it is multiple variables you will get a symbolic expression.</p>
+<p>First, let us say we want to solve the quadratic equation x^2 = 16
+for x. The solutions are x = -4 and x = 4. To do this, you can put the
+function into 'solve' directly, or you can define a function in terms
+of x to solve and pass that into the 'solve' function. The first method
+is rather intuitive:</p>
+<pre>&gt;&gt; solve('x^2 = 16', x)
+ans = -4
+       4
+&gt;&gt; solve(x^2 - 16, x)
+ans = -4
+       4
+</pre>
+<p>Either of these two syntax works. The first must be in quotes or you
+get an 'invalid assignment' error. In the second, x must be defined as
+a symbolic variable beforehand or you get an 'undefined variable' error.</p>
+<p>For the second method you assign a dummy variable to the equation you want to solve like this:</p>
+<pre>&gt;&gt; syms x
+&gt;&gt; y = x^2 - 16;
+&gt;&gt; solve(y, x);
+</pre>
+<p>Note that since MATLAB assumes that y = 0 when you're solving the
+equation, you must subtract 16 from both sides to put the equation into
+normal form.</p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=MATLAB_Programming/Symbolic_Toolbox&amp;action=edit&amp;section=9" title="Edit section: Solving Symbolic Functions for Particular Variables">edit</a>]</span> <span class="mw-headline" id="Solving_Symbolic_Functions_for_Particular_Variables">Solving Symbolic Functions for Particular Variables</span></h3>
+<p>The format for doing this is similar to that for solving for a
+single variable, but you will get a symbolic function rather than a
+number as output. There are a couple of things to look out for though.</p>
+<p>As an example, suppose that you want to solve the equation y = 2x +
+4 for x. The expected solution is x = (y-4)/2. Lets see how we can get
+MATLAB to do this. First let's look at how NOT to do it:</p>
+<pre>&gt;&gt; syms x
+&gt;&gt; y = 2*x + 4;
+&gt;&gt; solve(y, x)
+ans = -2
+</pre>
+<p>What has happened here? The MATLAB toolbox assumes that the 'y' you
+declared is 0 for the purposes of solving the equation! So it solved
+the equation 2x + 4 = 0 for x. In order to do what you intended to do
+you have to put your original equation, y = 2x + 4, into <i>normal form</i>, which is 2x + 4 - y = 0. Once this is done, you need to assign a 'dummy' variable like this:</p>
+<pre>&gt;&gt; syms x y
+&gt;&gt; S = 2*x + 4 - y; %S is the 'dummy'
+&gt;&gt; solve(S, x)
+ans = -2 + 1/2*y
+</pre>
+<p>This is, of course, the same thing as what we expected. You could
+also just pass the function into the 'solve' function like this, as
+done with functions of a single variable:</p>
+<pre>&gt;&gt; solve('y = 2*x + 4', x);
+</pre>
+<p>The first method is preferable, because once it is set up it is much
+more flexible to changes in the function. In the second method you
+would have to change every call to 'solve' if you changed the function
+at all, whereas in the first you only need to change the original
+definition of S.</p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=MATLAB_Programming/Symbolic_Toolbox&amp;action=edit&amp;section=10" title="Edit section: Solving Algebraic Systems">edit</a>]</span> <span class="mw-headline" id="Solving_Algebraic_Systems">Solving Algebraic Systems</span></h3>
+<p>The 'solve' command also allows you to solve systems of algebraic equations, and will attempt to return <i>all</i> solutions to these systems. As a first example, let us consider the linear system</p>
+<pre>a + b = 3
+a + 2*b = 6,
+</pre>
+<p>which has the solution (a,b) = (0,3). You can tell MATLAB to solve it as follows:</p>
+<pre>&gt;&gt; syms a b
+&gt;&gt; f(1) = a + b - 3;
+&gt;&gt; f(2) = a + 2*b - 6;
+&gt;&gt; [A,B] = solve(f(1), f(2))
+A = 0
+B = 3
+</pre>
+<p>If only one output variable is specified but there are multiple equations, MATLAB will return the solutions in a struct array:</p>
+<pre>&gt;&gt; SOLUTION = solve(f(1), f(2))
+SOLUTION =
+a: [1x1 sym]
+b: [1x1 sym]
+&gt;&gt; SOLUTION.a
+a = 0
+&gt;&gt; SOLUTION.b
+b = 3
+</pre>
+<p>The good thing about this is that the fields have the same names as
+the original variables, whereas in the other form it is easy to get
+confused which variable is going into which spot in the array. In
+addition, the struct array is more convenient for large systems.</p>
+<p>Now let us look at a slightly more complex example:</p>
+<pre>a^2 + b^2 = 1
+a + b = 1
+</pre>
+<p>This has solutions (a,b) = (0,1) and (a,b) = (1,0). Now putting this into MATLAB gives:</p>
+<pre>&gt;&gt; f = [a^2 + b^2 - 1, a + b - 1]; SOLUTION = solve(f(1), f(2));
+&gt;&gt; SOLUTION.a
+ans = 1
+      0
+&gt;&gt; SOLUTION.b
+ans = 0
+      1
+</pre>
+<p>Here both solutions are given, a(1) corresponds to b(1) and a(2)
+corresponds to b(2). To get one of the solutions into a single array
+together you can use normal array indexing, as in:</p>
+<pre>&gt;&gt; Solution1 = [SOLUTION.a(1), SOLUTION.b(1)]
+Solution1 = [1, 0]
+</pre>
+<h2><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=MATLAB_Programming/Symbolic_Toolbox&amp;action=edit&amp;section=11" title="Edit section: Analytic Calculus">edit</a>]</span> <span class="mw-headline" id="Analytic_Calculus">Analytic Calculus</span></h2>
+<p>MATLAB's symbolic toolbox, in addition to its algebraic
+capabilities, can also perform many common calculus tasks, including
+analytical integration, differentiation, partial differentiation,
+integral transforms, and solving ordinary differential equations,
+provided the given tasks are mathematically possible.</p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=MATLAB_Programming/Symbolic_Toolbox&amp;action=edit&amp;section=12" title="Edit section: Differentiation and Integration with One Variable">edit</a>]</span> <span class="mw-headline" id="Differentiation_and_Integration_with_One_Variable">Differentiation and Integration with One Variable</span></h3>
+<p>Differentiation of functions with one or more variables is achieved
+using the 'diff' function. As usual, you can either define the function
+before the differentiation (recommended for M files) or you can
+manually write it in as an argument (recommended for command-line
+work). If there is only one symbolic variable in the expression, MATLAB
+assumes that is the variable you are differentiating with respect to.
+The syntax is simply:</p>
+<pre>&gt;&gt; syms x
+&gt;&gt; f = x^2 - 3*x + 4;
+&gt;&gt; diff(f) % or diff('x^2 - 3*x + 4')
+ans =  2*x - 3
+</pre>
+<p>Integration, similarly, is achieved using the 'int' function. Only specifying the function results in an <i>indefinite</i> integral, or the antiderivative of the function.</p>
+<pre>&gt;&gt; int(f)
+ans =  1/3*x^3-3/2*x^2
+</pre>
+<p>Note that if you only specify one output argument (or none at all), the 'int' function <i>omits the integration constant</i>. You just have to know it's there.</p>
+<p>To do a <i>definite</i> integral on a one-variable function, simply specify the beginning and end points.</p>
+<pre>&gt;&gt; int(f, 0,1)
+ans = -7/6
+</pre>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=MATLAB_Programming/Symbolic_Toolbox&amp;action=edit&amp;section=13" title="Edit section: Differentiation and Integration of Multivariable Functions">edit</a>]</span> <span class="mw-headline" id="Differentiation_and_Integration_of_Multivariable_Functions">Differentiation and Integration of Multivariable Functions</span></h3>
+<p>A convenient way of representing the derivatives of multivariate functions (partial derivatives) is with the <b>Jacobian</b>,
+which is performed by the 'jacobian' function. To use it, you should
+define an array of symbolic functions and then just pass it to the
+function (note the difference between the use of this function, which
+requires all equations to be in the same array, and the use of 'solve',
+which requires you to separately pass each equation):</p>
+<pre>&gt;&gt; syms a b
+&gt;&gt; f = [a^2 + b^2 - 1, a + b - 1];
+&gt;&gt; Jac = jacobian(f)
+Jac = [ 2*a, 2*b]
+      [   1,   1]
+</pre>
+<p>Note that the first row is the gradient of f(1) and the second the gradient of f(2).</p>
+<p>If you only want a specific partial derivative, not the entire
+Jacobian, you can call the 'diff' function with the function you want
+to differentiate and the variable you wish to differentiate with
+respect to. If none is specified, differentiation occurs with respect
+to the variable closest to 'x' in the alphabet.</p>
+<pre>&gt;&gt; diff(f(1), a)
+ans = 2*a
+</pre>
+<p>It is worth noting that to complete an <b>implicit</b> differentiation, one can explicitly state the implicit assumption by multiplying the differentiated function by <img class="tex" alt=" \frac{d}{dx_i}" src="Symbolic_Toolbox_fichiers/f6899b2bf24f9f47d2861aeab026ffdd.png">, where <span class="texhtml"><i>x</i><sub><i>i</i></sub></span> is the ith variable in a multivariable equation.</p>
+<div style="clear: both;"></div>
+<table style="border: 1px solid rgb(170, 170, 170); margin: auto; padding: 6pt; background: rgb(255, 255, 221) none repeat scroll 0% 0%; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; width: 60%;" class="notice noprint notice-todo">
+<tbody><tr>
+<td style="width: 58px;">
+<div class="floatleft"><a href="http://en.wikibooks.org/wiki/File:Clipboard.svg" class="image" title="TODO"><img alt="TODO" src="Symbolic_Toolbox_fichiers/45px-Clipboard.png" width="45" height="45"></a></div>
+</td>
+<td>
+<p><b>TODO</b><br>
+Put in an example of this for a simple implicit function (like <span class="texhtml"><i>x</i><sup>2</sup> + <i>y</i><sup>2</sup> = 4</span>or something)</p>
+</td>
+</tr>
+</tbody></table>
+<div style="clear: both;"></div>
+<p>Indefinite integration of multivariate functions works the same as
+for single functions; pass the function and MATLAB will return the
+indefinite integral with respect to the variable closest to x:</p>
+<pre>&gt;&gt; int(f(1))
+ans = a^2*b+1/3*b^3-b
+</pre>
+<p>This is the integral with respect to b. To avoid confusion, you can
+specify the variable of integration with a second argument, as with
+differentiation.</p>
+<pre>&gt;&gt; int(f(1), a)
+ans = 1/3*a^3+b^2*a-a
+</pre>
+<p>Definite integration (as far as I can tell) can only be done with
+respect to one variable at a time, and this is done by specifying the
+variable, then the bounds:</p>
+<pre>&gt;&gt; int(f(1), a, 1, 2) %integrate a from 1 to 2, holding b constant
+ans = 4/3 + b^2
+</pre>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=MATLAB_Programming/Symbolic_Toolbox&amp;action=edit&amp;section=14" title="Edit section: Analytic Solutions to ODEs">edit</a>]</span> <span class="mw-headline" id="Analytic_Solutions_to_ODEs">Analytic Solutions to ODEs</span></h3>
+<p>MATLAB can solve some simple forms of ODEs. Unlike with the
+integration and algebraic solving techniques, the syntax for the
+differential equation solver requires that you put the function in
+manually in a specific manner. The derivatives must be specified using
+the symbol 'DNV', where N is the order of the derivative and V is the
+variable that is changing. For example, suppose you seek the solution
+to the equation <img class="tex" alt=" \frac{{d}^2}{{dt^2}}x = -x" src="Symbolic_Toolbox_fichiers/3554e086456c747249e92253d2dbc0e3.png">
+, the solutions to which are of the form x(t) = A*cos(t) + B*sin(t).
+You would put this equation into the 'dsolve' function as follows:</p>
+<pre>&gt;&gt; syms x
+&gt;&gt; dsolve('D2x = -x')
+ans = C1*sin(t)+C2*cos(t)
+</pre>
+<p>Unlike the 'int' function, dsolve includes the integration
+constants. To specify initial conditions, just pass extra arguments to
+the 'dsolve' function as strings. If x'(0) = 2 and x(0) = 4 these are
+inserted as follows:</p>
+<pre>&gt;&gt; dsolve('D2x = -x', 'Dx(0) = 2', 'x(0) = 4')
+ans = 2*sin(t)+4*cos(t)
+</pre>
+<p>Note that the initial conditions must also be passed as strings.</p>
+<p>MATLAB can also solve systems of differential equations. An
+acceptable syntax is to pass each equation as a separate string, and
+then pass each initial condition as a separate string:</p>
+<pre>&gt;&gt; SOLUTION = dsolve('Df=3*f+4*g', 'Dg =-4*f+3*g', 'f(0) = 0', 'g(0) = 1')
+SOLUTION  = f: [1x1 sym]
+            g: [1x1 sym]
+&gt;&gt; SOLUTION.f
+SOLUTION.f = exp(3*t)*sin(4*t)
+&gt;&gt; SOLUTION.g
+SOLUTION.g = exp(3*t)*cos(4*t)
+</pre>
+<p>The 'dsolve' function, like 'solve', thus returns the solution as a
+structure array, with field names the same as the variables you used.
+Also like 'solve', you can place the variables in separate arrays by
+specifying more than one output variable.</p>
+<h3><span class="editsection">[<a href="http://en.wikibooks.org/w/index.php?title=MATLAB_Programming/Symbolic_Toolbox&amp;action=edit&amp;section=15" title="Edit section: Integral Transforms">edit</a>]</span> <span class="mw-headline" id="Integral_Transforms">Integral Transforms</span></h3>
+<p>MATLAB's symbolic math toolbox lets you find integral transforms (in
+particular, the Laplace, Fourier, and Z-transform) and their inverses
+when they exist. The syntax is similar to the other symbolic math
+functions: declare a function and pass it to the appropriate functions
+to obtain the transform (or inverse).</p>
+
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 212/1000000
+Post-expand include size: 4798/2048000 bytes
+Template argument size: 117/2048000 bytes
+Expensive parser function count: 0/500
+-->
+
+<!-- Saved in parser cache with key enwikibooks:pcache:idhash:88753-0!1!0!default!!en!2 and timestamp 20091216164258 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Symbolic_Toolbox">http://en.wikibooks.org/wiki/MATLAB_Programming/Symbolic_Toolbox</a>"</div>
+			<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks"><a href="http://en.wikibooks.org/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir="ltr"><a href="http://en.wikibooks.org/wiki/Category:MATLAB_Programming" title="Category:MATLAB Programming">MATLAB Programming</a></span> | <span dir="ltr"><a href="http://en.wikibooks.org/wiki/Category:TODO" title="Category:TODO">TODO</a></span></div><div id="mw-hidden-catlinks" class="mw-hidden-cats-hidden">Hidden category: <span dir="ltr"><a href="http://en.wikibooks.org/wiki/Category:TODO/MATLAB_Programming" title="Category:TODO/MATLAB Programming">TODO/MATLAB Programming</a></span></div></div>			<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul xml:lang="en" lang="en">
+	
+				 <li id="ca-nstab-main" class="selected"><a href="http://en.wikibooks.org/wiki/MATLAB_Programming/Symbolic_Toolbox" title="View the content page [alt-shift-c]" accesskey="c">Module</a></li>
+				 <li id="ca-talk"><a href="http://en.wikibooks.org/wiki/Talk:MATLAB_Programming/Symbolic_Toolbox" title="Discussion about the content page [alt-shift-t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-edit"><a href="http://en.wikibooks.org/w/index.php?title=MATLAB_Programming/Symbolic_Toolbox&amp;action=edit" title="You can edit this page.
+Please use the preview button before saving [alt-shift-e]" accesskey="e">Edit this page</a></li>
+				 <li id="ca-history"><a href="http://en.wikibooks.org/w/index.php?title=MATLAB_Programming/Symbolic_Toolbox&amp;action=history" title="Past revisions of this page [alt-shift-h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul xml:lang="en" lang="en">
+				<li id="pt-optin-try"><a href="http://en.wikibooks.org/w/index.php?title=Special:UsabilityInitiativeOptIn&amp;from=MATLAB_Programming%2FSymbolic_Toolbox" title="Try out new features" class="no-text-transform">Try Beta</a></li>
+				<li id="pt-login"><a href="http://en.wikibooks.org/w/index.php?title=Special:UserLogin&amp;returnto=MATLAB_Programming/Symbolic_Toolbox" title="You are encouraged to log in; however, it is not mandatory [alt-shift-o]" accesskey="o">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikibooks/en/b/bc/Wiki.png);" href="http://en.wikibooks.org/wiki/Main_Page" title="Visit the main page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class="generated-sidebar portlet" id="p-navigation">
+		<h5 xml:lang="en" lang="en">Navigation</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-mainpage"><a href="http://en.wikibooks.org/wiki/Main_Page" title="Visit the main page [alt-shift-z]" accesskey="z">Main Page</a></li>
+				<li id="n-help"><a href="http://en.wikibooks.org/wiki/Help:Contents" title="find help on how to use and edit Wikibooks">Help</a></li>
+				<li id="n-Browse"><a href="http://en.wikibooks.org/wiki/Wikibooks:Card_Catalog_Office" title="check out what Wikibooks has to offer.">Browse</a></li>
+				<li id="n-Cookbook"><a href="http://en.wikibooks.org/wiki/Cookbook:Table_of_Contents" title="learn recipes from around the world.">Cookbook</a></li>
+				<li id="n-Wikijunior"><a href="http://en.wikibooks.org/wiki/Wikijunior" title="books for children">Wikijunior</a></li>
+				<li id="n-Featured-books"><a href="http://en.wikibooks.org/wiki/Wikibooks:Featured_books" title="the best of Wikibooks">Featured books</a></li>
+				<li id="n-recentchanges"><a href="http://en.wikibooks.org/wiki/Special:RecentChanges" title="The list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent changes</a></li>
+				<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Donate" title="Support Wikibooks">Donations</a></li>
+			<li id="n-randbook"><a title="Show me a random book! [alt-shift-x]" accesskey="x" href="javascript:showRandBook();"><span>Random book</span></a></li></ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5 xml:lang="en" lang="en"><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/w/index.php" id="searchform">
+				<input name="title" value="Special:Search" type="hidden">
+				<input autocomplete="off" id="searchInput" title="Search Wikibooks" accesskey="f" name="search">
+				<input name="go" class="searchButton" id="searchGoButton" value="Go" title="Go to a page with this exact name if exists" type="submit">&nbsp;
+				<input name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" type="submit">
+			</form>
+		</div>
+	</div>
+	<div class="generated-sidebar portlet" id="p-community">
+		<h5 xml:lang="en" lang="en">community</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-Reading-room"><a href="http://en.wikibooks.org/wiki/Wikibooks:Reading_room">Reading room</a></li>
+				<li id="n-portal"><a href="http://en.wikibooks.org/wiki/Wikibooks:Community_Portal" title="find your way around the Wikibooks community">Community portal</a></li>
+				<li id="n-currentevents"><a href="http://en.wikibooks.org/wiki/Wikibooks:Reading_room/Bulletin_Board" title="important community news">Bulletin Board</a></li>
+				<li id="n-maintenance"><a href="http://en.wikibooks.org/wiki/Wikibooks:Maintenance" title="frequent tasks that you can help with">Help out!</a></li>
+				<li id="n-Policies-and-guidelines"><a href="http://en.wikibooks.org/wiki/Wikibooks:Policies_and_guidelines">Policies and guidelines</a></li>
+				<li id="n-contact"><a href="http://en.wikibooks.org/wiki/Wikibooks:Contact_us">Contact us</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="generated-sidebar portlet" id="p-coll-print_export">
+		<h5 xml:lang="en" lang="en">Print/export</h5>
+		<div class="pBody">
+<ul id="collectionPortletList"><li id="coll-create_a_book"><a href="http://en.wikibooks.org/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=MATLAB+Programming%2FSymbolic+Toolbox" title="Create a book or page collection" rel="nofollow">Create a book</a></li><li id="coll-download-as-rl"><a href="http://en.wikibooks.org/w/index.php?title=Special:Book&amp;bookcmd=render_article&amp;arttitle=MATLAB+Programming%2FSymbolic+Toolbox&amp;oldid=1646798&amp;writer=rl" title="Download a PDF version of this wiki page" rel="nofollow">Download as PDF</a></li><li id="t-print"><a href="http://en.wikibooks.org/w/index.php?title=MATLAB_Programming/Symbolic_Toolbox&amp;printable=yes" title="Printable version of this page [alt-shift-p]" accesskey="p">Printable version</a></li></ul>		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5 xml:lang="en" lang="en">Toolbox</h5>
+		<div class="pBody">
+			<ul><li id="google-trick-search"><a href="http://www.google.com/custom?sa=Google+Search&amp;domains=en.wikibooks.org/wiki/MATLAB_Programming&amp;sitesearch=en.wikibooks.org/wiki/MATLAB_Programming">Search this book</a></li>
+				<li id="t-whatlinkshere"><a href="http://en.wikibooks.org/wiki/Special:WhatLinksHere/MATLAB_Programming/Symbolic_Toolbox" title="List of all wiki pages that link here [alt-shift-j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="http://en.wikibooks.org/wiki/Special:RecentChangesLinked/MATLAB_Programming/Symbolic_Toolbox" title="Recent changes in pages linked from this page [alt-shift-k]" accesskey="k">Related changes</a></li>
+<li id="t-specialpages"><a href="http://en.wikibooks.org/wiki/Special:SpecialPages" title="List of all special pages [alt-shift-q]" accesskey="q">Special pages</a></li>
+				<li id="t-permalink"><a href="http://en.wikibooks.org/w/index.php?title=MATLAB_Programming/Symbolic_Toolbox&amp;oldid=1646798" title="Permanent link to this revision of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="Symbolic_Toolbox_fichiers/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31"></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="Symbolic_Toolbox_fichiers/wikimedia-button.png" alt="Wikimedia Foundation" width="88" height="31"></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 22 October 2009, at 07:16.</li>
+					<li id="copyright">Text is available under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution/Share-Alike License</a>;
+additional terms may apply.
+See <a href="http://wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a> for details.</li>
+					<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+					<li id="about"><a href="http://en.wikibooks.org/wiki/Wikibooks:About" title="Wikibooks:About">About Wikibooks</a></li>
+					<li id="disclaimer"><a href="http://en.wikibooks.org/wiki/Wikibooks:General_disclaimer" title="Wikibooks:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+</div>
+
+<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served by srv99 in 0.524 secs. --></body></html>

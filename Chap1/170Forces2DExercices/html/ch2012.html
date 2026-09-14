@@ -1,0 +1,172 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Probl&egrave;me 2/12, Meriam p. 34</title><meta name="generator" content="MATLAB 9.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-10-06"><meta name="DC.source" content="ch2012.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Probl&egrave;me 2/12, Meriam p. 34</h1><!--introduction--><p>Glisser le vecteur F jusqu'au point <i>C</i>, &agrave; l'origine des deux syst&egrave;mes des axes. &Eacute;valuer les composantes rectangulaires (scalaires) dans les 2 syst&egrave;mes.</p><p>Consid&eacute;rer le syst&egrave;me des axes <i>t</i> et <i>n</i> comme un syst&egrave;me des axes <i>x</i> et <i>y</i> ayant subi une rotation.</p><p><img vspace="5" hspace="5" src="..\ch2012a.gif" alt=""> </p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Expression scalaire du vecteur F</a></li><li><a href="#2">Composantes scalaires de F</a></li><li><a href="#3">Expression vectorielle de F</a></li></ul></div><h2 id="1">Expression scalaire du vecteur F</h2><pre class="codeinput">clear; close <span class="string">all</span>; clc;
+mF = 800; <span class="comment">% lb (norme de F)</span>
+angle_x = 180-20; <span class="comment">% angle entre F et l'axe des x</span>
+<span class="comment">% selon la convention de atan2</span>
+angle_t = -180+40; <span class="comment">% angle entre F et l'axe des t</span>
+<span class="comment">% selon la convention de atan2, adapt&eacute;e &agrave; l'axe t.</span>
+fprintf(<span class="string">'Norme = %.0f lb\n'</span>,mF);
+fprintf(<span class="string">'   angle selon x = %+0.f&deg;\n'</span>,angle_x);
+fprintf(<span class="string">'   angle selon t = %+0.f&deg;\n'</span>,angle_t);
+</pre><pre class="codeoutput">Norme = 800 lb
+   angle selon x = +160&deg;
+   angle selon t = -140&deg;
+</pre><h2 id="2">Composantes scalaires de F</h2><pre class="codeinput">fprintf(<span class="string">'Composantes scalaires de F\n'</span>);
+Fx = mF*cosd(angle_x); Fy = mF*sind(angle_x);
+Ft = mF*cosd(angle_t); Fn = mF*sind(angle_t);
+fprintf(<span class="string">'  selon x et y\n'</span>);
+fprintf(<span class="string">'    Fx = %.0f lb et Fy = %0.f lb\n'</span>,Fx,Fy);
+fprintf(<span class="string">'  selon t et n\n'</span>);
+fprintf(<span class="string">'    Ft = %.0f lb et Fn = %0.f lb\n'</span>,Ft,Fn);
+</pre><pre class="codeoutput">Composantes scalaires de F
+  selon x et y
+    Fx = -752 lb et Fy = 274 lb
+  selon t et n
+    Ft = -613 lb et Fn = -514 lb
+</pre><h2 id="3">Expression vectorielle de F</h2><pre class="codeinput">nFxy=[cosd(angle_x),sind(angle_x)]; Fxy = mF*nFxy;
+nFtn=[cosd(angle_t),sind(angle_t)]; Ftn = mF*nFtn;
+
+fprintf(<span class="string">'Vecteur unitaires\n'</span>);
+fprintf(<span class="string">'   n_xy = %+.3fi  %+.3fj\n'</span>,nFxy);
+fprintf(<span class="string">'   n_tn = %+.3fi  %+.3fj\n'</span>,nFtn);
+
+fprintf(<span class="string">'\nVecteur F selon les 2 syst&egrave;mes\n'</span>);
+fprintf(<span class="string">'   Fxy =  %+.0fi %+.0fj lb\n'</span>,Fxy);
+fprintf(<span class="string">'   Ftn =  %+.0fi %+.0fj lb\n'</span>,Ftn);
+
+fprintf(<span class="string">'\nComposantes vectorielles de F\n'</span>);
+fprintf(<span class="string">'   vecteurs Fx = %.0fi N et '</span>,Fxy(1));
+fprintf(<span class="string">'Fy = %.0fj N.\n'</span>,Fxy(2));
+fprintf(<span class="string">'   vecteurs Ft = %.0fi N et '</span>,Ftn(1));
+fprintf(<span class="string">'Fn = %.0fj N.\n'</span>,Ftn(2));
+</pre><pre class="codeoutput">Vecteur unitaires
+   n_xy = -0.940i  +0.342j
+   n_tn = -0.766i  -0.643j
+
+Vecteur F selon les 2 syst&egrave;mes
+   Fxy =  -752i +274j lb
+   Ftn =  -613i -514j lb
+
+Composantes vectorielles de F
+   vecteurs Fx = -752i N et Fy = 274j N.
+   vecteurs Ft = -613i N et Fn = -514j N.
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Problème 2/12, Meriam p. 34
+% Glisser le vecteur F jusqu'au point _C_, à
+% l'origine des deux systèmes des axes. Évaluer
+% les composantes rectangulaires (scalaires) dans
+% les 2 systèmes.
+%
+% Considérer le système des axes _t_ et _n_ comme un
+% système des axes _x_ et _y_ ayant subi une
+% rotation.
+%
+% <<..\ch2012a.gif>>
+
+%% Expression scalaire du vecteur F
+clear; close all; clc;
+mF = 800; % lb (norme de F)
+angle_x = 180-20; % angle entre F et l'axe des x
+% selon la convention de atan2
+angle_t = -180+40; % angle entre F et l'axe des t
+% selon la convention de atan2, adaptée à l'axe t.
+fprintf('Norme = %.0f lb\n',mF);
+fprintf('   angle selon x = %+0.f°\n',angle_x);
+fprintf('   angle selon t = %+0.f°\n',angle_t);
+
+%% Composantes scalaires de F
+fprintf('Composantes scalaires de F\n');
+Fx = mF*cosd(angle_x); Fy = mF*sind(angle_x);
+Ft = mF*cosd(angle_t); Fn = mF*sind(angle_t);
+fprintf('  selon x et y\n');
+fprintf('    Fx = %.0f lb et Fy = %0.f lb\n',Fx,Fy);
+fprintf('  selon t et n\n');
+fprintf('    Ft = %.0f lb et Fn = %0.f lb\n',Ft,Fn);
+
+%% Expression vectorielle de F
+nFxy=[cosd(angle_x),sind(angle_x)]; Fxy = mF*nFxy;
+nFtn=[cosd(angle_t),sind(angle_t)]; Ftn = mF*nFtn; 
+
+fprintf('Vecteur unitaires\n');
+fprintf('   n_xy = %+.3fi  %+.3fj\n',nFxy);
+fprintf('   n_tn = %+.3fi  %+.3fj\n',nFtn);
+
+fprintf('\nVecteur F selon les 2 systèmes\n');
+fprintf('   Fxy =  %+.0fi %+.0fj lb\n',Fxy);
+fprintf('   Ftn =  %+.0fi %+.0fj lb\n',Ftn);
+
+fprintf('\nComposantes vectorielles de F\n');
+fprintf('   vecteurs Fx = %.0fi N et ',Fxy(1));
+fprintf('Fy = %.0fj N.\n',Fxy(2));
+fprintf('   vecteurs Ft = %.0fi N et ',Ftn(1));
+fprintf('Fn = %.0fj N.\n',Ftn(2));
+##### SOURCE END #####
+--></body></html>

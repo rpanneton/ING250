@@ -1,0 +1,189 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Vectorisation &#8211; description</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-10-28">
+      <meta name="m-file" content="VectoDescription"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Vectorisation &#8211; description</h1>
+         <introduction>
+            <p>Matlab est un langage de programmation qui utilise des matrices et des vecteurs comme donn&eacute;es &eacute;l&eacute;mentaires, et il est sp&eacute;cialement
+               con&ccedil;u pour effectuer des calculs sur ce type de donn&eacute;es.
+            </p>
+            <p>La vectorisation consiste &agrave; convertir une boucle compt&eacute;e <i>for</i> en op&eacute;rations vectorielles &eacute;quivalentes. Elle comporte deux avantages :
+            </p>
+            <div>
+               <ul>
+                  <li>le code est plus concis,</li>
+               </ul>
+            </div>
+            <div>
+               <ul>
+                  <li>le programme tourne plus rapidement, car il tire profit des algorithmes d'optimisation, dont ceux des op&eacute;rateurs vectoriels.</li>
+               </ul>
+            </div>
+         </introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#1">Boucle compt&eacute;e (for)</a></li>
+               <li><a href="#2">Boucle implicite, vectorisation</a></li>
+               <li><a href="#4">Exemple X.*Y : multiplier &eacute;l&eacute;ment par &eacute;l&eacute;ment</a></li>
+            </ul>
+         </div>
+         <h2>Boucle compt&eacute;e (for)<a name="1"></a></h2><pre class="codeinput">clear <span class="string">all</span>;clc;close <span class="string">all</span>;
+<span class="keyword">for</span> i = 1:37
+   x(i)=(i-1)*10; <span class="comment">% angle th&ecirc;ta</span>
+   y(i)=sind(x(i))+sind(3*x(i));
+<span class="keyword">end</span>
+</pre><h2>Boucle implicite, vectorisation<a name="2"></a></h2><pre class="codeinput">xxx = 0:10:360; <span class="comment">% boucle implicite, op&eacute;rateur &laquo; : &raquo;</span>
+yyy =sind(xxx)+sind(3*xxx); <span class="comment">% vectorisation</span>
+</pre><pre class="codeinput">plot(x,y,<span class="string">'-b'</span>); grid <span class="string">on</span>;
+hold <span class="string">on</span>; plot(xxx,yyy,<span class="string">'or'</span>);
+xlabel(<span class="string">'\theta,  degr&eacute;s'</span>); ylabel(<span class="string">'y'</span>);
+title(<span class="string">'y = sin(\theta) + sin(3\theta)'</span>);
+legend(<span class="string">'for&#8211;end'</span>,<span class="string">'vectorisation'</span>,<span class="string">'Location'</span>,<span class="string">'Best'</span>);
+</pre><img vspace="5" hspace="5" src="VectoDescription_01.png"> <h2>Exemple X.*Y : multiplier &eacute;l&eacute;ment par &eacute;l&eacute;ment<a name="4"></a></h2><pre class="codeinput">X = [10, 20, 30, 40];
+Y = [ 6,  2,  7,  3];
+<span class="keyword">for</span> i = 1:4
+   XY(i) = X(i)*Y(i);
+<span class="keyword">end</span>
+fprintf(<span class="string">'%5.0f'</span>,XY); <span class="comment">% le format est vectoris&eacute;</span>
+fprintf(<span class="string">'\n'</span>);
+</pre><pre class="codeoutput">   60   40  210  120
+</pre><pre class="codeinput">XYvectorise = X.*Y; <span class="comment">% version vectoris&eacute;e</span>
+fprintf(<span class="string">'%5.0f'</span>,XYvectorise); fprintf(<span class="string">'\n'</span>);
+</pre><pre class="codeoutput">   60   40  210  120
+</pre><p>Pour plus de d&eacute;tails, voir la documentation de MatWorks dans Ing250\Zip\VectoM65.pdf et prendre note que ce document n'est
+            pas mati&egrave;re &agrave; examen.
+         </p>
+         <p><img vspace="5" hspace="5" src="..\Feuilles.gif"> </p>
+         <p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Vectorisation – description
+% Matlab est un langage de programmation qui
+% utilise des matrices et des vecteurs comme
+% données élémentaires, et il est spécialement
+% conçu pour effectuer des calculs sur ce type de
+% données.
+%
+% La vectorisation consiste à convertir une
+% boucle comptée _for_ en opérations vectorielles
+% équivalentes. Elle comporte deux avantages :
+%
+% * le code est plus concis,
+%
+% * le programme tourne plus rapidement, car il
+% tire profit des algorithmes d'optimisation, dont
+% ceux des opérateurs vectoriels.
+
+%% Boucle comptée (for)
+clear all;clc;close all;
+for i = 1:37
+   x(i)=(i-1)*10; % angle thêta
+   y(i)=sind(x(i))+sind(3*x(i));
+end
+
+%% Boucle implicite, vectorisation
+xxx = 0:10:360; % boucle implicite, opérateur « : »
+yyy =sind(xxx)+sind(3*xxx); % vectorisation
+
+%%
+plot(x,y,'-b'); grid on;
+hold on; plot(xxx,yyy,'or');
+xlabel('\theta,  degrés'); ylabel('y');
+title('y = sin(\theta) + sin(3\theta)');
+legend('for–end','vectorisation','Location','Best');
+
+%% Exemple X.*Y : multiplier élément par élément
+X = [10, 20, 30, 40];
+Y = [ 6,  2,  7,  3];
+for i = 1:4
+   XY(i) = X(i)*Y(i);
+end
+fprintf('%5.0f',XY); % le format est vectorisé
+fprintf('\n');
+
+%%
+XYvectorise = X.*Y; % version vectorisée
+fprintf('%5.0f',XYvectorise); fprintf('\n');
+
+%%
+% Pour plus de détails, voir la documentation de
+% MatWorks dans Ing250\Zip\VectoM65.pdf et prendre
+% note que ce document n'est pas matière à examen.
+%
+% <<..\Feuilles.gif>>
+##### SOURCE END #####
+-->
+   </body>
+</html>

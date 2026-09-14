@@ -1,0 +1,47 @@
+Indice de performance
+Devant la prolifération d'essais de performance de tout acabit, en 1992, Intel propose à sa clientèle un indice de performance pour faciliter la comparaison entre les différents processeurs offerts par l'entreprise. L'indice iComp1 était basé sur une mesure pondérée des différents essais de performance de 16 et 32 bits les plus utilisés par les entreprises.
+
+En 1996, un nouvel indice iComp2 s'appuie sur des essais de performance sur des opérations impliquant une architecture de 32 bits seulement. On attribue un indice 1000 au Pentium I de 100 MHz Au mois de mai 2000, Intel propose à nouveau un nouvel indice iComp3 permettant d'effectuer une comparaison entre les différents processeurs Intel. La performance du Pentium II de 350 MHz est fixée à 1000 et sert de référence. Puisque les normes et les essais de comparaisons sont différents, il n'est pas possible de comparer les indices iComp2 et iComp3.
+
+Malgré tout, j'ai donc simplement effectué un rapport entre les deux normes; mais vous voilà prévenu. Visiter le site de Intel.com pour une information adéquate sur le sujet. -Jean
+
+
+Voici les données initiales que l'on peut retrouver sur le site de Intel :
+
+Pentium 1 
+ MHz iComp2
+  60    51
+  75    67
+  90    81
+ 100    90
+ 120   100
+ 133   111
+
+Pentium MMX
+ MHz iComp2
+ 166   160
+ 200   182
+ 233   203
+
+Pentium II
+ MHz iComp2
+ 233   267
+ 266   303
+ 300   332
+ 333   366
+ 350   386
+ 400   440
+ 450   483
+
+Pentium III
+ MHZ iComp3
+ 350  1000
+ 550  1780
+ 600  1930
+ 650  2270
+ 700  2420
+ 750  2540
+ 800  2690
+ 866  2890
+ 933  3100
+1030  3280

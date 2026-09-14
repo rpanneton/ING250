@@ -1,0 +1,24 @@
+% Alliages pour applications à haute température
+% - - - - - - - - - - - - - - - - - - - - - - - 
+% Mvo  :  masse volumique (Mg/m^3)
+% Sy   :  limite élastique (MPa)
+% Kc   :  ténacité (MPa.m^{1/2})
+% E    :  module d'élasticité (GPa)
+% Tmax : température maximale moyenne d'utilisation °C
+% Alliage : le nombre indique le pourcentage.
+% - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Mvo   Sy  Kc  E  Tmax   Alliage
+  8.6  123  80  69  900 % 98.4Nb-1.6Zr
+  8.9  500 123  87  880 % 90Nb-10Hf
+  9.3  470 135 111  905 % 90Nb-10W
+ 10.2  490 135 160  960 % 85Nb-15Ta
+  8.4  625 135 105  885 % 90Nb-5Mo-5V
+ 16.7  700 135 197 2190 % 93Ta-7W
+ 17.7 1235 135 335 1135 % 70W-(Cu,Ni)
+ 17.1  697 130 315 1205 % 90W ASTM Class 1
+ 19.3 2425 130 377 1295 % 100W (commercial)
+ 18.6  600 135 376 1235 % 97W ASTM Class 4
+ 10.2  845  35 315 1135 % Mo(majeur)-Ti+Zr
+ 10.2 1085  30 329 1136 % 100Mo ASTM B386
+ 18.1  665 135 340 1235 % 95W ASTM Class 3
+ 17.6  580 135 340 1225 % 93W-5.25Ni-1.75Fe

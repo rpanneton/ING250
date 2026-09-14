@@ -1,0 +1,210 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Tri par la m&eacute;thode de la bulle</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-10-29">
+      <meta name="m-file" content="Bulle"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Tri par la m&eacute;thode de la bulle</h1>
+         <introduction></introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#2">Initialisation</a></li>
+               <li><a href="#4">Classement par ordre ascendant</a></li>
+            </ul>
+         </div><pre class="codeinput">clear <span class="string">all</span>; clc
+V=[32,49,23,17,8,47,35,21,3,16];
+fprintf(<span class="string">'%02.0f '</span>,V);
+fprintf(<span class="string">'\n'</span>);
+n=length(V);
+</pre><pre class="codeoutput">32 49 23 17 08 47 35 21 03 16 
+</pre><h2>Initialisation<a name="2"></a></h2>
+         <p>Cet artifice permet le premier cycle de la boucle while.</p><pre class="codeinput">UnChangement=true;
+</pre><p>Au d&eacute;but de la boucle, poser qu'il n'y a pas de changement.</p>
+         <p>Lorsque la boucle interne <b>for-end</b> se termine sans &eacute;change de donn&eacute;es, <b>UnChangement</b> demeure faux et la boucle while se termine. Les donn&eacute;es sont class&eacute;es.
+         </p>
+         <h2>Classement par ordre ascendant<a name="4"></a></h2><pre class="codeinput"><span class="keyword">while</span>(UnChangement)
+   UnChangement=false; <span class="comment">% Faux</span>
+   <span class="keyword">for</span> i=2:n
+      <span class="keyword">if</span>(V(i-1)&gt;V(i))
+         tmp=V(i);
+         V(i)=V(i-1);
+         V(i-1)=tmp;
+         UnChangement=true; <span class="comment">% Vrai</span>
+         fprintf(<span class="string">'%02.0f '</span>,V);
+         fprintf(<span class="string">'\n'</span>);
+      <span class="keyword">end</span>
+   <span class="keyword">end</span>
+   fprintf(<span class="string">'\n'</span>);
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">32 23 49 17 08 47 35 21 03 16 
+32 23 17 49 08 47 35 21 03 16 
+32 23 17 08 49 47 35 21 03 16 
+32 23 17 08 47 49 35 21 03 16 
+32 23 17 08 47 35 49 21 03 16 
+32 23 17 08 47 35 21 49 03 16 
+32 23 17 08 47 35 21 03 49 16 
+32 23 17 08 47 35 21 03 16 49 
+
+23 32 17 08 47 35 21 03 16 49 
+23 17 32 08 47 35 21 03 16 49 
+23 17 08 32 47 35 21 03 16 49 
+23 17 08 32 35 47 21 03 16 49 
+23 17 08 32 35 21 47 03 16 49 
+23 17 08 32 35 21 03 47 16 49 
+23 17 08 32 35 21 03 16 47 49 
+
+17 23 08 32 35 21 03 16 47 49 
+17 08 23 32 35 21 03 16 47 49 
+17 08 23 32 21 35 03 16 47 49 
+17 08 23 32 21 03 35 16 47 49 
+17 08 23 32 21 03 16 35 47 49 
+
+08 17 23 32 21 03 16 35 47 49 
+08 17 23 21 32 03 16 35 47 49 
+08 17 23 21 03 32 16 35 47 49 
+08 17 23 21 03 16 32 35 47 49 
+
+08 17 21 23 03 16 32 35 47 49 
+08 17 21 03 23 16 32 35 47 49 
+08 17 21 03 16 23 32 35 47 49 
+
+08 17 03 21 16 23 32 35 47 49 
+08 17 03 16 21 23 32 35 47 49 
+
+08 03 17 16 21 23 32 35 47 49 
+08 03 16 17 21 23 32 35 47 49 
+
+03 08 16 17 21 23 32 35 47 49 
+
+
+</pre><div>
+            <ul>
+               <li>Les plus petites donn&eacute;es se d&eacute;placent vers le d&eacute;but du vecteur.</li>
+               <li>Elles flottent comme des bulles vers la surface.</li>
+               <li>Les plus grosses donn&eacute;es tombent dans le fond (&agrave; droite).</li>
+            </ul>
+         </div>
+         <p><img vspace="5" hspace="5" src="..\Feuilles.gif"> </p>
+         <p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Tri par la méthode de la bulle
+%%
+clear all; clc
+V=[32,49,23,17,8,47,35,21,3,16];
+fprintf('%02.0f ',V);
+fprintf('\n');
+n=length(V);
+
+%% Initialisation
+% Cet artifice permet le premier cycle de la
+% boucle while.
+UnChangement=true;
+
+%%
+% Au début de la boucle, poser qu'il n'y a pas
+% de changement.
+%
+% Lorsque la boucle interne *for-end* se termine
+% sans échange de données,
+% *UnChangement* demeure faux et la boucle
+% while se termine. Les données sont classées.
+
+%% Classement par ordre ascendant
+while(UnChangement)
+   UnChangement=false; % Faux
+   for i=2:n
+      if(V(i-1)>V(i))
+         tmp=V(i);
+         V(i)=V(i-1);
+         V(i-1)=tmp;
+         UnChangement=true; % Vrai
+         fprintf('%02.0f ',V);
+         fprintf('\n');
+      end
+   end
+   fprintf('\n');
+end
+%%
+% * Les plus petites données se déplacent vers le
+% début du vecteur.
+% * Elles flottent comme des bulles vers la
+% surface.
+% * Les plus grosses données tombent dans le fond
+% (à droite).
+%
+% <<..\Feuilles.gif>>
+##### SOURCE END #####
+-->
+   </body>
+</html>

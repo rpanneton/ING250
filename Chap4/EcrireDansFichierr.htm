@@ -1,0 +1,139 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="Generator" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Écriture de données dans un fichier ASCII (fopen, fprintf, fclose)</title>
+<meta name="Template" content="C:\Program Files\Microsoft Office\Office\HTML.DOT">
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+<style>
+<!--
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.keyword {color: #0000FF}
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+-->
+</style>
+</head>
+
+<body link="#0000FF" vlink="#800080">
+
+<h2>Écriture de données dans un fichier ASCII (<i>fopen, fprintf, fclose</i>)</h2>
+<p>La fonction <i>fprintf</i> permet également d'écrire directement dans un
+fichier. Il suffit de spécifier le nom du fichier et de modifier légèrement
+le format d'écriture.</p>
+<h5>Terminer une ligne<br>
+par \r\n</h5>
+<p>Il faut modifier légèrement le format d'écriture, car, le symbole généré par <code>\n</code> (<i>nouvelle ligne</i>)<i> </i>n'entraîne
+pas automatiquement le passage au début de la ligne suivante dans un fichier.
+Il faut effectuer un retour à la ligne en ajoutant le caractère \r (<i>retour
+au début de la ligne</i>) avant le caractère \n. Le code <i>\r\n</i> signifie
+donc <i>retour au début de la ligne</i> et <i>nouvelle ligne</i>.</p>
+<h5>Utiliser fopen(...,'wt')</h5>
+<p>Ouvrir le fichier en mode wt, qui se traduit par <b><i>write&nbsp;text</i></b>. 
+Matlab génère alors automatiquement les caractères de fin de ligne afin de 
+rendre le fichier compatible avec d'autres applications qui utilisent des 
+fichiers de texte bien formulés.</p>
+<p>Exemple&nbsp;:</p>
+<pre class="codeinput"><span class="comment">% Fichier Etoile2.m</span>
+clear; clc;
+Etoile0 <span class="comment">% donn&eacute;es</span>
+disp(<span class="string">'&Eacute;criture traditionnelle dans un fichier'</span>)
+disp(<span class="string">'Voir &Eacute;toileTrad.dat'</span>)
+n=length(Distance);
+fid=fopen(<span class="string">'EtoileTrad.dat'</span>,<span class="string">'w'</span>);
+<span class="comment">% w (write): pour l'&eacute;criture.</span>
+<span class="keyword">for</span> i=1:n
+   fprintf(fid,<span class="string">'%2.2d %s %5.1f %5.2f\r\n'</span>,<span class="keyword">...</span>
+      i,Etoile(i,:),Distance(i),Magnitude(i));
+<span class="keyword">end</span>
+fclose(fid);
+
+disp(<span class="string">'------------------------------'</span>)
+disp(<span class="string">'     &Eacute;criture &agrave; l''&eacute;cran'</span>)
+disp(<span class="string">'------------------------------'</span>)
+<span class="keyword">for</span> i=1:n
+   fprintf(<span class="string">'%2.2d %s %5.1f %5.2f\n'</span>,<span class="keyword">...</span>
+      i,Etoile(i,:),Distance(i),Magnitude(i));
+<span class="keyword">end</span>
+disp(<span class="string">'------------------------------'</span>)
+
+disp(<span class="string">'&Eacute;criture avec un m&ecirc;me format dans EtoileNonOk.dat'</span>)
+fid=fopen(<span class="string">'EtoileNonOk.dat'</span>,<span class="string">'w'</span>);
+<span class="comment">% w (write): pour l'&eacute;criture.</span>
+<span class="keyword">for</span> i=1:n
+   fprintf(fid,<span class="string">'%2.2d %s %5.1f %5.2f\n'</span>,<span class="keyword">...</span>
+      i,Etoile(i,:),Distance(i),Magnitude(i));
+<span class="keyword">end</span>
+fclose(fid);
+
+disp(<span class="string">'&Eacute;criture avec argument wt : EtoileAvecArgWt.dat'</span>)
+fid=fopen(<span class="string">'EtoileAvecArgWt.dat'</span>,<span class="string">'wt'</span>);
+<span class="comment">% w (write): pour l'&eacute;criture.</span>
+<span class="keyword">for</span> i=1:n
+   fprintf(fid,<span class="string">'%2.2d %s %5.1f %5.2f\n'</span>,<span class="keyword">...</span>
+      i,Etoile(i,:),Distance(i),Magnitude(i));
+<span class="keyword">end</span>
+fclose(fid);
+</pre><pre class="codeoutput">&Eacute;criture traditionnelle dans un fichier
+Voir &Eacute;toileTrad.dat
+------------------------------
+     &Eacute;criture &agrave; l'&eacute;cran
+------------------------------
+01 Sirius   8.7 -1.42
+02 Altair  16.0  0.77
+03 Pollux  33.0  1.16
+04 Becrux 500.0  1.28
+05 Castor  47.0  1.58
+06 Adhara 330.0  1.63
+07 Alioth  49.0  1.68
+08 Shaula 200.0  1.71
+09 Alkaid 190.0  1.91
+10 Alhena  78.0  1.92
+------------------------------
+&Eacute;criture avec un m&ecirc;me format dans EtoileNonOk.dat
+&Eacute;criture avec argument wt : EtoileAvecArgWt.dat</pre>
+<p>Résultat&nbsp;:<br>
+<img border="0" src="AvecBlocNotes.gif" width="439" height="479"></p>
+<h4><i>fopen</i></h4>
+<pre>fid&nbsp;=&nbsp;fopen(Nom_du_fichier,'permission')</pre>
+<p>Cette instruction ouvre un fichier pour la lecture ou l'écriture. Matlab
+retourne alors un nombre entier utilisable par une fonction de lecture ou
+d'écriture comme <i>fprintf</i>.</p>
+<ul>
+  <li>Le Nom_du_fichier est une constante ou une variable caractère.</li>
+  <li>La chaîne 'permission' peut prendre plusieurs valeurs dont&nbsp;:
+    <ul>
+      <li>'r' {<i>read</i>} ouvre le fichier pour la lecture ;</li>
+      <li>'w' {<i>write</i>} ouvre un nouveau fichier pour l'écriture. Si le
+        fichier existe déjà, il est d'abord effacé;</li>
+      <li>'a' {<i>append</i>} ouvre un fichier pour l'écriture à la suite des
+        données déjà contenues dans le fichier. Si le fichier n'existe pas,
+        il est alors créé.</li>
+    </ul>
+  </li>
+</ul>
+<h4><i>fclose</i></h4>
+<pre><i>fclose(fid)</i></pre>
+<p>Cette fonction ferme le fichier identifié par la variable <i>fid</i>.</p>
+<ul>
+  <li><i>fclose('all')</i> permet de fermer tous les fichiers. Lors de la mise
+    au point d'un programme, c'est une instruction à retenir et à écrire
+    directement dans la fenêtre de Matlab ou au début du programme.</li>
+  </ul>
+<dl>
+	<dt>Informations supplémentaires&nbsp;:
+    </dt>
+	<dd>
+	<pre>&gt;&gt; doc fprintf</pre>
+</dl>
+<hr>

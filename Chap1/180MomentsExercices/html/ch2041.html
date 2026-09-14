@@ -1,0 +1,164 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Probl&egrave;me 2/41, Meriam p. 45</title><meta name="generator" content="MATLAB 9.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-10-06"><meta name="DC.source" content="ch2041.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Probl&egrave;me 2/41, Meriam p. 45</h1><!--introduction--><p><img vspace="5" hspace="5" src="..\ch2041.gif" alt=""> </p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">D&eacute;marche scalaire</a></li><li><a href="#3">Aspect physique</a></li></ul></div><h2 id="1">D&eacute;marche scalaire</h2><p>Moment Mc &#8211; comme il s'agit d'une corde, le bras de levier est toujours &eacute;gal &agrave; 5 po.</p><pre class="codeinput">clear; clc
+d = 5; <span class="comment">% po (bras de levier)</span>
+T = 32; <span class="comment">% lb (Norme de T)</span>
+Mc = T * d;
+fprintf(<span class="string">'Norme de Mc = %.0f lb&middot;po'</span>,Mc);
+fprintf(<span class="string">' dans le sens antihoraire\n'</span>);
+</pre><pre class="codeoutput">Norme de Mc = 160 lb&middot;po dans le sens antihoraire
+</pre><p><b>Calcul de l'angle th&ecirc;ta</b></p><p><img vspace="5" hspace="5" src="..\ch2041a.gif" alt=""> </p><p>Appliquer le th&eacute;or&egrave;me de Varignon au point <i>P</i> :</p><p><img src="ch2041_eq05811678977536835784.png" alt="$$ d\;T_x - a\;T_y =0\;\;{\rm avec}\;\;&#xA;T_x = T\cos(\theta)\;\;{\rm et}\;\;&#xA;T_y = T\sin(\theta) $$" style="width:339px;height:16px;"></p><p><img src="ch2041_eq16635202976747438922.png" alt="$$ d\;T\cos(\theta)-a\;T\sin(\theta)=0 $$" style="width:169px;height:15px;"></p><p><img src="ch2041_eq15492921610506363009.png" alt="$$ d\cos(\theta)-a\sin(\theta)=0&#xA;\;\;{\rm (Eq.\; 1)} $$" style="width:191px;height:15px;"></p><p>Consid&eacute;rer le triangle jaune :</p><p><img src="ch2041_eq00703806069446315847.png" alt="$$ d = 8 - 5\cos(\theta)\;\;{\rm et}\;\;&#xA;a = 5\sin(\theta) $$" style="width:202px;height:15px;"></p><p>Substituer ce r&eacute;sultat dans l'&eacute;quation (1) :</p><p><img src="ch2041_eq17840688752337012512.png" alt="$$ (8-5\cos(\theta))\cos(\theta)-&#xA;5\sin(\theta)\sin(\theta) =0 $$" style="width:254px;height:15px;"></p><p><img src="ch2041_eq16518109566357417478.png" alt="$$ 8\cos(\theta)&#xA;-5(\cos^2(\theta)+\sin^2(\theta)) =0 $$" style="width:215px;height:18px;"></p><p><img src="ch2041_eq16304988176291793705.png" alt="$$ 8\cos(\theta)-5 =0 $$" style="width:99px;height:15px;"></p><pre class="codeinput">theta = acosd(5/8);
+fprintf(<span class="string">'Angle theta = %.1f&deg;\n'</span>,theta);
+</pre><pre class="codeoutput">Angle theta = 51.3&deg;
+</pre><h2 id="3">Aspect physique</h2><p>Il n'y a pas de rotation, car le disque est immobile.</p><p>Le moment <b>Mc</b> g&eacute;n&egrave;re une force de contact <b>Px</b> au point <i>P</i>. Comme le disque ne bouge pas, la force <b>Px</b> annule le moment <b>Mc</b>.</p><p>La force <b>Py</b> provenant de la masse du disque n'entra&icirc;ne pas un moment au point <i>C</i>.</p><p><img src="ch2041_eq00196908403550490717.png" alt="$$ 8P_x=5T {\rm= 160\;lb\cdot po} $$" style="width:141px;height:14px;"></p><p><img vspace="5" hspace="5" src="..\ch2041b.gif" alt=""> </p><p>Comme le disque ne bouge pas (il ne glisse pas et ne tourne pas), la force <b>Px</b> doit &ecirc;tre &eacute;quivalente et de sens contraire &agrave; la composante en <i>x</i> de <b>T</b>, soit <b>Tx</b>. Au point <i>P</i> :</p><p><img src="ch2041_eq14011303716805685538.png" alt="$$ \sum M_P=0\;\;{\rm et}\;\; \sum F=0; $$" style="width:169px;height:21px;"></p><p><img src="ch2041_eq11758279780751190972.png" alt="$$ T_x = P_x = \frac{5}{8}T $$" style="width:92px;height:30px;"></p><pre class="codeinput">theta = acosd(5/8);
+<span class="comment">% th&ecirc;ta = acosd(Tx/T) = acosd( (T*5/8)/T )</span>
+fprintf(<span class="string">'Angle theta = %.1f&deg;\n'</span>,theta);
+</pre><pre class="codeoutput">Angle theta = 51.3&deg;
+</pre><p>Note &#8211; le frottement est suffisant au point <i>P</i> pour maintenir l'&eacute;quilibre statique du disque.</p><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Problème 2/41, Meriam p. 45
+% <<..\ch2041.gif>>
+
+%% Démarche scalaire
+%
+% Moment Mc – comme il s'agit d'une corde, le bras
+% de levier est toujours égal à 5 po.
+clear; clc
+d = 5; % po (bras de levier)
+T = 32; % lb (Norme de T)
+Mc = T * d;
+fprintf('Norme de Mc = %.0f lb·po',Mc);
+fprintf(' dans le sens antihoraire\n');
+
+%%
+% *Calcul de l'angle thêta*
+%
+% <<..\ch2041a.gif>>
+%
+% Appliquer le théorème de Varignon au point
+% _P_ :
+%
+% $$ d\;T_x - a\;T_y =0\;\;{\rm avec}\;\;
+% T_x = T\cos(\theta)\;\;{\rm et}\;\;
+% T_y = T\sin(\theta) $$
+%
+% $$ d\;T\cos(\theta)-a\;T\sin(\theta)=0 $$
+%
+% $$ d\cos(\theta)-a\sin(\theta)=0
+% \;\;{\rm (Eq.\; 1)} $$
+%
+% Considérer le triangle jaune :
+%
+% $$ d = 8 - 5\cos(\theta)\;\;{\rm et}\;\;
+% a = 5\sin(\theta) $$
+%
+% Substituer ce résultat dans l'équation (1) :
+%
+% $$ (8-5\cos(\theta))\cos(\theta)-
+% 5\sin(\theta)\sin(\theta) =0 $$
+%
+% $$ 8\cos(\theta)
+% -5(\cos^2(\theta)+\sin^2(\theta)) =0 $$
+%
+% $$ 8\cos(\theta)-5 =0 $$
+theta = acosd(5/8);
+fprintf('Angle theta = %.1f°\n',theta);
+
+%% Aspect physique
+% Il n'y a pas de rotation, car le disque est
+% immobile.
+%
+% Le moment *Mc* génère une force de contact *Px*
+% au point _P_. Comme le disque ne bouge pas, la
+% force *Px* annule le moment *Mc*.
+%
+% La force *Py* provenant de la masse du disque
+% n'entraîne pas un moment au point _C_.
+%
+% $$ 8P_x=5T {\rm= 160\;lb\cdot po} $$
+%
+% <<..\ch2041b.gif>>
+%
+% Comme le disque ne bouge pas (il ne glisse pas
+% et ne tourne pas), la force *Px* doit être
+% équivalente et de sens contraire à la composante
+% en _x_ de *T*, soit *Tx*. Au point _P_ :
+%
+% $$ \sum M_P=0\;\;{\rm et}\;\; \sum F=0; $$
+%
+% $$ T_x = P_x = \frac{5}{8}T $$
+theta = acosd(5/8);
+% thêta = acosd(Tx/T) = acosd( (T*5/8)/T )
+fprintf('Angle theta = %.1f°\n',theta);
+
+%%
+% Note – le frottement est suffisant au point _P_
+% pour maintenir l'équilibre statique du disque.
+##### SOURCE END #####
+--></body></html>

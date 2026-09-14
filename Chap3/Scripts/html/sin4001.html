@@ -1,0 +1,127 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Calculer 4001 valeurs de 3&nbsp;sin&nbsp;(theta)...</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2009-11-10">
+      <meta name="m-file" content="sin4001"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Calculer 4001 valeurs de 3&nbsp;sin&nbsp;(theta)...</h1>
+         <introduction></introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#2">M&eacute;thode traditionnelle</a></li>
+               <li><a href="#3">Vectorisation</a></li>
+               <li><a href="#4">Vectorisation &#8211; autre solution</a></li>
+            </ul>
+         </div><pre class="codeinput">clear; clc
+format <span class="string">compact</span>;format <span class="string">short</span> <span class="string">g</span>
+</pre><h2>M&eacute;thode traditionnelle<a name="2"></a></h2><pre class="codeinput">i = 0;
+<span class="keyword">for</span> theta = 0:0.1:400
+   i = i + 1;
+   y(i) = 3*sind(theta);
+<span class="keyword">end</span>
+disp(y(1:3)) <span class="comment">% impression partielle</span>
+</pre><pre class="codeoutput">            0     0.005236     0.010472
+</pre><h2>Vectorisation<a name="3"></a></h2><pre class="codeinput">theta = 0:0.1:400;
+yy = 3*sind(theta);
+disp(yy(1:3))
+</pre><pre class="codeoutput">            0     0.005236     0.010472
+</pre><h2>Vectorisation &#8211; autre solution<a name="4"></a></h2><pre class="codeinput">theta = linspace(0,400,4001);
+yyy = 3*sind(theta);
+disp(yyy(1:3))
+</pre><pre class="codeoutput">            0     0.005236     0.010472
+</pre><p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Calculer 4001 valeurs de 3 sin (theta)...
+%%
+clear; clc
+format compact;format short g
+%% Méthode traditionnelle
+i = 0;
+for theta = 0:0.1:400
+   i = i + 1;
+   y(i) = 3*sind(theta);
+end
+disp(y(1:3)) % impression partielle
+%% Vectorisation
+theta = 0:0.1:400;
+yy = 3*sind(theta);
+disp(yy(1:3))
+%% Vectorisation – autre solution
+theta = linspace(0,400,4001);
+yyy = 3*sind(theta);
+disp(yyy(1:3))
+##### SOURCE END #####
+-->
+   </body>
+</html>

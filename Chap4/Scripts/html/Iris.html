@@ -1,0 +1,214 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Des iris</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-11-20">
+      <meta name="m-file" content="Iris"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Des iris</h1>
+         <introduction>
+            <p><img vspace="5" hspace="5" src="..\IrisSepalePetale.gif"> </p>
+            <p>Objectif : utiliser les indices matriciels pour manipuler une matrice appel&eacute;e <b>C</b>.
+            </p>
+            <p>Utiliser la matrice <b>C</b> dans tous les calculs et fonctions. Les noms de variables en gras sont obligatoires, et sauf avis contraire,
+            </p>
+            <div>
+               <ul>
+                  <li>afficher les r&eacute;sultats avec fprintf,</li>
+                  <li>choisir la boucle la plus appropri&eacute;e (for, while et vectorisation).</li>
+               </ul>
+            </div>
+         </introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#1">&Eacute;tape 1 &#8211; lecture</a></li>
+               <li><a href="#2">&Eacute;tape 2 &#8211; surface d'un s&eacute;pale et d'un p&eacute;tale</a></li>
+               <li><a href="#3">&Eacute;tape 3 &#8211; dimensions du plus gros p&eacute;tale</a></li>
+               <li><a href="#4">&Eacute;tape 4 &#8211; crit&egrave;re de s&eacute;paration</a></li>
+            </ul>
+         </div>
+         <h2>&Eacute;tape 1 &#8211; lecture<a name="1"></a></h2>
+         <p>Commencer par examiner le contenu du fichier Iris.xls.</p>
+         <p>Lire le fichier Iris.xls et attribuer son contenu &agrave; la matrice <b>C</b>.
+         </p>
+         <h2>&Eacute;tape 2 &#8211; surface d'un s&eacute;pale et d'un p&eacute;tale<a name="2"></a></h2>
+         <p>Pour chaque iris, tracer la surface d'un p&eacute;tale en fonction de celle d'un s&eacute;pale.</p>
+         <p>Pour simplifier les calculs, poser que la surface d'un s&eacute;pale ou d'un p&eacute;tale est &eacute;gale au produit de la longueur par la largeur.</p>
+         <p>Reproduire la figure ci-dessous. Faire en sorte que la l&eacute;gende ne recouvre pas les donn&eacute;es.</p><pre>&gt;&gt; doc legend</pre><p><img vspace="5" hspace="5" src="..\IrisSurface.png"> </p>
+         <h2>&Eacute;tape 3 &#8211; dimensions du plus gros p&eacute;tale<a name="3"></a></h2>
+         <p>D&eacute;terminer les dimensions (longueur et largeur) du p&eacute;tale ayant la plus grande surface.</p>
+         <div>
+            <ul>
+               <li>Examiner la figure pour d&eacute;terminer s'il s'agit d'un iris Virginica ou d'un iris Versicolor.</li>
+            </ul>
+         </div>
+         <div>
+            <ul>
+               <li>Afficher la valeur de la surface ainsi que sa largeur et sa longueur avec fprintf.</li>
+            </ul>
+         </div>
+         <div>
+            <ul>
+               <li>Ajouter une &eacute;toile verte sur la donn&eacute;e du graphique correspondant &agrave; cet iris.</li>
+            </ul>
+         </div><pre>      plot(    ...      ,'*g')</pre><h2>&Eacute;tape 4 &#8211; crit&egrave;re de s&eacute;paration<a name="4"></a></h2>
+         <p>Examiner la figure pour d&eacute;terminer un crit&egrave;re permettant de distinguer qu'un iris est de la famille Virginica ou de la famille
+            Versicolor &agrave; partir de ses dimensions. Le crit&egrave;re doit &ecirc;tre le plus efficace possible. Il se peut qu'il ne puisse &ecirc;tre discriminant
+            &agrave; 100% pour tous les iris.
+         </p>
+         <p>&Eacute;crire 5 &agrave; 6 lignes <b>en commentaire</b> pour expliquer le crit&egrave;re. L'explication doit s'afficher correctement en texte html contigu avec l'utilitaire <i>Publish to html</i>.
+         </p>
+         <p>R&eacute;diger ensuite quelques lignes de code pour d&eacute;montrer l'efficacit&eacute; du crit&egrave;re.</p>
+         <p><a href="IrisSol.html">Solution</a></p>
+         <p><img vspace="5" hspace="5" src="..\Feuilles.gif"> </p>
+         <p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Des iris 
+% 
+% <<..\IrisSepalePetale.gif>>
+% 
+% Objectif : utiliser les indices matriciels pour
+% manipuler une matrice appelée *C*.
+%
+% Utiliser la matrice *C*
+% dans tous les calculs et fonctions.
+% Les noms de variables en gras sont obligatoires,
+% et sauf avis contraire,
+%
+% * afficher les résultats avec fprintf,
+% * choisir la boucle la plus appropriée (for,
+% while et vectorisation).
+
+%% Étape 1 – lecture
+% Commencer par examiner le contenu du fichier
+% Iris.xls.
+%
+% Lire le fichier Iris.xls et attribuer son
+% contenu à la matrice *C*.
+%
+
+%% Étape 2 – surface d'un sépale et d'un pétale
+% Pour chaque iris, tracer la surface d'un pétale
+% en fonction de celle d'un sépale.
+%
+% Pour simplifier les calculs, poser que la
+% surface d'un sépale ou d'un pétale est égale au
+% produit de la longueur par la largeur.
+%
+% Reproduire la figure ci-dessous. Faire en sorte
+% que la légende ne recouvre pas les données.
+%
+%  >> doc legend
+% 
+% <<..\IrisSurface.png>>
+
+%% Étape 3 – dimensions du plus gros pétale
+% Déterminer les dimensions (longueur et largeur)
+% du pétale ayant la plus grande surface.
+%
+% * Examiner la figure pour déterminer s'il
+% s'agit d'un iris Virginica ou d'un iris
+% Versicolor.
+%
+% * Afficher la valeur de la surface ainsi que sa
+% largeur et sa longueur avec fprintf.
+%
+% * Ajouter une étoile verte sur la donnée du
+% graphique correspondant à cet iris.
+%
+%        plot(    ...      ,'*g')
+
+%% Étape 4 – critère de séparation
+% Examiner la figure pour déterminer un
+% critère permettant de distinguer qu'un iris est
+% de la famille Virginica ou de la famille
+% Versicolor à partir de ses dimensions. Le
+% critère doit être le plus efficace possible. Il
+% se peut qu'il ne puisse être
+% discriminant à 100% pour tous les iris.
+%
+% Écrire 5 à 6 lignes *en commentaire* pour
+% expliquer le critère. L'explication doit
+% s'afficher correctement en texte html contigu
+% avec l'utilitaire _Publish to html_.
+%
+% Rédiger ensuite quelques lignes de code pour
+% démontrer l'efficacité du critère.
+%
+% <IrisSol.html Solution>
+%
+% <<..\Feuilles.gif>>
+##### SOURCE END #####
+-->
+   </body>
+</html>

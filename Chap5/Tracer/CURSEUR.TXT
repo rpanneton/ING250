@@ -1,0 +1,13 @@
+Acquisition du mouvement
+   du curseur
+1) Placer le curseur dans la
+   fenêtre du pseudo bureau.
+2) La main gauche déplace la
+   souris. La droite peut
+   appuyer sur la touche «p» 
+   ou la touche «Entrée».
+3) Il y a acquisition
+   lorsque l'on appuie sur
+   «p».  Le premier point
+   démarre l'horloge.
+4) FIN : «Entrée»

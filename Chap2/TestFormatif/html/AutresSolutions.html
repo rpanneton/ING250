@@ -1,0 +1,272 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Autres solutions</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-09-24">
+      <meta name="m-file" content="AutresSolutions"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Autres solutions</h1>
+         <introduction></introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#2">D&eacute;cision &agrave; branches multiples</a></li>
+               <li><a href="#4">D&eacute;cision &agrave; branches multiples avec redondance</a></li>
+               <li><a href="#5">D&eacute;cisions disjointes</a></li>
+               <li><a href="#6">Calcul sans d&eacute;cision</a></li>
+               <li><a href="#7">Valeurs brutes selon atand et atan2</a></li>
+            </ul>
+         </div>
+         <p>Noter que le fichier html ne peut contenir de fonction <i>input</i>, comme l'indique Matlab.
+         </p>
+         <p>Faire ex&eacute;cuter le fichier AutresSolutions.m dans la fen&ecirc;tre de Matlab pour obtenir une r&eacute;ponse.</p><pre class="codeinput">clear <span class="string">all</span>; clc
+</pre><h2>D&eacute;cision &agrave; branches multiples<a name="2"></a></h2>
+         <p>Cet arrangement ressemble &agrave; la structure avec 2 d&eacute;cisions imbriqu&eacute;es.</p><pre class="codeinput">fprintf(<span class="string">'D&eacute;cision &agrave; branches multiples\n'</span>);
+F = input(<span class="string">'F ? '</span>);
+<span class="keyword">if</span>(F(1)&gt;=0)
+   Angle = atand(F(2)/F(1)); <span class="comment">% degr&eacute;s</span>
+<span class="keyword">elseif</span>(F(2)&gt;=0)
+   Angle = atand(F(2)/F(1)) + 180;
+<span class="keyword">else</span>
+   Angle = atand(F(2)/F(1)) - 180;
+<span class="keyword">end</span>
+fprintf(<span class="string">'L''angle de F est %+.1f&deg;.\n'</span>,Angle);
+fprintf(<span class="string">'&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211;\n'</span>);
+</pre><pre class="codeoutput">Error using ==&gt; input
+Cannot call INPUT from EVALC.</pre><p>Noter : au lieu de else, si on &eacute;crit elseif F(2)&lt;0), enlever 1 point pour redondance.</p>
+         <p>Si on &eacute;crit une instruction sur la m&ecirc;me ligne qu'un &laquo; else &raquo;, enlever 1 point. Ne rien &eacute;crire sur la m&ecirc;me ligne qu'un &laquo; else
+            &raquo;.
+         </p>
+         <h2>D&eacute;cision &agrave; branches multiples avec redondance<a name="4"></a></h2>
+         <p>Les conditions propres &agrave; chaque quadrant sont explicit&eacute;es. Cela d&eacute;note qu'il n'y a pas eu d'analyse.</p>
+         <p>Bar&egrave;me : enlever 1 point par double condition.</p><pre class="codeinput">fprintf(<span class="string">'D&eacute;cision avec redondance\n'</span>);
+clear <span class="string">Angle</span>
+<span class="keyword">if</span>(F(1)&gt;=0 &amp;&amp; F(2)&gt;=0)     <span class="comment">% Quadrant 1</span>
+   Angle = atand(F(2)/F(1));
+<span class="keyword">elseif</span>(F(1)&lt;0 &amp;&amp; F(2)&gt;=0)  <span class="comment">% Quadrant 2</span>
+   Angle = atand(F(2)/F(1)) + 180;
+<span class="keyword">elseif</span>(F(1)&lt;0 &amp;&amp; F(2)&lt;0)   <span class="comment">% Quadrant 3</span>
+   Angle = atand(F(2)/F(1)) - 180;
+<span class="keyword">elseif</span>(F(1)&gt;=0 &amp;&amp; F(2)&lt;0)  <span class="comment">% Quadrant 4</span>
+   Angle = atand(F(2)/F(1));
+<span class="keyword">end</span>
+fprintf(<span class="string">'L''angle de F est %+.1f&deg;.\n'</span>,Angle);
+fprintf(<span class="string">'&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211;\n'</span>);
+</pre><h2>D&eacute;cisions disjointes<a name="5"></a></h2>
+         <p>Lorsqu'un quadrant est identifi&eacute;, les trois autres sont exclus. Il n'y a pas lieu d'&eacute;crire des d&eacute;cisions ind&eacute;pendantes qui
+            pourraient produire chacune un r&eacute;sultat.
+         </p>
+         <p>Les conditions ont &eacute;t&eacute; l&eacute;g&egrave;rement modifi&eacute;es pour illustrer ce propos.</p>
+         <p>Bar&egrave;me : si le code comprend 2 ou plusieurs d&eacute;cisions disjointes, enlever 8 points.</p><pre class="codeinput">clear <span class="string">Angle</span>
+fprintf(<span class="string">'D&eacute;cisions disjointes\n'</span>);
+<span class="keyword">if</span>(F(1)&gt;=0 &amp;&amp; F(2)&gt;=0)     <span class="comment">% Quadrant 1</span>
+   Angle = atand(F(2)/F(1));
+   fprintf(<span class="string">'L''angle de F est %+.1f&deg;.\n'</span>,Angle);
+<span class="keyword">end</span>
+<span class="keyword">if</span>(F(1)&lt;=0 &amp;&amp; F(2)&gt;=0)  <span class="comment">% Quadrant 2</span>
+   Angle = atand(F(2)/F(1)) + 180;
+   fprintf(<span class="string">'L''angle de F est %+.1f&deg;.\n'</span>,Angle);
+<span class="keyword">end</span>
+<span class="keyword">if</span>(F(1)&lt;=0 &amp;&amp; F(2)&lt;=0)   <span class="comment">% Quadrant 3</span>
+   Angle = atand(F(2)/F(1)) - 180;
+   fprintf(<span class="string">'L''angle de F est %+.1f&deg;.\n'</span>,Angle);
+<span class="keyword">end</span>
+<span class="keyword">if</span>(F(1)&gt;=0 &amp;&amp; F(2)&lt;=0)  <span class="comment">% Quadrant 4</span>
+   Angle = atand(F(2)/F(1));
+   fprintf(<span class="string">'L''angle de F est %+.1f&deg;.\n'</span>,Angle);
+<span class="keyword">end</span>
+fprintf(<span class="string">'&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211;\n'</span>);
+</pre><h2>Calcul sans d&eacute;cision<a name="6"></a></h2>
+         <p>Utiliser le fait que Matlab consid&egrave;re un bool&eacute;en dans un calcul comme une donn&eacute;e num&eacute;rique.</p>
+         <p>La solution est moins &eacute;vidente. De plus, cette approche ne r&eacute;pond pas &agrave; la question pos&eacute;e.</p><pre class="codeinput">fprintf(<span class="string">'Calcul num&eacute;rique avec bool&eacute;ens\n'</span>);
+fprintf(<span class="string">'   sans utiliser de d&eacute;cision\n'</span>);
+FxNegatif = F(1)&lt;0; FyPositif = F(2) &gt;=0;
+Angle = atand(F(2)/F(1)) + <span class="keyword">...</span>
+   180*FxNegatif*(FyPositif - ~FyPositif);
+fprintf(<span class="string">'L''angle de F est %+.1f&deg;.\n'</span>,Angle);
+fprintf(<span class="string">'&#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211; &#8211;\n'</span>);
+</pre><h2>Valeurs brutes selon atand et atan2<a name="7"></a></h2><pre class="codeinput">fprintf(<span class="string">'&raquo; Angle selon atand : %+.1f&deg;\n'</span>,<span class="keyword">...</span>
+   atand(F(2)/F(1)));
+fprintf(<span class="string">'&raquo; Angle selon atan2 : %+.1f&deg;\n'</span>,<span class="keyword">...</span>
+   atan2(F(2),F(1))*180/pi);
+</pre><p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Autres solutions
+%%
+%
+% Noter que le fichier html ne peut contenir de
+% fonction _input_, comme l'indique Matlab.
+%
+% Faire exécuter le fichier AutresSolutions.m dans
+% la fenêtre de Matlab pour obtenir une réponse.
+clear all; clc
+
+%% Décision à branches multiples
+% Cet arrangement ressemble à la structure avec 2
+% décisions imbriquées.
+
+fprintf('Décision à branches multiples\n');
+F = input('F ? ');
+if(F(1)>=0)
+   Angle = atand(F(2)/F(1)); % degrés
+elseif(F(2)>=0)
+   Angle = atand(F(2)/F(1)) + 180;
+else
+   Angle = atand(F(2)/F(1)) - 180;
+end
+fprintf('L''angle de F est %+.1f°.\n',Angle);
+fprintf('– – – – – – – – – – – – – – – – – – –\n');
+
+%%
+% Noter : au lieu de else, si on écrit
+% elseif F(2)<0), enlever 1 point pour redondance.
+%
+% Si on écrit une instruction sur la même ligne
+% qu'un « else », enlever 1 point. Ne rien écrire sur
+% la même ligne qu'un « else ».
+
+%% Décision à branches multiples avec redondance
+% Les conditions propres à chaque quadrant sont
+% explicitées. Cela dénote qu'il n'y a pas eu
+% d'analyse.
+%
+% Barème : enlever 1 point par double condition.
+
+fprintf('Décision avec redondance\n');
+clear Angle
+if(F(1)>=0 && F(2)>=0)     % Quadrant 1
+   Angle = atand(F(2)/F(1));
+elseif(F(1)<0 && F(2)>=0)  % Quadrant 2
+   Angle = atand(F(2)/F(1)) + 180;
+elseif(F(1)<0 && F(2)<0)   % Quadrant 3
+   Angle = atand(F(2)/F(1)) - 180;
+elseif(F(1)>=0 && F(2)<0)  % Quadrant 4
+   Angle = atand(F(2)/F(1));
+end
+fprintf('L''angle de F est %+.1f°.\n',Angle);
+fprintf('– – – – – – – – – – – – – – – – – – –\n');
+
+%% Décisions disjointes
+% Lorsqu'un quadrant est identifié, les
+% trois autres sont exclus. Il n'y a pas lieu
+% d'écrire des décisions indépendantes qui
+% pourraient produire chacune un résultat.
+%
+% Les conditions ont été légèrement modifiées pour
+% illustrer ce propos.
+%
+% Barème : si le code comprend 2 ou plusieurs
+% décisions disjointes, enlever 8 points.
+
+clear Angle
+fprintf('Décisions disjointes\n');
+if(F(1)>=0 && F(2)>=0)     % Quadrant 1
+   Angle = atand(F(2)/F(1));
+   fprintf('L''angle de F est %+.1f°.\n',Angle);
+end
+if(F(1)<=0 && F(2)>=0)  % Quadrant 2
+   Angle = atand(F(2)/F(1)) + 180;
+   fprintf('L''angle de F est %+.1f°.\n',Angle);
+end
+if(F(1)<=0 && F(2)<=0)   % Quadrant 3
+   Angle = atand(F(2)/F(1)) - 180;
+   fprintf('L''angle de F est %+.1f°.\n',Angle);
+end
+if(F(1)>=0 && F(2)<=0)  % Quadrant 4
+   Angle = atand(F(2)/F(1));
+   fprintf('L''angle de F est %+.1f°.\n',Angle);
+end
+fprintf('– – – – – – – – – – – – – – – – – – –\n');
+
+%% Calcul sans décision
+% Utiliser le fait que Matlab considère un booléen
+% dans un calcul comme une donnée numérique.
+%
+% La solution est moins évidente. De plus, cette
+% approche ne répond pas à la question posée.
+fprintf('Calcul numérique avec booléens\n');
+fprintf('   sans utiliser de décision\n');
+FxNegatif = F(1)<0; FyPositif = F(2) >=0;
+Angle = atand(F(2)/F(1)) + ...
+   180*FxNegatif*(FyPositif - ~FyPositif);
+fprintf('L''angle de F est %+.1f°.\n',Angle);
+fprintf('– – – – – – – – – – – – – – – – – – –\n');
+
+%% Valeurs brutes selon atand et atan2
+fprintf('» Angle selon atand : %+.1f°\n',...
+   atand(F(2)/F(1)));
+fprintf('» Angle selon atan2 : %+.1f°\n',...
+   atan2(F(2),F(1))*180/pi);
+##### SOURCE END #####
+-->
+   </body>
+</html>

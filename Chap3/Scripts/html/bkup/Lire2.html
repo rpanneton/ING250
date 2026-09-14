@@ -1,0 +1,172 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Juillet &agrave; Inukjuak</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2009-11-16">
+      <meta name="m-file" content="Lire2"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Juillet &agrave; Inukjuak</h1>
+         <introduction>
+            <p>Objectif : utiliser une boucle while au lieu d'une d&eacute;cision imbriqu&eacute;e dans une boucle for.</p>
+         </introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#1">Contexte</a></li>
+               <li><a href="#2">Boucle for et d&eacute;cision</a></li>
+               <li><a href="#3">Boucle while seulement</a></li>
+            </ul>
+         </div>
+         <h2>Contexte<a name="1"></a></h2>
+         <p>Le fichier Juillet.dat contient la temp&eacute;rature moyenne journali&egrave;re du mois de juillet 2006 &agrave; Inukjuak.</p>
+         <div>
+            <ul>
+               <li>Lire le fichier Juillet.dat et l&#8217;attribuer &agrave; jour.</li>
+            </ul>
+         </div>
+         <div>
+            <ul>
+               <li>D&eacute;terminer l&#8217;indice du 1er&nbsp;jour o&ugrave; la temp&eacute;rature moyenne est &eacute;gale ou plus &eacute;lev&eacute;e que 15&deg;&nbsp;C.</li>
+            </ul>
+         </div>
+         <div>
+            <ul>
+               <li>Afficher l&#8217;indice.</li>
+            </ul>
+         </div>
+         <h2>Boucle for et d&eacute;cision<a name="2"></a></h2><pre class="codeinput">clear <span class="string">all</span>; clc;
+jour = load(<span class="string">'Juillet.dat'</span>);
+indice=32; <span class="comment">% agit comme indicateur.</span>
+<span class="keyword">for</span> i=1:length(jour)
+   <span class="keyword">if</span>(indice&gt;31 &amp;&amp; jour(i)&gt;=15)
+      indice=i;
+   <span class="keyword">end</span>
+<span class="keyword">end</span>
+indice
+</pre><pre class="codeoutput">indice =
+     4
+</pre><h2>Boucle while seulement<a name="3"></a></h2><pre class="codeinput">clear <span class="string">all</span>;
+jour = load(<span class="string">'Juillet.dat'</span>);
+i=1;
+<span class="keyword">while</span>(jour(i)&lt;15)
+   i=i+1;
+<span class="keyword">end</span>
+indice=i
+<span class="comment">% Le script plante</span>
+<span class="comment">% s'il n'y en a pas.</span>
+</pre><pre class="codeoutput">indice =
+     4
+</pre><p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Juillet à Inukjuak
+% Objectif : utiliser une boucle while au lieu
+% d'une décision imbriquée dans une boucle for.
+
+%% Contexte
+% Le fichier Juillet.dat contient la température
+% moyenne journalière du mois de juillet 2006 à
+% Inukjuak.
+%
+% * Lire le fichier Juillet.dat et l’attribuer à
+% jour.
+%
+% * Déterminer l’indice du 1er jour où la
+% température moyenne est égale ou plus élevée que
+% 15° C.
+%
+% * Afficher l’indice.
+
+%% Boucle for et décision
+clear all; clc;
+jour = load('Juillet.dat');
+indice=32; % agit comme indicateur.
+for i=1:length(jour)
+   if(indice>31 && jour(i)>=15)
+      indice=i;
+   end
+end
+indice
+
+%% Boucle while seulement
+clear all;
+jour = load('Juillet.dat');
+i=1;
+while(jour(i)<15)
+   i=i+1;
+end
+indice=i
+% Le script plante
+% s'il n'y en a pas.
+##### SOURCE END #####
+-->
+   </body>
+</html>

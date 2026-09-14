@@ -1,0 +1,119 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Probl&egrave;me 2/16, Meriam p. 35</title><meta name="generator" content="MATLAB 9.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-10-06"><meta name="DC.source" content="ch2016.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Probl&egrave;me 2/16, Meriam p. 35</h1><!--introduction--><p><img vspace="5" hspace="5" src="..\ch2016.gif" alt=""> </p><p>Orienter le syst&egrave;me d'axes <i>x</i> et <i>y</i> selon <b>D</b> et <b>L</b>.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#2">&Eacute;tape 1 &#8211; D&eacute;marche vectorielle</a></li><li><a href="#3">&Eacute;tape 2 &#8211; Expression scalaire des vecteurs</a></li></ul></div><pre class="codeinput">clear; close <span class="string">all</span>; clc;
+mL = 50; <span class="comment">% lb (Norme)</span>
+<span class="comment">% mL/mD = 10 selon l'&eacute;nonc&eacute; du probl&egrave;me</span>
+mD = mL/10; <span class="comment">% (Norme)</span>
+</pre><h2 id="2">&Eacute;tape 1 &#8211; D&eacute;marche vectorielle</h2><p>&Eacute;tablir les vecteurs unitaires de <b>L</b> et <b>D</b>. Calculer <b>R</b>.</p><pre class="codeinput">nL = [0,1]; L = nL*mL; angleL = +90;
+nD = [1,0]; D = nD*mD; angleD = 0;
+R = L + D;
+fprintf(<span class="string">'L = %+5.1fi %+5.1fj lb\n'</span>,L);
+fprintf(<span class="string">'D = %+5.1fi %+5.1fj lb\n'</span>,D);
+fprintf(<span class="string">'R = %+5.1fi %+5.1fj lb\n'</span>,R);
+</pre><pre class="codeoutput">L =  +0.0i +50.0j lb
+D =  +5.0i  +0.0j lb
+R =  +5.0i +50.0j lb
+</pre><h2 id="3">&Eacute;tape 2 &#8211; Expression scalaire des vecteurs</h2><pre class="codeinput">mR = norm(R); angleR = atan2(R(2),R(1))*180/pi;
+fprintf(<span class="string">'L = %5.1f lb &agrave; %+.0f&deg;\n'</span>,mL,angleL);
+fprintf(<span class="string">'D = %5.1f lb &agrave; %+.0f&deg;\n'</span>,mD,angleD);
+fprintf(<span class="string">'R = %5.1f lb &agrave; %+.0f&deg;\n'</span>,mR,angleR);
+</pre><pre class="codeoutput">L =  50.0 lb &agrave; +90&deg;
+D =   5.0 lb &agrave; +0&deg;
+R =  50.2 lb &agrave; +84&deg;
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Problème 2/16, Meriam p. 35
+% <<..\ch2016.gif>>
+%
+% Orienter le système d'axes _x_ et _y_ selon
+% *D* et *L*.
+
+%%
+clear; close all; clc;
+mL = 50; % lb (Norme)
+% mL/mD = 10 selon l'énoncé du problème
+mD = mL/10; % (Norme)
+
+%% Étape 1 – Démarche vectorielle
+% Établir les vecteurs unitaires de *L* et *D*.
+% Calculer *R*.
+nL = [0,1]; L = nL*mL; angleL = +90;
+nD = [1,0]; D = nD*mD; angleD = 0;
+R = L + D;
+fprintf('L = %+5.1fi %+5.1fj lb\n',L);
+fprintf('D = %+5.1fi %+5.1fj lb\n',D);
+fprintf('R = %+5.1fi %+5.1fj lb\n',R);
+
+%% Étape 2 – Expression scalaire des vecteurs
+mR = norm(R); angleR = atan2(R(2),R(1))*180/pi;
+fprintf('L = %5.1f lb à %+.0f°\n',mL,angleL);
+fprintf('D = %5.1f lb à %+.0f°\n',mD,angleD);
+fprintf('R = %5.1f lb à %+.0f°\n',mR,angleR);
+##### SOURCE END #####
+--></body></html>

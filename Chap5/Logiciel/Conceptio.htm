@@ -1,0 +1,226 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="fr-ca">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Conception des langages de programmation</title>
+<link rel="stylesheet" type="text/css" href="../../css/index.css">
+</head>
+
+<body>
+
+<h2>Conception des langages de programmation</h2>
+<ul>
+  <li>Quatre caractéristiques d'un langage de programmation</li>
+  <li>Paradigmes de langages informatiques
+    <ul>
+      <li>Programmation impérative</li>
+      <li>Programmation orienté objet</li>
+      <li>Autres</li>
+    </ul>
+  </li>
+  <li>Trois composants définissent les langages procéduraux,<br>
+    données, opérateurs et mécanismes de contrôle
+    <ul>
+      <li>Donnée variable et objet
+        <ul>
+          <li>Propriétés d'une variable</li>
+          <li>Objet et méthode</li>
+        </ul>
+      </li>
+      <li>Objets et méthodes</li>
+    </ul>
+  </li>
+</ul>
+<h3>Quatre caractéristiques d'un langage de programmation</h3>
+<h4>Système de signes graphiques</h4>
+<p>Nous avons l'habitude d'utiliser plusieurs manières de noter&nbsp;ou de
+représenter des concepts par des symboles&nbsp;: notation des nombres, notation
+algébrique, notation atomique (Al, Cu), notation musicale pour représenter des
+sons, etc. Un langage de programmation est constitué de notations.</p>
+<h4>Moyen de communication</h4>
+<p>Il constitue une manière de représenter des idées abstraites en
+programmes. Par analogie, la langue française permet de réaliser des textes,
+des compositions, des romans, des lettres et de les communiquer aux autres
+humains. Elle a deux fonctions essentielles, l'expression et la communication.</p>
+<h4>Traduction des instructions à l'ordinateur</h4>
+<p>Les langages de programmation traduisent les notations du programme à
+l'ordinateur. Cette tâche est effectuée par un compilateur ou un interprète.
+Voir la section «Matériel et Logiciel».</p>
+<h4>Organisation des parties de programme</h4>
+<p>Le langage offre des outils pour permettre une organisation adéquate des
+différentes parties d'un programme. C'est le sujet de la section «Écriture et
+style du code».</p>
+<h3>Paradigmes de langages informatiques</h3>
+<p>Les langages de programmation sont regroupés selon plusieurs paradigmes
+(modèles).</p>
+<h4>Programmation impérative</h4>
+<p>La programmation est vue comme une séquence d'actions. Les langages issus de
+ce modèle sont souvent appelés langages procéduraux. Exemples&nbsp;: Fortran
+(1954, 1957, 1966, 1977, 1990, 1995, 2000), Pascal (1971) et C (1972).
+Référence&nbsp;: Qa76.73</p>
+<h4>Programmation orientée objet</h4>
+<p>Ce paradigme tire son origine du langage Simula (1961-1966), qui est à la
+fois un langage de description et un langage de programmation. Les classes
+d'objets constituent le concept principal de ce langage de simulation. On
+retrouve principalement des langages tels que</p>
+<ul>
+  <li>Smalltalk, système interactif avec une interface graphique,</li>
+  <li>C<sup>&nbsp;+&nbsp;+</sup>, qui ajoute une coquille objet au langage
+    impératif&nbsp;C,</li>
+  <li>Ada, 1983 et 1995.</li>
+</ul>
+<h4>Autres paradigmes</h4>
+<p>Il y a bien d'autres, par exemple,</p>
+<ul>
+  <li>la programmation fonctionnelle, dont le Lisp, utilisé dans des programmes
+    d'intelligence artificielle,</li>
+  <li>la programmation logique, dont Prolog, développé par Alain Colerauer et
+    Philippe Roussel (Montréal, 1972); ce langage est souvent utilisé pour la
+    rédaction de bases de données et de systèmes experts.</li>
+</ul>
+<h4>Référence</h4>
+<p>Parmi les nombreux traités sur les langages de programmation, les manuels
+suivants présentent les principales caractéristiques des langages&nbsp;:</p>
+<ul>
+  <li>Pratt, T.W, Zelkowitz, M.V., <i>Programming Languages</i>, Prentice Hall,
+    QA76.7 P7.</li>
+  <li>Sethi, R., <i>Programming Languages</i>, Addison-Weley, Qa76.7.S48</li>
+</ul>
+<h3>Trois composants définissent les langages procéduraux</h3>
+<p>Les langages procéduraux diffèrent seulement dans le type de données
+autorisées, dans la nature des opérations disponibles et dans les mécanismes
+proposés pour contrôler l'ordonnancement dans lequel les opérations doivent
+être appliquées aux données. Les trois composants, <b>données</b>, <b>opérateurs</b>
+et <b>mécanismes de contrôle, </b>forment la base de la programmation et
+définissent le cadre des langages informatiques.</p>
+<ul>
+  <li>Les données représentent les unités d'information telles qu'un nombre
+    ou un caractère. Bien qu'un ordinateur traite toutes sortes d'informations,
+    il manipule que des bits {0,1}. En d'autres termes, un ordinateur ne sait
+    traiter que des chiffres et il traduit donc toute information en un code
+    numérique.</li>
+  <li>Les opérateurs {+}, {-}, {*}, {/}, {^}, {.*}, {./}, {.^} permettent de
+    réaliser des opérations élémentaires sur des données numériques.</li>
+  <li>Quant aux mécanismes de contrôle, ils permettent de gérer l'ordre de la
+    séquence des instructions d'un programme; ce sont les structures de
+    décision et les boucles.</li>
+</ul>
+<h4>Donnée variable et objet</h4>
+<p>Comme les opérateurs et les mécanismes de contrôle sont traités dans les
+chapitres précédents, cette section se penche sur les données.</p>
+<h5>Propriétés d'une variable</h5>
+<p>&nbsp;En programmation, chaque variable possède 4&nbsp;propriétés&nbsp;:
+elle a un nom, elle appartient à un type (classe), elle occupe un espace
+physique en mémoire et elle contient une valeur.</p>
+<ul>
+  <b>
+  <li>Nom</b>.
+  <ul>
+    <li>En attribuant un nom à une donnée, elle devient une variable.</li>
+    <li>Une variable Matlab débute par <b>une lettre</b> qui peut être suivie
+      d'autres lettres choisies parmi les 26&nbsp;lettres de l'alphabet, de
+      chiffres ou du caractère de soulignement&nbsp;{&nbsp;_&nbsp;}; cet
+      ensemble constitue les caractères alphanumériques. Les caractères
+      accentués {é, è, ê} ne sont pas acceptés.</li>
+    <li>Le nom d'une variable Matlab comporte jusqu'à 31&nbsp;caractères
+      Matlab&nbsp;6,1) ou 63&nbsp;(Matlab&nbsp;6.5); Matlab ignore les
+      caractères qui dépassent ce nombre.</li>
+    <li>Matlab fait une distinction entre les lettres minuscules et les lettres
+      majuscules. Mais ne pas créer de variables dont les noms ne diffèrent
+      que par la capitalisation.</li>
+    <li>Comme les noms de variables font partie de la documentation d'un
+      programme, utiliser des noms significatifs. Exemple&nbsp;: distance au
+      lieu de «d».</li>
+  </ul>
+  </li>
+  <b>
+  <li>Type et classe
+    <ul>
+      <li></b>Ils déterminent la sorte de données.&nbsp;</li>
+    <li>Les types de base classiques tels entier, réel, caractère, logique
+      (booléen) font partie habituellement de l'arsenal des langages de
+      programmation.</li>
+    <li>Dans la mémoire de l'ordinateur, la représentation interne des
+      données est spécifique à chacun des types de données.</li>
+    <li>Matlab implémente les types sous la forme de classes.
+      <ul>
+        <li>La classe est un type construit à partir d'autres classes ou
+          d'autres types.<br>
+          Exemple&nbsp;: la classe symbolique utilise le type caractères pour
+          décrire des objets symboliques.</li>
+      </ul>
+    </li>
+  </ul>
+  </li>
+  <b>
+  <li>Espace physique
+    <ul>
+      <li></b>Le nom représente l'adresse de la donnée, soit la localisation
+      dans la mémoire de l'ordinateur. Il n'est pas possible d'accéder
+      directement à l'adresse avec Matlab.<br>
+      &nbsp;</li>
+  </ul>
+  </li>
+  <b>
+  <li>Valeur</b>
+  <ul>
+    <li>Le nom permet d'accéder à la valeur de la donnée pour l'utiliser ou
+      la modifier.</li>
+  </ul>
+  </li>
+</ul>
+<h5>Objet et méthode</h5>
+<p>Plutôt que d'utiliser de simples variables, Matlab utilise le concept d'<b><font color="#008000">objets</font></b>
+créés à partir de <b><font color="#008000">classes</font></b> pour contenir
+les données.</p>
+<ul>
+  <li>Une <b><font color="#0000FF">variable</font></b> est une instance
+    {signifie une création} d'un <b><font color="#0000FF">type de base</font></b>
+    tandis qu'un <b><font color="#008000">objet</font></b> est une instance
+    d'une <b><font color="#008000">classe</font></b>.</li>
+  <li>La <b><font color="#008000">classe</font></b> contient des opérateurs et
+    des fonctions spécifiques aux objets appartenant à cette classe, le tout
+    d'une manière conviviale et transparente. Dans le paradigme <b><font color="#008000">objet</font></b>,
+    la fonction spécifique à une classe est appelée une <b><font color="#008000">méthode</font></b>.</li>
+</ul>
+<p><b>Exemple&nbsp;: opérateur plus (+)</b></p>
+<p>L'opérateur d'addition {+} opère de façon transparente avec des objets de
+la classe <i>double</i> et des objets de la classe <i>sym</i>.</p>
+<p>Pour accomplir ceci, Matlab définit deux opérateurs différents&nbsp;:</p>
+<ul>
+  <li>un opérateur&nbsp;{+} pour des objets de la classe <i>double</i></li>
+  <li>et un autre pour la classe <i>sym</i>.</li>
+</ul>
+<pre>&gt;&gt; z&nbsp;=&nbsp;3 + cos(pi/4)
+z&nbsp;= &nbsp;-2.2929
+&gt;&gt;&nbsp;f&nbsp;=&nbsp;sym('-x');
+&gt;&gt;&nbsp;g&nbsp;=&nbsp;sym('cos(x)');
+&gt;&gt;&nbsp;y&nbsp;=&nbsp;f&nbsp;+&nbsp;g
+y&nbsp;= &nbsp;-x+cos(x)
+&gt;&gt;&nbsp;whos
+&nbsp;&nbsp;Name&nbsp;&nbsp;Size&nbsp;&nbsp;Bytes&nbsp;&nbsp;Class
+&nbsp;&nbsp;f&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1x1&nbsp;&nbsp;&nbsp;&nbsp;126&nbsp;&nbsp;sym&nbsp;object
+&nbsp;&nbsp;g&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1x1&nbsp;&nbsp;&nbsp;&nbsp;136&nbsp;&nbsp;sym&nbsp;object
+&nbsp;&nbsp;y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1x1&nbsp;&nbsp;&nbsp;&nbsp;140&nbsp;&nbsp;sym&nbsp;object
+&nbsp;&nbsp;z&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1x1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;double&nbsp;array</pre>
+<p>Des <i>fonctions différentes ou méthodes</i> sont associées à chacune des
+classes et permettent de manipuler les objets appartenant à leur classe.</p>
+<pre>&gt;&gt; help plus
+    X + Y adds matrices X and Y, etc.</pre>
+<pre>&gt;&gt; help sym/plus
+ PLUS   Symbolic addition.
+    PLUS(A,B) overloads symbolic A + B.</pre>
+<pre>&gt;&gt; help cos
+    COS(X) is the cosine of the elements of X.</pre>
+<pre>&gt;&gt; help sym/cos
+ COS    Symbolic cosine function.</pre>
+<p>Il y a deux méthodes pour l'opérateur&nbsp;«+» ainsi que pour le calcul
+du cosinus.</p>
+<p align="center"><img border="0" src="Galets.gif" width="528" height="30"></p>
+
+</body>
+
+</html>

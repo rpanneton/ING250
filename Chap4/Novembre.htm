@@ -1,0 +1,73 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="fr-ca">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Novembre à Sherbrooke</title>
+<link rel="stylesheet" type="text/css" href="../css/indexco.css">
+<style>
+<!--
+.ms-classic3-main { border: 1.5pt solid black }
+.ms-classic3-tl { font-weight: bold; color: white; border-left-style: none; border-right-style: 
+               none; border-top-style: none; border-bottom: 1.5pt solid black; 
+               background-color: navy }
+.ms-classic3-left { font-weight: bold; color: black; border-style: none; background-color: silver }
+.ms-classic3-top { font-weight: bold; color: white; border-left-style: none; border-right-style: 
+               none; border-top-style: none; border-bottom: 1.5pt solid black; 
+               background-color: navy }
+.ms-classic3-even { color: navy; border-style: none; background-color: silver }
+-->
+</style>
+</head>
+
+<body>
+
+<h1>Novembre à Sherbrooke</h1>
+<p>Le fichier Nov2010Matrice.xls contient les températures horaires du mois de 
+novembre&nbsp;2010 à Sherbrooke (30&nbsp;par&nbsp;24 éléments). Examiner d'abord le fichier.</p>
+<p>Lire le fichier et l'attribuer à la variable&nbsp;<font color="#008000"><b>T</b></font>. </p>
+<h3>Jour et heure où la température est la plus basse</h3>
+<p>S'il y a plus d'un évènement, choisir le jour et l'heure le plus tôt dans le mois. Afficher le 
+jour et l'heure ainsi que la température.</p>
+<h3>Température moyenne du jour ci-dessus</h3>
+<p>C'est la suite de l'étape précédente. Afficher la moyenne.</p>
+<h3>Températures du mois&nbsp;en 4 classes</h3>
+<p>Compter le nombre d'heures où la température répond à l'un des 4&nbsp;critères 
+suivants&nbsp;:</p>
+<div align="left">
+	<table border="1" id="table1" class="ms-classic3-main" style="border-style: solid">
+		<!-- fpstyle: 6,111111100 -->
+		<tr>
+			<td class="ms-classic3-tl" align="center">Nom obligatoire<br>
+			du compteur</td>
+			<td class="ms-classic3-top">Température</td>
+		</tr>
+		<tr>
+			<td class="ms-classic3-left" align="center">Compteur(1)</td>
+			<td class="ms-classic3-even">moins de 0°C</td>
+		</tr>
+		<tr>
+			<td class="ms-classic3-left" align="center">Compteur(2)</td>
+			<td class="ms-classic3-even">0 à 4.99 °C</td>
+		</tr>
+		<tr>
+			<td class="ms-classic3-left" align="center">Compteur(3)</td>
+			<td class="ms-classic3-even">5 à 9.99 °C</td>
+		</tr>
+		<tr>
+			<td class="ms-classic3-left" align="center">Compteur(4)</td>
+			<td class="ms-classic3-even">10°C et plus</td>
+		</tr>
+	</table>
+</div>
+<p><b><font color="#0000FF">La variable Compteur est un vecteur.</font></b> Examiner le fichier de données afin de spécifier des conditions 
+et éviter la redondance.</p>
+<p>Afficher le résultat uniquement en utilisant le diagramme de bâtons en 
+ajoutant à la dernière ligne de votre script&nbsp;:<br>
+<font color="#008000"><b>
+<code>batons(Compteur)</code></b></font></p>Solution&nbsp;:
+<a href="Scripts/html/NovembreSol.html">NovembreSol.m</a><p><img border="0" src="../css/Feuilles.gif" width="500" height="19"></p>
+
+</body>
+
+</html>

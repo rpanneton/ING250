@@ -1,0 +1,265 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Exercice de r&eacute;vision avec while et input</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2009-11-11">
+      <meta name="m-file" content="RevWhileInput"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Exercice de r&eacute;vision avec while et input</h1>
+         <introduction>
+            <p><b>Contexte</b></p>
+            <p>On mesure la limite &eacute;lastique d'&eacute;chantillons d'Al-2024-T4 pour lequels la limite &eacute;lastique varie entre 250 et 350 MPa.</p>
+            <p><b>&Eacute;crire un script</b></p>
+            <div>
+               <ol>
+                  <li>Lire un &agrave; un les nombres &eacute;crits au clavier.</li>
+                  <li>Chacun doit &ecirc;tre &gt; 250 pour &ecirc;tre accept&eacute;.</li>
+                  <li>&Agrave; mesure, repr&eacute;senter chaque donn&eacute;e sur un graphique par un rond rouge.</li>
+                  <li>&Eacute;crire 0 pour terminer la lecture.</li>
+                  <li>Terminer le script en tra&ccedil;ant un trait indiquant la moyenne.</li>
+               </ol>
+            </div>
+            <p><b>Suggestion</b></p>
+            <p>Coder les grandes lignes, coder ensuite les d&eacute;tails.</p><pre>Lire une donn&eacute;e (Re)
+TantQue Re est diff&eacute;rent de z&eacute;ro
+   (coeur du script)
+    Lire &agrave; nouveau une donn&eacute;e
+Fin TantQue
+Terminer le script.</pre><div>
+               <ul>
+                  <li>&Eacute;tape 1 &#8211; R&eacute;soudre les items 1 et 4. Le nombre de donn&eacute;es &agrave; lire n'est pas connu &agrave; l'avance. Utiliser une boucle while.</li>
+               </ul>
+            </div>
+            <div>
+               <ul>
+                  <li>&Eacute;tape 2 &#8211; item 3. Tracer les donn&eacute;es.</li>
+               </ul>
+            </div>
+            <div>
+               <ul>
+                  <li>&Eacute;tape 3 &#8211; item 5. Calculer la moyenne.</li>
+               </ul>
+            </div>
+            <div>
+               <ul>
+                  <li>&Eacute;tape 4 &#8211; item 2. Choisir les donn&eacute;es.</li>
+               </ul>
+            </div>
+            <p><b>Artifice pour illustrer la solution</b> &#8211;  La fonction inputG simule l'&eacute;criture de donn&eacute;es au clavier. Cet artifice permet l'utilisation de la commande <i>Publish to Html</i>. Voir le fichier inputG.m pour plus de d&eacute;tails sur les donn&eacute;es g&eacute;n&eacute;r&eacute;es.
+            </p>
+         </introduction><pre class="codeinput">clear; clc; close <span class="string">all</span>;
+<span class="comment">% initialisation</span>
+k = 0; <span class="comment">% compteur de nombres accept&eacute;s</span>
+somme = 0;
+Re = inputG(<span class="string">'Valeur mesur&eacute;e ? '</span>);
+
+<span class="keyword">while</span>(Re~=0)
+   <span class="keyword">if</span>(Re&gt;250)
+      k = k + 1; somme = somme + Re;
+      plot(k,Re,<span class="string">'or'</span>); grid <span class="string">on</span>; hold <span class="string">on</span>;
+   <span class="keyword">else</span>
+      disp(<span class="string">'Donn&eacute;e refus&eacute;e, s.v.p. recommencer'</span>)
+   <span class="keyword">end</span>
+   Re = inputG(<span class="string">'Valeur mesur&eacute;e ? '</span>);
+<span class="keyword">end</span>
+
+<span class="keyword">if</span>(k&gt;0)
+   moyenne = somme/k;
+   plot([1,k],[moyenne,moyenne],<span class="string">'-b'</span>);
+   xlabel(<span class="string">'N^o de l''&eacute;chantillon'</span>);
+   ylabel(<span class="string">'Limite &eacute;lastique MPa'</span>);
+   title(<span class="string">'&Eacute;chantillons d''Al 2024 T4'</span>);
+   axis([1,k,250,350]); <span class="comment">% ajuste les axes.</span>
+<span class="keyword">end</span>
+<span class="comment">% if(k&gt;0) permet d'&eacute;viter de planter le script</span>
+<span class="comment">% lorsque se pr&eacute;sente le cas inusit&eacute; o&ugrave; k=0.</span>
+</pre><pre class="codeoutput">Valeur mesur&eacute;e ? 301
+Valeur mesur&eacute;e ? 326
+Valeur mesur&eacute;e ? 346
+Valeur mesur&eacute;e ? 209
+Donn&eacute;e refus&eacute;e, s.v.p. recommencer
+Valeur mesur&eacute;e ? 268
+Valeur mesur&eacute;e ? 287
+Valeur mesur&eacute;e ? 303
+Valeur mesur&eacute;e ? 308
+Valeur mesur&eacute;e ? 298
+Valeur mesur&eacute;e ? 309
+Valeur mesur&eacute;e ? 256
+Valeur mesur&eacute;e ? 287
+Valeur mesur&eacute;e ? 217
+Donn&eacute;e refus&eacute;e, s.v.p. recommencer
+Valeur mesur&eacute;e ? 209
+Donn&eacute;e refus&eacute;e, s.v.p. recommencer
+Valeur mesur&eacute;e ? 347
+Valeur mesur&eacute;e ? 243
+Donn&eacute;e refus&eacute;e, s.v.p. recommencer
+Valeur mesur&eacute;e ? 289
+Valeur mesur&eacute;e ? 344
+Valeur mesur&eacute;e ? 228
+Donn&eacute;e refus&eacute;e, s.v.p. recommencer
+Valeur mesur&eacute;e ? 229
+Donn&eacute;e refus&eacute;e, s.v.p. recommencer
+Valeur mesur&eacute;e ? 251
+Valeur mesur&eacute;e ? 340
+Valeur mesur&eacute;e ? 259
+Valeur mesur&eacute;e ? 241
+Donn&eacute;e refus&eacute;e, s.v.p. recommencer
+Valeur mesur&eacute;e ? 223
+Donn&eacute;e refus&eacute;e, s.v.p. recommencer
+Valeur mesur&eacute;e ? 260
+Valeur mesur&eacute;e ? 256
+Valeur mesur&eacute;e ? 220
+Donn&eacute;e refus&eacute;e, s.v.p. recommencer
+Valeur mesur&eacute;e ? 265
+Valeur mesur&eacute;e ? 214
+Donn&eacute;e refus&eacute;e, s.v.p. recommencer
+Valeur mesur&eacute;e ? 292
+Valeur mesur&eacute;e ? 0
+</pre><img vspace="5" hspace="5" src="RevWhileInput_01.png"> <p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Exercice de révision avec while et input
+% *Contexte*
+%
+% On mesure la limite élastique d'échantillons
+% d'Al-2024-T4 pour lequels la limite élastique
+% varie entre 250 et 350 MPa.
+%
+% *Écrire un script*
+%
+% # Lire un à un les nombres écrits au clavier.
+% # Chacun doit être > 250 pour être accepté.
+% # À mesure, représenter chaque donnée
+% sur un graphique par un rond rouge.
+% # Écrire 0 pour terminer la lecture.
+% # Terminer le script en traçant un trait
+% indiquant la moyenne.
+%
+% *Suggestion*
+%
+% Coder les grandes lignes, coder ensuite les
+% détails.
+%
+%  Lire une donnée (Re)
+%  TantQue Re est différent de zéro
+%     (coeur du script)
+%      Lire à nouveau une donnée
+%  Fin TantQue
+%  Terminer le script.
+%
+% * Étape 1 – Résoudre les items 1 et 4. Le nombre
+% de données à lire n'est pas connu à l'avance.
+% Utiliser une boucle while.
+%
+% * Étape 2 – item 3. Tracer les données.
+%
+% * Étape 3 – item 5. Calculer la moyenne.
+%
+% * Étape 4 – item 2. Choisir les données.
+%
+% *Artifice pour illustrer la solution* –  La
+% fonction inputG simule l'écriture de données au
+% clavier. Cet artifice permet l'utilisation de la
+% commande _Publish to Html_. Voir le fichier
+% inputG.m pour plus de détails sur les données
+% générées.
+
+%%
+clear; clc; close all;
+% initialisation
+k = 0; % compteur de nombres acceptés
+somme = 0;
+Re = inputG('Valeur mesurée ? ');
+
+while(Re~=0)
+   if(Re>250)
+      k = k + 1; somme = somme + Re;
+      plot(k,Re,'or'); grid on; hold on;
+   else
+      disp('Donnée refusée, s.v.p. recommencer')
+   end
+   Re = inputG('Valeur mesurée ? ');
+end
+
+if(k>0)
+   moyenne = somme/k;
+   plot([1,k],[moyenne,moyenne],'-b');
+   xlabel('N^o de l''échantillon');
+   ylabel('Limite élastique MPa');
+   title('Échantillons d''Al 2024 T4');
+   axis([1,k,250,350]); % ajuste les axes.
+end
+% if(k>0) permet d'éviter de planter le script
+% lorsque se présente le cas inusité où k=0.
+##### SOURCE END #####
+-->
+   </body>
+</html>

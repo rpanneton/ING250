@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft FrontPage 6.0">
+<TITLE>Identifier l'indice de l'élément maximum d'un vecteur - suggestion</TITLE>
+<META NAME="Template" CONTENT="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffffff">
+
+<h3>Identifier l'indice de l'élément ayant la valeur maximum (ou minimum) d'un 
+vecteur</h3>
+
+<p>Objectif&nbsp;: Réaliser cette recherche en manipulant les éléments d'un
+vecteur Matlab.</p>
+
+<p>Noter&nbsp;: pour éviter de perdre l'accès aux fonctions de Matlab, il est préférable de ne
+pas utiliser les noms <i>min</i> et <i>max</i>.</p>
+
+<UL>
+<LI>Selon le cas, poser que l'indice du premier &eacute;l&eacute;ment du vecteur
+  correspond à l'élément contenant&nbsp; le minimum
+  ou le maximum, ou les deux à la fois.<br>
+  Exemple&nbsp;:<BR>
+  <font face="Courier New" size="2">ind_min = 1<BR>
+  ind_max = 1</font> </LI>
+<LI>À l'aide d'une boucle comptée, balayer le reste du vecteur et comparer avec 
+chacun des autres éléments du vecteur. Supposer que l'indice de boucle soit »&nbsp;i&nbsp;»
+  <ul>
+    <li>
+Si la valeur de V(ind_min) est inf&eacute;rieure à V(&nbsp;i&nbsp;), ind_min&nbsp;
+=&nbsp; i</li>
+    <li>
+Si la valeur de V(ind_max) est inf&eacute;rieure à V(&nbsp;i&nbsp;), ind_max&nbsp;
+=&nbsp; i.</li>
+  </ul>
+ </LI>
+<LI>&Agrave; la fin, ind_min et ind_max contiennent respectivement les indices
+  de la valeur minimale et
+  maximale des éléments du vecteur&nbsp;V.</LI></UL>
+
+<p><a href="Minmax2.htm">Solution</a></p>
+
+<p><img border="0" src="Ligne.GIF" width="492" height="19"></p>
+</BODY>
+</HTML>

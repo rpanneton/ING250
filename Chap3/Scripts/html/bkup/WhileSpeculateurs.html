@@ -1,0 +1,137 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Recherche de donn&eacute;es</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-10-16">
+      <meta name="m-file" content="WhileSpeculateurs"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Recherche de donn&eacute;es</h1><pre class="codeinput">clear <span class="string">all</span>; clc; close <span class="string">all</span>;
+V = load(<span class="string">'Speculateurs.txt'</span>);
+</pre><pre class="codeinput">j = 1;
+<span class="keyword">while</span>(V(j)~=60.2)
+   j = j + 1;
+<span class="keyword">end</span>
+fprintf(<span class="string">'Sentinelle 1 : V(%.0f) = %.1f\n'</span>,j,V(j));
+</pre><pre class="codeoutput">Sentinelle 1 : V(381) = 60.2
+</pre><pre class="codeinput">j = j + 1; j0 = j; <span class="comment">% indice du d&eacute;but</span>
+S = 0; <span class="comment">% sommateur</span>
+<span class="keyword">while</span>(V(j)~=60.3)
+   S = S + V(j);
+   j = j + 1;
+<span class="keyword">end</span>
+fprintf(<span class="string">'Sentinelle 2 : V(%.0f) = %.1f\n'</span>,j,V(j));
+fprintf(<span class="string">'Nombre de donn&eacute;es valides = %.0f\n'</span>,j-j0);
+fprintf(<span class="string">'Moyenne = %.2f\n'</span>,S/(j-j0));
+</pre><pre class="codeoutput">Sentinelle 2 : V(411) = 60.3
+Nombre de donn&eacute;es valides = 29
+Moyenne = 62.48
+</pre><pre class="codeinput">plot(1:j0-1,V(1:j0-1),<span class="string">'.b'</span>,<span class="keyword">...</span>
+   j0:j-1,V(j0:j-1),<span class="string">'or'</span>,<span class="keyword">...</span>
+   j:length(V),V(j:end),<span class="string">'.b'</span>);
+xlabel(<span class="string">'indice'</span>); ylabel(<span class="string">'Donn&eacute;es'</span>)
+title(<span class="string">'Donn&eacute;es de Speculateurs.txt'</span>);
+legend(<span class="string">'fausses'</span>,<span class="string">'valides'</span>,<span class="string">'Location'</span>,<span class="string">'Best'</span>);
+</pre><img vspace="5" hspace="5" src="WhileSpeculateurs_01.png"> <p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Recherche de données
+clear all; clc; close all;
+V = load('Speculateurs.txt');
+
+%%
+j = 1;
+while(V(j)~=60.2)
+   j = j + 1;
+end
+fprintf('Sentinelle 1 : V(%.0f) = %.1f\n',j,V(j));
+
+%%
+j = j + 1; j0 = j; % indice du début
+S = 0; % sommateur
+while(V(j)~=60.3)
+   S = S + V(j);
+   j = j + 1;
+end
+fprintf('Sentinelle 2 : V(%.0f) = %.1f\n',j,V(j));
+fprintf('Nombre de données valides = %.0f\n',j-j0);
+fprintf('Moyenne = %.2f\n',S/(j-j0));
+
+%%
+plot(1:j0-1,V(1:j0-1),'.b',...
+   j0:j-1,V(j0:j-1),'or',...
+   j:length(V),V(j:end),'.b');
+xlabel('indice'); ylabel('Données')
+title('Données de Speculateurs.txt');
+legend('fausses','valides','Location','Best');
+##### SOURCE END #####
+-->
+   </body>
+</html>

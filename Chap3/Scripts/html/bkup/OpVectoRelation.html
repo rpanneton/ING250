@@ -1,0 +1,221 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Op&eacute;rateurs vectoriels de relation et op&eacute;rateurs vectoriels logiques</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2009-10-30">
+      <meta name="m-file" content="OpVectoRelation"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Op&eacute;rateurs vectoriels de relation et op&eacute;rateurs vectoriels logiques</h1>
+         <introduction>
+            <p>Matlab contient plusieurs op&eacute;rateurs de relation et d'op&eacute;rateurs logiques permettant de vectoriser les instructions.</p>
+            <p>La vectorisation consiste &agrave; convertir une boucle compt&eacute;e <i>for</i> en une op&eacute;ration vectorielle &eacute;quivalente.
+            </p>
+         </introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#2">A &lt; B selon la m&eacute;thode traditionnelle</a></li>
+               <li><a href="#3">A &lt; B selon la version vectoris&eacute;e</a></li>
+               <li><a href="#4">Op&eacute;rateurs vectoriels de relation</a></li>
+               <li><a href="#5">Op&eacute;rateurs vectoriels logiques</a></li>
+               <li><a href="#6">Information suppl&eacute;mentaire</a></li>
+            </ul>
+         </div><pre class="codeinput">clear <span class="string">all</span>; clc;  <span class="comment">% Exemple :</span>
+A = [2 3 4];
+B = [4 3 2];
+</pre><h2>A &lt; B selon la m&eacute;thode traditionnelle<a name="2"></a></h2><pre class="codeinput"><span class="keyword">for</span> i = 1:length(A)
+   Apetit(i) = A(i) &lt;  B(i);
+<span class="keyword">end</span>
+Apetit
+</pre><pre class="codeoutput">Apetit =
+     1     0     0
+</pre><h2>A &lt; B selon la version vectoris&eacute;e<a name="3"></a></h2><pre class="codeinput">Apetit = A &lt;  B
+</pre><pre class="codeoutput">Apetit =
+     1     0     0
+</pre><h2>Op&eacute;rateurs vectoriels de relation<a name="4"></a></h2><pre class="codeinput">fprintf(<span class="string">'vecteur A : %3d %3d %3d \n'</span>,A);
+fprintf(<span class="string">'vecteur B : %3d %3d %3d \n\n'</span>,B);
+
+fprintf(<span class="string">'    A &lt; B : %3d %3d %3d \n'</span>,A&lt;B);
+fprintf(<span class="string">'    A &gt; B : %3d %3d %3d \n'</span>,A&gt;B);
+fprintf(<span class="string">'   A &lt;= B : %3d %3d %3d \n'</span>,A&lt;=B);
+fprintf(<span class="string">'   A &gt;= B : %3d %3d %3d \n'</span>,A&gt;=B);
+fprintf(<span class="string">'   A == B : %3d %3d %3d \n'</span>,A==B);
+fprintf(<span class="string">'   A ~= B : %3d %3d %3d \n'</span>,A~=B);
+</pre><pre class="codeoutput">vecteur A :   2   3   4 
+vecteur B :   4   3   2 
+
+    A &lt; B :   1   0   0 
+    A &gt; B :   0   0   1 
+   A &lt;= B :   1   1   0 
+   A &gt;= B :   0   1   1 
+   A == B :   0   1   0 
+   A ~= B :   1   0   1 
+</pre><h2>Op&eacute;rateurs vectoriels logiques<a name="5"></a></h2><pre class="codeinput">P = [true true false false];
+Q = [true false true false];
+fprintf(<span class="string">'  bool&eacute;en P : %3d %3d %3d %3d\n'</span>,P);
+fprintf(<span class="string">'  bool&eacute;en Q : %3d %3d %3d %3d\n\n'</span>,Q);
+
+fprintf(<span class="string">'     P et Q : %3d %3d %3d %3d P&amp;Q\n'</span>,P&amp;Q);
+fprintf(<span class="string">'     P ou Q : %3d %3d %3d %3d P|Q\n'</span>,P|Q);
+fprintf(<span class="string">'ou exclusif : %3d %3d %3d %3d xor(P,Q)\n'</span>,xor(P,Q));
+fprintf(<span class="string">'      Non P : %3d %3d %3d %3d ~P\n'</span>,~P);
+fprintf(<span class="string">'      Non Q : %3d %3d %3d %3d ~Q\n\n'</span>,~Q);
+
+fprintf(<span class="string">'au moins 1 vrai, any(P) : %3d\n'</span>,any(P));
+fprintf(<span class="string">'     tous vrais, all(P) : %3d\n'</span>,all(P));
+</pre><pre class="codeoutput">  bool&eacute;en P :   1   1   0   0
+  bool&eacute;en Q :   1   0   1   0
+
+     P et Q :   1   0   0   0 P&amp;Q
+     P ou Q :   1   1   1   0 P|Q
+ou exclusif :   0   1   1   0 xor(P,Q)
+      Non P :   0   0   1   1 ~P
+      Non Q :   0   1   0   1 ~Q
+
+au moins 1 vrai, any(P) :   1
+     tous vrais, all(P) :   0
+</pre><h2>Information suppl&eacute;mentaire<a name="6"></a></h2><pre>&gt;&gt; help relop
+&gt;&gt; doc relationaloperators
+&gt;&gt; doc logicaloperatorselementwise
+&gt;&gt; doc precedence
+-----------
+&gt;&gt; doc not
+&gt;&gt; doc and
+&gt;&gt; doc or
+&gt;&gt; doc xor
+&gt;&gt; doc any
+&gt;&gt; doc all</pre><p><html> <hr> </html></p>
+         <p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Opérateurs vectoriels de relation et opérateurs vectoriels logiques
+% Matlab contient plusieurs opérateurs de relation
+% et d'opérateurs logiques permettant de
+% vectoriser les instructions.
+%
+% La vectorisation consiste à convertir une
+% boucle comptée _for_ en une opération
+% vectorielle équivalente.
+%%
+clear all; clc;  % Exemple :
+A = [2 3 4];
+B = [4 3 2];
+%% A < B selon la méthode traditionnelle
+for i = 1:length(A)
+   Apetit(i) = A(i) <  B(i);
+end
+Apetit
+%% A < B selon la version vectorisée
+Apetit = A <  B
+
+%% Opérateurs vectoriels de relation
+fprintf('vecteur A : %3d %3d %3d \n',A);
+fprintf('vecteur B : %3d %3d %3d \n\n',B);
+
+fprintf('    A < B : %3d %3d %3d \n',A<B);
+fprintf('    A > B : %3d %3d %3d \n',A>B);
+fprintf('   A <= B : %3d %3d %3d \n',A<=B);
+fprintf('   A >= B : %3d %3d %3d \n',A>=B);
+fprintf('   A == B : %3d %3d %3d \n',A==B);
+fprintf('   A ~= B : %3d %3d %3d \n',A~=B);
+
+%% Opérateurs vectoriels logiques
+P = [true true false false];
+Q = [true false true false];
+fprintf('  booléen P : %3d %3d %3d %3d\n',P);
+fprintf('  booléen Q : %3d %3d %3d %3d\n\n',Q);
+
+fprintf('     P et Q : %3d %3d %3d %3d P&Q\n',P&Q);
+fprintf('     P ou Q : %3d %3d %3d %3d P|Q\n',P|Q);
+fprintf('ou exclusif : %3d %3d %3d %3d xor(P,Q)\n',xor(P,Q));
+fprintf('      Non P : %3d %3d %3d %3d ~P\n',~P);
+fprintf('      Non Q : %3d %3d %3d %3d ~Q\n\n',~Q);
+
+fprintf('au moins 1 vrai, any(P) : %3d\n',any(P));
+fprintf('     tous vrais, all(P) : %3d\n',all(P));
+%% Information supplémentaire
+%  >> help relop
+%  >> doc relationaloperators
+%  >> doc logicaloperatorselementwise
+%  >> doc precedence
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+%  >> doc not
+%  >> doc and
+%  >> doc or
+%  >> doc xor
+%  >> doc any
+%  >> doc all
+% 
+% <html> <hr> </html>
+##### SOURCE END #####
+-->
+   </body>
+</html>

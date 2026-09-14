@@ -1,0 +1,160 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Probl&egrave;me 2/31, Meriam p. 43</title><meta name="generator" content="MATLAB 9.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-10-06"><meta name="DC.source" content="ch2031.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Probl&egrave;me 2/31, Meriam p. 43</h1><!--introduction--><p>Le probl&egrave;me ressemble &agrave; l'exemple 2/5.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">&Eacute;tape 1 &#8211; D&eacute;marche vectorielle</a></li><li><a href="#2">&Eacute;tape 2 &#8211; Expression scalaire</a></li><li><a href="#3">D&eacute;marche scalaire (ajout, th&eacute;or&egrave;me de Varignon)</a></li></ul></div><h2 id="1">&Eacute;tape 1 &#8211; D&eacute;marche vectorielle</h2><p><img vspace="5" hspace="5" src="..\ch2031.gif" alt=""> </p><pre class="codeinput">clear; close <span class="string">all</span>; clc
+mF = 50; <span class="comment">% N (Norme)</span>
+A =[-15,-20]; B =[40,10]; <span class="comment">% les points</span>
+theta = atan2(B(2)-A(2),B(1)-A(1))*180/pi;
+roB = [B(1)-0,B(2)-0, 0]; <span class="comment">% mm (voir note)</span>
+nF = [cosd(theta),sind(theta), 0]; F = nF*mF;
+Mo = cross(roB,F);
+fprintf(<span class="string">'roB = %+4.1fi %+4.1fj %+4.1fk mm\n'</span>,roB);
+fprintf(<span class="string">'F   = %+4.1fi %+4.1fj %+4.1fk N\n'</span>,F);
+fprintf(<span class="string">'Mo  = %+4.1fi %+4.1fj %+4.1fk N&middot;mm\n'</span>,Mo);
+</pre><pre class="codeoutput">roB = +40.0i +10.0j +0.0k mm
+F   = +43.9i +23.9j +0.0k N
+Mo  = +0.0i +0.0j +518.8k N&middot;mm
+</pre><h2 id="2">&Eacute;tape 2 &#8211; Expression scalaire</h2><pre class="codeinput">fprintf(<span class="string">'\nNorme de Mo = %.0f N&middot;mm'</span>,norm(Mo));
+MomentPositif = Mo(3) &gt; 0;  <span class="comment">% variable logique</span>
+<span class="keyword">if</span>(MomentPositif) <span class="comment">% si le moment est positif</span>
+   fprintf(<span class="string">' dans le sens antihoraire\n'</span>);
+<span class="keyword">else</span> <span class="comment">% sinon</span>
+   fprintf(<span class="string">' dans le sens horaire\n'</span>);
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">
+Norme de Mo = 519 N&middot;mm dans le sens antihoraire
+</pre><h2 id="3">D&eacute;marche scalaire (ajout, th&eacute;or&egrave;me de Varignon)</h2><p>D&eacute;terminer les composantes rectangulaires de <b>F</b>. Les bras de levier sont connus au point <i>A</i> et au point <i>B</i>. En appliquant le th&eacute;or&egrave;me de Varignon &agrave; l'un de ces points, on obtient la Norme du moment Mo.</p><pre class="codeinput">clear <span class="string">all</span>; close <span class="string">all</span>; clc
+</pre><p><img vspace="5" hspace="5" src="..\ch2031b.gif" alt=""> </p><pre class="codeinput">mF = 50; <span class="comment">% N (Norme)</span>
+A =[-15,-20]; B =[40,10]; <span class="comment">% les points</span>
+theta = atan2(B(2)-A(2),B(1)-A(1))*180/pi;
+Fx = mF*cosd(theta); Fy = mF*sind(theta);
+</pre><p>Th&eacute;or&egrave;me appliqu&eacute; au point A</p><pre class="codeinput">Mo = 20*Fx -15*Fy;
+fprintf(<span class="string">'Norme de Mo = %.0f N&middot;mm'</span>,Mo);
+fprintf(<span class="string">' dans le sens antihoraire\n'</span>);
+</pre><pre class="codeoutput">Norme de Mo = 519 N&middot;mm dans le sens antihoraire
+</pre><p>Th&eacute;or&egrave;me appliqu&eacute; au point B</p><pre class="codeinput">Mo = -10*Fx + 40*Fy; <span class="comment">% convention (+) antihoraire</span>
+fprintf(<span class="string">'Norme de Mo = %.0f N&middot;mm'</span>,Mo);
+fprintf(<span class="string">' dans le sens antihoraire\n'</span>);
+</pre><pre class="codeoutput">Norme de Mo = 519 N&middot;mm dans le sens antihoraire
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Problème 2/31, Meriam p. 43
+% Le problème ressemble à l'exemple 2/5.
+
+%% Étape 1 – Démarche vectorielle
+%
+% <<..\ch2031.gif>>
+%
+clear; close all; clc
+mF = 50; % N (Norme)
+A =[-15,-20]; B =[40,10]; % les points
+theta = atan2(B(2)-A(2),B(1)-A(1))*180/pi;
+roB = [B(1)-0,B(2)-0, 0]; % mm (voir note)
+nF = [cosd(theta),sind(theta), 0]; F = nF*mF;
+Mo = cross(roB,F);
+fprintf('roB = %+4.1fi %+4.1fj %+4.1fk mm\n',roB);
+fprintf('F   = %+4.1fi %+4.1fj %+4.1fk N\n',F);
+fprintf('Mo  = %+4.1fi %+4.1fj %+4.1fk N·mm\n',Mo);
+
+%% Étape 2 – Expression scalaire
+fprintf('\nNorme de Mo = %.0f N·mm',norm(Mo));
+MomentPositif = Mo(3) > 0;  % variable logique
+if(MomentPositif) % si le moment est positif
+   fprintf(' dans le sens antihoraire\n');
+else % sinon
+   fprintf(' dans le sens horaire\n');
+end
+
+%% Démarche scalaire (ajout, théorème de Varignon)
+% Déterminer les composantes rectangulaires de
+% *F*. Les bras de levier sont connus au point _A_
+% et au point _B_.
+% En appliquant le théorème de Varignon à l'un de
+% ces points, on obtient la Norme du moment Mo.
+clear all; close all; clc
+%%
+% <<..\ch2031b.gif>>
+%
+mF = 50; % N (Norme)
+A =[-15,-20]; B =[40,10]; % les points
+theta = atan2(B(2)-A(2),B(1)-A(1))*180/pi;
+Fx = mF*cosd(theta); Fy = mF*sind(theta);
+
+%%
+% Théorème appliqué au point A
+Mo = 20*Fx -15*Fy;
+fprintf('Norme de Mo = %.0f N·mm',Mo);
+fprintf(' dans le sens antihoraire\n');
+
+%%
+% Théorème appliqué au point B
+Mo = -10*Fx + 40*Fy; % convention (+) antihoraire
+fprintf('Norme de Mo = %.0f N·mm',Mo);
+fprintf(' dans le sens antihoraire\n');
+##### SOURCE END #####
+--></body></html>

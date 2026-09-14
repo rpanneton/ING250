@@ -1,0 +1,276 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>R&eacute;soudre alg&eacute;briquement deux &eacute;quations</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-06-12">
+      <meta name="m-file" content="Resoudre2equations"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>R&eacute;soudre alg&eacute;briquement deux &eacute;quations</h1>
+         <introduction></introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#1">M&eacute;thode avec un crayon</a></li>
+               <li><a href="#2">Fonction solve de Matlab</a></li>
+               <li><a href="#3">Exemple d'utilisation de solve</a></li>
+               <li><a href="#7">Exemple d'application en statique</a></li>
+               <li><a href="#8">Coquille Maple</a></li>
+            </ul>
+         </div>
+         <h2>M&eacute;thode avec un crayon<a name="1"></a></h2>
+         <p>R&eacute;soudre un syst&egrave;me de 2 &eacute;quations et deux inconnus. La nomenclature utilis&eacute;e est celle de l'annexe C/4 de Meriam.</p>
+         <p><img vspace="5" hspace="5" src="Resoudre2equations_eq25637.png"> </p>
+         <p><img vspace="5" hspace="5" src="Resoudre2equations_eq25638.png"> </p>
+         <p>Isoler <i>x</i> de l'&eacute;quation 1 :
+         </p>
+         <p><img vspace="5" hspace="5" src="Resoudre2equations_eq42849.png"> </p>
+         <p>Remplacer <i>x</i> dans l'&eacute;quation 2 et isoler <i>y</i> :
+         </p>
+         <p><img vspace="5" hspace="5" src="Resoudre2equations_eq76639.png"> </p>
+         <p>Utiliser ce r&eacute;sultat dans l'&eacute;quation 3 pour obtenir <i>x</i> :
+         </p>
+         <p><img vspace="5" hspace="5" src="Resoudre2equations_eq80333.png"> </p>
+         <h2>Fonction solve de Matlab<a name="2"></a></h2>
+         <p>Matlab permet de r&eacute;soudre automatiquement ce syst&egrave;me d'&eacute;quation en utilisant la fonction <i>solve</i>. Les arguments de la fonction sont les &eacute;quations ainsi que les variables &agrave; isoler.
+         </p>
+         <p>Les arguments de <i>solve</i> sont des donn&eacute;es <b>caract&egrave;res</b>.
+         </p><pre class="codeinput">clear <span class="string">all</span>; close <span class="string">all</span>; clc;
+Eq1 = <span class="string">'a1*x + b1*y = c1'</span>;
+Eq2 = <span class="string">'a2*x + b2*y = c2'</span>;
+S=solve(Eq1, Eq2, <span class="string">'x'</span>, <span class="string">'y'</span>);
+x = S.x
+y = S.y
+<span class="comment">% S est une structure de donn&eacute;es ayant deux champs</span>
+<span class="comment">% x et y contenant les deux r&eacute;sultats.</span>
+</pre><pre class="codeoutput">x =
+(b2*c1-c2*b1)/(-a2*b1+a1*b2)
+y =
+-(a2*c1-a1*c2)/(-a2*b1+a1*b2)
+</pre><h2>Exemple d'utilisation de solve<a name="3"></a></h2>
+         <p>Les solutions des &eacute;quations suivantes sont <i>x</i> = 3.4 et <i>y</i> = 1.8
+         </p><pre class="codeinput">Eq1 = <span class="string">'2*x -y = 5'</span>;
+Eq2 = <span class="string">'x +2*y = 7'</span>;
+S=solve(Eq1, Eq2, <span class="string">'x'</span>, <span class="string">'y'</span>);
+x = S.x
+y = S.y
+</pre><pre class="codeoutput">x =
+17/5
+y =
+9/5
+</pre><p>Matlab fournit la r&eacute;ponse sous la forme d'objets symboliques. Pour les utiliser dans une expression num&eacute;rique Matlab, il faut
+            convertir chaque r&eacute;ponse &agrave; l'aide de l'instruction <i>eval</i>.
+         </p><pre class="codeinput">x_symbolique = x
+x_numerique = eval(x)
+</pre><pre class="codeoutput">x_symbolique =
+17/5
+x_numerique =
+          3.4
+</pre><p>Noter la diff&eacute;rence de l'affichage des deux types de donn&eacute;es :</p>
+         <div>
+            <ul>
+               <li>17/5 est compl&egrave;tement &agrave; gauche,</li>
+               <li>3.4 est d&eacute;cal&eacute; vers la droite.</li>
+            </ul>
+         </div><pre class="codeinput">y_symbolique = y
+y_numerique = eval(y)
+</pre><pre class="codeoutput">y_symbolique =
+9/5
+y_numerique =
+          1.8
+</pre><pre class="codeinput">R1 = y_symbolique + 1/7 <span class="comment">% exemple de calcul</span>
+R2 = y_numerique + 1/7
+</pre><pre class="codeoutput">R1 =
+68/35
+R2 =
+       1.9429
+</pre><h2>Exemple d'application en statique<a name="7"></a></h2>
+         <p><img vspace="5" hspace="5" src="..\ch2017c.gif"> </p>
+         <p>Pour calculer les composantes obliques de <b>F</b>, il faut &eacute;tablir les vecteurs unitaires de <b>a</b>, <b>b</b> et <b>F</b>, d&eacute;terminer les trois vecteurs, poser et r&eacute;soudre deux &eacute;quations portant sur la somme des composantes.
+         </p>
+         <p>Voir le probl&egrave;me <a href="ch2017.html">2/17</a> de Meriam.
+         </p>
+         <h2>Coquille Maple<a name="8"></a></h2>
+         <p>Matlab contient une coquille Maple permettant de r&eacute;soudre des &eacute;quations et de calculer des int&eacute;grales et des diff&eacute;rentielles.
+            Cette &eacute;tude est effectu&eacute;e principalement dans les cours de math&eacute;matiques de S2.
+         </p>
+         <p>Exemple :</p><pre class="codeinput">diff(<span class="string">'sin(x)'</span>) <span class="comment">% la diff&eacute;rentielle du sinus</span>
+int(<span class="string">'2*x^2'</span>)<span class="comment">% int&eacute;grale de 2x&sup2;</span>
+</pre><pre class="codeoutput">ans =
+cos(x)
+ans =
+2/3*x^3
+</pre><p>Voil&agrave; pour l'essentiel !</p>
+         <p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Résoudre algébriquement deux équations
+
+%% Méthode avec un crayon
+% Résoudre un système de 2 équations et deux
+% inconnus. La nomenclature utilisée est celle de
+% l'annexe C/4 de Meriam.
+%
+% $$ a_1 x + b_1 y = c_1 \;\;{\rm Eq.1} $$
+%
+% $$ a_1 x + b_1 y = c_1 \;\;{\rm Eq.2} $$
+%
+% Isoler _x_ de l'équation 1 :
+%
+% $$ x = \frac{c_1 - b_1 y}{a_1} \;\;{\rm Eq.3} $$
+%
+% Remplacer _x_ dans l'équation 2 et isoler _y_ :
+%
+% $$ y =\frac{a_1c_2-a_2c_1}{a_1b_2-a_2b_1}
+% \;\;{\rm Eq.4} $$
+%
+% Utiliser ce résultat dans l'équation 3 pour
+% obtenir _x_ :
+%
+% $$ x = \frac{b_1c_2-b_2c_1}{b_1a_2-b_2a_1}
+% \;\;{\rm Eq.5} $$
+
+%% Fonction solve de Matlab
+% Matlab permet de résoudre automatiquement ce
+% système d'équation en utilisant la fonction
+% _solve_. Les arguments de la fonction sont les
+% équations ainsi que les variables à isoler.
+% 
+% Les arguments de _solve_ sont des données
+% *caractères*.
+clear all; close all; clc;
+Eq1 = 'a1*x + b1*y = c1';
+Eq2 = 'a2*x + b2*y = c2';
+S=solve(Eq1, Eq2, 'x', 'y');
+x = S.x
+y = S.y
+% S est une structure de données ayant deux champs
+% x et y contenant les deux résultats.
+
+%% Exemple d'utilisation de solve
+% Les solutions des équations suivantes sont
+% _x_ = 3.4 et _y_ = 1.8
+Eq1 = '2*x -y = 5';
+Eq2 = 'x +2*y = 7';
+S=solve(Eq1, Eq2, 'x', 'y');
+x = S.x
+y = S.y
+
+%%
+% Matlab fournit la réponse sous la forme d'objets
+% symboliques. Pour les utiliser dans une
+% expression numérique Matlab, il faut convertir
+% chaque réponse à l'aide de l'instruction _eval_.
+x_symbolique = x
+x_numerique = eval(x)
+
+%%
+% Noter la différence de l'affichage des deux
+% types de données :
+%
+% * 17/5 est complètement à gauche,
+% * 3.4 est décalé vers la droite.
+y_symbolique = y
+y_numerique = eval(y)
+
+%%
+R1 = y_symbolique + 1/7 % exemple de calcul
+R2 = y_numerique + 1/7
+
+%% Exemple d'application en statique
+% <<..\ch2017c.gif>>
+%
+% Pour calculer les composantes obliques de *F*,
+% il faut établir les vecteurs unitaires de *a*,
+% *b* et *F*, déterminer les trois vecteurs, poser
+% et résoudre deux équations portant sur la somme
+% des composantes.
+%
+% Voir le problème <ch2017.html 2/17> de
+% Meriam.
+
+%% Coquille Maple
+% Matlab contient une coquille Maple permettant de
+% résoudre des équations et de calculer des
+% intégrales et des différentielles. Cette étude
+% est effectuée principalement dans les cours de
+% mathématiques de S2.
+% 
+% Exemple :
+diff('sin(x)') % la différentielle du sinus
+int('2*x^2')% intégrale de 2x²
+
+%% 
+% Voilà pour l'essentiel !
+
+##### SOURCE END #####
+-->
+   </body>
+</html>

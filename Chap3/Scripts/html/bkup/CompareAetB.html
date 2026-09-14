@@ -1,0 +1,131 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Comparer les &eacute;l&eacute;ments de&nbsp;2&nbsp;vecteurs</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-10-29">
+      <meta name="m-file" content="CompareAetB"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Comparer les &eacute;l&eacute;ments de&nbsp;2&nbsp;vecteurs</h1>
+         <introduction>
+            <p>Combien de donn&eacute;es du vecteur A sont plus petites que celles de B tout en &eacute;tant sup&eacute;rieures &agrave; 3&nbsp;?</p>
+         </introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#2">Programmation classique</a></li>
+               <li><a href="#3">Op&eacute;ration vectoris&eacute;e</a></li>
+            </ul>
+         </div><pre class="codeinput">clear <span class="string">all</span>; clc
+A = [2 3 6 9 7 6];
+B = [4 5 9 4 3 7];
+</pre><h2>Programmation classique<a name="2"></a></h2><pre class="codeinput">n = 0;
+<span class="keyword">for</span> i = 1:length(A)
+   Booleen1 = A(i)&lt;B(i);
+   Booleen2 = A(i)&gt;3;
+   <span class="keyword">if</span>(Booleen1 &amp;&amp; Booleen2) <span class="comment">% noter &amp;&amp;</span>
+      n = n + 1;
+   <span class="keyword">end</span>
+<span class="keyword">end</span>
+n
+</pre><pre class="codeoutput">n =
+     2
+</pre><h2>Op&eacute;ration vectoris&eacute;e<a name="3"></a></h2><pre class="codeinput">nVectorise = length( A((A&lt;B)&amp;(A&gt;3)) )
+<span class="comment">% noter le symbole simple &amp;</span>
+</pre><pre class="codeoutput">nVectorise =
+     2
+</pre><p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Comparer les éléments de 2 vecteurs
+% Combien de données du vecteur A sont plus
+% petites que celles de B tout en étant supérieures
+% à 3 ?
+%%
+clear all; clc
+A = [2 3 6 9 7 6];
+B = [4 5 9 4 3 7];
+%% Programmation classique
+n = 0;
+for i = 1:length(A)
+   Booleen1 = A(i)<B(i);
+   Booleen2 = A(i)>3;
+   if(Booleen1 && Booleen2) % noter &&
+      n = n + 1;
+   end
+end
+n
+%% Opération vectorisée
+nVectorise = length( A((A<B)&(A>3)) )
+% noter le symbole simple &
+##### SOURCE END #####
+-->
+   </body>
+</html>

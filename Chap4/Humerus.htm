@@ -1,0 +1,77 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="Generator" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Analyse d'humérus de squelettes</title>
+<meta name="Template" content="C:\Program Files\Microsoft Office\Office\HTML.DOT">
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+<link rel="stylesheet" type="text/css" href="../css/indexco.css">
+</head>
+
+<body link="#0000FF" vlink="#800080">
+
+<h1>Analyse d'humérus de squelettes</h1>
+            <p>&Agrave; la suite de fouilles arch&eacute;ologiques effectu&eacute;es en 1936 en Angleterre, on a mesur&eacute; la longueur de l'hum&eacute;rus gauche et de
+               l'hum&eacute;rus droit sur des squelettes humains non dissoci&eacute;s de sexe f&eacute;minin.
+            Effectuer des calculs statistiques sur les données.</p>
+            <p>D&eacute;buter par un examen des donn&eacute;es et des commentaires contenus dans le fichier Humerus.txt.</p>
+         <p><font color="#008000"><b>&Eacute;tape 1 &#8211; lecture</b></font></p>
+         <p>Lire le fichier Humerus.txt afin de constituer la matrice <b>H</b>.
+         </p>
+         <div>
+            <ul>
+               <li>&Agrave; partir de la matrice <b>H</b>, constituer deux vecteurs <b>G</b> et <b>D</b> o&ugrave; <b>G</b> contient les donn&eacute;es de l'hum&eacute;rus gauche, et <b>D</b> celles de l'hum&eacute;rus droit.
+               </li>
+               <li>Ne pas afficher les r&eacute;sultats.</li>
+            </ul>
+         </div>
+         <p><font color="#008000"><b>&Eacute;tape 2 &#8211; graphique de donn&eacute;es</b></font></p>
+         <div>
+            <ul>
+               <li>Tracer D = f(G) o&ugrave; G est en abscisse.</li>
+               <li>Documenter le graphique.</li>
+               <li>Ajouter ensuite une ligne droite bleue allant du coin inf&eacute;rieur gauche au coin sup&eacute;rieur droit du graphique. Voir la figure ci-dessous.</li>
+            </ul>
+         </div>
+         <p><img border="0" src="Humerus.png" width="560" height="420"><br>
+&nbsp;</p>
+         <p><font color="#008000"><b>&Eacute;tape 3 &#8211; quotient D divis&eacute; par G</b></font></p>
+         <p>Pour chacun des 10 squelettes, calculer le quotient <b>X.</b></p><pre>X =  longueur de l'hum&eacute;rus droit, divis&eacute;e par
+     longueur de l'hum&eacute;rus gauche</pre><p>Afficher les r&eacute;sultats sur deux lignes avec 5 chiffres apr&egrave;s le point d&eacute;cimal.</p>
+         <p><font color="#008000"><b>&Eacute;tape 4 &#8211; moyenne et &eacute;cart-type</b></font></p>
+         <p>Utiliser la fonction <b>mean</b> pour calculer la moyenne <b>mXe</b> des valeurs de X.
+         </p><pre>&gt;&gt; doc mean % moyenne</pre><div>
+            <ul>
+               <li>Afficher le r&eacute;sultat.</li>
+            </ul>
+         </div>
+         <p>La mesure de dispersion des donn&eacute;es la plus utilis&eacute;e est l'&eacute;cart-type <b>Se</b>. Utiliser la fonction <b>std</b> pour calculer l'&eacute;cart-type <b>Se</b> des valeurs de X.
+         </p><pre>&gt;&gt; doc std  % &eacute;cart-type</pre><div>
+            <ul>
+               <li>Afficher le r&eacute;sultat.</li>
+            </ul>
+         </div>
+         <p><font color="#008000"><b>&Eacute;tape 5 &#8211; moyenne et &eacute;cart-type (reprise)</b></font></p>
+         <p>Reprendre les calculs pr&eacute;c&eacute;dents en utilisant la programmation traditionnelle, pas de vectorisation, ni de fonction sum, 
+			etc.</p>
+         <p>Calculer la moyenne arithm&eacute;tique <b>mXe</b> des quotients <b>X</b> des <b>N</b> squelettes de l'&eacute;chantillon selon la formule suivante&nbsp;:</p>
+         <p><img vspace="5" hspace="5" src="Scripts/SeEeq38161.png"> </p>
+         <p>Calculer l'&eacute;cart-type des quotients <b>X</b> de l'&eacute;chantillon selon la formule suivante&nbsp;:</p>
+         <p><img vspace="5" hspace="5" src="Scripts/mXeEq204642.png"> </p>
+         <div>Afficher <b>mXe</b> et <b>Se</b> en omettant le point-virgule.
+               </div>
+<ul>
+	<li>Solution&nbsp;: <a href="Scripts/html/HumerusSol.html">HumerusSol.m</a><ul>
+		<li><a href="Scripts/html/HumerusSuite.html">Question</a> supplémentaire</li>
+		<li>Solution&nbsp;:&nbsp; <a href="Scripts/html/HumerusSolSuite.html">
+		HumerusSolSuite</a>.m</li>
+	</ul>
+	</li>
+</ul>
+<p><img border="0" src="../css/Feuilles.gif" width="500" height="19"></p>
+
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Solution : 1 script&nbsp; et&nbsp; 1 fonction</title>
+<link rel="stylesheet" type="text/css" href="../../css/index.css">
+</head>
+
+<body>
+
+<h2>Solution&nbsp;: 1 script&nbsp; et&nbsp; 1 fonction</h2>
+<p>La fonction calcule la moyenne et retourne le vecteur contenant les mesures
+ainsi que la moyenne comme dernier élément de ce vecteur.</p>
+
+<table border="1" width="400">
+  <tr>
+    <td>
+      <pre><font face="Courier New"><font COLOR="#228b22">% SherE01 Programme principal
+</font>clear
+clc
+lu=Lire01; <font SIZE="2" COLOR="#228b22">%appel à la fonction
+</font>n=length(lu)-1;
+moyenne=lu(n+1);
+disp([<font SIZE="2" COLOR="#b22222">'Moyenne : '</font>,num2str(moyenne,4),<font SIZE="2" COLOR="#0000ff">...
+</font><font SIZE="2" COLOR="#b22222">' min après '</font>,num2str(n,2),<font SIZE="2" COLOR="#b22222">' essais.'</font>])
+disp(<font SIZE="2" COLOR="#b22222">' '</font>)
+format bank;
+disp(<font SIZE="2" COLOR="#b22222">' t(min) Déviation'</font>)
+<font SIZE="2" COLOR="#0000ff">for </font>i=1:n
+&nbsp;&nbsp;&nbsp;disp([lu(i),lu(i)-moyenne])<font SIZE="2" COLOR="#0000ff">
+end
+</font>format short g</font></pre>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <pre><font face="Courier New"><font COLOR="#0000ff">function </font>lu=Lire01
+<font SIZE="2" COLOR="#228b22">%Lecture des données
+</font>disp(<font SIZE="2" COLOR="#b22222">'Écrire zéro (0) pour terminer'</font>);
+Somme=0;
+n=0;
+x=input([<font SIZE="2" COLOR="#b22222">' donnée '</font>,num2str(n+1),<font SIZE="2" COLOR="#b22222">' : '</font>]);
+<font SIZE="2" COLOR="#0000ff">while</font>(x~=0)
+&nbsp;&nbsp;&nbsp;Somme=Somme+x;
+&nbsp;&nbsp;&nbsp;n=n+1;
+&nbsp;&nbsp;&nbsp;lu(n)=x;
+&nbsp;&nbsp;&nbsp;x=input([<font SIZE="2" COLOR="#b22222">' donnée '</font>,num2str(n+1),<font SIZE="2" COLOR="#b22222">' : '</font>]);
+<font SIZE="2" COLOR="#0000ff">end
+</font>lu(n+1)=Somme/n; <font COLOR="#228b22">%n est supposé ~=0</font></font></pre>
+    </td>
+  </tr>
+</table>
+<h3><a name="Varia sur ce thème">Varia sur ce thème</a></h3>
+<p>Il serait plus à propos de modifier les spécifications de la fonction comme
+suit&nbsp;: la fonction calcule la moyenne et retourne le vecteur contenant les mesures
+ainsi que la moyenne.</p>
+<table border="1" width="400">
+  <tr>
+    <td>
+      <pre><font face="Courier New"><font COLOR="#228b22">% SherE02 Programme principal
+</font>clear
+clc
+[lu,moyenne]=Lire02; <font SIZE="2" COLOR="#228b22">%appel à la fonction
+</font>n=length(lu);
+disp([<font SIZE="2" COLOR="#b22222">'Moyenne : '</font>,num2str(moyenne,4),<font SIZE="2" COLOR="#0000ff">...
+</font><font SIZE="2" COLOR="#b22222">' min après '</font>,num2str(n,2),<font SIZE="2" COLOR="#b22222">' essais.'</font>])
+disp(<font SIZE="2" COLOR="#b22222">' '</font>)
+format bank;
+disp(<font SIZE="2" COLOR="#b22222">' t(min) Déviation'</font>)
+<font SIZE="2" COLOR="#0000ff">for </font>i=1:n
+disp([lu(i),lu(i)-moyenne])
+<font SIZE="2" COLOR="#0000ff">end
+</font>format short g</font></pre>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <pre><font face="Courier New"><font COLOR="#0000ff">function </font>[lu,moyenne]=Lire02
+<font SIZE="2" COLOR="#228b22">%Lecture des données
+</font>disp(<font SIZE="2" COLOR="#b22222">'Écrire zéro (0) pour terminer'</font>);
+Somme=0;
+n=0;
+x=input([<font SIZE="2" COLOR="#b22222">' donnée '</font>,num2str(n+1),<font SIZE="2" COLOR="#b22222">' : '</font>]);
+<font SIZE="2" COLOR="#0000ff">while</font>(x~=0)
+&nbsp;&nbsp;&nbsp;Somme=Somme+x;
+&nbsp;&nbsp;&nbsp;n=n+1;
+&nbsp;&nbsp;&nbsp;lu(n)=x;
+&nbsp;&nbsp;&nbsp;x=input([<font SIZE="2" COLOR="#b22222">' donnée '</font>,num2str(n+1),<font SIZE="2" COLOR="#b22222">' : '</font>]);
+<font SIZE="2" COLOR="#0000ff">end
+</font>moyenne=Somme/n; <font SIZE="2" COLOR="#228b22">%n est supposé ~=0</font></font></pre>
+    </td>
+  </tr>
+</table>
+<p><img border="0" src="ligne.gif" width="536" height="5"></p>
+
+</body>
+
+</html>

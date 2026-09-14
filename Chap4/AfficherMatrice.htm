@@ -1,0 +1,100 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="Generator" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Affichage d'une matrice</title>
+<meta name="Template" content="C:\Program Files\Microsoft Office\Office\HTML.DOT">
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+<link rel="stylesheet" type="text/css" href="../css/indexco.css">
+</head>
+
+<body link="#0000FF" vlink="#800080">
+
+<h1>Affichage d'une matrice</h1>
+<p>L'affichage par défaut d'une matrice est souvent médiocre. La fonction <i>fprintf</i>
+produit un affichage plus satisfaisant&nbsp;:</p>
+<table border="1">
+  <tr>
+    <td>
+      <pre>% Fichier sy.dat
+% pour l'exemple Fmt2.m
+60.0    0 41.1 .62 39 77 
+96.7 2.35 51.2 .38 27 79 
+90.3 2.56 54.3 .80 24 81 
+96.5 2.65  0     0 25 39 
+86.7 2.60 69.5 .51 34 43 
+71.8    0  0     0 29 44 
+83.1 2.65  0   .37 13 38 
+68.6    0 78.9 .57 64 56 
+77.4 2.63 53.9 .34 35  0 
+70.2 2.44 48.0 .46 43  0 </pre>
+    </td>
+  </tr>
+</table>
+<p>Affichage classique d'une matrice&nbsp;:</p>
+<table border="1">
+  <tr>
+    <td>
+      <pre>% Fichier fmt2.m
+clear; home
+Mat = load('sy.dat');
+fprintf('Affichage de la matrice\n');
+fprintf('   Boucle explicite pour ligne\n');
+fprintf('%s\n\n',...
+    '   Boucle implicite pour colonne');
+ 
+[ligne,col]=size(Mat);
+for i=1:ligne
+	fprintf(' %04.1f ',Mat(i,1:col))
+	fprintf('\n')
+end
+% ' %04.1f '
+%     4 colonnes, 
+%       1 chiffre après le point décimal,
+%    0 force l'affichage de chiffres
+%       dans le champ complet (4 colonnes)
+%  il y a un espace avant et après
+%       chaque affichage.
+
+%'\n' fait aller à la ligne suivante.</pre>
+    </td>
+  </tr>
+</table>
+<p>Résultat de l'affichage&nbsp;:</p>
+<table border="1">
+  <tr>
+    <td>
+      <pre>Affichage de la matrice
+   Boucle explicite pour ligne
+   Boucle implicite pour colonne
+
+ 60.0  00.0  41.1  00.6  39.0  77.0 
+ 96.7  02.4  51.2  00.4  27.0  79.0 
+ 90.3  02.6  54.3  00.8  24.0  81.0 
+ 96.5  02.6  00.0  00.0  25.0  39.0 
+ 86.7  02.6  69.5  00.5  34.0  43.0 
+ 71.8  00.0  00.0  00.0  29.0  44.0 
+ 83.1  02.6  00.0  00.4  13.0  38.0 
+ 68.6  00.0  78.9  00.6  64.0  56.0 
+ 77.4  02.6  53.9  00.3  35.0  00.0 
+ 70.2  02.4  48.0  00.5  43.0  00.0 </pre>
+    </td>
+  </tr>
+</table>
+<p>Dans cet exemple, constater&nbsp;:</p>
+<ul>
+  <li>qu'il y a 2 chiffres après le point décimal,</li>
+  <li>que chaque donnée occupe 4 espaces,</li>
+  <li>que les deux espaces compris dans la spécification <code>' %04.1f '</code>
+    sont reproduits,</li>
+  <li>qu'une boucle comptée est requise pour chaque ligne&nbsp;: <code>for
+    i=1:ligne</code>,</li>
+  <li>qu'une boucle implicite fait afficher toute la ligne, soit l'instruction <code>(1:col)</code>.</li>
+</ul>
+<p><img border="0" src="../css/Feuilles.gif" width="500" height="19"></p>
+
+</body>
+
+</html>

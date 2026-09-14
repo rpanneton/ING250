@@ -1,0 +1,18 @@
+Bravo ! Vous venez de charger le texte
+du fichier Exercice.txt comme l'indique
+l'en-tête de la fenêtre.
+
+On peut écrire dans cette fenêtre,
+modifier des mots, les effacer, les déplacer.
+Expérimenter.
+
+Lorsque vous avez terminé,
+cliquer successivement sur les mots: 
+File  (fichier),
+Save as (enregistrer sous)
+et enregistrer le fichier
+sous le nom de C:Essai.txt.
+
+Fermer alors la fenêtre par le bouton X,
+et retournez poursuivre votre étude de
+la section Gérer les documents.

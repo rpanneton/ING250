@@ -1,0 +1,5 @@
+function Nombre = input(invite)
+% nombre entre 10 et 20
+Nombre = 10 + round(10*(rand));
+disp([invite,num2str(Nombre)]);
+end

@@ -1,0 +1,67 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Exercice - calculer la moyenne des éléments d'un vecteur contenu dans
+un fichier - solution</title>
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+</head>
+
+<body>
+
+<h2>Calculer la moyenne des éléments d'un vecteur contenu dans un fichier</h2>
+<ol>
+  <li>Demander à l'utilisateur le nom du fichier à utiliser. Sans le
+    vérifier, supposer que l'utilisateur fournisse un nom adéquat.</li>
+  <li>Lire le fichier et l'attribuer au tableau «&nbsp;V&nbsp;».</li>
+  <li>Déterminer la longueur du vecteur&nbsp;V et attribuer cette valeur à
+    «&nbsp;n&nbsp;».</li>
+  <li>Afficher la valeur de n.</li>
+  <li>Calculer la moyenne des éléments de&nbsp;V.</li>
+  <li>Tester votre programme avec A.dat, B.dat, Distance.dat</li>
+</ol>
+<ul>
+  <li>Boucle comptée, car le nombre d'éléments est déterminé.</li>
+  <li>Sommateur à initialiser et à utiliser pour accumuler la somme.</li>
+  <li>Moyenne à calculer à la fin du programme.</li>
+  <li><i>load</i> doit être utilisé comme une fonction avec une variable de
+    type caractère en argument.</li>
+  <li><i>input</i> avec le modificateur «&nbsp;s&nbsp;» (<i>string</i> ou
+    chaîne de caractères) pour la lecture du nom de fichier.</li>
+</ul>
+<h3>Solution</h3>
+<pre>NomFichier=input('Nom du fichier ? ','s');
+V=load(NomFichier);
+n=length(V);
+Somme=0;
+<font color="#0000FF">for</font> i = 1:n
+   Somme=Somme+V(i);
+<font color="#0000FF">end</font>
+Moyenne=Somme/n</pre>
+<h4>Erreurs possibles&nbsp;:</h4>
+<ul>
+  <li>Calcul de la moyenne à l'intérieur de la boucle. C'est la somme qu'il
+    faut effectuer à l'intérieur de la boucle.</li>
+  <li>Oubli du 's' dans la fonction <i>input</i>, ce qui oblige l'utilisateur à écrire le
+    nom entre apostrophes.</li>
+  <li>Ajout d'un compteur pour compter le nombre d'éléments de&nbsp;V et
+    permettre le calcul de la moyenne. Ce nombre est déjà connu.</li>
+  <li>Erreurs similaires à l'exercice précédent&nbsp;:
+    <ul>
+      <li>Oubli du point-virgule lors de la lecture ou de la somme, ce qui
+        encombre la fenêtre Matlab.</li>
+      <li>Plus d'une utilisation de <i>length</i>(..).</li>
+      <li>Utilisation de <i>size</i> ou de <i>whos</i> (outils non appropriés).</li>
+      <li>Utilisation de <i>sum</i> ou de <i>mean</i> (ce n'est pas le but de
+        l'exercice).</li>
+      <li>Ajout d'un compteur pour identifier les éléments du vecteur.</li>
+    </ul>
+  </li>
+</ul>
+<p><img border="0" src="Ligne.GIF" width="492" height="19"></p>
+
+</body>
+
+</html>

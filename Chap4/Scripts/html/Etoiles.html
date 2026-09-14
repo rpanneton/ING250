@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>Affichage de vecteurs nombres et caract&egrave;res</title>
+<meta name="generator" content="MATLAB 24.2">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2025-11-19">
+<meta name="DC.source" content="Etoiles.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<h1>Affichage de vecteurs nombres et caract&egrave;res</h1>
+<!--introduction-->
+<!--/introduction-->
+<p>Etoile est une matrice consitu&eacute;e de 10 rang&eacute;es et 6 colonnes de caract&egrave;res.</p>
+<pre class="codeinput">clear; clc; close <span class="string">all</span>;
+Etoile=[
+   <span class="string">'Sirius'</span>;<span class="string">'Altair'</span>;<span class="string">'Pollux'</span>;<span class="string">'Becrux'</span>;<span class="string">'Castor'</span>
+   <span class="string">'Adhara'</span>;<span class="string">'Alioth'</span>;<span class="string">'Shaula'</span>;<span class="string">'Alkaid'</span>;<span class="string">'Alhena'</span>];
+</pre>
+<p>La magnitude apparente est l'expression logarithmique du rapport de l'&eacute;clairement apparent, sur un r&eacute;cepteur donn&eacute;, d'un astre consid&eacute;r&eacute; &agrave; celui d'un astre pris comme r&eacute;f&eacute;rence. &ndash; OLF</p>
+<pre class="codeinput">Magnitude=[
+   -1.42; 0.77; 1.16; 1.28; 1.58
+    1.63; 1.68; 1.71; 1.91; 1.92];
+<span class="comment">%</span>
+Distance =[
+   8.7;   16;   33;  500;   47
+   330;   49;  200;  190;   78]; <span class="comment">% ann&eacute;es-lumi&egrave;re</span>
+</pre>
+<p>Afficher une ligne &agrave; la fois est la proc&eacute;dure habituelle pour afficher des vecteurs de nombres et de caract&egrave;res sur une m&ecirc;me ligne.</p>
+<pre class="codeinput">fprintf(<span class="string">'&Eacute;toile  Distance  Magnitude\n'</span>);
+fprintf(<span class="string">'------  --------  ---------\n'</span>);
+<span class="keyword">for</span> i=1:length(Magnitude)
+   fprintf(<span class="string">'%s %8.1f %8.2f\n'</span>,Etoile(i,:),<span class="keyword">...</span>
+      Distance(i), Magnitude(i));
+<span class="keyword">end</span>
+fprintf(<span class="string">'------  --------  ---------\n'</span>);
+</pre>
+<pre class="codeoutput">&Eacute;toile  Distance  Magnitude
+------  --------  ---------
+Sirius      8.7    -1.42
+Altair     16.0     0.77
+Pollux     33.0     1.16
+Becrux    500.0     1.28
+Castor     47.0     1.58
+Adhara    330.0     1.63
+Alioth     49.0     1.68
+Shaula    200.0     1.71
+Alkaid    190.0     1.91
+Alhena     78.0     1.92
+------  --------  ---------
+</pre>
+<p>Il n'est pas possible d'utiliser la vectorisation des formats.</p>
+<pre>fprintf('%s %9.1f %10.2f\n',Etoile,...
+    Distance, Magnitude);</pre>
+<pre>Etoile(1) utilise %s
+Etoile(2) utilise %9.1f, etc.</pre>
+<p>
+<img vspace="5" hspace="5" src="..\Feuilles.gif" alt=""> </p>
+<p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2024b</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+%% Affichage de vecteurs nombres et caractères
+%%
+% Etoile est une matrice consituée de 10 rangées
+% et 6 colonnes de caractères.
+clear; clc; close all;
+Etoile=[
+   'Sirius';'Altair';'Pollux';'Becrux';'Castor'
+   'Adhara';'Alioth';'Shaula';'Alkaid';'Alhena'];
+
+%%
+% La magnitude apparente est l'expression
+% logarithmique du rapport de l'éclairement
+% apparent, sur un récepteur donné, d'un astre
+% considéré à celui d'un astre pris comme
+% référence. – OLF
+Magnitude=[
+   -1.42; 0.77; 1.16; 1.28; 1.58
+    1.63; 1.68; 1.71; 1.91; 1.92];
+%
+Distance =[
+   8.7;   16;   33;  500;   47
+   330;   49;  200;  190;   78]; % années-lumière
+
+%%
+% Afficher une ligne à la fois est la procédure
+% habituelle pour afficher des vecteurs de nombres
+% et de caractères sur une même ligne.
+fprintf('Étoile  Distance  Magnitude\n');
+fprintf('REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH  REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH  REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-\n');
+for i=1:length(Magnitude)
+   fprintf('%s %8.1f %8.2f\n',Etoile(i,:),...
+      Distance(i), Magnitude(i));
+end
+fprintf('REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH  REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH  REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-\n');
+
+%%
+% Il n'est pas possible d'utiliser la
+% vectorisation des formats.
+%
+%  fprintf('%s %9.1f %10.2f\n',Etoile,...
+%      Distance, Magnitude);
+%
+%  Etoile(1) utilise %s
+%  Etoile(2) utilise %9.1f, etc.
+%   
+% <<..\Feuilles.gif>>
+
+##### SOURCE END #####
+-->
+</body>
+</html>

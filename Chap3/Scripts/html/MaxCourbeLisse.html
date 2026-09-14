@@ -1,0 +1,179 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Maximum d'une courbe lisse</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-11-05">
+      <meta name="m-file" content="MaxCourbeLisse"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Maximum d'une courbe lisse</h1>
+         <introduction></introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#2">Graphique</a></li>
+               <li><a href="#3">Boucle while</a></li>
+               <li><a href="#4">Boucle for</a></li>
+            </ul>
+         </div><pre class="codeinput">clear; clc; close <span class="string">all</span>;
+Mz = load(<span class="string">'Mz.txt'</span>);
+</pre><h2>Graphique<a name="2"></a></h2><pre class="codeinput">plot(-30:3:60,Mz,<span class="string">'.b-'</span>);
+grid <span class="string">on</span>;
+xlabel(<span class="string">'Angle \theta en degr&eacute;s'</span>, <span class="string">'FontSize'</span>,12)
+ylabel(<span class="string">'Mz, N&middot;m'</span>, <span class="string">'FontSize'</span>,12);
+title(<span class="string">'Mz = f ( \theta )'</span>, <span class="string">'FontSize'</span>,12);
+set(gca,<span class="string">'FontSize'</span>,12);
+axis([-30,+60,60,120]);
+</pre><img vspace="5" hspace="5" src="MaxCourbeLisse_01.png"> <h2>Boucle while<a name="3"></a></h2><pre class="codeinput">i = 1;
+<span class="keyword">while</span>(Mz(i+1)&gt; Mz(i)) <span class="comment">% calcul brut</span>
+   i=i+1;
+<span class="keyword">end</span>
+angle = -30 + 3*(i-1);
+fprintf(<span class="string">'\nMz(i-1)= %.2f Nm,'</span>,Mz(i-1));
+fprintf(<span class="string">'  angle : %.0f&deg;\n'</span>,angle-3);
+fprintf(<span class="string">'  Mz(i)= %.2f Nm,'</span>,Mz(i));
+fprintf(<span class="string">'  angle : %.0f&deg;'</span>,angle);
+fprintf(<span class="string">', maximum.\n'</span>);
+fprintf(<span class="string">'Mz(i+1)= %.2f Nm,'</span>,Mz(i+1));
+fprintf(<span class="string">'  angle : %.0f&deg;\n'</span>,angle+3);
+</pre><pre class="codeoutput">
+Mz(i-1)= 111.69 Nm,  angle : 24&deg;
+  Mz(i)= 111.80 Nm,  angle : 27&deg;, maximum.
+Mz(i+1)= 111.60 Nm,  angle : 30&deg;
+</pre><h2>Boucle for<a name="4"></a></h2><pre class="codeinput">iMax = 1;
+<span class="keyword">for</span> i = 1:length(Mz)
+   <span class="keyword">if</span>(Mz(i)&gt;Mz(iMax))
+      iMax = i;
+   <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+angle = -30 +3*(iMax-1);
+fprintf(<span class="string">'\nMz(i-1)= %.2f Nm,'</span>,Mz(iMax-1));
+fprintf(<span class="string">'  angle : %.0f&deg;\n'</span>,angle-3);
+fprintf(<span class="string">'  Mz(i)= %.2f Nm,'</span>,Mz(iMax));
+fprintf(<span class="string">'  angle : %.0f&deg;'</span>,angle);
+fprintf(<span class="string">', maximum.\n'</span>);
+fprintf(<span class="string">'Mz(i+1)= %.2f Nm,'</span>,Mz(iMax+1));
+fprintf(<span class="string">'  angle : %.0f&deg;\n'</span>,angle+3);
+</pre><pre class="codeoutput">
+Mz(i-1)= 111.69 Nm,  angle : 24&deg;
+  Mz(i)= 111.80 Nm,  angle : 27&deg;, maximum.
+Mz(i+1)= 111.60 Nm,  angle : 30&deg;
+</pre><p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Maximum d'une courbe lisse
+%%
+clear; clc; close all;
+Mz = load('Mz.txt');
+
+%% Graphique
+plot(-30:3:60,Mz,'.b-');
+grid on;
+xlabel('Angle \theta en degrés', 'FontSize',12)
+ylabel('Mz, N·m', 'FontSize',12);
+title('Mz = f ( \theta )', 'FontSize',12);
+set(gca,'FontSize',12);
+axis([-30,+60,60,120]);
+
+%% Boucle while
+i = 1;
+while(Mz(i+1)> Mz(i)) % calcul brut
+   i=i+1;
+end
+angle = -30 + 3*(i-1);
+fprintf('\nMz(i-1)= %.2f Nm,',Mz(i-1));
+fprintf('  angle : %.0f°\n',angle-3);
+fprintf('  Mz(i)= %.2f Nm,',Mz(i));
+fprintf('  angle : %.0f°',angle);
+fprintf(', maximum.\n');
+fprintf('Mz(i+1)= %.2f Nm,',Mz(i+1));
+fprintf('  angle : %.0f°\n',angle+3);
+
+%% Boucle for
+iMax = 1;
+for i = 1:length(Mz)
+   if(Mz(i)>Mz(iMax))
+      iMax = i;
+   end
+end
+
+angle = -30 +3*(iMax-1);
+fprintf('\nMz(i-1)= %.2f Nm,',Mz(iMax-1));
+fprintf('  angle : %.0f°\n',angle-3);
+fprintf('  Mz(i)= %.2f Nm,',Mz(iMax));
+fprintf('  angle : %.0f°',angle);
+fprintf(', maximum.\n');
+fprintf('Mz(i+1)= %.2f Nm,',Mz(iMax+1));
+fprintf('  angle : %.0f°\n',angle+3);
+##### SOURCE END #####
+-->
+   </body>
+</html>

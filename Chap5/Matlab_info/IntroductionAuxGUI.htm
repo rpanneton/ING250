@@ -1,0 +1,1194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+  <title>Introduction à la programmation des interfaces graphiques sous MATLAB - Club des décideurs et professionnels en Informatique</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="generator" content="developpez-com">
+  <meta name="description" content="Introduction à la programmation des GUI">
+  <meta name="keywords" content="Tutoriel GUI Matlab GUIDE">
+  <meta name="MS.LOCALE" content="fr-FR">
+  
+    <link rel="stylesheet" type="text/css" href="IntroductionAuxGUI_fichiers/gabarit0.css">
+    <link rel="stylesheet" type="text/css" media="print" href="IntroductionAuxGUI_fichiers/printer.css">
+  
+  <script src="IntroductionAuxGUI_fichiers/fonctions-kit.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" media="screen" href="IntroductionAuxGUI_fichiers/article.css">
+    
+	<meta name="author" content="Jérôme Briot">
+	<meta name="MSN_TopicType" content="Whitepaper">
+	<meta name="MSN_PublishDate" content="06/01/2007 12:00:00 PM">
+	<meta name="MSN_RevisedDate" content="03/17/2009 12:00:00 PM">
+	<meta name="MSN_UserRating" content="100 %">
+</head><body xml:lang="fr"><div id="quicknav">
+    <div id="quicksearch">
+        <form method="get" action="http://www.developpez.com/recherche/" id="cse-search-box">
+            <p>
+                <input style="border: 1px solid rgb(126, 157, 185); padding: 2px; background: rgb(255, 255, 255) url(http://www.google.com/cse/intl/fr/images/google_custom_search_watermark.gif) no-repeat scroll left center; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;" name="q" id="recherche_g" type="text">
+                <input name="sa" id="recherche_submit" value="Go" title="Rechercher" src="IntroductionAuxGUI_fichiers/go-gray.png" type="image">
+                <input name="cx" value="006424388311999799839:-31tnf0iuqy" type="hidden">
+                <input name="cof" value="FORID:9" type="hidden">
+                <input name="ie" value="ISO-8859-1" type="hidden">
+            </p>
+        <input value="briot-jerome.developpez.com/matlab/tutoriels/guiintro/" name="siteurl" type="hidden"></form>
+        <script type="text/javascript" src="IntroductionAuxGUI_fichiers/brand.htm"></script>
+    </div>
+    <ul id="quicklinks">        
+        <li class="first">
+            <a href="http://www.developpez.net/forums/index.php" title="">Forums</a>
+        </li>
+        <li>
+            <a href="http://general.developpez.com/cours/" title="">Tutoriels</a>
+        </li>
+        <li>
+            <a href="http://magazine.developpez.com/" title="">Magazine</a>
+        </li>
+        <li>
+            <a href="http://general.developpez.com/faq/" title="">FAQs</a>
+        </li>
+        <li>
+            <a href="http://blog.developpez.com/" title="">Blogs</a>
+        </li>
+        <li>
+            <a href="http://projets.developpez.com/" title="">Projets</a>
+        </li>
+        <li>
+            <a href="http://chat.developpez.com/" title="">Chat</a>
+        </li>
+        <li>
+            <a href="http://club.developpez.com/newsletter/">Newsletter</a>
+        </li>
+        <li>
+            <a href="http://emploi.developpez.com/" title="">Emploi</a>
+        </li>
+        <li>
+            <a href="http://club.developpez.com/contacts/" title="">Contacts</a>
+        </li>
+    </ul>
+</div>
+<!--[if lt IE 7]>
+<script src="/template/ie7/IE7.js" type="text/javascript"></script>
+<![endif]-->
+
+<div id="layout">
+
+    <div id="publicite">
+                    <!--JavaScript Tag // Tag for network 224: Hi-Media France // Website: zzz - developpez.com -->
+            <script type="text/javascript"><!--
+            document.write('<scr'+'ipt language="javascript1.1" src="http://adserver.adtech.de/addyn|3.0|224|1582411|0|1|ADTECH;loc=100;target=_blank; grp=1;misc='+new Date().getTime()+'"></scri'+'pt>');
+            //-->
+            </script><script language="javascript1.1" src="IntroductionAuxGUI_fichiers/addyn3.js"></script><a href="http://adserver.adtech.de/adlink%7C224%7C1582411%7C0%7C1%7CAdId=2756682;BnId=1;itime=749676594;nodecode=yes;link=http://www.comscamp.com/Tracker/Redirect.ashx?linkid=6cfc88cf-dc7a-426b-baf9-59ea22ae8e67" target="_blank"><img src="IntroductionAuxGUI_fichiers/p-box-728.gif" alt="" title="" border="0"></a>
+
+            <noscript>
+            <div>
+                <a href="http://adserver.adtech.de/adlink|3.0|224|1582411|0|1|ADTECH;loc=300;grp=1">
+                    <img src="http://adserver.adtech.de/adserv|3.0|224|1582411|0|1|ADTECH;loc=300;grp=1" alt="" />
+                </a>
+            </div>
+            </noscript>
+            <!-- End of JavaScript Tag -->                 
+            </div>
+
+    <div id="logo_dvp">
+        <a href="http://www.developpez.com/" title="Accueil Developpez.com">
+            <img src="IntroductionAuxGUI_fichiers/logo.gif" alt="">
+        </a>    
+    </div>
+    
+    <div id="gabarit">
+
+    <div id="gabarit_tabmenu">
+        <div>&nbsp;</div>
+        <ul id="tabs">
+                            
+	            	                <li class="item first">
+	            
+	                                        <a href="http://www.developpez.com/">
+                                        
+	                   Accueil
+	                   
+	                                               <span class="tooltip">
+                            Actualités IT Pro
+	                       </span>
+                       	                </a>
+	                
+	                	                
+	            </li>
+                            
+	            	                <li class="item">
+	            
+	                                        <a href="http://conception.developpez.com/">
+                                        
+	                   Conception
+	                   
+	                                               <span class="tooltip">
+                            Cycle de vie du logiciel
+	                       </span>
+                       	                </a>
+	                
+	                	                
+	                    <ul class="submenu">
+	                        <li><a href="http://conception.developpez.com/">Conception</a></li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://uml.developpez.com/">UML</a>
+	                            </li>
+	                        	                            	                                <li class="last">
+	                            	                                <a href="http://merise.developpez.com/">Merise</a>
+	                            </li>
+	                        	                        
+	                        	                        
+	                    </ul>
+	                
+	                	                
+	            </li>
+                            
+	            	                <li class="item">
+	            
+	                                        <a href="http://java.developpez.com/">
+                                        
+	                   Java
+	                   
+	                                               <span class="tooltip">
+                            Plateforme et langage Java
+	                       </span>
+                       	                </a>
+	                
+	                	                
+	                    <ul class="submenu">
+	                        <li><a href="http://java.developpez.com/">Java</a></li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://spring.developpez.com/">Spring</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://javaweb.developpez.com/">Dév. Web Java</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://android.developpez.com/">Android</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://eclipse.developpez.com/">Eclipse</a>
+	                            </li>
+	                        	                            	                                <li class="last">
+	                            	                                <a href="http://netbeans.developpez.com/">NetBeans</a>
+	                            </li>
+	                        	                        
+	                        	                        
+	                    </ul>
+	                
+	                	                
+	            </li>
+                            
+	            	                <li class="item">
+	            
+	                                        <a href="http://dotnet.developpez.com/">
+                                        
+	                   .NET
+	                   
+	                                               <span class="tooltip">
+                            Microsoft Framework .NET
+	                       </span>
+                       	                </a>
+	                
+	                	                
+	                    <ul class="submenu">
+	                        <li><a href="http://dotnet.developpez.com/">Microsoft DotNET</a></li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://dotnet.developpez.com/visual-studio/">Visual Studio</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://dotnet.developpez.com/aspnet/">ASP.NET</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://dotnet.developpez.com/csharp/">C#</a>
+	                            </li>
+	                        	                            	                                <li class="last">
+	                            	                                <a href="http://dotnet.developpez.com/vbnet/">VB.NET</a>
+	                            </li>
+	                        	                        
+	                        	                        
+	                    </ul>
+	                
+	                	                
+	            </li>
+                            
+	            	                <li class="item">
+	            
+	                                        <a href="http://web.developpez.com/">
+                                        
+	                   Dév. Web
+	                   
+	                                               <span class="tooltip">
+                            Développement Web et Webmarketing
+	                       </span>
+                       	                </a>
+	                
+	                	                
+	                    <ul class="submenu">
+	                        <li><a href="http://web.developpez.com/">Développement Web</a></li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://ajax.developpez.com/">AJAX</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://apache.developpez.com/">Apache</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://asp.developpez.com/">ASP</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://dotnet.developpez.com/aspnet/">ASP.NET</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://css.developpez.com/">CSS</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://flash.developpez.com/">Flash / Flex</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://javascript.developpez.com/">JavaScript</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://php.developpez.com/">PHP</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://ruby.developpez.com/">Ruby &amp; Rails</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://webmarketing.developpez.com/">Webmarketing</a>
+	                            </li>
+	                        	                            	                                <li class="last">
+	                            	                                <a href="http://xhtml.developpez.com/">(X)HTML</a>
+	                            </li>
+	                        	                        
+	                        	                        
+	                    </ul>
+	                
+	                	                
+	            </li>
+                            
+	            	                <li class="item">
+	            
+	                	                    <a href="http://general.developpez.com/edi/" class="selected">
+                                        
+	                   EDI
+	                   
+	                                               <span class="tooltip">
+                            Environnements de Développement Intégré
+	                       </span>
+                       	                </a>
+	                
+	                	                
+	                    <ul class="submenu">
+	                        <li><a href="http://general.developpez.com/edi/">EDI</a></li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://4d.developpez.com/">4D</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://delphi.developpez.com/">Delphi</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://eclipse.developpez.com/">Eclipse</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://labview.developpez.com/">LabView</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://netbeans.developpez.com/">NetBeans</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://matlab.developpez.com/">MATLAB</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://dotnet.developpez.com/visual-studio/">Visual Studio</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://wind.developpez.com/">WinDev</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://vb.developpez.com/">Visual Basic 6</a>
+	                            </li>
+	                        	                            	                                <li class="last">
+	                            	                                <a href="http://lazarus.developpez.com/">Lazarus</a>
+	                            </li>
+	                        	                        
+	                        	                        
+	                    </ul>
+	                
+	                	                
+	            </li>
+                            
+	            	                <li class="item">
+	            
+	                                        <a href="http://general.developpez.com/langages/">
+                                        
+	                   Langages
+	                   
+	                                               <span class="tooltip">
+                            Langages de programmation applicatif
+	                       </span>
+                       	                </a>
+	                
+	                	                
+	                    <ul class="submenu">
+	                        <li><a href="http://general.developpez.com/langages/">Langages</a></li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://asm.developpez.com/">Assembleur</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://c.developpez.com/">C</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://cpp.developpez.com/">C++</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://dotnet.developpez.com/csharp/">C#</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://pascal.developpez.com/">Pascal</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://perl.developpez.com/">Perl</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://python.developpez.com/">Python</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://vb.developpez.com/">Visual Basic 6</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://dotnet.developpez.com/vbnet/">VB.NET</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://xml.developpez.com/">XML</a>
+	                            </li>
+	                        	                            	                                <li class="last">
+	                            	                                <a href="http://general.developpez.com/cours/">Autres</a>
+	                            </li>
+	                        	                        
+	                        	                        
+	                    </ul>
+	                
+	                	                
+	            </li>
+                            
+	            	                <li class="item">
+	            
+	                                        <a href="http://sgbd.developpez.com/">
+                                        
+	                   SGBD
+	                   
+	                                               <span class="tooltip">
+                            Systèmes de Gestion de Bases de Données
+	                       </span>
+                       	                </a>
+	                
+	                	                
+	                    <ul class="submenu">
+	                        <li><a href="http://sgbd.developpez.com/">SGBD &amp; SQL</a></li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://4d.developpez.com/">4D</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://access.developpez.com/">Access</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://db2.developpez.com/">DB2</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://firebird.developpez.com/">Firebird</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://interbase.developpez.com/">InterBase</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://mysql.developpez.com/">MySQL</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://oracle.developpez.com/">Oracle</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://postgresql.developpez.com/">PostgreSQL</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://sqlserver.developpez.com/">SQL-Server</a>
+	                            </li>
+	                        	                            	                                <li class="last">
+	                            	                                <a href="http://sybase.developpez.com/">Sybase</a>
+	                            </li>
+	                        	                        
+	                        	                        
+	                    </ul>
+	                
+	                	                
+	            </li>
+                            
+	            	                <li class="item">
+	            
+	                                        <a href="http://office.developpez.com/">
+                                        
+	                   Office
+	                   
+	                                               <span class="tooltip">
+                            Bureautique pour l'entreprise
+	                       </span>
+                       	                </a>
+	                
+	                	                
+	                    <ul class="submenu">
+	                        <li><a href="http://office.developpez.com/">Microsoft Office</a></li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://access.developpez.com/">Access</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://excel.developpez.com/">Excel</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://word.developpez.com/">Word</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://outlook.developpez.com/">Outlook</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://powerpoint.developpez.com/">PowerPoint</a>
+	                            </li>
+	                        	                            	                                <li class="last">
+	                            	                                <a href="http://sharepoint.developpez.com/">SharePoint</a>
+	                            </li>
+	                        	                        
+	                        	                        
+	                    </ul>
+	                
+	                	                
+	            </li>
+                            
+	            	                <li class="item">
+	            
+	                                        <a href="http://solutions-entreprise.developpez.com/">
+                                        
+	                   Solutions d'entreprise
+	                   
+	                                               <span class="tooltip">
+                            Autres logiciels pour l'entreprise
+	                       </span>
+                       	                </a>
+	                
+	                	                
+	                    <ul class="submenu">
+	                        <li><a href="http://solutions-entreprise.developpez.com/">Solutions d'entreprise</a></li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://business-intelligence.developpez.com/">Business Intelligence</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://solutions-entreprise.developpez.com/erp-pgi/presentation-erp-pgi/">ERP / PGI</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://solutions-entreprise.developpez.com/crm-grc/presentation-crm-grc/">CRM</a>
+	                            </li>
+	                        	                            	                                <li class="last">
+	                            	                                <a href="http://sas.developpez.com/">SAS</a>
+	                            </li>
+	                        	                        
+	                        	                        
+	                    </ul>
+	                
+	                	                
+	            </li>
+                            
+	            	                <li class="item prelast">
+	            
+	                                        <a href="http://applications.developpez.com/">
+                                        
+	                   Applications
+	                   
+	                                               <span class="tooltip">
+                            Applications logicielles
+	                       </span>
+                       	                </a>
+	                
+	                	                
+	                    <ul class="submenu">
+	                        <li><a href="http://applications.developpez.com/">Applications</a></li>
+	                        	                            	                                <li class="last">
+	                            	                                <a href="http://jeux.developpez.com/">2D - 3D - Jeux</a>
+	                            </li>
+	                        	                        
+	                        	                        
+	                    </ul>
+	                
+	                	                
+	            </li>
+                            
+	            	                <li class="item last">
+	            
+	                                        <a href="http://systeme.developpez.com/">
+                                        
+	                   Systèmes
+	                   
+	                                               <span class="tooltip">
+                            Logiciels et matériels systèmes
+	                       </span>
+                       	                </a>
+	                
+	                	                
+	                    <ul class="submenu">
+	                        <li><a href="http://systeme.developpez.com/">Systèmes</a></li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://windows.developpez.com/">Windows</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://linux.developpez.com/">Linux Professionnel</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://securite.developpez.com/">Sécurité</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://hardware.developpez.com/">PC</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://mac.developpez.com/">Mac</a>
+	                            </li>
+	                        	                            	                                <li>
+	                            	                                <a href="http://reseau.developpez.com/">Réseau</a>
+	                            </li>
+	                        	                            	                                <li class="last">
+	                            	                                <a href="http://mobiles.developpez.com/">Mobiles</a>
+	                            </li>
+	                        	                        
+	                        	                        
+	                    </ul>
+	                
+	                	                
+	            </li>
+                    </ul>
+    </div>
+    
+        
+                    <div id="gabarit_topicmenu">
+                <div>&nbsp;</div>
+                <ul id="topics">
+                
+                                            
+                                                            <li>
+                                                        <span><strong><a href="http://general.developpez.com/edi/">EDI</a></strong></span></li>
+                    
+                                            
+                                                                    <li>
+                                                    <span><strong><a href="http://4d.developpez.com/">4D</a></strong></span>
+                        </li>
+                                                                    <li>
+                                                    <span><strong><a href="http://delphi.developpez.com/">Delphi</a></strong></span>
+                        </li>
+                                                                    <li>
+                                                    <span><strong><a href="http://eclipse.developpez.com/">Eclipse</a></strong></span>
+                        </li>
+                                                                    <li>
+                                                    <span><strong><a href="http://labview.developpez.com/">LabView</a></strong></span>
+                        </li>
+                                                                    <li>
+                                                    <span><strong><a href="http://netbeans.developpez.com/">NetBeans</a></strong></span>
+                        </li>
+                                                                    <li class="selected">
+                                                    <span><strong><a href="http://matlab.developpez.com/">MATLAB</a></strong></span>
+                        </li>
+                                                                    <li>
+                                                    <span><strong><a href="http://dotnet.developpez.com/visual-studio/">Visual Studio</a></strong></span>
+                        </li>
+                                                                    <li>
+                                                    <span><strong><a href="http://wind.developpez.com/">WinDev</a></strong></span>
+                        </li>
+                                                                    <li>
+                                                    <span><strong><a href="http://vb.developpez.com/">Visual Basic 6</a></strong></span>
+                        </li>
+                                                                    <li>
+                                                    <span><strong><a href="http://lazarus.developpez.com/">Lazarus</a></strong></span>
+                        </li>
+                                        
+                </ul>
+            </div>
+                
+    <div id="gabarit_resourcemenu">
+
+            <div>&nbsp;</div>
+
+			<div id="twitter_bloc">
+				<a href="http://twitter.com/Developpez">
+					<img src="IntroductionAuxGUI_fichiers/twitter.png" alt="Twitter" title="Retrouver Developpez sur Twitter">
+				</a>
+			</div>	
+			
+            
+                <div id="rss_syndication">
+                    <img src="IntroductionAuxGUI_fichiers/rss.png" alt="RSS">
+                    <ul class="submenu">
+                        <li><a href="http://matlab.developpez.com/index/rss">RSS</a></li>
+                        <li class="last"><a href="http://matlab.developpez.com/index/atom">Atom</a></li>
+                    </ul>
+                </div>
+						
+			
+
+            <strong id="topic_name"></strong>
+
+            <ul id="resources">
+                <li>
+                    <span><strong><a href="http://matlab.developpez.com/">ACCUEIL MATLAB</a></strong></span>
+                </li>
+                <li>
+                    <span><strong><a href="http://www.developpez.net/forums/f148/environnements-developpement/matlab/">FORUM MATLAB</a></strong></span>
+                </li>
+                <li>
+                    <span><strong><a href="http://matlab.developpez.com/faq/">FAQ MATLAB</a></strong></span>
+                </li>
+                <li>
+                    <span><strong><a href="http://matlab.developpez.com/tutoriels/">TUTORIELS MATLAB</a></strong></span>
+                </li>
+                <li>
+                    <span><strong><a href="http://matlab.developpez.com/livres/">LIVRES MATLAB</a></strong></span>
+                </li>
+                <li>
+                    <span><strong><a href="http://matlab.developpez.com/sources/">SOURCES MATLAB</a></strong></span>
+                </li>
+                            </ul>
+
+        </div>
+
+</div>    
+    <div id="shadow1">
+        <div id="shadow2">
+            <div class="contenuPage"><div class="divarticle">
+		<br><h1>Introduction à la programmation des interfaces graphiques</h1><div class="soustitre">
+        Améliorer sa programmation sous MATLAB
+        <div class="image"><img src="IntroductionAuxGUI_fichiers/niveau-debutant-avance.jpg" alt="(niveau débutant et avancé)"></div>
+	</div><p class="dateArticle">Date de publication : 01/06/2007 , Date de mise à jour : 17/03/2009</p><p style="text-align: center;">
+		Par
+		<a class="auteur" href="http://www.developpez.net/forums/u125006/dut/">Jérôme Briot</a> <a class="homepage" href="http://briot-jerome.developpez.com/"> (Dut sur developpez.com)</a><br>&nbsp;</p><div class="synopsis">
+	<div class="paragraph">
+	<b>Cet article est une introduction au développement des interfaces graphiques 
+    sous MATLAB</b>.<br><br>	
+	<b><span style="text-decoration: underline;">Contenu</span></b> : l'article comporte :</div>
+	<ul style="list-style-type: disc;">
+	<li>une description succincte des objets graphiques (hiérarchie, identifiant, propriétés) </li>
+	<li>une présentation de l'outil GUIDE pour le développement des interfaces graphiques</li>
+	<li>une évaluation du GUIDE par rapport au codage classique "à la main"</li>
+	</ul>
+		<div class="paragraph">
+			<b><span style="text-decoration: underline;">Public visé</span></b> : cet article est destiné aux débutants ayant déjà 
+            quelques notions de MATLAB et surtout aux utilisateurs avancés qui seront 
+            incités à ne pas utiliser l'outil GUIDE pour développez les interfaces 
+            graphiques.
+		</div>
+	    <table class="infobulle" style="border: 0pt none ; width: 98%; text-align: left;"><tbody><tr><td style="width: 40px; vertical-align: top;" class="colonne"><img src="IntroductionAuxGUI_fichiers/kitidea.gif" alt="idea"></td><td class="colonne">
+			<b>Votre avis et vos suggestions sur cet article m'intéressent ! Alors après votre lecture, n'hésitez pas :</b> <a class="lienforum" href="http://www.developpez.net/forums/showthread.php?t=689574">commentez</a> · <a href="http://www.developpez.net/forums/showthread.php?t=689574&amp;nojs=1#goto_threadrating" title="Donner une note à l'article (5)"><img src="IntroductionAuxGUI_fichiers/kitstars-5-0.gif" style="border: medium none ;" alt="Donner une note à l'article (5)" width="66" height="14"></a>		</td></tr></tbody></table>
+	</div><div class="barreNavigation"><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			
+			&nbsp;
+			<span class="lientelechargementpdf"><a class="lientelechargement" href="ftp://ftp-developpez.com/briot-jerome/matlab/tutoriels/guiintro/guiintro.pdf" title="Télécharger la version PDF de cet article, serveur principal." onclick="">Version PDF</a>
+					(<a class="lientelechargement" href="http://briot-jerome.ftp-developpez.com/matlab/tutoriels/guiintro/guiintro.pdf" title="Télécharger la version PDF de cet article, serveur secondaire" onclick="">Miroir</a>)
+				</span>
+		&nbsp;
+		<span class="lientelechargementzip"><a class="lientelechargement" href="ftp://ftp-developpez.com/briot-jerome/matlab/tutoriels/guiintro/guiintro.zip" title="Télécharger la version HTML de cet article, serveur principal." onclick="">Version hors-ligne</a>
+				(<a class="lientelechargement" href="http://briot-jerome.ftp-developpez.com/matlab/tutoriels/guiintro/guiintro.zip" title="Télécharger la version HTML de cet article, serveur secondaire" onclick="">Miroir</a>)
+			</span></div>
+		<br><a class="summaryIndent0" href="#L0">Avant-propos</a>
+			
+						
+		
+		<br><a class="summaryIndent0" href="#L1">1. Les objets graphiques et leur fonctionnement</a>
+			
+			<br><a class="summaryIndent1" href="#L1.1">Les objets graphiques</a>
+				
+				
+				 		
+				 					
+			
+			<br><a class="summaryIndent1" href="#L1.2">Les identifiants des objets graphiques</a>
+				
+						
+
+				
+								
+			
+			<br><a class="summaryIndent1" href="#L1.3">Les propriétés des objets graphiques</a>
+				
+				
+					
+			
+		
+		<br><a class="summaryIndent0" href="#L2">2. Avec GUIDE ou bien en solo ?</a>
+			
+			<br><a class="summaryIndent1" href="#L2.1">Présentation</a>
+				
+										
+			
+			<br><a class="summaryIndent1" href="#L2.2">Exemple à partir d'un GUI simple</a>
+				
+				
+				
+				
+				
+				
+
+				
+					
+				 
+	
+				
+				
+									
+			
+		
+		<br><a class="summaryIndent0" href="#L3">Conclusion</a>
+			
+			<br><a class="summaryIndent1" href="#L3.1">Pour résumer</a>
+						
+				
+			
+			<br><a class="summaryIndent1" href="#L3.2">Remarque</a>
+				
+							
+			
+		
+		<br><a class="summaryIndent0" href="#L4">Remerciements</a>
+			
+			
+			
+		
+	<br><br>
+		<br><h1 class="TitreSection0" id="L0">Avant-propos</h1>
+			
+			<div class="paragraph">
+				Les <b>IHM</b> (<b>I</b>nterfaces <b>H</b>omme <b>M</b>achine), sont appelées
+				 <b>GUI</b> (<b>G</b>raphical <b>U</b>ser <b>I</b>nterfaces) dans MATLAB. Elles permettent à l'utilisateur, grâce à des objets graphiques
+				(boutons, menus, cases à cocher, ...) d'interagir avec un programme informatique.
+				<br><br>
+Du fait du nombre important d'objets et surtout du nombre encore plus
+élevé des paramètres associés, leur programmation "à la main" déroute
+généralement le débutant. Depuis la version 5.0 (1997), MATLAB possède
+un outil IDE dédié à la création des interfaces graphiques. Cet outil,
+appelé <b>GUIDE</b> 
+				 (<b>G</b>raphical <b>U</b>ser <b>I</b>nterface <b>D</b>evelopment <b>E</b>nvironment), permet de concevoir intuitivement ces interfaces graphiques.
+			</div><br>			
+		
+		<br><h1 class="TitreSection0" id="L1">1. Les objets graphiques et leur fonctionnement</h1>
+			
+			<br><h2 class="TitreSection1" id="L1.1">Les objets graphiques</h2>
+				
+				<div class="paragraph">
+					Sous Matlab, les objets graphiques sont disposés selon une hiérarchie pyramidale parent-enfant :
+				</div><br>
+				<div class="image" style="text-align: center;"><img src="IntroductionAuxGUI_fichiers/hierarchie.gif" alt=""></div> 		
+				<div class="paragraph">
+					Au sommet de la hiérarchie se trouve l'objet <b>Root</b>.
+Cet objet est invisible (on peut se le représenter comme étant l'écran
+de l'ordinateur). L'utilisateur n'interagit que très rarement avec cet
+objet. <br><br>
+					Ensuite, on trouve les objets de type <b>Figure</b>.
+Ce sont les conteneurs visibles où sont disposés tous les autres objets
+enfants. Plusieurs objets Figure peuvent être ouverts simultanément et
+peuvent éventuellement communiquer entre eux. </div><br><div class="image" style="text-align: center;"><img src="IntroductionAuxGUI_fichiers/figure.gif" alt=""></div><div class="paragraph">Viennent ensuite les objets de type <b>Axes</b>
+qui sont les zones de traçage des graphiques (2D ou 3D). Ces objets ont
+pour enfants, tous les objets représentants des résultats mathématiques
+(courbes, surfaces, images, maillages, etc.). Un objet Figure peut
+contenir plusieurs objets Axes simultanément.</div><br><div class="image" style="text-align: center;"><img src="IntroductionAuxGUI_fichiers/axes.gif" alt=""></div><div class="paragraph"><br><br>
+				On trouve également au même niveau, les objets <b>UI</b> (<b>U</b>ser <b>I</b>nterface)
+tels que des boutons, des menus, des cases à cocher, ... Ces objets
+permettent à l'utilisateur d'interagir dynamiquement à la souris avec
+le GUI.</div><br><div class="image" style="text-align: center;"><img src="IntroductionAuxGUI_fichiers/uicontrol.gif" alt=""></div> 					
+			
+			<br><h2 class="TitreSection1" id="L1.2">Les identifiants des objets graphiques</h2>
+				
+				<div class="paragraph">
+A la création d'un objet, MATLAB lui attribue automatiquement un
+identifiant (handle), sous la forme d'un nombre réel unique qui peut
+être stocké dans une variable. Ceci permet de retrouver à tout moment
+un objet graphique au cours du fonctionnement d'une interface. Cet
+identifiant existe tant que l'objet existe. Dès que l'objet est
+détruit, cet identifiant disparaît. <br><br>
+				Par exemple, à la création d'un objet Figure :
+				</div>		
+<div style="text-align: center;"><table style="margin: 10px auto; width: 90%; border-collapse: collapse;" id="codeTabled0e284"><tbody><tr><td class="titre_code">Création d'un objet et récupération de son identifiant</td></tr><tr><td class="code"><div id="codeWrapperd0e284" class="codeWrapper"><div id="codeOverflowd0e284" style="overflow: auto;"><pre><code id="contenuCoded0e284" class="contenuCode">
+h=figure
+
+h =
+
+     1
+</code></pre></div></div></td></tr></tbody></table></div>
+				<div class="paragraph">
+L'identifiant est ici un nombre entier (et non pas un réel). C'est un
+cas particulier, les objets Figure étant par défaut identifiés par des
+entiers. <br><br>Le programmeur gère les identifiants, soit avec la fonction GUIHANDLES, soit avec les fonctions FINDOBJ/FINDALL.<br>
+					Quelques identifiants particuliers peuvent être gérés avec les fonctions suivantes :					
+				</div><br>
+				<ul style="list-style-type: disc;">
+					<li>GCA qui récupère l'identifiant de l'objet Axes courant </li>
+					<li>GCBF qui récupère l'identifiant de l'objet Figure où se trouve l'objet graphique dont l'action est en cours</li>
+					<li>GCBO qui récupère l'identifiant de l'objet graphique dont l'action est en cours</li>
+					<li>GCF qui récupère l'identifiant de l'objet Figure courant </li>
+					<li>GCO qui récupère l'identifiant de l'objet graphique courant </li>
+				</ul>				
+			
+			<br><h2 class="TitreSection1" id="L1.3">Les propriétés des objets graphiques</h2>
+				
+				<div class="paragraph">
+Chaque objet graphique possède des propriétés (position, couleur,
+action, etc.) qui sont définies à sa création et qui peuvent être
+modifiées dynamiquement au cours du fonctionnement du GUI. Ces
+propriétés peuvent être récupérées et modifiées en utilisant
+l'identifiant de l'objet et les fonctions <a href="http://www.mathworks.com/access/helpdesk/help/techdoc/ref/get.html" class="lienArticle">GET</a> et <a href="http://www.mathworks.com/access/helpdesk/help/techdoc/ref/set.html" class="lienArticle">SET</a>.
+					La difficulté consiste, bien entendu, à apprendre et à maîtriser ces nombreuses propriétés :
+				</div><br>
+				<ul style="list-style-type: disc;">
+					<li>les propriétés de l'objet <a href="http://www.mathworks.com/access/helpdesk/help/techdoc/ref/rootobject_props.html" class="lienArticle">Root</a></li>
+					<li>les propriétés de l'objet <a href="http://www.mathworks.com/access/helpdesk/help/techdoc/ref/figure_props.html" class="lienArticle">Figure</a></li>
+					<li>les propriétés de l'objet <a href="http://www.mathworks.com/access/helpdesk/help/techdoc/ref/axes_props.html" class="lienArticle">Axes</a></li>
+					<li>les propriétés des objets <a href="http://www.mathworks.com/access/helpdesk/help/techdoc/ref/uicontrol_props.html" class="lienArticle">Uicontrol</a></li>
+				</ul>	
+			
+		
+		<br><h1 class="TitreSection0" id="L2">2. Avec GUIDE ou bien en solo ?</h1>
+			
+			<br><h2 class="TitreSection1" id="L2.1">Présentation</h2>
+				
+				<div class="paragraph">
+Le GUIDE est un outil graphique qui regroupe tout ce dont le
+programmeur à besoin pour créer une interface graphique de façon
+intuitive. </div><br>	<div class="image" style="text-align: center;"><img src="IntroductionAuxGUI_fichiers/guide.gif" alt=""></div><div class="paragraph">
+Le placement des objets est réalisé par sélection dans la boite à
+outils, mise en place et mise à dimension à la souris. Un double-clique
+sur chaque objet permet de faire apparaître un menu avec les propriétés
+de cet objet. Leur modification et l'aperçu de ces modifications sont
+immédiats. Au final, le code est généré automatiquement et l'interface
+est enregistrée sous deux fichiers portant le même nom mais dont les
+deux extensions sont <i>.fig</i> et <i>.m</i>. Le
+premier contient la définition des objets graphiques. Le second
+contient les lignes de code qui assurent le fonctionnement de
+l'interface graphique. <br><br>L'utilisation du GUIDE semble donc être LA méthode de
+programmation des GUI sous MATLAB. Mais, comparons cette méthode à la
+programmation des GUI "à la main" à l'aide d'un exemple simple. </div><br>					
+			
+			<br><h2 class="TitreSection1" id="L2.2">Exemple à partir d'un GUI simple</h2>
+				
+				<ul style="list-style-type: disc;">			
+					<li><b>But :</b> comparer la programmation des GUI, à l'aide du GUIDE et "à la main".</li>
+				</ul>
+				<div class="paragraph">
+On se propose de créer une interface graphique simple, composée d'une
+figure contenant un objet Axes et un objet Uicontrol de type
+Pushbutton. Lorsque l'on clique sur l'objet Pushbutton, l'objet Axes
+change de couleur de façon aléatoire. </div><br>
+				<div class="image" style="text-align: center;"><img src="IntroductionAuxGUI_fichiers/exemple.gif" alt=""></div>
+				<ul style="list-style-type: disc;">
+					<li><b>Avec le GUIDE :</b></li>
+				</ul>
+				<div class="paragraph">
+					Après avoir mis en place tous les objets et ajusté toutes les propriétés, le GUIDE génère deux fichiers. Un fichier <i>.fig</i> (non éditable) contenant les
+					objets graphiques (Figure, Axes et Pushbutton) et un fichier <i>.m</i> contenant les lignes de code suivantes :
+				</div>
+<div style="text-align: center;"><table style="margin: 10px auto; width: 90%; border-collapse: collapse;" id="codeTabled0e414"><tbody><tr><td class="titre_code">Code généré automatiquement par le GUIDE</td></tr><tr><td class="code"><div id="codeWrapperd0e414" class="codeWrapper"><div id="codeOverflowd0e414" style="overflow: auto;"><pre><code id="contenuCoded0e414" class="contenuCode">
+<code class="matlab_keyword1">function</code> varargout = gui(varargin)
+<code class="matlab_comment2">%</code><code class="matlab_comment2"> </code><code class="matlab_comment2">GUI</code><code class="matlab_comment2"> </code><code class="matlab_comment2">Application</code><code class="matlab_comment2"> </code><code class="matlab_comment2">M-file</code><code class="matlab_comment2"> </code><code class="matlab_comment2">for</code><code class="matlab_comment2"> </code><code class="matlab_comment2">gui.fig</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2"> </code><code class="matlab_comment2"> </code><code class="matlab_comment2"> </code><code class="matlab_comment2"> </code><code class="matlab_comment2">FIG</code><code class="matlab_comment2"> </code><code class="matlab_comment2">=</code><code class="matlab_comment2"> </code><code class="matlab_comment2">GUI</code><code class="matlab_comment2"> </code><code class="matlab_comment2">launch</code><code class="matlab_comment2"> </code><code class="matlab_comment2">gui</code><code class="matlab_comment2"> </code><code class="matlab_comment2">GUI.</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2"> </code><code class="matlab_comment2"> </code><code class="matlab_comment2"> </code><code class="matlab_comment2"> </code><code class="matlab_comment2">GUI('callback_name',</code><code class="matlab_comment2"> </code><code class="matlab_comment2">...)</code><code class="matlab_comment2"> </code><code class="matlab_comment2">invoke</code><code class="matlab_comment2"> </code><code class="matlab_comment2">the</code><code class="matlab_comment2"> </code><code class="matlab_comment2">named</code><code class="matlab_comment2"> </code><code class="matlab_comment2">callback.</code>
+
+<code class="matlab_comment2">%</code><code class="matlab_comment2"> </code><code class="matlab_comment2">Last</code><code class="matlab_comment2"> </code><code class="matlab_comment2">Modified</code><code class="matlab_comment2"> </code><code class="matlab_comment2">by</code><code class="matlab_comment2"> </code><code class="matlab_comment2">GUIDE</code><code class="matlab_comment2"> </code><code class="matlab_comment2">v2.0</code><code class="matlab_comment2"> </code><code class="matlab_comment2">02-May-2007</code><code class="matlab_comment2"> </code><code class="matlab_comment2">18:24:02</code>
+
+<code class="matlab_keyword1">if</code> nargin == 0  <code class="matlab_comment2">%</code><code class="matlab_comment2"> </code><code class="matlab_comment2">LAUNCH</code><code class="matlab_comment2"> </code><code class="matlab_comment2">GUI</code>
+
+	fig = openfig(mfilename,<code class="matlab_literal4">'</code><code class="matlab_literal4">reuse</code><code class="matlab_literal4">'</code>);
+
+	<code class="matlab_comment2">%</code><code class="matlab_comment2"> </code><code class="matlab_comment2">Generate</code><code class="matlab_comment2"> </code><code class="matlab_comment2">a</code><code class="matlab_comment2"> </code><code class="matlab_comment2">structure</code><code class="matlab_comment2"> </code><code class="matlab_comment2">of</code><code class="matlab_comment2"> </code><code class="matlab_comment2">handles</code><code class="matlab_comment2"> </code><code class="matlab_comment2">to</code><code class="matlab_comment2"> </code><code class="matlab_comment2">pass</code><code class="matlab_comment2"> </code><code class="matlab_comment2">to</code><code class="matlab_comment2"> </code><code class="matlab_comment2">callbacks,</code><code class="matlab_comment2"> </code><code class="matlab_comment2">and</code><code class="matlab_comment2"> </code><code class="matlab_comment2">store</code><code class="matlab_comment2"> </code><code class="matlab_comment2">it.</code><code class="matlab_comment2"> </code>
+	handles = guihandles(fig);
+	guidata(fig, handles);
+
+	<code class="matlab_keyword1">if</code> nargout &gt; 0
+		varargout{1} = fig;
+	<code class="matlab_keyword1">end</code>
+
+<code class="matlab_keyword1">elseif</code> ischar(varargin{1}) <code class="matlab_comment2">%</code><code class="matlab_comment2"> </code><code class="matlab_comment2">INVOKE</code><code class="matlab_comment2"> </code><code class="matlab_comment2">NAMED</code><code class="matlab_comment2"> </code><code class="matlab_comment2">SUBFUNCTION</code><code class="matlab_comment2"> </code><code class="matlab_comment2">OR</code><code class="matlab_comment2"> </code><code class="matlab_comment2">CALLBACK</code>
+
+	<code class="matlab_keyword1">try</code>
+		<code class="matlab_keyword1">if</code> (nargout)
+			[varargout{1:nargout}] = feval(varargin{:}); <code class="matlab_comment2">%</code><code class="matlab_comment2"> </code><code class="matlab_comment2">FEVAL</code><code class="matlab_comment2"> </code><code class="matlab_comment2">switchyard</code>
+		<code class="matlab_keyword1">else</code>
+			feval(varargin{:}); <code class="matlab_comment2">%</code><code class="matlab_comment2"> </code><code class="matlab_comment2">FEVAL</code><code class="matlab_comment2"> </code><code class="matlab_comment2">switchyard</code>
+		<code class="matlab_keyword1">end</code>
+	<code class="matlab_keyword1">catch</code>
+		disp(lasterr);
+	<code class="matlab_keyword1">end</code>
+
+<code class="matlab_keyword1">end</code>
+
+
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">ABOUT</code><code class="matlab_comment2"> </code><code class="matlab_comment2">CALLBACKS:</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">GUIDE</code><code class="matlab_comment2"> </code><code class="matlab_comment2">automatically</code><code class="matlab_comment2"> </code><code class="matlab_comment2">appends</code><code class="matlab_comment2"> </code><code class="matlab_comment2">subfunction</code><code class="matlab_comment2"> </code><code class="matlab_comment2">prototypes</code><code class="matlab_comment2"> </code><code class="matlab_comment2">to</code><code class="matlab_comment2"> </code><code class="matlab_comment2">this</code><code class="matlab_comment2"> </code><code class="matlab_comment2">file,</code><code class="matlab_comment2"> </code><code class="matlab_comment2">and</code><code class="matlab_comment2"> </code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">sets</code><code class="matlab_comment2"> </code><code class="matlab_comment2">objects'</code><code class="matlab_comment2"> </code><code class="matlab_comment2">callback</code><code class="matlab_comment2"> </code><code class="matlab_comment2">properties</code><code class="matlab_comment2"> </code><code class="matlab_comment2">to</code><code class="matlab_comment2"> </code><code class="matlab_comment2">call</code><code class="matlab_comment2"> </code><code class="matlab_comment2">them</code><code class="matlab_comment2"> </code><code class="matlab_comment2">through</code><code class="matlab_comment2"> </code><code class="matlab_comment2">the</code><code class="matlab_comment2"> </code><code class="matlab_comment2">FEVAL</code><code class="matlab_comment2"> </code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">switchyard</code><code class="matlab_comment2"> </code><code class="matlab_comment2">above.</code><code class="matlab_comment2"> </code><code class="matlab_comment2">This</code><code class="matlab_comment2"> </code><code class="matlab_comment2">comment</code><code class="matlab_comment2"> </code><code class="matlab_comment2">describes</code><code class="matlab_comment2"> </code><code class="matlab_comment2">that</code><code class="matlab_comment2"> </code><code class="matlab_comment2">mechanism.</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">Each</code><code class="matlab_comment2"> </code><code class="matlab_comment2">callback</code><code class="matlab_comment2"> </code><code class="matlab_comment2">subfunction</code><code class="matlab_comment2"> </code><code class="matlab_comment2">declaration</code><code class="matlab_comment2"> </code><code class="matlab_comment2">has</code><code class="matlab_comment2"> </code><code class="matlab_comment2">the</code><code class="matlab_comment2"> </code><code class="matlab_comment2">following</code><code class="matlab_comment2"> </code><code class="matlab_comment2">form:</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">&lt;SUBFUNCTION_NAME&gt;(H,</code><code class="matlab_comment2"> </code><code class="matlab_comment2">EVENTDATA,</code><code class="matlab_comment2"> </code><code class="matlab_comment2">HANDLES,</code><code class="matlab_comment2"> </code><code class="matlab_comment2">VARARGIN)</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">The</code><code class="matlab_comment2"> </code><code class="matlab_comment2">subfunction</code><code class="matlab_comment2"> </code><code class="matlab_comment2">name</code><code class="matlab_comment2"> </code><code class="matlab_comment2">is</code><code class="matlab_comment2"> </code><code class="matlab_comment2">composed</code><code class="matlab_comment2"> </code><code class="matlab_comment2">using</code><code class="matlab_comment2"> </code><code class="matlab_comment2">the</code><code class="matlab_comment2"> </code><code class="matlab_comment2">object's</code><code class="matlab_comment2"> </code><code class="matlab_comment2">Tag</code><code class="matlab_comment2"> </code><code class="matlab_comment2">and</code><code class="matlab_comment2"> </code><code class="matlab_comment2">the</code><code class="matlab_comment2"> </code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">callback</code><code class="matlab_comment2"> </code><code class="matlab_comment2">type</code><code class="matlab_comment2"> </code><code class="matlab_comment2">separated</code><code class="matlab_comment2"> </code><code class="matlab_comment2">by</code><code class="matlab_comment2"> </code><code class="matlab_comment2">'_',</code><code class="matlab_comment2"> </code><code class="matlab_comment2">e.g.</code><code class="matlab_comment2"> </code><code class="matlab_comment2">'slider2_Callback',</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">'figure1_CloseRequestFcn',</code><code class="matlab_comment2"> </code><code class="matlab_comment2">'axis1_ButtondownFcn'.</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">H</code><code class="matlab_comment2"> </code><code class="matlab_comment2">is</code><code class="matlab_comment2"> </code><code class="matlab_comment2">the</code><code class="matlab_comment2"> </code><code class="matlab_comment2">callback</code><code class="matlab_comment2"> </code><code class="matlab_comment2">object's</code><code class="matlab_comment2"> </code><code class="matlab_comment2">handle</code><code class="matlab_comment2"> </code><code class="matlab_comment2">(obtained</code><code class="matlab_comment2"> </code><code class="matlab_comment2">using</code><code class="matlab_comment2"> </code><code class="matlab_comment2">GCBO).</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">EVENTDATA</code><code class="matlab_comment2"> </code><code class="matlab_comment2">is</code><code class="matlab_comment2"> </code><code class="matlab_comment2">empty,</code><code class="matlab_comment2"> </code><code class="matlab_comment2">but</code><code class="matlab_comment2"> </code><code class="matlab_comment2">reserved</code><code class="matlab_comment2"> </code><code class="matlab_comment2">for</code><code class="matlab_comment2"> </code><code class="matlab_comment2">future</code><code class="matlab_comment2"> </code><code class="matlab_comment2">use.</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">HANDLES</code><code class="matlab_comment2"> </code><code class="matlab_comment2">is</code><code class="matlab_comment2"> </code><code class="matlab_comment2">a</code><code class="matlab_comment2"> </code><code class="matlab_comment2">structure</code><code class="matlab_comment2"> </code><code class="matlab_comment2">containing</code><code class="matlab_comment2"> </code><code class="matlab_comment2">handles</code><code class="matlab_comment2"> </code><code class="matlab_comment2">of</code><code class="matlab_comment2"> </code><code class="matlab_comment2">components</code><code class="matlab_comment2"> </code><code class="matlab_comment2">in</code><code class="matlab_comment2"> </code><code class="matlab_comment2">GUI</code><code class="matlab_comment2"> </code><code class="matlab_comment2">using</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">tags</code><code class="matlab_comment2"> </code><code class="matlab_comment2">as</code><code class="matlab_comment2"> </code><code class="matlab_comment2">fieldnames,</code><code class="matlab_comment2"> </code><code class="matlab_comment2">e.g.</code><code class="matlab_comment2"> </code><code class="matlab_comment2">handles.figure1,</code><code class="matlab_comment2"> </code><code class="matlab_comment2">handles.slider2.</code><code class="matlab_comment2"> </code><code class="matlab_comment2">This</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">structure</code><code class="matlab_comment2"> </code><code class="matlab_comment2">is</code><code class="matlab_comment2"> </code><code class="matlab_comment2">created</code><code class="matlab_comment2"> </code><code class="matlab_comment2">at</code><code class="matlab_comment2"> </code><code class="matlab_comment2">GUI</code><code class="matlab_comment2"> </code><code class="matlab_comment2">startup</code><code class="matlab_comment2"> </code><code class="matlab_comment2">using</code><code class="matlab_comment2"> </code><code class="matlab_comment2">GUIHANDLES</code><code class="matlab_comment2"> </code><code class="matlab_comment2">and</code><code class="matlab_comment2"> </code><code class="matlab_comment2">stored</code><code class="matlab_comment2"> </code><code class="matlab_comment2">in</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">the</code><code class="matlab_comment2"> </code><code class="matlab_comment2">figure's</code><code class="matlab_comment2"> </code><code class="matlab_comment2">application</code><code class="matlab_comment2"> </code><code class="matlab_comment2">data</code><code class="matlab_comment2"> </code><code class="matlab_comment2">using</code><code class="matlab_comment2"> </code><code class="matlab_comment2">GUIDATA.</code><code class="matlab_comment2"> </code><code class="matlab_comment2">A</code><code class="matlab_comment2"> </code><code class="matlab_comment2">copy</code><code class="matlab_comment2"> </code><code class="matlab_comment2">of</code><code class="matlab_comment2"> </code><code class="matlab_comment2">the</code><code class="matlab_comment2"> </code><code class="matlab_comment2">structure</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">is</code><code class="matlab_comment2"> </code><code class="matlab_comment2">passed</code><code class="matlab_comment2"> </code><code class="matlab_comment2">to</code><code class="matlab_comment2"> </code><code class="matlab_comment2">each</code><code class="matlab_comment2"> </code><code class="matlab_comment2">callback.</code><code class="matlab_comment2"> </code><code class="matlab_comment2"> </code><code class="matlab_comment2">You</code><code class="matlab_comment2"> </code><code class="matlab_comment2">can</code><code class="matlab_comment2"> </code><code class="matlab_comment2">store</code><code class="matlab_comment2"> </code><code class="matlab_comment2">additional</code><code class="matlab_comment2"> </code><code class="matlab_comment2">information</code><code class="matlab_comment2"> </code><code class="matlab_comment2">in</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">this</code><code class="matlab_comment2"> </code><code class="matlab_comment2">structure</code><code class="matlab_comment2"> </code><code class="matlab_comment2">at</code><code class="matlab_comment2"> </code><code class="matlab_comment2">GUI</code><code class="matlab_comment2"> </code><code class="matlab_comment2">startup,</code><code class="matlab_comment2"> </code><code class="matlab_comment2">and</code><code class="matlab_comment2"> </code><code class="matlab_comment2">you</code><code class="matlab_comment2"> </code><code class="matlab_comment2">can</code><code class="matlab_comment2"> </code><code class="matlab_comment2">change</code><code class="matlab_comment2"> </code><code class="matlab_comment2">the</code><code class="matlab_comment2"> </code><code class="matlab_comment2">structure</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">during</code><code class="matlab_comment2"> </code><code class="matlab_comment2">callbacks.</code><code class="matlab_comment2"> </code><code class="matlab_comment2"> </code><code class="matlab_comment2">Call</code><code class="matlab_comment2"> </code><code class="matlab_comment2">guidata(h,</code><code class="matlab_comment2"> </code><code class="matlab_comment2">handles)</code><code class="matlab_comment2"> </code><code class="matlab_comment2">after</code><code class="matlab_comment2"> </code><code class="matlab_comment2">changing</code><code class="matlab_comment2"> </code><code class="matlab_comment2">your</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">copy</code><code class="matlab_comment2"> </code><code class="matlab_comment2">to</code><code class="matlab_comment2"> </code><code class="matlab_comment2">replace</code><code class="matlab_comment2"> </code><code class="matlab_comment2">the</code><code class="matlab_comment2"> </code><code class="matlab_comment2">stored</code><code class="matlab_comment2"> </code><code class="matlab_comment2">original</code><code class="matlab_comment2"> </code><code class="matlab_comment2">so</code><code class="matlab_comment2"> </code><code class="matlab_comment2">that</code><code class="matlab_comment2"> </code><code class="matlab_comment2">subsequent</code><code class="matlab_comment2"> </code><code class="matlab_comment2">callbacks</code><code class="matlab_comment2"> </code><code class="matlab_comment2">see</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">the</code><code class="matlab_comment2"> </code><code class="matlab_comment2">updates.</code><code class="matlab_comment2"> </code><code class="matlab_comment2">Type</code><code class="matlab_comment2"> </code><code class="matlab_comment2">"help</code><code class="matlab_comment2"> </code><code class="matlab_comment2">guihandles"</code><code class="matlab_comment2"> </code><code class="matlab_comment2">and</code><code class="matlab_comment2"> </code><code class="matlab_comment2">"help</code><code class="matlab_comment2"> </code><code class="matlab_comment2">guidata"</code><code class="matlab_comment2"> </code><code class="matlab_comment2">for</code><code class="matlab_comment2"> </code><code class="matlab_comment2">more</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">information.</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">VARARGIN</code><code class="matlab_comment2"> </code><code class="matlab_comment2">contains</code><code class="matlab_comment2"> </code><code class="matlab_comment2">any</code><code class="matlab_comment2"> </code><code class="matlab_comment2">extra</code><code class="matlab_comment2"> </code><code class="matlab_comment2">arguments</code><code class="matlab_comment2"> </code><code class="matlab_comment2">you</code><code class="matlab_comment2"> </code><code class="matlab_comment2">have</code><code class="matlab_comment2"> </code><code class="matlab_comment2">passed</code><code class="matlab_comment2"> </code><code class="matlab_comment2">to</code><code class="matlab_comment2"> </code><code class="matlab_comment2">the</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">callback.</code><code class="matlab_comment2"> </code><code class="matlab_comment2">Specify</code><code class="matlab_comment2"> </code><code class="matlab_comment2">the</code><code class="matlab_comment2"> </code><code class="matlab_comment2">extra</code><code class="matlab_comment2"> </code><code class="matlab_comment2">arguments</code><code class="matlab_comment2"> </code><code class="matlab_comment2">by</code><code class="matlab_comment2"> </code><code class="matlab_comment2">editing</code><code class="matlab_comment2"> </code><code class="matlab_comment2">the</code><code class="matlab_comment2"> </code><code class="matlab_comment2">callback</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">property</code><code class="matlab_comment2"> </code><code class="matlab_comment2">in</code><code class="matlab_comment2"> </code><code class="matlab_comment2">the</code><code class="matlab_comment2"> </code><code class="matlab_comment2">inspector.</code><code class="matlab_comment2"> </code><code class="matlab_comment2">By</code><code class="matlab_comment2"> </code><code class="matlab_comment2">default,</code><code class="matlab_comment2"> </code><code class="matlab_comment2">GUIDE</code><code class="matlab_comment2"> </code><code class="matlab_comment2">sets</code><code class="matlab_comment2"> </code><code class="matlab_comment2">the</code><code class="matlab_comment2"> </code><code class="matlab_comment2">property</code><code class="matlab_comment2"> </code><code class="matlab_comment2">to:</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">&lt;MFILENAME&gt;('&lt;SUBFUNCTION_NAME&gt;',</code><code class="matlab_comment2"> </code><code class="matlab_comment2">gcbo,</code><code class="matlab_comment2"> </code><code class="matlab_comment2">[],</code><code class="matlab_comment2"> </code><code class="matlab_comment2">guidata(gcbo))</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">Add</code><code class="matlab_comment2"> </code><code class="matlab_comment2">any</code><code class="matlab_comment2"> </code><code class="matlab_comment2">extra</code><code class="matlab_comment2"> </code><code class="matlab_comment2">arguments</code><code class="matlab_comment2"> </code><code class="matlab_comment2">after</code><code class="matlab_comment2"> </code><code class="matlab_comment2">the</code><code class="matlab_comment2"> </code><code class="matlab_comment2">last</code><code class="matlab_comment2"> </code><code class="matlab_comment2">argument,</code><code class="matlab_comment2"> </code><code class="matlab_comment2">before</code><code class="matlab_comment2"> </code><code class="matlab_comment2">the</code><code class="matlab_comment2"> </code><code class="matlab_comment2">final</code>
+<code class="matlab_comment2">%</code><code class="matlab_comment2">|</code><code class="matlab_comment2"> </code><code class="matlab_comment2">closing</code><code class="matlab_comment2"> </code><code class="matlab_comment2">parenthesis.</code>
+
+
+
+<code class="matlab_comment2">%</code><code class="matlab_comment2"> </code><code class="matlab_comment2">--------------------------------------------------------------------</code>
+<code class="matlab_keyword1">function</code> varargout = pushbutton1_Callback(h, eventdata, handles, varargin)
+
+set(gca,<code class="matlab_literal4">'</code><code class="matlab_literal4">color</code><code class="matlab_literal4">'</code>,rand(1,3));
+</code></pre></div></div></td></tr></tbody></table></div>
+				<div class="paragraph">
+De toute évidence, ce code est très difficile à lire et à exploiter
+même pour un programmeur avertit. Son évolution et sa maintenance sont
+donc également très difficiles (qui plus est sans l'utilisation du
+GUIDE). Mais la principale limitation vient du fait que la
+programmation des objets graphiques n'apparaît nulle part (fichier .fig
+crypté). </div><br>
+				<ul style="list-style-type: disc;">			
+					<li><b>Sans le GUIDE :</b></li>
+				</ul>	
+				<div class="paragraph">
+					La même interface graphique programmée "à la main" peut être écrite dans un seul fichier <i>.m</i>: 
+				</div> 
+<div style="text-align: center;"><table style="margin: 10px auto; width: 90%; border-collapse: collapse;" id="codeTabled0e1761"><tbody><tr><td class="titre_code">Code écrit à la main</td></tr><tr><td class="code"><div id="codeWrapperd0e1761" class="codeWrapper"><div id="codeOverflowd0e1761" style="overflow: auto;"><pre><code id="contenuCoded0e1761" class="contenuCode">
+<code class="matlab_keyword1">function</code> gui2
+
+<code class="matlab_comment2">%</code><code class="matlab_comment2"> </code><code class="matlab_comment2">Création</code><code class="matlab_comment2"> </code><code class="matlab_comment2">de</code><code class="matlab_comment2"> </code><code class="matlab_comment2">l'objet</code><code class="matlab_comment2"> </code><code class="matlab_comment2">Figure</code>
+figure(<code class="matlab_literal4">'</code><code class="matlab_literal4">units</code><code class="matlab_literal4">'</code>,<code class="matlab_literal4">'</code><code class="matlab_literal4">pixels</code><code class="matlab_literal4">'</code>,<code class="matlab_keyword2">...</code>
+    <code class="matlab_literal4">'</code><code class="matlab_literal4">position</code><code class="matlab_literal4">'</code>,[250 250 500 500],<code class="matlab_keyword2">...</code>
+    <code class="matlab_literal4">'</code><code class="matlab_literal4">color</code><code class="matlab_literal4">'</code>,[0.925 0.913 0.687],<code class="matlab_keyword2">...</code>
+    <code class="matlab_literal4">'</code><code class="matlab_literal4">numbertitle</code><code class="matlab_literal4">'</code>,<code class="matlab_literal4">'</code><code class="matlab_literal4">off</code><code class="matlab_literal4">'</code>,<code class="matlab_keyword2">...</code>
+    <code class="matlab_literal4">'</code><code class="matlab_literal4">name</code><code class="matlab_literal4">'</code>,<code class="matlab_literal4">'</code><code class="matlab_literal4">Exemple</code><code class="matlab_literal4"> </code><code class="matlab_literal4">sans</code><code class="matlab_literal4"> </code><code class="matlab_literal4">le</code><code class="matlab_literal4"> </code><code class="matlab_literal4">GUIDE</code><code class="matlab_literal4">'</code>);
+
+<code class="matlab_comment2">%</code><code class="matlab_comment2"> </code><code class="matlab_comment2">Création</code><code class="matlab_comment2"> </code><code class="matlab_comment2">de</code><code class="matlab_comment2"> </code><code class="matlab_comment2">l'objet</code><code class="matlab_comment2"> </code><code class="matlab_comment2">Axes</code>
+axes(<code class="matlab_literal4">'</code><code class="matlab_literal4">units</code><code class="matlab_literal4">'</code>,<code class="matlab_literal4">'</code><code class="matlab_literal4">normalized</code><code class="matlab_literal4">'</code>,<code class="matlab_keyword2">...</code>
+    <code class="matlab_literal4">'</code><code class="matlab_literal4">position</code><code class="matlab_literal4">'</code>,[0.25 0.25 0.5 0.5]);
+
+<code class="matlab_comment2">%</code><code class="matlab_comment2"> </code><code class="matlab_comment2">Création</code><code class="matlab_comment2"> </code><code class="matlab_comment2">de</code><code class="matlab_comment2"> </code><code class="matlab_comment2">l'objet</code><code class="matlab_comment2"> </code><code class="matlab_comment2">Uicontrol</code><code class="matlab_comment2"> </code><code class="matlab_comment2">Pushbutton</code>
+uicontrol(<code class="matlab_literal4">'</code><code class="matlab_literal4">style</code><code class="matlab_literal4">'</code>,<code class="matlab_literal4">'</code><code class="matlab_literal4">pushbutton</code><code class="matlab_literal4">'</code>,<code class="matlab_keyword2">...</code>
+    <code class="matlab_literal4">'</code><code class="matlab_literal4">units</code><code class="matlab_literal4">'</code>,<code class="matlab_literal4">'</code><code class="matlab_literal4">normalized</code><code class="matlab_literal4">'</code>,<code class="matlab_keyword2">...</code>
+    <code class="matlab_literal4">'</code><code class="matlab_literal4">position</code><code class="matlab_literal4">'</code>,[0.1 0.1 0.1 0.05],<code class="matlab_keyword2">...</code>
+    <code class="matlab_literal4">'</code><code class="matlab_literal4">string</code><code class="matlab_literal4">'</code>,<code class="matlab_literal4">'</code><code class="matlab_literal4">Couleur</code><code class="matlab_literal4">'</code>,<code class="matlab_keyword2">...</code>
+    <code class="matlab_literal4">'</code><code class="matlab_literal4">callback</code><code class="matlab_literal4">'</code>,<code class="matlab_literal4">'</code><code class="matlab_literal4">set(gca,</code><code class="matlab_literal4">'</code><code class="matlab_literal4">'</code><code class="matlab_literal4">color</code><code class="matlab_literal4">'</code><code class="matlab_literal4">'</code><code class="matlab_literal4">,rand(1,3));</code><code class="matlab_literal4">'</code>);
+</code></pre></div></div></td></tr></tbody></table></div>	
+				<div class="paragraph">
+					Ce code est relativement simple et, mis à part les propriétés spécifiques à chaque objet, il est relativement lisible. 
+					Un programmeur pourra aisément faire évoluer ce code quelque soit la version de MATLAB utilisée.
+				</div><br>
+				<ul style="list-style-type: disc;">
+					<li><b>Au final :</b></li>
+					</ul>
+					<div class="paragraph">
+Bien que la génération automatique du code permette d'éviter les
+erreurs de syntaxe (généralement périlleuses à corriger pour le
+débutant), celle-ci peut vite devenir une limitation pour les
+utilisateurs plus avertis. Elle pénalise grandement l'évolutivité
+ultérieure des GUIs en masquant une grande partie du code. Au final,
+cela peut même entraîner des problèmes de compatibilité entre des codes
+générés sous différentes versions de MATLAB. <br><br> Le GUIDE est donc un outil efficace pour le programmeur
+débutant car la gestion des objets y est très intuitive. Il peut
+également être utile dans la conception des interfaces graphiques
+complexes pour gérer la mise en position des objets. Ces deux cas mis à
+part, le programmeur veillera le plus tôt possible à programmer ses
+interfaces graphiques à la main. </div><br>				
+			
+		
+		<br><h1 class="TitreSection0" id="L3">Conclusion</h1>
+			
+			<br><h2 class="TitreSection1" id="L3.1">Pour résumer</h2>
+						
+				<ul style="list-style-type: disc;">
+				<li>Les interfaces graphiques se nomment <b>GUI</b> sous MATLAB</li>
+				<li>Les objets graphiques sont hiérarchisés (parent-enfant) : <b>Root =&gt; Figure =&gt; Axes et Uicontrol</b></li>
+				<li>Chacun des objets graphiques possèdent de nombreuses <b>propriétés</b> que le programmeur doit apprendre</li>
+				<li>Il existe deux techniques de programmation : à l'aide de l'outil <b>GUIDE</b> ou <b>"à la main"</b></li>
+				<li>Le <b>GUIDE</b> convient bien à l'apprentissage mais devient vite <b>inefficace</b> (génération automatique du code)</li>
+				<li>La programmation <b>"à la main"</b> reste la technique la plus <b>efficace</b> à long terme pour programmer les GUI</li>
+				</ul>
+			
+			<br><h2 class="TitreSection1" id="L3.2">Remarque</h2>
+				
+				<div class="paragraph">
+L'auteur de ce tutoriel invite à créer les interfaces graphiques (GUI)
+sous MATLAB "à la main". Sa conviction repose sur sa propre expérience
+et surtout sur les discussions qu'il a eu avec d'autres programmeurs
+MATLAB. On notera que cette opinion est généralement admise dans la
+communauté internationale MATLAB <a class="signetNoteBasPage" id="signetNoteBasPage1" href="#noteBasPage1">(1)</a>.
+				</div><br>			
+			
+		
+		<br><h1 class="TitreSection0" id="L4">Remerciements</h1>
+			
+			<div class="paragraph">
+				L'auteur tient à remercier <a href="http://www.developpez.net/forums/u107845/fleur-anne-blain/" class="lienArticle">Fleur-Anne.Blain</a> pour la correction orthographique de cet article et <a href="http://www.developpez.net/forums/u151540/caro-line/" class="lienArticle">Caro-Line</a> pour son aide pendant la rédaction de ce même article.
+			</div><br>
+			
+		
+	<br><div class="barreNavigation"><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			
+			&nbsp;
+			<span class="lientelechargementpdf"><a class="lientelechargement" href="ftp://ftp-developpez.com/briot-jerome/matlab/tutoriels/guiintro/guiintro.pdf" title="Télécharger la version PDF de cet article, serveur principal." onclick="">Version PDF</a>
+					(<a class="lientelechargement" href="http://briot-jerome.ftp-developpez.com/matlab/tutoriels/guiintro/guiintro.pdf" title="Télécharger la version PDF de cet article, serveur secondaire" onclick="">Miroir</a>)
+				</span>
+		&nbsp;
+		<span class="lientelechargementzip"><a class="lientelechargement" href="ftp://ftp-developpez.com/briot-jerome/matlab/tutoriels/guiintro/guiintro.zip" title="Télécharger la version HTML de cet article, serveur principal." onclick="">Version hors-ligne</a>
+				(<a class="lientelechargement" href="http://briot-jerome.ftp-developpez.com/matlab/tutoriels/guiintro/guiintro.zip" title="Télécharger la version HTML de cet article, serveur secondaire" onclick="">Miroir</a>)
+			</span><br></div><hr><table class="noteBasPage"><tbody><tr><td class="col1NoteBasPage"><a class="noteBasPage" id="noteBasPage1" href="#signetNoteBasPage1">(1)</a></td><td class="col2NoteBasPage"><span class="noteBasPage"><img src="IntroductionAuxGUI_fichiers/kiten.jpg" alt="en">&nbsp;<a href="http://www.mathworks.com/matlabcentral/newsreader/view_thread/131226" target="_blank" class="lienArticle">GUIs: GUIDE vs Code Only</a></span></td></tr></tbody></table><hr><p style="text-align: center;" class="cachee"><a href="http://validator.w3.org/check?uri=referer"><img src="IntroductionAuxGUI_fichiers/valid-xhtml11.png" alt="Valid XHTML 1.1!" width="88" height="31"></a><a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border: 0pt none ; width: 88px; height: 31px;" src="IntroductionAuxGUI_fichiers/vcss.gif" alt="Valid CSS!"></a></p><div id="visites-logo" style="text-align: center;" class="cachee">
+<!-- phpmyvisites -->
+<a href="http://www.phpmyvisites.net/" title="phpMyVisites | Open source web analytics" onclick="window.open(this.href);return(false);">
+<script type="text/javascript">
+<!--
+var a_vars = Array();
+var pagename='';
+	  
+var phpmyvisitesSite = 17;
+var phpmyvisitesURL = "http://visites03.developpez.com/phpmyvisites.php";
+//-->
+</script>
+<script type="text/javascript" src="IntroductionAuxGUI_fichiers/phpmyvisites.js"></script><img src="IntroductionAuxGUI_fichiers/phpmyvisites.png" alt="phpMyVisites" style="border: 0pt none ;">
+
+<noscript>
+<p>phpMyVisites | Open source web analytics
+<img src="http://visites03.developpez.com/phpmyvisites.php" alt="phpMyVisites" style="border:0" />
+</p>
+</noscript>
+</a>
+<!-- /phpmyvisites -->
+					</div>
+</div>
+<p class="licence">Copyright © 2007-2009 Jérôme Briot. Aucune reproduction, même partielle, ne peut être faite 
+de ce site et de l'ensemble de son contenu : textes, documents, images, etc 
+sans l'autorisation expresse de l'auteur. 
+Sinon vous encourez selon la loi jusqu'à 3 ans de prison et jusqu'à 300&nbsp;000&nbsp;E 
+de dommages et intérêts. 
+Cette page est déposée à la 
+<a href="http://www.sacd.fr/" onclick="window.open(this.href); return false;">SACD</a>.</p> 
+                        
+                            <div style="clear: both;"></div>
+                        </div>
+                    </div>
+                </div>                
+
+                <div id="gabarit_footer">
+        <div id="gabarit_footer_right">&nbsp;</div>
+        <div id="gabarit_footer_left">&nbsp;</div>
+        
+        <p id="responsable">
+            
+            <strong>
+                        
+                                  Responsable bénévole
+                                 de la rubrique MATLAB :</strong>
+            <a href="" target="_blank">
+            
+            </a> -
+               
+              
+                
+                      <script type="text/javascript">
+          <!--
+          Ch=new Array(4);Res=new Array(4);
+          Ch[0]='le_club_des_developeur';Ch[1]='ÙÆÈÏàä';
+          Ch[2]='¬×ÄÇÍØÖÈÓÓ';Ch[3]='ÐÊÕÈØäÒÏÉß¡ÂÓÒ';
+          for(y=1;y<4;y++){Res[y]="";for(x=0;x<Ch[y].length;x++)
+          Res[y]+=String.fromCharCode(Ch[y].charCodeAt(x)-Ch[0].charCodeAt(x));}
+          var st = '<a href="'+Res[1]+':matlab'+Res[2]+'-'+Res[3]+'">Contacter par email<\/a>';          document.write(st);
+          //-->
+          </script><a href="mailto:matlab@redaction-developpez.com">Contacter par email</a>
+
+            
+               
+        </p>
+
+    </div>
+    
+    <script type="text/javascript">
+    <!--
+    xtn2 = "49";
+    //-->
+    </script>
+    
+    <div id="pied">
+            <div class="logoXiTi"><a href="http://www.xiti.com/xiti.asp?s=117224" title="Mesurez votre audience">
+<script type="text/javascript">
+<!--
+Xt_param = 's=117224&p=';
+Xt_r = document.referrer;
+Xt_h = new Date();
+Xt_i = '<img width="39" height="25" border="0" ';
+Xt_i += 'src="http://logv22.xiti.com/hit.xiti?'+Xt_param;
+Xt_i += '&hl='+Xt_h.getHours()+'x'+Xt_h.getMinutes()+'x'+Xt_h.getSeconds();
+if(parseFloat(navigator.appVersion)>=4)
+{Xt_s=screen;Xt_i+='&r='+Xt_s.width+'x'+Xt_s.height+'x'+Xt_s.pixelDepth+'x'+Xt_s.colorDepth;}
+document.write(Xt_i+'&ref='+Xt_r.replace(/[<>"]/g, '').replace(/&/g, '$')+'" title="Analyse d\'audience">');
+//-->
+</script><img src="IntroductionAuxGUI_fichiers/hit.gif" title="Analyse d'audience" width="39" border="0" height="25">
+<object>
+<noscript>
+<div>
+Mesure d'audience ROI frequentation par <img width="39" height="25"
+src="http://logv22.xiti.com/hit.xiti?s=117224&amp;p=" alt="Analyse
+d'audience XiTi" />
+</div>
+</noscript>
+</object>
+</a></div>
+
+        Vos questions techniques : <b><a href="http://www.developpez.net/forums/f148/environnements-developpement/matlab/" onclick="window.open(this.href); return false;">forum d'entraide MATLAB</a></b> - Publiez vos articles, tutoriels et cours<br>
+            et rejoignez-nous dans l'équipe de rédaction du club d'entraide des développeurs francophones <br> <a href="http://club.developpez.com/contacts/">Nous contacter</a> - <a href="http://www.developpez.com/hebergement/">Hébergement</a> -
+            <a href="http://club.developpez.com/redaction/" title="" target="_blank">Participez</a>
+            - Copyright © 2000-2009 www.developpez.com -
+            <a href="http://www.developpez.com/legal/">Legal informations</a>.</div>
+
+</div>              
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="IntroductionAuxGUI_fichiers/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-7476559-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<script type="text/javascript">
+<!-- 
+xtnv = document;
+xtsd = "http://logc15"; 
+xtsite = "203548"; 
+xtpage = "";
+xtdmc = "";
+xtprm = "";
+//--> 
+</script> 
+<script type="text/javascript" src="IntroductionAuxGUI_fichiers/xtexpert.js"></script><img src="IntroductionAuxGUI_fichiers/hit_002.gif" width="1" height="1"> 
+<noscript> 
+<div>
+<img width="1" alt="" height="1" src="http://logc15.xiti.com/hit.xiti?s=203548&amp;p=&amp;" /> 
+</div>
+</noscript>
+</body></html>

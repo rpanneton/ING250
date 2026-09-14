@@ -1,0 +1,10 @@
+clear; clc; B=uint8(1:5)
+Somme1 = B(1)+ B(2)
+Somme2 = uint8(5) + uint8(6)
+Division1 = B(1)/B(2)
+Division2 = B(1)/B(3)
+SoustractionBizarre = B(1)-B(5)
+BornePlus  = uint8(100) + uint8(200)
+BorneMoins = uint8(100) - uint8(200)
+PasDeChiffreNegatif = uint8(-19)
+RacineCarree = sqrt(B(4))% Plante ici

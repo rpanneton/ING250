@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>Analyse d'hum&eacute;rus de squelettes</title>
+<meta name="generator" content="MATLAB 24.2">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2025-11-19">
+<meta name="DC.source" content="HumerusSolSuite.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<h1>Analyse d'hum&eacute;rus de squelettes</h1>
+<!--introduction-->
+<!--/introduction-->
+<h2>Contents</h2>
+<div>
+<ul>
+<li>
+<a href="#1">&Eacute;tape 1 &ndash; lecture</a>
+</li>
+<li>
+<a href="#2">&Eacute;tape 2 &ndash; graphique de donn&eacute;es</a>
+</li>
+<li>
+<a href="#3">&Eacute;tape 3&ndash; quotient D divis&eacute; par G</a>
+</li>
+<li>
+<a href="#4">&Eacute;tape 4 &ndash; moyenne et &eacute;cart-type</a>
+</li>
+<li>
+<a href="#5">&Eacute;tape 5 &ndash; moyenne et &eacute;cart-type (reprise)</a>
+</li>
+<li>
+<a href="#6">Hypoth&egrave;se d'une sym&eacute;trie bilat&eacute;rale</a>
+</li>
+</ul>
+</div>
+<h2 id="1">&Eacute;tape 1 &ndash; lecture</h2>
+<pre class="codeinput">clear; close <span class="string">all</span>; clc;
+H = load(<span class="string">'Humerus.txt'</span>);
+G = H(:,1); D = H(:,2);
+</pre>
+<h2 id="2">&Eacute;tape 2 &ndash; graphique de donn&eacute;es</h2>
+<pre class="codeinput">figure(1);hold <span class="string">on</span>;grid <span class="string">on</span>;axis([280,340,280,340]);
+plot(G,D,<span class="string">'or'</span>);
+xlabel(<span class="string">'Hum&eacute;rus gauche en mm'</span>);
+ylabel(<span class="string">'Hum&eacute;rus droit en mm'</span>);
+title(<span class="string">'Hum&eacute;rus de squelettes non dissoci&eacute;s'</span>)
+plot([280,340],[280,340],<span class="string">'-b'</span>);
+</pre>
+<img vspace="5" hspace="5" src="HumerusSolSuite_01.png" alt=""> <h2 id="3">&Eacute;tape 3&ndash; quotient D divis&eacute; par G</h2>
+<pre class="codeinput">X = D./G;
+fprintf(<span class="string">'%7.5f,%8.5f,%8.5f,%8.5f,%8.5f\n'</span>,X);
+</pre>
+<pre class="codeoutput">1.01286, 1.01325, 1.03322, 1.03416, 1.01282
+1.02456, 1.00984, 1.02581, 0.99390, 1.01645
+</pre>
+<h2 id="4">&Eacute;tape 4 &ndash; moyenne et &eacute;cart-type</h2>
+<pre class="codeinput">fprintf(<span class="string">'Moyenne de l''&eacute;chantillon : %.5f\n'</span>,<span class="keyword">...</span>
+   mean(X));
+fprintf([<span class="string">'&Eacute;cart-type de l''&eacute;chantillon : '</span>,<span class="keyword">...</span>
+   <span class="string">'%.5f\n'</span>],std(X));
+</pre>
+<pre class="codeoutput">Moyenne de l'&eacute;chantillon : 1.01769
+&Eacute;cart-type de l'&eacute;chantillon : 0.01212
+</pre>
+<h2 id="5">&Eacute;tape 5 &ndash; moyenne et &eacute;cart-type (reprise)</h2>
+<pre class="codeinput">somme = 0; N = length(X);
+<span class="keyword">for</span> i = 1:N
+   somme = somme + X(i);
+<span class="keyword">end</span>
+mXe = somme/N
+
+somme2 = 0;
+<span class="keyword">for</span> i = 1:N
+   somme2 = somme2 + (X(i)-mXe)^2;
+<span class="keyword">end</span>
+Se = sqrt((1/(N-1))*somme2)
+</pre>
+<pre class="codeoutput">mXe =
+    1.0177
+Se =
+    0.0121
+</pre>
+<h2 id="6">Hypoth&egrave;se d'une sym&eacute;trie bilat&eacute;rale</h2>
+<pre class="codeinput">Sp = Se/sqrt(N)
+tmXe = (mXe -1)/Sp
+</pre>
+<pre class="codeoutput">Sp =
+    0.0038
+tmXe =
+    4.6156
+</pre>
+<p>
+<img vspace="5" hspace="5" src="..\Normale.bmp" alt=""> </p>
+<p></p>
+<p>
+<b>Commentaire de P. Jolicoeur</b>
+</p>
+<p>Comme le laisse entrevoir la figure, il se peut que cette l&eacute;g&egrave;re pr&eacute;dominance de la longueur de l'hum&eacute;rus droit sur celle de l'hum&eacute;rus gauche soit reli&eacute;e au fait que la majorit&eacute; des individus sont aussi droitiers dans les populations actuelles. Il en &eacute;tait probablement de m&ecirc;me dans les populations pr&eacute;historiques.</p>
+<p>R&eacute;f&eacute;rence : Pierre Jolicoeur, Introduction &agrave; la biom&eacute;trie, 4e &eacute;dition, D&eacute;carie, p.52., QH323.5.J6536, 1998.</p>
+<p>
+<img vspace="5" hspace="5" src="..\Feuilles.gif" alt=""> </p>
+<p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2024b</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+%% Analyse d'humérus de squelettes
+%% Étape 1 – lecture
+clear; close all; clc;
+H = load('Humerus.txt');
+G = H(:,1); D = H(:,2);
+
+%% Étape 2 – graphique de données
+figure(1);hold on;grid on;axis([280,340,280,340]);
+plot(G,D,'or');
+xlabel('Humérus gauche en mm');
+ylabel('Humérus droit en mm');
+title('Humérus de squelettes non dissociés')
+plot([280,340],[280,340],'-b');
+
+%% Étape 3– quotient D divisé par G
+X = D./G;
+fprintf('%7.5f,%8.5f,%8.5f,%8.5f,%8.5f\n',X);
+   
+%% Étape 4 – moyenne et écart-type
+fprintf('Moyenne de l''échantillon : %.5f\n',...
+   mean(X));
+fprintf(['Écart-type de l''échantillon : ',...
+   '%.5f\n'],std(X));
+
+%% Étape 5 – moyenne et écart-type (reprise)
+somme = 0; N = length(X);
+for i = 1:N
+   somme = somme + X(i);
+end
+mXe = somme/N
+
+somme2 = 0;
+for i = 1:N
+   somme2 = somme2 + (X(i)-mXe)^2;
+end
+Se = sqrt((1/(N-1))*somme2)
+
+%% Hypothèse d'une symétrie bilatérale
+Sp = Se/sqrt(N)
+tmXe = (mXe -1)/Sp
+%%
+% <<..\Normale.bmp>>
+%
+% Constater que tmXe est très à droite sur l'axe
+% des t de la courbe normale. Il est supérieur à
+% 4.30. On peut donc affirmer que l'hypothèse
+% d'une symétrie bilatérale complète est fausse
+% avec certitude 999 fois sur 1000.
+%
+% *Commentaire de P. Jolicoeur*
+%
+% Comme le laisse entrevoir la figure, il se peut
+% que cette légère prédominance de la longueur de
+% l'humérus droit sur celle de l'humérus gauche
+% soit reliée au fait que la majorité des
+% individus sont aussi droitiers dans les
+% populations actuelles. Il en était probablement
+% de même dans les populations préhistoriques.
+%
+% Référence : Pierre Jolicoeur, Introduction à la
+% biométrie, 4e édition, Décarie, p.52.,
+% QH323.5.J6536, 1998.
+%
+% <<..\Feuilles.gif>>
+##### SOURCE END #####
+-->
+</body>
+</html>

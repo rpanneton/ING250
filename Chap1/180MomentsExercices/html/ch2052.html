@@ -1,0 +1,267 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Probl&egrave;me 2/52, Meriam p. 48</title><meta name="generator" content="MATLAB 9.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-10-06"><meta name="DC.source" content="ch2052.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Probl&egrave;me 2/52, Meriam p. 48</h1><!--introduction--><p><img vspace="5" hspace="5" src="..\ch2052.gif" alt=""> </p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">&Eacute;tape 1 &#8211; D&eacute;marche vectorielle</a></li><li><a href="#3">&Eacute;tape 2 &#8211; Expression scalaire</a></li><li><a href="#6">D&eacute;marche scalaire (ajout)</a></li></ul></div><h2 id="1">&Eacute;tape 1 &#8211; D&eacute;marche vectorielle</h2><pre class="codeinput">clear; close <span class="string">all</span>; clc
+mP = 90; <span class="comment">% N (Norme de la force)</span>
+theta = 15; <span class="comment">% degr&eacute;s, rotation du syst&egrave;me des axes</span>
+</pre><p>Moment <b>Mc</b></p><pre class="codeinput">P = mP*[0, -1, 0]; <span class="comment">% N</span>
+rCD = [150, 0, 0]/1000; <span class="comment">% m</span>
+Mc = cross(rCD,P);
+fprintf(<span class="string">'rCD = %+8.3fi %+8.3fj %+8.3fk m\n'</span>,rCD);
+fprintf(<span class="string">'  P = %+8.3fi %+8.3fj %+8.3fk N\n'</span>,P);
+fprintf(<span class="string">' Mc = %+8.3fi %+8.3fj %+8.3fk N&middot;m\n'</span>,Mc);
+</pre><pre class="codeoutput">rCD =   +0.150i   +0.000j   +0.000k m
+  P =   +0.000i  -90.000j   +0.000k N
+ Mc =   +0.000i   +0.000j  -13.500k N&middot;m
+</pre><h2 id="3">&Eacute;tape 2 &#8211; Expression scalaire</h2><pre class="codeinput">fprintf(<span class="string">'\nNorme de Mc = %.2f N&middot;m'</span>,norm(Mc));
+MomentPositif = Mc(3) &gt; 0; <span class="comment">% variable logique</span>
+<span class="keyword">if</span>(MomentPositif)
+   fprintf(<span class="string">' dans le sens antihoraire\n'</span>);
+<span class="keyword">else</span>
+   fprintf(<span class="string">' dans le sens horaire\n'</span>);
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">
+Norme de Mc = 13.50 N&middot;m dans le sens horaire
+</pre><p>Moment <b>MB</b></p><p><img vspace="5" hspace="5" src="..\ch2052a.gif" alt=""> </p><pre class="codeinput">angleBCQ = (90-45) -theta; <span class="comment">% degr&eacute;s</span>
+angle = 90-angleBCQ; <span class="comment">% degr&eacute;s convention de atan2</span>
+rBC = [450*cosd(angle),450*sind(angle),0]/1000;<span class="comment">%m</span>
+rBD = rBC+rCD; <span class="comment">% m</span>
+MB = cross(rBD,P); Norme = norm(MB);
+fprintf(<span class="string">'rCD = %+8.3fi %+8.3fj %+8.3fk m\n'</span>,rCD);
+fprintf(<span class="string">'rBC = %+8.3fi %+8.3fj %+8.3fk m\n'</span>,rBC);
+fprintf(<span class="string">'rBD = %+8.3fi %+8.3fj %+8.3fk m\n'</span>,rBD);
+fprintf(<span class="string">'  P = %+8.3fi %+8.3fj %+8.3fk N\n'</span>,P);
+fprintf(<span class="string">' MB = %+8.3fi %+8.3fj %+8.3fk N&middot;m\n'</span>,MB);
+fprintf(<span class="string">'\nNorme de MB = %.2f N&middot;m'</span>,Norme);
+MomentPositif = MB(3) &gt; 0;
+<span class="keyword">if</span>(MomentPositif)
+   fprintf(<span class="string">' dans le sens antihoraire\n'</span>);
+<span class="keyword">else</span>
+   fprintf(<span class="string">' dans le sens horaire\n'</span>);
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">rCD =   +0.150i   +0.000j   +0.000k m
+rBC =   +0.225i   +0.390j   +0.000k m
+rBD =   +0.375i   +0.390j   +0.000k m
+  P =   +0.000i  -90.000j   +0.000k N
+ MB =   +0.000i   +0.000j  -33.750k N&middot;m
+
+Norme de MB = 33.75 N&middot;m dans le sens horaire
+</pre><p>Moment <b>MA</b></p><p>L'angle de 60&deg; devient (60-15=45&deg;) selon la convention de atan2 et en tenant compte de la rotation du syst&egrave;me des axes.</p><pre class="codeinput">angle = 60-15;
+rAB = [550*cosd(angle),550*sind(angle),0]/1000;<span class="comment">%m</span>
+rAC = rAB + rBC + rCD; <span class="comment">% m</span>
+MA = cross(rAC,P); Norme = norm(MA);
+fprintf(<span class="string">'rAB = %+8.3fi %+8.3fj %+8.3fk m\n'</span>,rAB);
+fprintf(<span class="string">'rBC = %+8.3fi %+8.3fj %+8.3fk m\n'</span>,rBC);
+fprintf(<span class="string">'rCD = %+8.3fi %+8.3fj %+8.3fk m\n'</span>,rCD);
+fprintf(<span class="string">'rAC = %+8.3fi %+8.3fj %+8.3fk m\n'</span>,rAC);
+fprintf(<span class="string">'  P = %+8.3fi %+8.3fj %+8.3fk N\n'</span>,P);
+fprintf(<span class="string">' MA = %+8.3fi %+8.3fj %+8.3fk N&middot;m\n'</span>,MA);
+fprintf(<span class="string">'\nNorme de MB = %.2f N&middot;m'</span>,Norme);
+MomentPositif = MA(3) &gt; 0;
+<span class="keyword">if</span>(MomentPositif)
+   fprintf(<span class="string">' dans le sens antihoraire\n'</span>);
+<span class="keyword">else</span>
+   fprintf(<span class="string">' dans le sens horaire\n'</span>);
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">rAB =   +0.389i   +0.389j   +0.000k m
+rBC =   +0.225i   +0.390j   +0.000k m
+rCD =   +0.150i   +0.000j   +0.000k m
+rAC =   +0.764i   +0.779j   +0.000k m
+  P =   +0.000i  -90.000j   +0.000k N
+ MA =   +0.000i   +0.000j  -68.752k N&middot;m
+
+Norme de MB = 68.75 N&middot;m dans le sens horaire
+</pre><h2 id="6">D&eacute;marche scalaire (ajout)</h2><p><img vspace="5" hspace="5" src="..\ch2052a.gif" alt=""> </p><div><ul><li>Poser le syst&egrave;me des axes <i>x</i> et <i>y</i> au point <i>C</i> avec un angle de 15&deg;.</li><li>Calculer les bras de levier.</li></ul></div><p>Moment <b>Mc</b></p><pre class="codeinput">clear <span class="string">all</span>; close <span class="string">all</span>; clc
+mP = 90; <span class="comment">% N (Norme de la force)</span>
+QH = 150e-3; <span class="comment">% m (bras de levier)</span>
+Mc = QH*mP; fprintf(<span class="string">'Norme de Mc = %.2f N&middot;m'</span>,Mc);
+fprintf(<span class="string">' dans le sens horaire\n'</span>);
+</pre><pre class="codeoutput">Norme de Mc = 13.50 N&middot;m dans le sens horaire
+</pre><p>Moment <b>MB</b></p><pre class="codeinput">theta = 15; <span class="comment">% degr&eacute;s, rotation du syst&egrave;me des axes</span>
+angleBCQ = (90-45) -theta; <span class="comment">% degr&eacute;s</span>
+BQ = 450e-3 * sind(angleBCQ);
+BH = BQ+QH; <span class="comment">% m (bras de levier)</span>
+MB = mP*BH; fprintf(<span class="string">'Norme de MB = %.2f N&middot;m'</span>,MB);
+fprintf(<span class="string">' dans le sens horaire\n'</span>);
+</pre><pre class="codeoutput">Norme de MB = 33.75 N&middot;m dans le sens horaire
+</pre><p>Moment <b>MA</b></p><pre class="codeinput">angleEAB = (90-60) +theta; <span class="comment">% degr&eacute;s</span>
+EB = 550e-3 * sind(angleEAB);
+EH = EB+BQ+QH; <span class="comment">% m (bras de levier)</span>
+MA = mP*EH; fprintf(<span class="string">'Norme de MA = %.2f N&middot;m'</span>,MA);
+fprintf(<span class="string">' dans le sens horaire\n'</span>);
+</pre><pre class="codeoutput">Norme de MA = 68.75 N&middot;m dans le sens horaire
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Problème 2/52, Meriam p. 48
+% <<..\ch2052.gif>>
+%
+%% Étape 1 – Démarche vectorielle
+clear; close all; clc
+mP = 90; % N (Norme de la force)
+theta = 15; % degrés, rotation du système des axes
+
+%%
+% Moment *Mc*
+P = mP*[0, -1, 0]; % N
+rCD = [150, 0, 0]/1000; % m
+Mc = cross(rCD,P);
+fprintf('rCD = %+8.3fi %+8.3fj %+8.3fk m\n',rCD);
+fprintf('  P = %+8.3fi %+8.3fj %+8.3fk N\n',P);
+fprintf(' Mc = %+8.3fi %+8.3fj %+8.3fk N·m\n',Mc);
+
+%% Étape 2 – Expression scalaire
+fprintf('\nNorme de Mc = %.2f N·m',norm(Mc));
+MomentPositif = Mc(3) > 0; % variable logique
+if(MomentPositif)
+   fprintf(' dans le sens antihoraire\n');
+else
+   fprintf(' dans le sens horaire\n');
+end
+
+%%
+% Moment *MB*
+%
+% <<..\ch2052a.gif>>
+%
+angleBCQ = (90-45) -theta; % degrés
+angle = 90-angleBCQ; % degrés convention de atan2
+rBC = [450*cosd(angle),450*sind(angle),0]/1000;%m
+rBD = rBC+rCD; % m
+MB = cross(rBD,P); Norme = norm(MB);
+fprintf('rCD = %+8.3fi %+8.3fj %+8.3fk m\n',rCD);
+fprintf('rBC = %+8.3fi %+8.3fj %+8.3fk m\n',rBC);
+fprintf('rBD = %+8.3fi %+8.3fj %+8.3fk m\n',rBD);
+fprintf('  P = %+8.3fi %+8.3fj %+8.3fk N\n',P);
+fprintf(' MB = %+8.3fi %+8.3fj %+8.3fk N·m\n',MB);
+fprintf('\nNorme de MB = %.2f N·m',Norme);
+MomentPositif = MB(3) > 0;
+if(MomentPositif)
+   fprintf(' dans le sens antihoraire\n');
+else
+   fprintf(' dans le sens horaire\n');
+end
+
+%%
+% Moment *MA*
+%
+% L'angle de 60° devient (60-15=45°) selon la
+% convention de atan2 et en tenant compte de la
+% rotation du système des axes.
+angle = 60-15;
+rAB = [550*cosd(angle),550*sind(angle),0]/1000;%m
+rAC = rAB + rBC + rCD; % m
+MA = cross(rAC,P); Norme = norm(MA);
+fprintf('rAB = %+8.3fi %+8.3fj %+8.3fk m\n',rAB);
+fprintf('rBC = %+8.3fi %+8.3fj %+8.3fk m\n',rBC);
+fprintf('rCD = %+8.3fi %+8.3fj %+8.3fk m\n',rCD);
+fprintf('rAC = %+8.3fi %+8.3fj %+8.3fk m\n',rAC);
+fprintf('  P = %+8.3fi %+8.3fj %+8.3fk N\n',P);
+fprintf(' MA = %+8.3fi %+8.3fj %+8.3fk N·m\n',MA);
+fprintf('\nNorme de MB = %.2f N·m',Norme);
+MomentPositif = MA(3) > 0;
+if(MomentPositif)
+   fprintf(' dans le sens antihoraire\n');
+else
+   fprintf(' dans le sens horaire\n');
+end
+
+%% Démarche scalaire (ajout)
+% 
+% <<..\ch2052a.gif>>
+%
+% * Poser le système des axes _x_ et _y_ au
+% point _C_ avec un angle de 15°.
+% * Calculer les bras de levier.
+%
+% Moment *Mc*
+clear all; close all; clc
+mP = 90; % N (Norme de la force)
+QH = 150e-3; % m (bras de levier)
+Mc = QH*mP; fprintf('Norme de Mc = %.2f N·m',Mc);
+fprintf(' dans le sens horaire\n');
+
+%%
+% Moment *MB*
+theta = 15; % degrés, rotation du système des axes
+angleBCQ = (90-45) -theta; % degrés
+BQ = 450e-3 * sind(angleBCQ);
+BH = BQ+QH; % m (bras de levier)
+MB = mP*BH; fprintf('Norme de MB = %.2f N·m',MB);
+fprintf(' dans le sens horaire\n');
+
+%%
+% Moment *MA*
+angleEAB = (90-60) +theta; % degrés
+EB = 550e-3 * sind(angleEAB);
+EH = EB+BQ+QH; % m (bras de levier)
+MA = mP*EH; fprintf('Norme de MA = %.2f N·m',MA);
+fprintf(' dans le sens horaire\n');
+
+
+##### SOURCE END #####
+--></body></html>

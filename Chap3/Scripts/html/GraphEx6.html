@@ -1,0 +1,149 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>GraphEx6</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-10-10">
+      <meta name="m-file" content="GraphEx6"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>GraphEx6</h1>
+         <introduction></introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#3">Graphique</a></li>
+            </ul>
+         </div><pre class="codeinput">clear; clc; close <span class="string">all</span>;
+</pre><p>G&eacute;n&eacute;rer une centaine de valeurs entre</p>
+         <p><img vspace="5" hspace="5" src="GraphEx6_eq8845.png"> </p><pre class="codeinput"><span class="keyword">for</span> i = 1:100
+   x(i) = -3*pi + (i-1)*(6*pi)/100;
+   y_1(i) = 2 - 5*x(i) + x(i)^2;
+   y_2(i) = 4*pi + 2*x(i);
+<span class="keyword">end</span>
+</pre><h2>Graphique<a name="3"></a></h2>
+         <p>Tracer y_1 en bleu, y_2 en rouge.</p><pre class="codeinput">plot(x,y_1,<span class="string">'b-'</span>, x,y_2,<span class="string">'r-'</span>);
+<span class="comment">% Compl&eacute;ter le graphique.</span>
+grid <span class="string">on</span>;
+xlabel(<span class="string">'x'</span>);
+ylabel(<span class="string">'y'</span>);
+<span class="comment">% Le titre est r&eacute;uni dans une variable.</span>
+<span class="comment">% Cela ressemble &agrave; un vecteur.</span>
+<span class="comment">% Une cha&icirc;ne de caract&egrave;res EST un vecteur.</span>
+Debut = <span class="string">'Intersections de '</span>;
+Eq1 = <span class="string">'y_1 = 2 - 5x + x^2'</span>;
+ET = <span class="string">'  et  '</span>;
+Eq2 = <span class="string">'y_2 = 4\pi + 2x'</span>;
+Titre = [Debut Eq1 ET Eq2];
+title(Titre);
+legend(<span class="string">'y_1'</span>, <span class="string">'y_2'</span>);
+</pre><img vspace="5" hspace="5" src="GraphEx6_01.png"> <p>Remarquer la fa&ccedil;on dont Matlab affiche le texte y_1, y_2, x^2 et pi sur le graphique.</p>
+         <p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% GraphEx6
+%%
+clear; clc; close all;
+%%
+% Générer une centaine de valeurs entre
+%
+% $$ -3\pi $$ et  $$ +3\pi $$
+%
+for i = 1:100
+   x(i) = -3*pi + (i-1)*(6*pi)/100;
+   y_1(i) = 2 - 5*x(i) + x(i)^2;
+   y_2(i) = 4*pi + 2*x(i);
+end
+
+%% Graphique
+% Tracer y_1 en bleu, y_2 en rouge.
+plot(x,y_1,'b-', x,y_2,'r-');
+% Compléter le graphique.
+grid on;
+xlabel('x');
+ylabel('y');
+% Le titre est réuni dans une variable.
+% Cela ressemble à un vecteur.
+% Une chaîne de caractères EST un vecteur.
+Debut = 'Intersections de ';
+Eq1 = 'y_1 = 2 - 5x + x^2';
+ET = '  et  ';
+Eq2 = 'y_2 = 4\pi + 2x';
+Titre = [Debut Eq1 ET Eq2];
+title(Titre);
+legend('y_1', 'y_2');
+
+%%
+% Remarquer la façon dont Matlab
+% affiche le texte y_1, y_2, x^2 et pi
+% sur le graphique.
+##### SOURCE END #####
+-->
+   </body>
+</html>

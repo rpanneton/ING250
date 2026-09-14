@@ -1,0 +1,143 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Exemple 2/4, Meriam p. 31</title><meta name="generator" content="MATLAB 9.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-10-06"><meta name="DC.source" content="SP2_4.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Exemple 2/4, Meriam p. 31</h1><!--introduction--><p>D&eacute;terminer la projection de R sur l'axe&nbsp;b et la nommer&nbsp;Fb.</p><p><img vspace="5" hspace="5" src="..\MeriamSP2_4.gif" alt=""> </p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">D&eacute;terminer la norme de la r&eacute;sultante&nbsp;R.</a></li><li><a href="#3">Angle entre R et x'</a></li><li><a href="#4">Projection de R sur l'axe b</a></li></ul></div><h2 id="1">D&eacute;terminer la norme de la r&eacute;sultante&nbsp;R.</h2><p>D&eacute;buter en tra&ccedil;ant le parall&eacute;logramme pour d&eacute;terminer <b>R</b>.</p><p>Pour appliquer la loi des cosinus, il faut nommer les angles et les c&ocirc;t&eacute;s en respectant la convention propos&eacute;e dans les notes de cours.</p><p>Pour &eacute;viter toute confusion avec la nomenclature utilis&eacute;e pour la loi des cosinus, les descripteurs de Meriam sont encercl&eacute;s.</p><p><img src="SP2_4_eq16793592081417523147.png" alt="$$c^2 = b^2+a^2-2ab\cos C$$" style="width:151px;height:15px;"></p><p>Il s'agit du cas c&ocirc;t&eacute;&#8211;angle&#8211;c&ocirc;t&eacute; connus.</p><p><img vspace="5" hspace="5" src="..\MeriamSP2_4a.gif" alt=""> </p><pre class="codeinput">clear ; close <span class="string">all</span>; clc;
+F1 = 100; F2 = 80; <span class="comment">%N</span>
+a = F1;
+C = (1/2) * (360 - 2*50) <span class="comment">% angle C</span>
+b = F2;
+c = sqrt(b^2 + a^2 - 2*a*b*cosd(C));
+normeR = c
+</pre><pre class="codeoutput">C =
+   130
+normeR =
+  163.3542
+</pre><h2 id="3">Angle entre R et x'</h2><p>Utiliser la loi des sinus. Les trois c&ocirc;t&eacute;s du triangle ABC sont connus ainsi que l'angle <i>C</i>.</p><p>Rechercher l'angle <i>A</i>.</p><pre class="codeinput">sinusA = a*sind(C)/c;
+AngleA = asind(sinusA)
+</pre><pre class="codeoutput">AngleA =
+   27.9660
+</pre><h2 id="4">Projection de R sur l'axe b</h2><p><img vspace="5" hspace="5" src="..\MeriamSP2_4a.gif" alt=""> </p><pre class="codeinput">Fb = normeR * cosd(AngleA);
+fprintf(<span class="string">'Fb est %.1f N\n'</span>,Fb);
+</pre><pre class="codeoutput">Fb est 144.3 N
+</pre><p>Noter que la composante de <b>R</b> selon les axes <i>a</i> et <i>b</i> est <b>F2</b>. C'est diff&eacute;rent de la projection. La composante rectangulaire et la projection sont identiques seulement lorsque les axes sont perpendiculaires.</p><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Exemple 2/4, Meriam p. 31
+% Déterminer la projection de R sur l'axe b et
+% la nommer Fb. 
+%
+% <<..\MeriamSP2_4.gif>>
+
+%% Déterminer la norme de la résultante R.
+% Débuter en traçant le parallélogramme pour
+% déterminer *R*.
+%
+% Pour appliquer la loi des cosinus, il faut
+% nommer les angles et les côtés en respectant la
+% convention proposée dans les notes de cours.
+%
+% Pour éviter toute confusion avec la nomenclature
+% utilisée pour la loi des cosinus, les
+% descripteurs de Meriam sont encerclés.
+%
+% $$c^2 = b^2+a^2-2ab\cos C$$
+%
+% Il s'agit du cas côté–angle–côté connus.
+%
+% <<..\MeriamSP2_4a.gif>>
+
+%%
+clear ; close all; clc;
+F1 = 100; F2 = 80; %N
+a = F1;
+C = (1/2) * (360 - 2*50) % angle C
+b = F2;
+c = sqrt(b^2 + a^2 - 2*a*b*cosd(C));
+normeR = c
+
+%% Angle entre R et x'
+% Utiliser la loi des sinus. Les trois côtés du
+% triangle ABC sont connus ainsi que l'angle _C_.
+%
+% Rechercher l'angle _A_.
+sinusA = a*sind(C)/c;
+AngleA = asind(sinusA)
+
+%% Projection de R sur l'axe b
+%
+% <<..\MeriamSP2_4a.gif>>
+Fb = normeR * cosd(AngleA);
+fprintf('Fb est %.1f N\n',Fb);
+%%
+% Noter que la composante de *R* selon les axes
+% _a_ et _b_ est *F2*. C'est différent de la
+% projection. La composante rectangulaire et la
+% projection sont identiques seulement lorsque les
+% axes sont perpendiculaires.
+
+##### SOURCE END #####
+--></body></html>

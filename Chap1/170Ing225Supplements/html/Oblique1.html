@@ -1,0 +1,181 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Oblique1</title><meta name="generator" content="MATLAB 9.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-10-06"><meta name="DC.source" content="Oblique1.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Oblique1</h1><p>Trac&eacute; des axes, du vecteur et des obliques</p><pre class="codeinput">mF = 4; <span class="comment">% norme de F (N)</span>
+angleF = 15; <span class="comment">% angle de F en degr&eacute;s</span>
+angle1 = 50; angle2 = 80; <span class="comment">% angle de chaque ligne</span>
+</pre><p>d&eacute;finition des couleurs</p><pre class="codeinput">gris = [0.4,0.4,0.4]; rouge = [1,0,0];
+vert = [0,0.7,0]; bleu = [0,0,1];
+
+<span class="comment">% Trac&eacute; des axes des x et des y</span>
+Cloture = [-8,8,-6,6]; <span class="comment">% [xmin, xmax, ymin, ymax]</span>
+axis <span class="string">equal</span>; axis(Cloture); hold <span class="string">on</span>;
+x = 6.2; y = 5.1; <span class="comment">% coordonn&eacute;es de fin des axes</span>
+plot([0,x],[0,0],<span class="string">'Color'</span>,gris,<span class="keyword">...</span>
+   <span class="string">'LineStyle'</span>,<span class="string">'-.'</span>,<span class="string">'LineWidth'</span>,0.5);
+plot([0,0],[0,y],<span class="string">'Color'</span>,gris,<span class="keyword">...</span>
+   <span class="string">'LineStyle'</span>,<span class="string">'-.'</span>,<span class="string">'LineWidth'</span>,0.5);
+text(x,0,<span class="string">'  x'</span>,<span class="string">'FontName'</span>,<span class="string">'Times New Roman'</span>,<span class="keyword">...</span>
+   <span class="string">'color'</span>,gris,<span class="keyword">...</span>
+   <span class="string">'FontAngle'</span>,<span class="string">'italic'</span>,<span class="string">'FontSize'</span>,14);
+text(0-0.5,y,<span class="string">'y'</span>,<span class="string">'FontName'</span>,<span class="string">'Times New Roman'</span>,<span class="keyword">...</span>
+   <span class="string">'color'</span>,gris,<span class="keyword">...</span>
+   <span class="string">'FontAngle'</span>,<span class="string">'italic'</span>,<span class="string">'FontSize'</span>,14);
+
+<span class="comment">% D&eacute;finition et trac&eacute; du vecteur *F*</span>
+nF = [cosd(15),sind(15)]; <span class="comment">% vecteur unitaire</span>
+F = mF*nF; <span class="comment">% vecteur F (N)</span>
+Vecteur(Cloture,F,[0,0],rouge);
+text(F(1)+0.5,F(2)+0.2,<span class="string">'F = 4 N'</span>,<span class="string">'FontWeight'</span>,<span class="keyword">...</span>
+   <span class="string">'bold'</span>,<span class="string">'FontSize'</span>,14);
+text(2,0.3,<span class="string">'15&deg;'</span>);
+text(1,0.75,<span class="string">'35&deg;'</span>);
+text(0.5,1.6,<span class="string">'30&deg;'</span>)
+</pre><img vspace="5" hspace="5" src="Oblique1_01.png" alt=""> <p>Trac&eacute; des lignes</p><p>Les extr&eacute;mit&eacute;s des lignes sont pos&eacute;es &agrave; l'ext&eacute;rieur de la cl&ocirc;ture de la figure et l'exc&eacute;dent est automatiquement coup&eacute; &agrave; la cl&ocirc;ture.</p><p>vecteur unitaire de chacune</p><pre class="codeinput">n1 = [cosd(angle1),sind(angle1)];
+n2 = [cosd(angle2),sind(angle2)];
+diagonale = norm(Cloture);
+L1a = -n1*diagonale; L1b = +n1*diagonale;
+L2a = -n2*diagonale; L2b = +n2*diagonale;
+L1x = [L1a(1),L1b(1)]; L1y = [L1a(2),L1b(2)];
+L2x = [L2a(1),L2b(1)]; L2y = [L2a(2),L2b(2)];
+<span class="comment">% L1x=[-5,+5]; L1y=[-5,+5];</span>
+<span class="comment">% L2x=[-1,+1]; L2y=[-5,+5];</span>
+line(L1x,L1y,<span class="string">'Color'</span>,bleu,<span class="string">'LineStyle'</span>,<span class="string">'--'</span>,<span class="keyword">...</span>
+   <span class="string">'LineWidth'</span>,1);
+line(L2x,L2y,<span class="string">'Color'</span>,bleu,<span class="string">'LineStyle'</span>,<span class="string">'--'</span>,<span class="keyword">...</span>
+   <span class="string">'LineWidth'</span>,1);
+text(-4.3,-5.5,<span class="string">'Axe 1'</span>,<span class="keyword">...</span>
+   <span class="string">'FontWeight'</span>,<span class="string">'normal'</span>,<span class="string">'FontSize'</span>,12);
+text(-0.8,-5.5,<span class="string">'Axe 2'</span>,<span class="keyword">...</span>
+   <span class="string">'FontWeight'</span>,<span class="string">'normal'</span>,<span class="string">'FontSize'</span>,12);
+</pre><img vspace="5" hspace="5" src="Oblique1_02.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Oblique1
+% Tracé des axes, du vecteur et des obliques
+
+mF = 4; % norme de F (N)
+angleF = 15; % angle de F en degrés
+angle1 = 50; angle2 = 80; % angle de chaque ligne
+
+%%
+% définition des couleurs
+gris = [0.4,0.4,0.4]; rouge = [1,0,0];
+vert = [0,0.7,0]; bleu = [0,0,1];
+
+% Tracé des axes des x et des y
+Cloture = [-8,8,-6,6]; % [xmin, xmax, ymin, ymax]
+axis equal; axis(Cloture); hold on;
+x = 6.2; y = 5.1; % coordonnées de fin des axes
+plot([0,x],[0,0],'Color',gris,...
+   'LineStyle','-.','LineWidth',0.5);
+plot([0,0],[0,y],'Color',gris,...
+   'LineStyle','-.','LineWidth',0.5);
+text(x,0,'  x','FontName','Times New Roman',...
+   'color',gris,...
+   'FontAngle','italic','FontSize',14);
+text(0-0.5,y,'y','FontName','Times New Roman',...
+   'color',gris,...
+   'FontAngle','italic','FontSize',14);
+   
+% Définition et tracé du vecteur *F*
+nF = [cosd(15),sind(15)]; % vecteur unitaire
+F = mF*nF; % vecteur F (N)
+Vecteur(Cloture,F,[0,0],rouge);
+text(F(1)+0.5,F(2)+0.2,'F = 4 N','FontWeight',...
+   'bold','FontSize',14);
+text(2,0.3,'15°');
+text(1,0.75,'35°');
+text(0.5,1.6,'30°')
+%%
+% Tracé des lignes
+%
+% Les extrémités des lignes sont posées à
+% l'extérieur de la clôture de la figure et
+% l'excédent est automatiquement coupé à la
+% clôture.
+%
+% vecteur unitaire de chacune
+n1 = [cosd(angle1),sind(angle1)];
+n2 = [cosd(angle2),sind(angle2)];
+diagonale = norm(Cloture);
+L1a = -n1*diagonale; L1b = +n1*diagonale;
+L2a = -n2*diagonale; L2b = +n2*diagonale;
+L1x = [L1a(1),L1b(1)]; L1y = [L1a(2),L1b(2)];
+L2x = [L2a(1),L2b(1)]; L2y = [L2a(2),L2b(2)];
+% L1x=[-5,+5]; L1y=[-5,+5];
+% L2x=[-1,+1]; L2y=[-5,+5];
+line(L1x,L1y,'Color',bleu,'LineStyle','REPLACE_WITH_DASH_DASH',...
+   'LineWidth',1);
+line(L2x,L2y,'Color',bleu,'LineStyle','REPLACE_WITH_DASH_DASH',...
+   'LineWidth',1);
+text(-4.3,-5.5,'Axe 1',...
+   'FontWeight','normal','FontSize',12);
+text(-0.8,-5.5,'Axe 2',...
+   'FontWeight','normal','FontSize',12);
+##### SOURCE END #####
+--></body></html>

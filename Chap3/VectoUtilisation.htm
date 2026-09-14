@@ -1,0 +1,64 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Utilisation de la vectorisation</title>
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+<style>
+<!--
+.ms-grid1-main { border-left: .75pt solid black; border-right-style: none; 
+               border-top: .75pt solid black; border-bottom: .75pt solid black; 
+               background-color: white }
+.ms-grid1-tl { font-weight: normal; color: black; border-left-style: none; 
+               border-right: .75pt solid black; border-top-style: none; 
+               border-bottom-style: none; background-color: white }
+.ms-grid1-top { font-weight: normal; color: black; border-left-style: none; 
+               border-right: .75pt solid black; border-top-style: none; 
+               border-bottom-style: none; background-color: white }
+ table.MsoNormalTable
+	{mso-style-parent:"";
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	}
+-->
+</style>
+</head>
+
+<body>
+
+<h2>Utilisation de la vectorisation</h2>
+<ul>
+	<li>Utiliser explicitement des instructions vectorisées chaque fois que c'est
+possible.</li>
+	<li>Les instructions vectorisées sont exécutées beaucoup plus rapidement
+    qu'une série d'instructions contenant des boucles explicites.
+    </li>
+	<li>L'écriture d'une instruction vectorisée a une valeur sémantique plus
+    grande qu'une série d'instructions contenant des boucles explicites. Cela
+    permet de gagner du temps lors du prototypage.<ul>
+		<li><span lang="fr-ca">Cependant, ce n'est pas 
+		toujours facile à interpréter par le lecteur, car c</span>es instructions ne se retrouvent pas dans les langages de
+        programmation traditionnels, tels le Pascal, le C ou le Fortran.</li>
+		<li>Pour éviter de bidouiller (programmer n'importe comment), il faut
+        maîtriser les concepts de base avant d'utiliser des fonctions
+        vectorisées et savoir effectuer une multiplication 
+		<span lang="fr-ca">matricielle </span>pas à pas
+        avant de lancer B&nbsp;=&nbsp;C.*A, etc.</li>
+	</ul></li>
+</ul>
+<h3>Précaution</h3>
+<ul>
+	<li>Les opérateurs vectoriels sont des instructions utilisant une
+            couche de programmation au-dessus des instructions élémentaires.</li>
+	<li>Cela permet de construire plus rapidement un prototype et de
+            s'affranchir de la programmation élémentaire.</li>
+	<li><span lang="fr-ca">
+	Toujours </span>examiner les résultats avec beaucoup de circonspection.</li>
+</ul>
+<p><img border="0" src="Ligne.GIF" width="492" height="19"></p>
+
+</body>
+
+</html>

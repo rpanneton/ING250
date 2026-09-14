@@ -1,0 +1,179 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Probl&egrave;me 2/39, Meriam p. 45</title><meta name="generator" content="MATLAB 9.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-10-06"><meta name="DC.source" content="ch2039.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Probl&egrave;me 2/39, Meriam p. 45</h1><!--introduction--><p><img vspace="5" hspace="5" src="..\ch2039.gif" alt=""> </p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Donn&eacute;es</a></li><li><a href="#2">&Eacute;tape 1 &#8211; D&eacute;marche vectorielle</a></li><li><a href="#3">&Eacute;tape 2 &#8211; Expression scalaire</a></li><li><a href="#4">D&eacute;marche scalaire (ajout)</a></li></ul></div><h2 id="1">Donn&eacute;es</h2><p><b>r</b> est un vecteur ayant comme origine <i>O</i> jusqu'au centre de la pi&egrave;ce de monnaie.</p><pre class="codeinput">clear; clc; close <span class="string">all</span>
+m = 3.06e-3; <span class="comment">% kg</span>
+a = 9.821; <span class="comment">% m/s&sup2; (Annexe D) &agrave; 37.5&deg; de latitude</span>
+s = 4; <span class="comment">% mm (&agrave; l'&eacute;chelle du graphique)</span>
+mF = m*a; <span class="comment">% N,  Norme de F = m a</span>
+</pre><h2 id="2">&Eacute;tape 1 &#8211; D&eacute;marche vectorielle</h2><pre class="codeinput">r = [s, 3.5+9.5, 0]; <span class="comment">% mm</span>
+theta = -90+20; <span class="comment">% degr&eacute;s, convention de atan2</span>
+F = mF*[cosd(theta), sind(theta), 0]; <span class="comment">% N</span>
+Mo = cross(r,F);
+fprintf(<span class="string">' r = %+8.4fi %+8.4fj %+8.4fk m\n'</span>,r);
+fprintf(<span class="string">' F = %+8.4fi %+8.4fj %+8.4fk kN\n'</span>,F);
+fprintf(<span class="string">'Mo = %+8.4fi %+8.4fj %+8.4fk lb&middot;po\n'</span>,Mo);
+</pre><pre class="codeoutput"> r =  +4.0000i +13.0000j  +0.0000k m
+ F =  +0.0103i  -0.0282j  +0.0000k kN
+Mo =  +0.0000i  +0.0000j  -0.2466k lb&middot;po
+</pre><h2 id="3">&Eacute;tape 2 &#8211; Expression scalaire</h2><pre class="codeinput">Norme = norm(Mo);
+fprintf(<span class="string">'Norme de Mo = %.4f N&middot;mm'</span>,Norme);
+MomentPositif = Mo(3) &gt; 0;  <span class="comment">% variable logique</span>
+<span class="keyword">if</span>(MomentPositif)
+   fprintf(<span class="string">' dans le sens antihoraire\n'</span>);
+<span class="keyword">else</span>
+   fprintf(<span class="string">' dans le sens horaire\n'</span>);
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">Norme de Mo = 0.2466 N&middot;mm dans le sens horaire
+</pre><h2 id="4">D&eacute;marche scalaire (ajout)</h2><p>Poser le syst&egrave;me des axes <i>x</i> et <i>y</i> au point <i>O</i> en suivant le plan oblique (<i>slant</i>). Remplacer la force par ses composantes rectangulaires et appliquer le th&eacute;or&egrave;me de Varignon.</p><p><img vspace="5" hspace="5" src="..\ch2039a.gif" alt=""> </p><pre class="codeinput">m = 3.06e-3; <span class="comment">% kg</span>
+a = 9.821; <span class="comment">% m/s&sup2; (Annexe D) &agrave; 37.5&deg; de latitude</span>
+mF = m*a; <span class="comment">% N,  Norme de F = m a</span>
+</pre><p>Valeur approximative du bras de levier. Selon l'&eacute;nonc&eacute;, la solution doit &ecirc;tre en fonction de <i>s</i>. Mais une approximation permet d'&eacute;valuer la masse du culbuteur (non demand&eacute; dans l'&eacute;nonc&eacute;).</p><pre class="codeinput">dy = 3.5 + 9.5; <span class="comment">% mm (bras de levier)</span>
+theta = 90-20; <span class="comment">% degr&eacute;s</span>
+Fx = mF*cosd(theta); Fy = mF*sind(theta);
+Mo_1 = Fx*dy; <span class="comment">% sens horaire</span>
+Mo_2 = Fy*s; <span class="comment">% sens horaire</span>
+Mo = Mo_1 + Mo_2;
+fprintf(<span class="string">'Norme de Mo = %.4f N&middot;mm'</span>,Mo);
+fprintf(<span class="string">' dans le sens horaire\n'</span>);
+</pre><pre class="codeoutput">Norme de Mo = 0.2466 N&middot;mm dans le sens horaire
+</pre><p>Sous la forme d'une &eacute;quation :</p><p><img src="ch2039_eq11150891431304411713.png" alt="$$ M_O = F \left[&#xA;(3.5+9.5) \cos(\theta)+s \sin(\theta)\right]$$" style="width:234px;height:15px;"></p><p><img src="ch2039_eq04748447354888200941.png" alt="$$ M_O = mF \left[0.1335 + + 0.0282 s \right]$$" style="width:194px;height:15px;"></p><p>Masse du culbuteur</p><p>&Agrave; effectuer plus loin dans le cours apr&egrave;s l'&eacute;tude du centre de masse au chapitre 5.</p><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Problème 2/39, Meriam p. 45
+% <<..\ch2039.gif>>
+%
+
+%% Données
+% *r* est un vecteur ayant comme origine _O_
+% jusqu'au centre de la pièce de monnaie.
+clear; clc; close all
+m = 3.06e-3; % kg
+a = 9.821; % m/s² (Annexe D) à 37.5° de latitude
+s = 4; % mm (à l'échelle du graphique)
+mF = m*a; % N,  Norme de F = m a
+
+%% Étape 1 – Démarche vectorielle
+r = [s, 3.5+9.5, 0]; % mm  
+theta = -90+20; % degrés, convention de atan2
+F = mF*[cosd(theta), sind(theta), 0]; % N
+Mo = cross(r,F);
+fprintf(' r = %+8.4fi %+8.4fj %+8.4fk m\n',r);
+fprintf(' F = %+8.4fi %+8.4fj %+8.4fk kN\n',F);
+fprintf('Mo = %+8.4fi %+8.4fj %+8.4fk lb·po\n',Mo);
+
+%% Étape 2 – Expression scalaire
+Norme = norm(Mo);
+fprintf('Norme de Mo = %.4f N·mm',Norme);
+MomentPositif = Mo(3) > 0;  % variable logique
+if(MomentPositif)
+   fprintf(' dans le sens antihoraire\n');
+else
+   fprintf(' dans le sens horaire\n');
+end
+
+%% Démarche scalaire (ajout)
+% Poser le système des axes _x_ et _y_ au point
+% _O_ en suivant le plan oblique (_slant_).
+% Remplacer la force par ses composantes
+% rectangulaires et appliquer le théorème de
+% Varignon.
+%
+% <<..\ch2039a.gif>>
+m = 3.06e-3; % kg
+a = 9.821; % m/s² (Annexe D) à 37.5° de latitude
+mF = m*a; % N,  Norme de F = m a
+%%
+% Valeur approximative du bras de levier. Selon
+% l'énoncé, la solution doit être en fonction de
+% _s_. Mais une approximation permet d'évaluer la
+% masse du culbuteur (non demandé dans l'énoncé).
+dy = 3.5 + 9.5; % mm (bras de levier)
+theta = 90-20; % degrés
+Fx = mF*cosd(theta); Fy = mF*sind(theta);
+Mo_1 = Fx*dy; % sens horaire
+Mo_2 = Fy*s; % sens horaire
+Mo = Mo_1 + Mo_2;
+fprintf('Norme de Mo = %.4f N·mm',Mo);
+fprintf(' dans le sens horaire\n');
+
+%%
+% Sous la forme d'une équation :
+%
+% $$ M_O = F \left[
+% (3.5+9.5) \cos(\theta)+s \sin(\theta)\right]$$
+%
+% $$ M_O = mF \left[0.1335 + + 0.0282 s \right]$$
+%
+
+%%
+% Masse du culbuteur
+% 
+% À effectuer plus loin dans le cours après
+% l'étude du centre de masse au chapitre 5.
+##### SOURCE END #####
+--></body></html>

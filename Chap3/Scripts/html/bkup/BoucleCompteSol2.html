@@ -1,0 +1,208 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Boucle compt&eacute;e &#8211; Test d'auto-&eacute;valuation 2</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-09-11"><meta name="DC.source" content="BoucleCompteSol2.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Boucle compt&eacute;e &#8211; Test d'auto-&eacute;valuation 2</h1><!--introduction--><p>Utiliser strictement un vecteur comme compteur.</p><!--/introduction--><pre class="codeinput">clear; clc; close <span class="string">all</span>;
+V = load(<span class="string">'V.dat'</span>); <span class="comment">% ou simplement load V.dat</span>
+plot(V,<span class="string">'sk'</span>);xlabel(<span class="string">'Indice de V'</span>);ylabel(<span class="string">'V'</span>);
+title(<span class="string">'Aper&ccedil;u du vecteur V'</span>); grid <span class="string">on</span>;
+</pre><img vspace="5" hspace="5" src="BoucleCompteSol2_01.png" style="width:560px;height:420px;" alt=""> <p>D&eacute;cision &agrave; branches multiples</p><pre class="codeinput">nV = length(V); <span class="comment">% nombre d'&eacute;lements de V</span>
+S = [0 0 0 0]; <span class="comment">% initialisation des compteurs</span>
+<span class="keyword">for</span> i = 1:nV
+   <span class="keyword">if</span>(V(i)&lt;-9)
+      S(1)=S(1)+1;
+   <span class="keyword">elseif</span>(V(i)&lt;0)
+      S(2)=S(2)+1;
+   <span class="keyword">elseif</span>(V(i)&lt;16)
+      S(3)=S(3)+1;
+   <span class="keyword">else</span>
+      S(4)=S(4)+1;
+   <span class="keyword">end</span>
+<span class="keyword">end</span>
+pie(S)
+legend(<span class="string">'-30 &agrave; -10'</span>,<span class="string">'-9 &agrave; -1'</span>,<span class="string">'0 &agrave; 15'</span>,<span class="string">'16 &agrave; 30'</span>,<span class="keyword">...</span>
+   <span class="string">'Location'</span>,<span class="string">'BestOutside'</span>)
+</pre><img vspace="5" hspace="5" src="BoucleCompteSol2_02.png" style="width:560px;height:420px;" alt=""> <pre class="codeinput">help <span class="string">plot</span>
+</pre><pre class="codeoutput"> PLOT   Linear plot. 
+    PLOT(X,Y) plots vector Y versus vector X. If X or Y is a matrix,
+    then the vector is plotted versus the rows or columns of the matrix,
+    whichever line up.  If X is a scalar and Y is a vector, disconnected
+    line objects are created and plotted as discrete points vertically at
+    X.
+ 
+    PLOT(Y) plots the columns of Y versus their index.
+    If Y is complex, PLOT(Y) is equivalent to PLOT(real(Y),imag(Y)).
+    In all other uses of PLOT, the imaginary part is ignored.
+ 
+    Various line types, plot symbols and colors may be obtained with
+    PLOT(X,Y,S) where S is a character string made from one element
+    from any or all the following 3 columns:
+ 
+           b     blue          .     point              -     solid
+           g     green         o     circle             :     dotted
+           r     red           x     x-mark             -.    dashdot 
+           c     cyan          +     plus               --    dashed   
+           m     magenta       *     star             (none)  no line
+           y     yellow        s     square
+           k     black         d     diamond
+           w     white         v     triangle (down)
+                               ^     triangle (up)
+                               &lt;     triangle (left)
+                               &gt;     triangle (right)
+                               p     pentagram
+                               h     hexagram
+                          
+    For example, PLOT(X,Y,'c+:') plots a cyan dotted line with a plus 
+    at each data point; PLOT(X,Y,'bd') plots blue diamond at each data 
+    point but does not draw any line.
+ 
+    PLOT(X1,Y1,S1,X2,Y2,S2,X3,Y3,S3,...) combines the plots defined by
+    the (X,Y,S) triples, where the X's and Y's are vectors or matrices 
+    and the S's are strings.  
+ 
+    For example, PLOT(X,Y,'y-',X,Y,'go') plots the data twice, with a
+    solid yellow line interpolating green circles at the data points.
+ 
+    The PLOT command, if no color is specified, makes automatic use of
+    the colors specified by the axes ColorOrder property.  By default,
+    PLOT cycles through the colors in the ColorOrder property.  For
+    monochrome systems, PLOT cycles over the axes LineStyleOrder property.
+ 
+    Note that RGB colors in the ColorOrder property may differ from
+    similarly-named colors in the (X,Y,S) triples.  For example, the 
+    second axes ColorOrder property is medium green with RGB [0 .5 0],
+    while PLOT(X,Y,'g') plots a green line with RGB [0 1 0].
+ 
+    If you do not specify a marker type, PLOT uses no marker. 
+    If you do not specify a line style, PLOT uses a solid line.
+ 
+    PLOT(AX,...) plots into the axes with handle AX.
+ 
+    PLOT returns a column vector of handles to lineseries objects, one
+    handle per plotted line. 
+ 
+    The X,Y pairs, or X,Y,S triples, can be followed by 
+    parameter/value pairs to specify additional properties 
+    of the lines. For example, PLOT(X,Y,'LineWidth',2,'Color',[.6 0 0]) 
+    will create a plot with a dark red line width of 2 points.
+ 
+    Example
+       x = -pi:pi/10:pi;
+       y = tan(sin(x)) - sin(tan(x));
+       plot(x,y,'--rs','LineWidth',2,...
+                       'MarkerEdgeColor','k',...
+                       'MarkerFaceColor','g',...
+                       'MarkerSize',10)
+ 
+    See also PLOTTOOLS, SEMILOGX, SEMILOGY, LOGLOG, PLOTYY, PLOT3, GRID,
+    TITLE, XLABEL, YLABEL, AXIS, AXES, HOLD, LEGEND, SUBPLOT, SCATTER.
+
+    Reference page in Doc Center
+       doc plot
+
+    Other functions named plot
+
+       alphaShape/plot    graph/plot          ntree/plot
+       digraph/plot       iddata/plot         rwvtree/plot
+       dspdata/plot       idnlarx/plot        timeseries/plot
+       dtree/plot         idnlhw/plot         wdectree/plot
+       edwttree/plot      LinearModel/plot    wvtree/plot
+       frd/plot
+
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Boucle comptée – Test d'auto-évaluation 2
+% Utiliser strictement un vecteur comme compteur.
+%%
+clear; clc; close all;
+V = load('V.dat'); % ou simplement load V.dat
+plot(V,'sk');xlabel('Indice de V');ylabel('V');
+title('Aperçu du vecteur V'); grid on;
+
+%%
+% Décision à branches multiples
+nV = length(V); % nombre d'élements de V
+S = [0 0 0 0]; % initialisation des compteurs
+for i = 1:nV
+   if(V(i)<-9)
+      S(1)=S(1)+1;
+   elseif(V(i)<0)
+      S(2)=S(2)+1;
+   elseif(V(i)<16)
+      S(3)=S(3)+1;
+   else
+      S(4)=S(4)+1;
+   end
+end
+pie(S)
+legend('-30 à -10','-9 à -1','0 à 15','16 à 30',...
+   'Location','BestOutside')
+
+%%
+help plot
+##### SOURCE END #####
+--></body></html>

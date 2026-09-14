@@ -1,0 +1,202 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"><title>root object (MATLAB Function Reference)</title>
+<!-- $Revision: 1.7 $  $Date: 1997/12/24 23:13:36 $ -->
+<!-- $Log: rootobject.html,v $
+# Revision 1.7  1997/12/24  23:13:36  thornton
+# online doc for 5.2 release
+#
+# Related Records: 33236
+# -->
+<!-- DOCNAME: MATLAB Function Reference -->
+<script language="Javascript">
+function slipInNewDest(cname){ 
+  if ((navigator.appName == 'Microsoft Internet Explorer') && (navigator.appVersion.substring(0,1) == '2' )) {window.location = cname.toLowerCase()+".html";}
+  else {window.document.f2.action=cname.toLowerCase()+".html";}
+}
+</script>
+</head><body bgcolor="#f0f0f0">
+<a name="455900">
+</a><table width="100%" border="0" cellpadding="0" cellspacing="0"><tbody><tr>
+<td valign="baseline" bgcolor="#9bd0e0">&nbsp;<font size="+2">MATLAB Function Reference</font></td>
+<td valign="baseline" align="right" bgcolor="#9bd0e0"><form name="f2" onsubmit="slipInNewDest(f2.cmdname.value)">&nbsp;&nbsp;<b>Go to function:</b> <input name="cmdname" size="12" type="text"></form></td>
+<td valign="baseline" align="right" bgcolor="#9bd0e0">&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://amath.colorado.edu/computing/Matlab/search1.html" target="_top">Search</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://amath.colorado.edu/computing/Matlab/helpdesk.html" target="_top">Help Desk</a>&nbsp;</td>
+</tr>
+</tbody></table><table width="100%" border="0" cellpadding="0" cellspacing="0"><tbody><tr><td><font size="+4">root object</font> </td><td valign="baseline" align="right">&nbsp;&nbsp;&nbsp;<a href="#seeal_sec"><font size="+1">See Also</font></a></td></tr></tbody></table>
+
+
+<!-- FNAME:root object --><a name="455900">
+ </a>
+<p></p>
+<p><a name="455901">
+ </a>
+<a name="455902"></a>Root object properties</p>
+<p><a name="455903">
+<font size="+2">Description</font> </a></p>
+<a name="455904"></a>The <em>Root</em> is a graphics object that
+corresponds to the computer screen. There is only one Root object and
+it has no parent. The children of the Root object are Figures.<p></p>
+<a name="455905"></a>The Root object exists when you start MATLAB; you never have to create it and you cannot destroy it. Use <code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/set.html">set</a></code> and <code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/get.html">get</a></code> to access the Root properties.<p></p>
+<p><a name="499871">
+</a><a name="seeal_sec"></a><font size="+2">See Also</font> </p>
+<ul><pre><a name="499877"></a><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/diary.html">diary</a></code>, <code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/echo.html">echo</a></code>,<font face="times"> </font><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/figure.html">figure</a></code>, <code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/format.html">format</a></code>,<font face="times"> </font><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/gcf.html">gcf</a></code>, <code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/get.html">get</a></code>, <code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/set.html">set</a></code>
+</pre></ul>
+<p><a name="492936">
+<font size="+2">Object Hierarchy</font> </a></p>
+<a name="492460"></a><img src="rootobject_fichiers/grapad11.gif" align="absmiddle"><p></p>
+<p><a name="500986">
+<font size="+2">Property List</font> </a></p>
+<a name="500998"></a>The following table lists all Root properties and
+provides a brief description of each. The property name links take you
+to an expanded description of the properties. This table does not
+include properties that are defined for, but not used by the Root
+object.<br><br>
+<table border="3" cellpadding="5">
+<caption></caption>
+<tbody><tr><td><a name="500721"></a><b>Property Name</b><br></td>
+<td><a name="500723"></a><b>Property Description</b><br></td>
+<td><a name="500725"></a><b>Property Value</b><br></td>
+
+</tr><tr><td colspan="3" rowspan="1"><a name="500727"></a><b>Information about MATLAB's state</b><br><!-- TBLSPANEND -->
+</td></tr><tr><td><a name="500734"></a><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#CallbackObject">CallbackObject<br></a></td>
+<td><a name="500736"></a>Handle of object whose callback is executing<br></td>
+<td><a name="500738"></a>Values: object handle<br></td>
+
+</tr><tr><td><a name="500741"></a><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#CurrentFigure">CurrentFigure</a></code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#CurrentFigure"><br></a></td>
+<td><a name="500743"></a>Handle of current Figure<br></td>
+<td><a name="500745"></a>Values: object handle<br></td>
+
+</tr><tr><td><a name="500748"></a><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#ErrorMessage">ErrorMessage</a></code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#ErrorMessage"><br></a></td>
+<td><a name="500750"></a>Text of last error message<br></td>
+<td><a name="500752"></a>Value: character string<br></td>
+
+</tr><tr><td><a name="500755"></a><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#PointerLocation">PointerLocation</a></code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#PointerLocation"><br></a></td>
+<td><a name="500757"></a>Current location of pointer<br></td>
+<td><a name="500759"></a>Values: <em>x</em>-, and <em>y</em>-coordinates<br></td>
+
+</tr><tr><td><a name="500762"></a><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#PointerWindow">PointerWindow</a></code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#PointerWindow"><br></a></td>
+<td><a name="500764"></a>Hanlde of window containing the pointer<br></td>
+<td><a name="500766"></a>Values: Figure hanlde<br></td>
+
+</tr><tr><td><a name="500769"></a><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#ShowHiddenHandles">ShowHiddenHandles<br></a></td>
+<td><a name="500771"></a><font face="times">Show or hide handles marked as hidden</font><br></td>
+<td><a name="500773"></a>Values: <code>on</code>, <code>off</code><br><a name="500774"></a>Default: <code>off</code><br></td>
+
+</tr><tr><td colspan="3" rowspan="1"><a name="500776"></a><b>Controlling MATLAB's behavior</b><br><!-- TBLSPANEND -->
+</td></tr><tr><td><a name="500783"></a><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#Diary">Diary</a></code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#Diary"><br></a></td>
+<td><a name="500785"></a>Enable the diary file<br></td>
+<td><a name="500787"></a>Values: <code>on</code>, <code>off</code><br><a name="500788"></a>Default: <code>off</code><br></td>
+
+</tr><tr><td><a name="500791"></a><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#DiaryFile">DiaryFile</a></code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#DiaryFile"><br></a></td>
+<td><a name="500793"></a>Name of the diary file<br></td>
+<td><a name="500795"></a>Values: filename (string)<br><a name="500796"></a>Default: <code>diary</code><br></td>
+
+</tr><tr><td><a name="500799"></a><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#Echo">Echo</a></code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#Echo"><br></a></td>
+<td><a name="500801"></a>Display each line of script M-file as executed<br></td>
+<td><a name="500803"></a>Values: <code>on</code>, <code>off</code><br><a name="500804"></a>Default: <code>off</code><br></td>
+
+</tr><tr><td><a name="500807"></a><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#Format">Format</a></code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#Format"><br></a></td>
+<td><a name="500809"></a>Format used to display numbers<br></td>
+<td><a name="500811"></a>Values: <code>short</code>, <code>shortE</code>, <code>long</code>, <code>longE</code>, <code>bank</code>, <code>hex</code>, <code>+</code>, <code>rat</code><br><a name="500812"></a>Default: <code>shortE</code><br></td>
+
+</tr><tr><td><a name="500815"></a><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#FormatSpacing">FormatSpacing</a></code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#FormatSpacing"><br></a></td>
+<td><a name="500817"></a>Display or omit extra line feed<br></td>
+<td><a name="500819"></a>Values: <code>compact</code>, <code>loose</code><br><a name="500820"></a>Default: <code>loose</code><br></td>
+
+</tr><tr><td><a name="500823"></a><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#Language">Language</a></code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#Language"><br></a></td>
+<td><a name="500825"></a>System environment setting<br></td>
+<td><a name="500827"></a>Values: string<br><a name="500828"></a>Default: <code>english</code><br></td>
+
+</tr><tr><td><a name="501014"></a><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#RecursionLimit">RecursionLimit<br></a></td>
+<td><a name="501016"></a>Maximum number of nested M-file calls<br></td>
+<td><a name="501018"></a>Values: integer<br><a name="501019"></a>Defalut: <code>2.1478e+009</code><br></td>
+
+</tr><tr><td><a name="500831"></a><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#Units">Units<br></a></td>
+<td><a name="500833"></a>Units for <code>PointerLocation</code> and <code>ScreenSize</code> properties<br></td>
+<td><a name="500835"></a>Values: <code>pixels, normalized</code>, <code>inches</code>, <code>centimeters</code>, <code>points</code><br><a name="500836"></a>Default: <code>pixels</code><br></td>
+
+</tr><tr><td colspan="3" rowspan="1"><a name="500838"></a><b>Information about the display</b><br><!-- TBLSPANEND -->
+</td></tr><tr><td><a name="500845"></a><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#ScreenDepth">ScreenDepth</a></code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#ScreenDepth"><br></a></td>
+<td><a name="500847"></a>Depth of the display bitmap<br></td>
+<td><a name="500849"></a>Values: bits per pixel<br></td>
+
+</tr><tr><td><a name="500852"></a><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#ScreenSize">ScreenSize</a></code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#ScreenSize"><br></a></td>
+<td><a name="500854"></a>Size of the screen<br></td>
+<td><a name="500856"></a>Values: [left, bottom, width, height]<br></td>
+
+</tr><tr><td colspan="3" rowspan="1"><a name="500858"></a><b>Information about terminals (X-Windows only)</b><br><!-- TBLSPANEND -->
+</td></tr><tr><td><a name="500865"></a><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#TerminalHideGraphCommands">TerminalHideGraphCommands</a></code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#TerminalHideGraphCommands"><br></a></td>
+<td><a name="500867"></a>Command to hide graphics window<br></td>
+<td><a name="500869"></a>Values: string<br></td>
+
+</tr><tr><td><a name="500872"></a><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#TerminalOneWindow">TerminalOneWindow</a></code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#TerminalOneWindow"><br></a></td>
+<td><a name="500874"></a>Indicates if there is only one graphics window<br></td>
+<td><a name="500876"></a>Values: <code>on</code>, <code>off</code><br><a name="500877"></a>Default: <code>on</code><br></td>
+
+</tr><tr><td><a name="500880"></a><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#TerminalDimensions">TerminalDimensions<br></a></td>
+<td><a name="500882"></a>Size of the terminal<br></td>
+<td><a name="500884"></a>Values: scalar in pixels<br></td>
+
+</tr><tr><td><a name="500887"></a><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#TerminalProtocol">TerminalProtocol<br></a></td>
+<td><a name="500889"></a>Identifies the type of terminal<br></td>
+<td><a name="500891"></a>Values: <code>none</code>, <code>x</code>, <code>tek401x</code>, <code>tek410x</code><br></td>
+
+</tr><tr><td><a name="500894"></a><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#TerminalShowGraphCommand">TerminalShowGraphCommand<br></a></td>
+<td><a name="500896"></a>Command to display graphics window<br></td>
+<td><a name="500898"></a>Value: string<br></td>
+
+</tr><tr><td colspan="3" rowspan="1"><a name="500900"></a><b>General Information About Root Objects</b><br><!-- TBLSPANEND -->
+</td></tr><tr><td><a name="500907"></a><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#Children">Children</a></code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#Children"><br></a></td>
+<td><a name="500909"></a>Handles of all nonhidden Figue objects<br></td>
+<td><a name="500911"></a>Values: vector of handles<br></td>
+
+</tr><tr><td><a name="500914"></a><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#Parent">Parent</a></code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#Parent"><br></a></td>
+<td><a name="500916"></a><font face="times">The Root object has no parent</font><br></td>
+<td><a name="500918"></a>Value<font face="times">: </font><code>[]</code><font face="times"> (empty matrix)</font><br></td>
+
+</tr><tr><td><a name="500921"></a><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#Selected">Selected</a></code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#Selected"><br></a></td>
+<td><a name="500923"></a>Indicate whether the Text is in a "selected" state.<br></td>
+<td><a name="500925"></a>Values: <code>on</code>, <code>off</code> <br><a name="500926"></a>Default: <code>on</code><br></td>
+
+</tr><tr><td><a name="500929"></a><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#Tag">Tag</a></code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#Tag"><br></a></td>
+<td><a name="500931"></a>User-specified label<br></td>
+<td><a name="500933"></a>Value: any string <br><a name="500934"></a>Default:<code> '' </code>(empty string)<br></td>
+
+</tr><tr><td><a name="500937"></a><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#Types">Type</a></code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#Types"><br></a></td>
+<td><a name="500939"></a>The type of graphics object (read only)<br></td>
+<td><a name="500941"></a>Value: the string <code>'root'</code><br></td>
+
+</tr><tr><td><a name="500944"></a><code><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#UserData">UserData</a></code></code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#UserData"><br></a></td>
+<td><a name="500946"></a>User-specified data<br></td>
+<td><a name="500948"></a>Values: any matrix<br><a name="500949"></a>Default:<code> [] </code>(empty matrix)<br></td>
+
+</tr><tr><td colspan="3" rowspan="1"><a name="500951"></a><b>MATLAB profiler </b><br><!-- TBLSPANEND -->
+</td></tr><tr><td><a name="500958"></a><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#Profile">Profile</a></code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#Profile"><br></a></td>
+<td><a name="500960"></a>Enable/disable profiler<br></td>
+<td><a name="500962"></a>Values: <code>on</code>, <code>off</code><br><a name="500963"></a>Default: <code>off</code><br></td>
+
+</tr><tr><td><a name="500966"></a><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#ProfileFile">ProfileFile</a></code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#ProfileFile"><br></a></td>
+<td><a name="500968"></a>Specify the name of M-file to profile<br></td>
+<td><a name="500970"></a>Values: pathname to M-file<br></td>
+
+</tr><tr><td><a name="500973"></a><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#ProfileCount">ProfileCount</a></code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#ProfileCount"><br></a></td>
+<td><a name="500975"></a>Output of profiler<br></td>
+<td><a name="500977"></a>Values: <em>n</em>-by-1 vector<br></td>
+
+</tr><tr><td><a name="500980"></a><code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#ProfileInterval">ProfileInterval</a></code><a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html#ProfileInterval"><br></a></td>
+<td><a name="500982"></a>Time increment at with to profile M-file<br></td>
+<td><a name="500984"></a>Values: scalar (seconds)<br><a name="500985"></a>Default: <code>0.01</code> seconds<br></td>
+
+
+</tr></tbody></table> 
+<p></p>
+<a name="500987"></a><p></p>
+
+<hr><br>
+
+
+<center>[ <a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/ribbon.html">Previous</a> | <a href="http://amath.colorado.edu/computing/Matlab/helpdesk.html" target="_top">Help Desk</a> | <a href="http://amath.colorado.edu/computing/Matlab/OldTechDocs/ref/rootobject_props.html">Next</a> ]</center>
+
+<br>
+<!-- Copyright (c) 1998 by The MathWorks, Inc. -->
+<!-- Last updated: Tue Dec 23 16:57:47 1997 -->
+</body></html>

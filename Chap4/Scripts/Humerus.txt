@@ -1,0 +1,25 @@
+%% Étude de Münter
+% Mesures de longueur de l'humérus gauche et de
+% l'humérus droit de 10 squelettes humains de sexe
+% féminin.
+%
+% Les données ont été mesurées sur des squelettes
+% humains non dissociés, à la suite de fouilles
+% archéologiques en Angleterre.
+%
+% Les mesures sur une même ligne proviennent d'un
+% même squelette.
+%
+%%
+%  Humérus     Humérus
+%  gauche(mm)  droit(mm)
+   311         315
+   302         306
+   301         311
+   322         333
+   312         316
+   285         292
+   305         308
+   310         318
+   328         326
+   304         309

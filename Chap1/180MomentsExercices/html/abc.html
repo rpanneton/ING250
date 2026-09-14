@@ -1,0 +1,141 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>abc</title><meta name="generator" content="MATLAB 9.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-10-06"><meta name="DC.source" content="abc.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">% abc - Guide d'initiation &agrave; Matlab</span>
+<span class="comment">%       R&eacute;vision de l'analyse vectoriel</span>
+msgbox({
+    <span class="string">'Relations en 2D'</span>
+    <span class="string">'   &gt;&gt; Vx = 3;'</span>
+    <span class="string">'   &gt;&gt; Vy = 5;'</span>
+    <span class="string">'   &gt;&gt; V = [Vx Vy];'</span>
+    <span class="string">'   &gt;&gt; angle = atan2(Vy,Vx);'</span>
+    <span class="string">'   &gt;&gt; norme = sqrt(Vx^2 + Vy^2);'</span>
+    <span class="string">'   &gt;&gt; norme = norm(V);    produit le m&ecirc;me r&eacute;sulat.'</span>
+    <span class="string">'   &gt;&gt; Vx = norme*cos(angle);'</span>
+    <span class="string">'   &gt;&gt; Vy = norme*sin(angle);'</span>
+    <span class="string">'   &gt;&gt; V         l''absence du point-virgule fait afficher la variable.'</span>
+    <span class="string">'Relations en 3D'</span>
+    <span class="string">'   &gt;&gt; A = [11 12 13];  Vecteur ligne'</span>
+    <span class="string">'   &gt;&gt; B = [11;21;31];  Vecteur colonne'</span>
+    <span class="string">'   &gt;&gt; C = B'';               Transpos&eacute;e de B'</span>
+    <span class="string">'   &gt;&gt; R = A + C;         Addition de vecteurs'</span>
+    <span class="string">'   &gt;&gt; R = A + B'';            produit le m&ecirc;me r&eacute;sultat'</span>
+    <span class="string">'   &gt;&gt; R = [A(1)+B(1) A(2)+B(2) A(3)+B(3)]  produit le m&ecirc;me r&eacute;sulat.'</span>
+    <span class="string">'   &gt;&gt; size(A)   dimension de A, ce qui donne 1 rang&eacute;e, 3 colonnes.'</span>
+    <span class="string">'   &gt;&gt; length(A)     longueur du vecteur A, soit 3.'</span>
+    <span class="string">'   &gt;&gt; dot(A,C)       produit scalaire de A et C.'</span>
+    <span class="string">'   &gt;&gt; cross(A,C)   produit vectoriel de A x B'</span>
+    <span class="string">'Graphique'</span>
+    <span class="string">'   &gt;&gt; x=linspace(0,2*pi);   g&eacute;n&egrave;re 100 valeurs entre 0 et 2pi.'</span>
+    <span class="string">'   &gt;&gt; y=sin(x);                      calcul de y pour chaque valeur de x.'</span>
+    <span class="string">'   &gt;&gt; plot(x,y,''-b'')   trace le sinus entre 0 et 2pi avec un trait bleu.'</span>
+    <span class="string">'Compl&eacute;ter le graphique &agrave; l''aide de xlabel, ylabel, title, legend,'</span>
+    <span class="string">'d&eacute;tail :'</span>
+    <span class="string">'       &gt;&gt; doc xlabel'</span>
+    <span class="string">'       &gt;&gt; doc plot   etc.'</span>},<span class="keyword">...</span>
+    <span class="string">'abc - Guide d''initiation'</span>,<span class="keyword">...</span>
+    <span class="string">'replace'</span>)
+</pre><img vspace="5" hspace="5" src="abc_01.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+% abc - Guide d'initiation à Matlab
+%       Révision de l'analyse vectoriel
+msgbox({
+    'Relations en 2D'
+    '   >> Vx = 3;'
+    '   >> Vy = 5;'
+    '   >> V = [Vx Vy];'
+    '   >> angle = atan2(Vy,Vx);'
+    '   >> norme = sqrt(Vx^2 + Vy^2);'
+    '   >> norme = norm(V);    produit le même résulat.'
+    '   >> Vx = norme*cos(angle);'
+    '   >> Vy = norme*sin(angle);'
+    '   >> V         l''absence du point-virgule fait afficher la variable.'
+    'Relations en 3D'
+    '   >> A = [11 12 13];  Vecteur ligne'
+    '   >> B = [11;21;31];  Vecteur colonne'
+    '   >> C = B'';               Transposée de B'
+    '   >> R = A + C;         Addition de vecteurs'
+    '   >> R = A + B'';            produit le même résultat'
+    '   >> R = [A(1)+B(1) A(2)+B(2) A(3)+B(3)]  produit le même résulat.'
+    '   >> size(A)   dimension de A, ce qui donne 1 rangée, 3 colonnes.'
+    '   >> length(A)     longueur du vecteur A, soit 3.'
+    '   >> dot(A,C)       produit scalaire de A et C.'
+    '   >> cross(A,C)   produit vectoriel de A x B'
+    'Graphique'
+    '   >> x=linspace(0,2*pi);   génère 100 valeurs entre 0 et 2pi.'
+    '   >> y=sin(x);                      calcul de y pour chaque valeur de x.'
+    '   >> plot(x,y,''-b'')   trace le sinus entre 0 et 2pi avec un trait bleu.'
+    'Compléter le graphique à l''aide de xlabel, ylabel, title, legend,'
+    'détail :'
+    '       >> doc xlabel'
+    '       >> doc plot   etc.'},...
+    'abc - Guide d''initiation',...
+    'replace')
+
+##### SOURCE END #####
+--></body></html>

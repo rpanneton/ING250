@@ -1,0 +1,68 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="fr-ca">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Documenter un fichier *.dat et lecture par load</title>
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+</head>
+
+<body>
+
+<h3>Documenter un fichier *.dat</h3>
+<p>Le chapitre <i>Organiser un programme </i>insiste sur la nécessité de
+documenter les programmes. Il faut faire de même avec les fichiers de données.
+Matlab facilite cette tâche en permettant l'ajout de commentaires directement
+dans le fichier en employant l'instruction «&nbsp;%&nbsp;» habituelle. Le
+fichier peut alors être lu par la fonction&nbsp;<i>load</i>.</p>
+<p>Pour illustrer, examiner le contenu du fichier Refract.dat, lequel contient
+des données sur des alliages utilisés pour des applications à de hautes températures. 
+En supposant que le fichier est dans le répertoire de 
+travail, écrire&nbsp;:<br>
+<b>
+<code>&gt;&gt; edit Refract.dat</code></b></p>
+<table border="1" width="374">
+  <tr>
+    <td width="364">
+      <pre><font color="#008000">% Alliages pour hautes températures
+% - o o o o o o o o o o o o o o o -
+% Nom     Explication
+% ------- ---------------------------------
+% Mvo     Masse volumique (Mg/m^3)
+% Sy      Limite élastique (MPa)
+% Kc      Ténacité (MPa.m^{1/2})
+% E       Module d'élasticité (GPa)
+% Tmax    Temp. maxi. moyenne d'utilisation
+% Alliage Le nombre indique le pourcentage</font>
+
+<font color="#008000">%Mvo   Sy  Kc   E Tmax   Alliage</font>
+ 8.6  123  80  69  900 <font color="#008000">% 98.4Nb-1.6Zr</font>
+ 8.9  500 123  87  880 <font color="#008000">% 90Nb-10Hf</font>
+ 9.3  470 135 111  905 <font color="#008000">% 90Nb-10W</font>
+10.2  490 135 160  960 <font color="#008000">% 85Nb-15Ta</font>
+ 8.4  625 135 105  885 <font color="#008000">% 90Nb-5Mo-5V</font>
+16.7  700 135 197 2190 <font color="#008000">% 93Ta-7W</font>
+17.7 1235 135 335 1135 <font color="#008000">% 70W-(Cu,Ni)</font>
+17.1  697 130 315 1205 <font color="#008000">% 90W ASTM Class 1</font>
+19.3 2425 130 377 1295 <font color="#008000">% 100W (commercial)</font>
+18.6  600 135 376 1235 <font color="#008000">% 97W ASTM Class 4</font>
+10.2  845  35 315 1135 <font color="#008000">% Mo(majeur)-Ti+Zr</font>
+10.2 1085  30 329 1136 <font color="#008000">% 100Mo ASTM B386</font>
+18.1  665 135 340 1235 <font color="#008000">% 95W ASTM Class 3</font>
+17.6  580 135 340 1225 <font color="#008000">% 93W-5.25Ni-1.75Fe</font></pre>
+    </td>
+  </tr>
+</table>
+<p>Exemple de lecture à même la fenêtre de Matlab.</p>
+<pre>&gt;&gt; clear
+&gt;&gt; load Refract.dat
+&gt;&gt; whos
+  Name     Size  Bytes  Class
+  Refract  14x5    560  double array</pre>
+<hr>
+
+</body>
+
+</html>

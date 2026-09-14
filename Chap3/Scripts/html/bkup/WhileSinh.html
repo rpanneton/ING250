@@ -1,0 +1,141 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>WhileSinh</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-10-15">
+      <meta name="m-file" content="WhileSinh"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>WhileSinh</h1>
+         <introduction>
+            <p>Calculer la s&eacute;rie</p>
+            <p><img vspace="5" hspace="5" src="..\sinh.gif"> </p>
+            <p>La condition d'arr&ecirc;t est la diff&eacute;rence entre 2 termes. Utiliser une boucle while.</p>
+         </introduction><pre class="codeinput">clear <span class="string">all</span>; clc;
+x = 3*pi/2; termeA = x;
+numerateur = x*x*x;
+denominateur = 3*2;
+termeB = numerateur/denominateur;
+LeSinh = termeA + termeB;
+F = 3; <span class="comment">% F ! est la factorielle du d&eacute;nominateur</span>
+<span class="keyword">while</span>(abs(termeA-termeB)&gt;=1e-4)
+   numerateur = numerateur*x*x;
+   denominateur = denominateur*(F+1)*(F+2);
+   F = F+2;
+   termeA = termeB;
+   termeB = numerateur/denominateur;
+   LeSinh =LeSinh + termeB;
+   fprintf(<span class="string">'%12.8f\n'</span>,LeSinh);
+<span class="keyword">end</span>
+fprintf(<span class="string">'\n%12.8f selon sinh(3*pi/2)\n'</span>,sinh(x));
+</pre><pre class="codeoutput"> 41.51872779
+ 51.75772408
+ 54.91568792
+ 55.55321221
+ 55.64396383
+ 55.65356043
+ 55.65434391
+ 55.65439479
+ 55.65439748
+
+ 55.65439760 selon sinh(3*pi/2)
+</pre><p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% WhileSinh
+% Calculer la série
+%
+% <<..\sinh.gif>>
+%
+% La condition d'arrêt est la différence entre 2
+% termes. Utiliser une boucle while.
+
+%%
+clear all; clc;
+x = 3*pi/2; termeA = x;
+numerateur = x*x*x;
+denominateur = 3*2;
+termeB = numerateur/denominateur;
+LeSinh = termeA + termeB;
+F = 3; % F ! est la factorielle du dénominateur
+while(abs(termeA-termeB)>=1e-4)
+   numerateur = numerateur*x*x;
+   denominateur = denominateur*(F+1)*(F+2);
+   F = F+2;
+   termeA = termeB;
+   termeB = numerateur/denominateur;
+   LeSinh =LeSinh + termeB;
+   fprintf('%12.8f\n',LeSinh);
+end
+fprintf('\n%12.8f selon sinh(3*pi/2)\n',sinh(x));
+##### SOURCE END #####
+-->
+   </body>
+</html>

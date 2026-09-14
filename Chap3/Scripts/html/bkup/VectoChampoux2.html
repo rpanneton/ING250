@@ -1,0 +1,120 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>fonction de transfert</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-10-16">
+      <meta name="m-file" content="VectoChampoux2"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>fonction de transfert</h1>
+         <introduction><pre>H = vitesse/force d'un syst&egrave;me dynamique</pre></introduction><pre class="codeinput">clear <span class="string">all</span>; home; close <span class="string">all</span>
+m=2;    <span class="comment">% masse (kg)</span>
+k=18;   <span class="comment">% ressort (N/m)</span>
+c=2;    <span class="comment">% amortissement (N s/m)</span>
+omega = linspace(0,5,300); <span class="comment">% fr&eacute;quence angulaire (rad/s)</span>
+numerateur = omega; <span class="comment">%vecteur contenant 300 &eacute;l&eacute;ments</span>
+denominateur = (-omega.*omega*m+k).^2 + (omega*c).^2;
+   <span class="comment">% denominateur est un vecteur contenant</span>
+   <span class="comment">% le m&ecirc;me nombre d'&eacute;l&eacute;ments que le numerateur.</span>
+H = numerateur./sqrt(denominateur);
+   <span class="comment">% division &eacute;l&eacute;ment par &eacute;l&eacute;ment</span>
+   <span class="comment">% la fonction de transfert H contient le</span>
+   <span class="comment">% m&ecirc;me nombre d'&eacute;l&eacute;ments que le vecteur omega.</span>
+plot(omega,H);
+ylabel(<span class="string">'Fonction de transfert H (m / s / N)'</span>);
+xlabel(<span class="string">'Fr&eacute;quence angulaire \omega (rad/s)'</span>);
+title(<span class="string">'Mobilit&eacute; dynamique'</span>); grid <span class="string">on</span>;
+</pre><img vspace="5" hspace="5" src="VectoChampoux2_01.png"> <p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% fonction de transfert
+%  H = vitesse/force d'un système dynamique
+%%
+clear all; home; close all
+m=2;    % masse (kg)
+k=18;   % ressort (N/m)
+c=2;    % amortissement (N s/m)
+omega = linspace(0,5,300); % fréquence angulaire (rad/s)
+numerateur = omega; %vecteur contenant 300 éléments
+denominateur = (-omega.*omega*m+k).^2 + (omega*c).^2;
+   % denominateur est un vecteur contenant
+   % le même nombre d'éléments que le numerateur.
+H = numerateur./sqrt(denominateur); 
+   % division élément par élément
+   % la fonction de transfert H contient le
+   % même nombre d'éléments que le vecteur omega.
+plot(omega,H);
+ylabel('Fonction de transfert H (m / s / N)');
+xlabel('Fréquence angulaire \omega (rad/s)');
+title('Mobilité dynamique'); grid on;
+##### SOURCE END #####
+-->
+   </body>
+</html>

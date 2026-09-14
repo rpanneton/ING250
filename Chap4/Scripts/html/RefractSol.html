@@ -1,0 +1,250 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>Lecture et affichage d'un tableau</title>
+<meta name="generator" content="MATLAB 24.2">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2025-11-19">
+<meta name="DC.source" content="RefractSol.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<h1>Lecture et affichage d'un tableau</h1>
+<!--introduction-->
+<!--/introduction-->
+<h2>Contents</h2>
+<div>
+<ul>
+<li>
+<a href="#1">Constituer les 5 vecteurs num&eacute;riques</a>
+</li>
+<li>
+<a href="#3">Afficher les vecteurs</a>
+</li>
+<li>
+<a href="#4">Le format est vectoris&eacute;</a>
+</li>
+<li>
+<a href="#5">Autre m&eacute;thode : afficher directement la matrice</a>
+</li>
+</ul>
+</div>
+<h2 id="1">Constituer les 5 vecteurs num&eacute;riques</h2>
+<pre class="codeinput">clear; clc; close <span class="string">all</span>;
+A=load(<span class="string">'Refract.dat'</span>);
+Mvo = A(:,1); Sy = A(:,2); Kc = A(:,3);
+E = A(:,4); Tmax = A(:,5);
+</pre>
+<pre class="codeinput">NomAlliage = [
+<span class="string">'98.4Nb-1.6Zr     '</span>
+<span class="string">'90Nb-10Hf        '</span>
+<span class="string">'90Nb-10W         '</span>
+<span class="string">'85Nb-15Ta        '</span>
+<span class="string">'90Nb-5Mo-5V      '</span>
+<span class="string">'93Ta-7W          '</span>
+<span class="string">'70W-(Cu,Ni)      '</span>
+<span class="string">'90W ASTM Class 1 '</span>
+<span class="string">'100W (commercial)'</span>
+<span class="string">'97W ASTM Class 4 '</span>
+<span class="string">'Mo(majeur)-Ti+Zr '</span>
+<span class="string">'100Mo ASTM B386  '</span>
+<span class="string">'95W ASTM Class 3 '</span>
+<span class="string">'93W-5.25Ni-1.75Fe'</span>];
+</pre>
+<h2 id="3">Afficher les vecteurs</h2>
+<pre class="codeinput">[m,n]=size(A);
+fprintf(<span class="string">' Mvo   Sy    Kc     E   Tmax\n'</span>);
+<span class="keyword">for</span> i=1:m
+   fprintf(<span class="string">'%4.1f'</span>, Mvo(i));
+   fprintf(<span class="string">' %5.0f'</span>, Sy(i), Kc(i), E(i), Tmax(i));
+   fprintf(<span class="string">'\n'</span>);
+<span class="keyword">end</span>
+</pre>
+<pre class="codeoutput"> Mvo   Sy    Kc     E   Tmax
+ 8.6   123    80    69   900
+ 8.9   500   123    87   880
+ 9.3   470   135   111   905
+10.2   490   135   160   960
+ 8.4   625   135   105   885
+16.7   700   135   197  2190
+17.7  1235   135   335  1135
+17.1   697   130   315  1205
+19.3  2425   130   377  1295
+18.6   600   135   376  1235
+10.2   845    35   315  1135
+10.2  1085    30   329  1136
+18.1   665   135   340  1235
+17.6   580   135   340  1225
+</pre>
+<h2 id="4">Le format est vectoris&eacute;</h2>
+<p>Tirer avantage de cette caract&eacute;ristique.</p>
+<p>Voici une utilisation maladroite du format. Le r&eacute;sultat est identique.</p>
+<pre class="codeinput">fprintf(<span class="string">' Mvo   Sy    Kc     E   Tmax\n'</span>);
+<span class="keyword">for</span> i=1:3
+   fprintf(<span class="string">'%4.1f'</span>, Mvo(i));
+   fprintf(<span class="string">' %5.0f %5.0f %5.0f %5.0f'</span>,<span class="keyword">...</span>
+      Sy(i), Kc(i), E(i), Tmax(i));
+   fprintf(<span class="string">'\n'</span>);
+<span class="keyword">end</span>
+fprintf(<span class="string">' Etc.\n'</span>)
+</pre>
+<pre class="codeoutput"> Mvo   Sy    Kc     E   Tmax
+ 8.6   123    80    69   900
+ 8.9   500   123    87   880
+ 9.3   470   135   111   905
+ Etc.
+</pre>
+<h2 id="5">Autre m&eacute;thode : afficher directement la matrice</h2>
+<pre class="codeinput">fprintf(<span class="string">' Mvo   Sy    Kc     E   Tmax\n'</span>);
+<span class="keyword">for</span> i=1:3
+   fprintf(<span class="string">'%4.1f'</span>, A(i,1));
+   fprintf(<span class="string">' %5.0f'</span>, A(i,2:n));
+   fprintf(<span class="string">'\n'</span>);
+<span class="keyword">end</span>
+fprintf(<span class="string">' Etc.\n'</span>)
+</pre>
+<pre class="codeoutput"> Mvo   Sy    Kc     E   Tmax
+ 8.6   123    80    69   900
+ 8.9   500   123    87   880
+ 9.3   470   135   111   905
+ Etc.
+</pre>
+<p>
+<img vspace="5" hspace="5" src="..\Feuilles.gif" alt=""> </p>
+<p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2024b</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+%% Lecture et affichage d'un tableau
+
+%% Constituer les 5 vecteurs numériques
+clear; clc; close all;
+A=load('Refract.dat');
+Mvo = A(:,1); Sy = A(:,2); Kc = A(:,3);
+E = A(:,4); Tmax = A(:,5);
+%%
+NomAlliage = [
+'98.4Nb-1.6Zr     '
+'90Nb-10Hf        '
+'90Nb-10W         '
+'85Nb-15Ta        '
+'90Nb-5Mo-5V      '
+'93Ta-7W          '
+'70W-(Cu,Ni)      '
+'90W ASTM Class 1 '
+'100W (commercial)'
+'97W ASTM Class 4 '
+'Mo(majeur)-Ti+Zr '
+'100Mo ASTM B386  '
+'95W ASTM Class 3 '
+'93W-5.25Ni-1.75Fe'];
+
+%% Afficher les vecteurs
+[m,n]=size(A);
+fprintf(' Mvo   Sy    Kc     E   Tmax\n');
+for i=1:m
+   fprintf('%4.1f', Mvo(i));
+   fprintf(' %5.0f', Sy(i), Kc(i), E(i), Tmax(i));
+   fprintf('\n');
+end
+
+%% Le format est vectorisé
+% Tirer avantage de cette caractéristique.
+%
+% Voici une utilisation maladroite du
+% format. Le résultat est identique.
+
+fprintf(' Mvo   Sy    Kc     E   Tmax\n');
+for i=1:3
+   fprintf('%4.1f', Mvo(i));
+   fprintf(' %5.0f %5.0f %5.0f %5.0f',...
+      Sy(i), Kc(i), E(i), Tmax(i));
+   fprintf('\n');
+end
+fprintf(' Etc.\n')
+
+%% Autre méthode : afficher directement la matrice
+fprintf(' Mvo   Sy    Kc     E   Tmax\n');
+for i=1:3
+   fprintf('%4.1f', A(i,1));
+   fprintf(' %5.0f', A(i,2:n));
+   fprintf('\n');
+end
+fprintf(' Etc.\n')
+%%
+% <<..\Feuilles.gif>>
+##### SOURCE END #####
+-->
+</body>
+</html>

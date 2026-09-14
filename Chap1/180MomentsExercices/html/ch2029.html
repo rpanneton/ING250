@@ -1,0 +1,187 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Probl&egrave;me 2/29, Meriam p. 43</title><meta name="generator" content="MATLAB 9.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-10-06"><meta name="DC.source" content="ch2029.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Probl&egrave;me 2/29, Meriam p. 43</h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">&Eacute;tape 1 &#8211; D&eacute;marche vectorielle</a></li><li><a href="#3">&Eacute;tape 2 &#8211; Expression scalaire</a></li><li><a href="#4">D&eacute;marche scalaire (ajout)</a></li></ul></div><h2 id="1">&Eacute;tape 1 &#8211; D&eacute;marche vectorielle</h2><p><img vspace="5" hspace="5" src="..\ch2029.gif" alt=""> </p><pre class="codeinput">clear; close <span class="string">all</span>; clc;
+</pre><p>Calculer <b>M</b>_o_ = <b>r</b>_oA_ &times; <b>F</b>  &eacute;quation (2/6)</p><p>Sp&eacute;cifier un vecteur ayant comme origine le point (<i>O</i>) et l'autre extr&eacute;mit&eacute; en un point quelconque sur la ligne d'action de la force F.</p><p>Exemple : le point <i>A</i> (connu). Le vecteur <b>r</b> est -4 <b>i</b> +5 <b>j</b>.</p><p>Pour effectuer le produit vectoriel, le vecteur doit avoir une repr&eacute;sentation 3D. Il suffit s'ajouter 0 <b>k</b>.</p><p><b>r</b> = -4 <b>i</b> +5 <b>j</b> +0 <b>k</b></p><p>Il faut faire de m&ecirc;me pour le vecteur <b>F</b>.</p><pre class="codeinput">roA = [-4, 5, 0]; mF = 10; <span class="comment">% kN (Norme)</span>
+theta = atan2(-3,4)*180/pi;
+nF = [cosd(theta),sind(theta),0];<span class="comment">% vecteur unitaire</span>
+F = mF*nF;
+Mo = cross(roA,F);
+fprintf(<span class="string">'roA = %+6.1fi %+6.1fj %+6.1fk m\n'</span>,roA);
+fprintf(<span class="string">'  F = %+6.1fi %+6.1fj %+6.1fk kN\n'</span>,F);
+fprintf(<span class="string">' Mo = %+6.1fi %+6.1fj %+6.1fk kN&middot;m\n'</span>,Mo);
+</pre><pre class="codeoutput">roA =   -4.0i   +5.0j   +0.0k m
+  F =   +8.0i   -6.0j   +0.0k kN
+ Mo =   +0.0i   +0.0j  -16.0k kN&middot;m
+</pre><h2 id="3">&Eacute;tape 2 &#8211; Expression scalaire</h2><pre class="codeinput">Norme = norm(Mo);
+fprintf(<span class="string">'\nNorme de Mo = %.1f kN&middot;m'</span>,Norme);
+<span class="comment">% Est-ce que le moment est positif ?</span>
+<span class="comment">% Le r&eacute;sultat est caract&eacute;ris&eacute; par une des deux</span>
+<span class="comment">% valeurs possibles en logique binaire : vrai ou</span>
+<span class="comment">% faux.</span>
+MomentPositif = Mo(3) &gt; 0; <span class="comment">% variable logique</span>
+<span class="comment">% Mo(3) est le moment autour de l'axe des _z_.</span>
+<span class="keyword">if</span>(MomentPositif) <span class="comment">% si le moment est positif</span>
+   fprintf(<span class="string">' dans le sens antihoraire\n'</span>);
+<span class="keyword">else</span> <span class="comment">% sinon</span>
+   fprintf(<span class="string">' dans le sens horaire\n'</span>);
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">
+Norme de Mo = 16.0 kN&middot;m dans le sens horaire
+</pre><h2 id="4">D&eacute;marche scalaire (ajout)</h2><p><img vspace="5" hspace="5" src="..\ch2029a.gif" alt=""> </p><p>Le bras de levier est nul pour un point quelconque situ&eacute; sur l'axe d'application de la force <b>F</b>. Les points <i>B</i> et <i>C</i> r&eacute;pondent &agrave; ce crit&egrave;re.</p><pre class="codeinput">clear <span class="string">all</span>; close <span class="string">all</span>; clc;
+mF = 10; <span class="comment">% Norme de F en kN</span>
+A = [-4, 5]; <span class="comment">% ce n'est pas un vecteur physique.</span>
+<span class="comment">% C'est une structure de donn&eacute;es 2D de Matlab,</span>
+<span class="comment">% choisie pour repr&eacute;senter les coordonn&eacute;es du</span>
+<span class="comment">% point _A_.</span>
+B(1) = 0; <span class="comment">% Le point B est situ&eacute; aur l'axe des y.</span>
+pente = -3/4;
+B(2) = A(2)-pente*(A(1)-B(1));
+fprintf(<span class="string">'Point B = (%.2f, %.2f)\n'</span>,B);
+</pre><pre class="codeoutput">Point B = (0.00, 2.00)
+</pre><p>Au point B, la composante Fy ne contribue pas au moment et le bras de levier est B(2).</p><pre class="codeinput">Fx = mF*4/5; Mo = Fx * B(2);
+fprintf(<span class="string">'Norme de Mo = %.0f kN&middot;m'</span>,Mo);
+fprintf(<span class="string">' dans le sens horaire\n'</span>);
+</pre><pre class="codeoutput">Norme de Mo = 16 kN&middot;m dans le sens horaire
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Problème 2/29, Meriam p. 43
+
+%% Étape 1 – Démarche vectorielle
+% <<..\ch2029.gif>>
+%
+clear; close all; clc;
+
+%%
+% Calculer *M*_o_ = *r*_oA_ × *F*  équation (2/6)
+%
+% Spécifier un vecteur ayant comme origine le
+% point (_O_) et l'autre extrémité en un point
+% quelconque sur la ligne d'action de la force F.
+%
+% Exemple : le point _A_ (connu).
+% Le vecteur *r* est -4 *i* +5 *j*.
+%
+% Pour effectuer le produit vectoriel, le vecteur
+% doit avoir une représentation 3D. Il suffit
+% s'ajouter 0 *k*.
+%
+% *r* = -4 *i* +5 *j* +0 *k*
+%
+% Il faut faire de même pour le vecteur *F*.
+
+roA = [-4, 5, 0]; mF = 10; % kN (Norme)
+theta = atan2(-3,4)*180/pi;
+nF = [cosd(theta),sind(theta),0];% vecteur unitaire
+F = mF*nF;
+Mo = cross(roA,F);
+fprintf('roA = %+6.1fi %+6.1fj %+6.1fk m\n',roA);
+fprintf('  F = %+6.1fi %+6.1fj %+6.1fk kN\n',F);
+fprintf(' Mo = %+6.1fi %+6.1fj %+6.1fk kN·m\n',Mo);
+
+%% Étape 2 – Expression scalaire
+Norme = norm(Mo);
+fprintf('\nNorme de Mo = %.1f kN·m',Norme);
+% Est-ce que le moment est positif ?
+% Le résultat est caractérisé par une des deux
+% valeurs possibles en logique binaire : vrai ou
+% faux.
+MomentPositif = Mo(3) > 0; % variable logique
+% Mo(3) est le moment autour de l'axe des _z_.
+if(MomentPositif) % si le moment est positif
+   fprintf(' dans le sens antihoraire\n');
+else % sinon
+   fprintf(' dans le sens horaire\n');
+end
+
+%% Démarche scalaire (ajout)
+% <<..\ch2029a.gif>>
+%
+% Le bras de levier est nul pour un point
+% quelconque situé sur l'axe d'application de la
+% force *F*. Les points _B_ et _C_ répondent à ce
+% critère.
+clear all; close all; clc;
+mF = 10; % Norme de F en kN
+A = [-4, 5]; % ce n'est pas un vecteur physique.
+% C'est une structure de données 2D de Matlab,
+% choisie pour représenter les coordonnées du
+% point _A_.
+B(1) = 0; % Le point B est situé aur l'axe des y.
+pente = -3/4;
+B(2) = A(2)-pente*(A(1)-B(1));
+fprintf('Point B = (%.2f, %.2f)\n',B);
+
+%%
+% Au point B, la composante Fy ne contribue pas au
+% moment et le bras de levier est B(2).
+Fx = mF*4/5; Mo = Fx * B(2);
+fprintf('Norme de Mo = %.0f kN·m',Mo);
+fprintf(' dans le sens horaire\n');
+##### SOURCE END #####
+--></body></html>

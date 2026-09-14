@@ -1,0 +1,117 @@
+﻿<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>xls14et20nov</title>
+      <meta name="generator" content="MATLAB 7.0.4">
+      <meta name="date" content="2005-11-09">
+      <meta name="m-file" content="xls14et20nov"><style>
+body {
+  background-color: white;
+  margin:10px;
+}
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+pre.codeinput {
+  margin-left: 30px;
+}
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.showbuttons {
+  margin-left: 30px;
+  border: solid black 2px;
+  padding: 4px;
+  background: #EBEFF3;
+}
+
+pre.codeoutput {
+  color: gray;
+  font-style: italic;
+}
+pre.error {
+  color: red;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows.  On Gecko-based browsers, the shrink-to-fit doesn't work. */ 
+p,h1,h2,div {
+  /* for MATLAB's browser */
+  width: 600px;
+  /* for Mozilla, but the "width" tag overrides it anyway */
+  max-width: 600px;
+  /* for IE */
+  width:expression(document.body.clientWidth > 620 ? "600px": "auto" );
+}
+
+    </style></head>
+   <body><pre class="codeinput"><span class="comment">% Fichier xls14et20nov.m</span>
+clear; clc
+C1 = <span class="string">'Temp&eacute;rature moyenne entre les 14 et 20 novembre'</span>;
+C2 = <span class="string">'pendant la p&eacute;riode de 1998 &agrave; 2002'</span>;
+
+M = xlsread(<span class="string">'Novembre.xls'</span>);
+[nrang,ncol]=size(M);
+nov14=14; nov20=20;
+an1998=4; an2002=8;
+somme = 0;
+<span class="keyword">for</span> i=nov14:nov20
+   <span class="keyword">for</span> j=an1998:an2002
+      somme=somme+M(i,j);
+   <span class="keyword">end</span>
+<span class="keyword">end</span>
+fprintf([C1,<span class="string">'\n'</span>,C2,<span class="string">'\nXm = %.1f &deg;C\n'</span>],<span class="keyword">...</span>
+   somme/<span class="keyword">...</span>
+   ((nov20-nov14+1)*(an2002-an1998+1)) );
+</pre><pre class="codeoutput">Temp&eacute;rature moyenne entre les 14 et 20 novembre
+pendant la p&eacute;riode de 1998 &agrave; 2002
+Xm = 1.1 &deg;C
+</pre><p class="footer"><br>
+         Published with MATLAB&reg; 7.0.4<br></p>
+      <!--
+##### SOURCE BEGIN #####
+% Fichier xls14et20nov.m
+clear; clc
+C1 = 'Température moyenne entre les 14 et 20 novembre';
+C2 = 'pendant la période de 1998 à 2002';
+
+M = xlsread('Novembre.xls');
+[nrang,ncol]=size(M);
+nov14=14; nov20=20;
+an1998=4; an2002=8;
+somme = 0;
+for i=nov14:nov20
+   for j=an1998:an2002
+      somme=somme+M(i,j);
+   end
+end
+fprintf([C1,'\n',C2,'\nXm = %.1f °C\n'],...
+   somme/...
+   ((nov20-nov14+1)*(an2002-an1998+1)) );
+
+##### SOURCE END #####
+-->
+   </body>
+</html>

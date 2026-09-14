@@ -1,0 +1,135 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Exemple 2/1, Meriam p. 29</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-08-16">
+      <meta name="m-file" content="SP2_1"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Exemple 2/1, Meriam p. 29</h1>
+         <introduction><pre>Fichier SP2_1.m</pre><p>D&eacute;terminer les composantes scalaires selon les axes x et y des trois forces concourantes au point&nbsp;A.</p>
+            <p><img vspace="5" hspace="5" src="..\MeriamSP2_1.gif"> </p>
+         </introduction><pre class="codeinput">clear <span class="string">all</span>; close <span class="string">all</span>; clc;
+F1 = 600; F2 = 500; F3 = 800; <span class="comment">% N</span>
+F1x = F1*cosd(35); F1y = F1*sind(35);
+fprintf(<span class="string">'F1x : %+.0f lb  et  '</span>,F1x);
+fprintf(<span class="string">'F1y : %+.0f lb\n'</span>,F1y);
+</pre><pre class="codeoutput">F1x : +491 lb  et  F1y : +344 lb
+</pre><pre class="codeinput">angleF2 = atan2(3,-4)*180/pi; <span class="comment">% degr&eacute;s</span>
+F2x = F2*cosd(angleF2); F2y = F2*sind(angleF2);
+fprintf(<span class="string">'F2x : %+.0f lb  et  '</span>,F2x);
+fprintf(<span class="string">'F2y : %+.0f lb\n'</span>,F2y);
+</pre><pre class="codeoutput">F2x : -400 lb  et  F2y : +300 lb
+</pre><pre class="codeinput">angleF3 =atan2(-0.1-0.3, 0.4-0.2)*180/pi; <span class="comment">% degr&eacute;s</span>
+F3x = F3*cosd(angleF3); F3y = F3*sind(angleF3);
+fprintf(<span class="string">'F3x : %+.0f lb  et  '</span>,F3x);
+fprintf(<span class="string">'F3y : %+.0f lb\n'</span>,F3y);
+</pre><pre class="codeoutput">F3x : +358 lb  et  F3y : -716 lb
+</pre><p>Ajout</p><pre class="codeinput">fprintf(<span class="string">'Rx : %+.0f lb  et  '</span>,F1x+F2x+F3x);
+fprintf(<span class="string">' Ry : %+.0f lb\n'</span>,F1y+F2y+F3y);
+</pre><pre class="codeoutput">Rx : +449 lb  et   Ry : -71 lb
+</pre><p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Exemple 2/1, Meriam p. 29
+%  Fichier SP2_1.m
+%
+% Déterminer les composantes scalaires selon les
+% axes x et y des trois forces concourantes au
+% point A.
+% 
+% <<..\MeriamSP2_1.gif>>
+
+%%
+clear all; close all; clc;
+F1 = 600; F2 = 500; F3 = 800; % N
+F1x = F1*cosd(35); F1y = F1*sind(35);
+fprintf('F1x : %+.0f lb  et  ',F1x);
+fprintf('F1y : %+.0f lb\n',F1y);
+
+%%
+angleF2 = atan2(3,-4)*180/pi; % degrés
+F2x = F2*cosd(angleF2); F2y = F2*sind(angleF2);
+fprintf('F2x : %+.0f lb  et  ',F2x);
+fprintf('F2y : %+.0f lb\n',F2y);
+%%
+angleF3 =atan2(-0.1-0.3, 0.4-0.2)*180/pi; % degrés
+F3x = F3*cosd(angleF3); F3y = F3*sind(angleF3);
+fprintf('F3x : %+.0f lb  et  ',F3x);
+fprintf('F3y : %+.0f lb\n',F3y);
+
+%% 
+% Ajout
+fprintf('Rx : %+.0f lb  et  ',F1x+F2x+F3x);
+fprintf(' Ry : %+.0f lb\n',F1y+F2y+F3y);
+##### SOURCE END #####
+-->
+   </body>
+</html>

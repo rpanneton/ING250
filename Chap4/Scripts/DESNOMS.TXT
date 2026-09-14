@@ -1,0 +1,6 @@
+Maryse  32
+Lucie   18
+Paul    36
+Marc    21
+Marthe  39
+Jacques 27

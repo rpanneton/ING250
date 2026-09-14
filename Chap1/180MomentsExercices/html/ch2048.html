@@ -1,0 +1,188 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Probl&egrave;me 2/48, Meriam p. 47</title><meta name="generator" content="MATLAB 9.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-10-06"><meta name="DC.source" content="ch2048.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Probl&egrave;me 2/48, Meriam p. 47</h1><!--introduction--><p><img vspace="5" hspace="5" src="..\ch2048.gif" alt=""> </p><p>Revoir l'exemple 2/5.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">&Eacute;tape 1 &#8211; D&eacute;marche vectorielle</a></li><li><a href="#2">&Eacute;tape 2 &#8211; Expression scalaire</a></li><li><a href="#3">D&eacute;marche scalaire (ajout)</a></li></ul></div><h2 id="1">&Eacute;tape 1 &#8211; D&eacute;marche vectorielle</h2><pre class="codeinput">clear; close <span class="string">all</span>; clc
+mF = 200; <span class="comment">% N (Norme)</span>
+angle = 180-15; <span class="comment">% degr&eacute;s convention de atan2</span>
+nF = [cosd(angle), sind(angle), 0]; F = nF*mF;
+rAB = [400e-3, 280e-3, 0]; <span class="comment">% m</span>
+MA = cross(rAB,F);
+fprintf(<span class="string">'rAB = %+6.2fi %+6.2fj %+6.2fk m\n'</span>,rAB);
+fprintf(<span class="string">'  F = %+6.2fi %+6.2fj %+6.2fk N\n'</span>,F);
+fprintf(<span class="string">' MA = %+6.2fi %+6.2fj %+6.2fk N&middot;m\n'</span>,MA);
+</pre><pre class="codeoutput">rAB =  +0.40i  +0.28j  +0.00k m
+  F = -193.19i +51.76j  +0.00k N
+ MA =  +0.00i  -0.00j +74.80k N&middot;m
+</pre><h2 id="2">&Eacute;tape 2 &#8211; Expression scalaire</h2><pre class="codeinput">Norme = norm(MA);
+fprintf(<span class="string">'\nNorme de MA = %.1f N&middot;m'</span>,Norme);
+MomentPositif = MA(3) &gt; 0; <span class="comment">% variable logique</span>
+<span class="keyword">if</span>(MomentPositif)
+   fprintf(<span class="string">' dans le sens antihoraire\n'</span>);
+<span class="keyword">else</span>
+   fprintf(<span class="string">' dans le sens horaire\n'</span>);
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">
+Norme de MA = 74.8 N&middot;m dans le sens antihoraire
+</pre><h2 id="3">D&eacute;marche scalaire (ajout)</h2><p><b>MA &#8211; d&eacute;marche scalaire n&ordm;1</b></p><p>Appliquer le th&eacute;or&egrave;me de Varignon.</p><div><ul><li>&Eacute;valuer les composantes rectangulaires de la force au point <i>B</i>.</li><li>Pour chacune, d&eacute;terminer le bras de levier par rapport &agrave; <i>A</i>.</li></ul></div><p><img vspace="5" hspace="5" src="..\ch2048a.gif" alt=""> </p><pre class="codeinput">clear; close <span class="string">all</span>; clc
+mF = 200; <span class="comment">% N (Norme)</span>
+Fx = mF*cosd(15); Fy = mF*sind(15); <span class="comment">% N</span>
+dx = 400e-3; <span class="comment">% m (bras de levier de Fy)</span>
+dy = 280e-3; <span class="comment">% m (bras de levier de Fx)</span>
+MA = Fx*dy + Fy*dx; <span class="comment">% (sens antihoraire)</span>
+fprintf(<span class="string">'Norme de MA = %.1f N&middot;m'</span>,MA);
+fprintf(<span class="string">' dans le sens antihoraire\n'</span>);
+</pre><pre class="codeoutput">Norme de MA = 74.8 N&middot;m dans le sens antihoraire
+</pre><p><b>MA &#8211; d&eacute;marche scalaire n&ordm;2</b></p><p>Utiliser le principe de transmissibilit&eacute; pour d&eacute;placer le vecteur sur l'axe des <i>x</i>, ce qui &eacute;limine le moment de la composante <i>Fx</i>.</p><p><img vspace="5" hspace="5" src="..\ch2048b.gif" alt=""> </p><pre class="codeinput">AC = 400e-3; CB = 280e-3; CD = CB/tand(15); <span class="comment">% m</span>
+MA = (AC+CD)*Fy;
+fprintf(<span class="string">'Norme de MA = %.1f N&middot;m'</span>,MA);
+fprintf(<span class="string">' dans le sens antihoraire\n'</span>);
+</pre><pre class="codeoutput">Norme de MA = 74.8 N&middot;m dans le sens antihoraire
+</pre><p><b>MA &#8211; d&eacute;marche scalaire n&ordm;3</b></p><p>Utiliser le principe de transmissibilit&eacute; pour d&eacute;placer le vecteur sur l'axe des <i>y</i>, ce qui &eacute;limine le moment de la composante <i>Fy</i>.</p><p><img vspace="5" hspace="5" src="..\ch2048c.gif" alt=""> </p><pre class="codeinput">AH = 280e-3; HB = 400e-3; HE = HB*tand(15); <span class="comment">% m</span>
+MA = (AH+HE)*Fx;
+fprintf(<span class="string">'Norme de MA = %.1f N&middot;m'</span>,MA);
+fprintf(<span class="string">' dans le sens antihoraire\n'</span>);
+</pre><pre class="codeoutput">Norme de MA = 74.8 N&middot;m dans le sens antihoraire
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Problème 2/48, Meriam p. 47
+% <<..\ch2048.gif>>
+%
+% Revoir l'exemple 2/5.
+
+%% Étape 1 – Démarche vectorielle
+clear; close all; clc
+mF = 200; % N (Norme)
+angle = 180-15; % degrés convention de atan2
+nF = [cosd(angle), sind(angle), 0]; F = nF*mF;
+rAB = [400e-3, 280e-3, 0]; % m
+MA = cross(rAB,F);
+fprintf('rAB = %+6.2fi %+6.2fj %+6.2fk m\n',rAB);
+fprintf('  F = %+6.2fi %+6.2fj %+6.2fk N\n',F);
+fprintf(' MA = %+6.2fi %+6.2fj %+6.2fk N·m\n',MA);
+
+%% Étape 2 – Expression scalaire
+Norme = norm(MA);
+fprintf('\nNorme de MA = %.1f N·m',Norme);
+MomentPositif = MA(3) > 0; % variable logique
+if(MomentPositif)
+   fprintf(' dans le sens antihoraire\n');
+else
+   fprintf(' dans le sens horaire\n');
+end
+%% Démarche scalaire (ajout)
+% *MA – démarche scalaire nº1*
+%
+% Appliquer le théorème de Varignon.
+%
+% * Évaluer les composantes rectangulaires de
+% la force au point _B_.
+% * Pour chacune, déterminer le bras de levier par
+% rapport à _A_.
+%
+% <<..\ch2048a.gif>>
+%
+clear; close all; clc
+mF = 200; % N (Norme)
+Fx = mF*cosd(15); Fy = mF*sind(15); % N
+dx = 400e-3; % m (bras de levier de Fy)
+dy = 280e-3; % m (bras de levier de Fx)
+MA = Fx*dy + Fy*dx; % (sens antihoraire)
+fprintf('Norme de MA = %.1f N·m',MA);
+fprintf(' dans le sens antihoraire\n');
+
+%%
+% *MA – démarche scalaire nº2*
+%
+% Utiliser le principe de transmissibilité pour
+% déplacer le vecteur sur l'axe des _x_, ce qui
+% élimine le moment de la composante _Fx_.
+%
+% <<..\ch2048b.gif>>
+%
+AC = 400e-3; CB = 280e-3; CD = CB/tand(15); % m
+MA = (AC+CD)*Fy;
+fprintf('Norme de MA = %.1f N·m',MA);
+fprintf(' dans le sens antihoraire\n');
+
+%%
+% *MA – démarche scalaire nº3*
+%
+% Utiliser le principe de transmissibilité pour
+% déplacer le vecteur sur l'axe des _y_, ce qui
+% élimine le moment de la composante _Fy_.
+%
+% <<..\ch2048c.gif>>
+%
+AH = 280e-3; HB = 400e-3; HE = HB*tand(15); % m
+MA = (AH+HE)*Fx;
+fprintf('Norme de MA = %.1f N·m',MA);
+fprintf(' dans le sens antihoraire\n');
+
+
+##### SOURCE END #####
+--></body></html>

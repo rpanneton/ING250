@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>Des iris</title>
+<meta name="generator" content="MATLAB 24.2">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2025-11-19">
+<meta name="DC.source" content="IrisSol.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<h1>Des iris</h1>
+<!--introduction-->
+<!--/introduction-->
+<h2>Contents</h2>
+<div>
+<ul>
+<li>
+<a href="#1">&Eacute;tape 1 &ndash; lecture</a>
+</li>
+<li>
+<a href="#2">&Eacute;tape 2 &ndash; surface d'un s&eacute;pale et d'un p&eacute;tale</a>
+</li>
+<li>
+<a href="#3">&Eacute;tape 3 &ndash; dimensions du plus gros p&eacute;tale</a>
+</li>
+<li>
+<a href="#5">&Eacute;tape 4 &ndash; crit&egrave;re de s&eacute;paration</a>
+</li>
+</ul>
+</div>
+<h2 id="1">&Eacute;tape 1 &ndash; lecture</h2>
+<pre class="codeinput">clear; close <span class="string">all</span>; clc;
+C = readmatrix(<span class="string">'Iris.xls'</span>);
+</pre>
+<h2 id="2">&Eacute;tape 2 &ndash; surface d'un s&eacute;pale et d'un p&eacute;tale</h2>
+<p>
+<img vspace="5" hspace="5" src="..\IrisSepalePetale.gif" alt=""> </p>
+<pre class="codeinput">figure(1); grid <span class="string">on</span>; hold <span class="string">on</span>; axis([10,32,2,18]);
+plot(C(:,1).*C(:,2),C(:,3).*C(:,4),<span class="string">'or'</span>);
+plot(C(:,5).*C(:,6),C(:,7).*C(:,8),<span class="string">'ob'</span>);
+xlabel(<span class="string">'Surface d''un s&eacute;pale (mm^2)'</span>)
+ylabel(<span class="string">'Surface d''un p&eacute;tale (mm^2)'</span>)
+title([<span class="string">'Surface d''un p&eacute;tale versus '</span>,<span class="keyword">...</span>
+   <span class="string">'celle d''un s&eacute;pale'</span>]);
+legend(<span class="string">'Iris Virginica'</span>,<span class="string">'Iris Versicolor'</span>,<span class="keyword">...</span>
+   <span class="string">'Location'</span>,<span class="string">'best'</span>);
+<span class="keyword">return</span>
+</pre>
+<img vspace="5" hspace="5" src="IrisSol_01.png" alt=""> <h2 id="3">&Eacute;tape 3 &ndash; dimensions du plus gros p&eacute;tale</h2>
+<p>Rechercher l'indice de la ligne pour des iris Virginica (solution par programmation traditionnelle).</p>
+<pre class="codeinput">[nr,nc]=size(C); indice = 1;
+surfaceMax = C(1,3)*C(1,4);
+<span class="keyword">for</span> i = 2:nr
+   <span class="keyword">if</span>(surfaceMax&lt;C(i,3)*C(i,4))
+      indice = i;
+   <span class="keyword">end</span>
+<span class="keyword">end</span>
+fprintf(<span class="string">'La surface est de %.2f mm&sup2;, soit\n'</span>,<span class="keyword">...</span>
+   C(indice,3)*C(indice,4));
+fprintf([<span class="string">'%.1f mm de longueur par %.1f mm de '</span>,<span class="keyword">...</span>
+   <span class="string">'largeur.\n'</span>], C(indice,3),C(indice,4));
+plot(C(indice,1).*C(indice,2),<span class="keyword">...</span>
+   C(indice,3).*C(indice,4),<span class="string">'*g'</span>);
+</pre>
+<p>Solution par vectorisation</p>
+<pre class="codeinput">[surface,indice] = max(C(:,3).*C(:,4));
+fprintf(<span class="string">'La surface est de %.2f mm&sup2;, soit\n'</span>,<span class="keyword">...</span>
+   C(indice,3)*C(indice,4));
+fprintf([<span class="string">'%.1f mm de longueur par %.1f mm de '</span>,<span class="keyword">...</span>
+   <span class="string">'largeur.\n'</span>], C(indice,3),C(indice,4));
+</pre>
+<h2 id="5">&Eacute;tape 4 &ndash; crit&egrave;re de s&eacute;paration</h2>
+<p>Un examen du graphique r&eacute;v&egrave;le qu'il y a une s&eacute;paration assez nette entre les 2 familles &agrave; 7.5 mm&sup2;, en consid&eacute;rant la surface du p&eacute;tale.</p>
+<pre class="codeinput">seuil = 7.5;
+Virginica = sum(C(:,3).*C(:,4)&lt;seuil)
+Versicolor = sum(C(:,7).*C(:,8)&gt;=seuil)
+ErreurPourCent = (Virginica+Versicolor)/(2*nr)*100
+</pre>
+<p>
+<img vspace="5" hspace="5" src="..\Feuilles.gif" alt=""> </p>
+<p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2024b</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+%% Des iris 
+%
+%% Étape 1 – lecture
+clear; close all; clc;
+C = readmatrix('Iris.xls');
+
+%% Étape 2 – surface d'un sépale et d'un pétale
+% <<..\IrisSepalePetale.gif>>
+figure(1); grid on; hold on; axis([10,32,2,18]);
+plot(C(:,1).*C(:,2),C(:,3).*C(:,4),'or');
+plot(C(:,5).*C(:,6),C(:,7).*C(:,8),'ob');
+xlabel('Surface d''un sépale (mm^2)')
+ylabel('Surface d''un pétale (mm^2)')
+title(['Surface d''un pétale versus ',...
+   'celle d''un sépale']);
+legend('Iris Virginica','Iris Versicolor',...
+   'Location','best');
+return   
+%% Étape 3 – dimensions du plus gros pétale
+% Rechercher l'indice de la ligne pour des iris
+% Virginica (solution par programmation
+% traditionnelle).
+[nr,nc]=size(C); indice = 1;
+surfaceMax = C(1,3)*C(1,4); 
+for i = 2:nr 
+   if(surfaceMax<C(i,3)*C(i,4)) 
+      indice = i; 
+   end
+end
+fprintf('La surface est de %.2f mm², soit\n',...
+   C(indice,3)*C(indice,4));
+fprintf(['%.1f mm de longueur par %.1f mm de ',...
+   'largeur.\n'], C(indice,3),C(indice,4)); 
+plot(C(indice,1).*C(indice,2),... 
+   C(indice,3).*C(indice,4),'*g');
+%%
+% Solution par vectorisation
+[surface,indice] = max(C(:,3).*C(:,4));
+fprintf('La surface est de %.2f mm², soit\n',...
+   C(indice,3)*C(indice,4));
+fprintf(['%.1f mm de longueur par %.1f mm de ',...
+   'largeur.\n'], C(indice,3),C(indice,4)); 
+
+%% Étape 4 – critère de séparation
+% Un examen du graphique révèle qu'il y a une
+% séparation assez nette entre les 2 familles
+% à 7.5 mm², en considérant la surface du pétale.
+%
+seuil = 7.5;
+Virginica = sum(C(:,3).*C(:,4)<seuil)
+Versicolor = sum(C(:,7).*C(:,8)>=seuil)
+ErreurPourCent = (Virginica+Versicolor)/(2*nr)*100
+
+%%
+% <<..\Feuilles.gif>>
+##### SOURCE END #####
+-->
+</body>
+</html>

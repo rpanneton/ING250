@@ -1,0 +1,117 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Probl&egrave;me 2/44, Meriam p. 46</title><meta name="generator" content="MATLAB 9.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-10-06"><meta name="DC.source" content="ch2044.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Probl&egrave;me 2/44, Meriam p. 46</h1><!--introduction--><p><img vspace="5" hspace="5" src="..\ch2044.gif" alt=""> </p><!--/introduction--><p><b>D&eacute;marche scalaire</b></p><div><ul><li>Ne pas tenir compte de l'&eacute;paisseur du plancher de la plateforme.</li><li>Remplacer la masse r&eacute;partie des planchers par une force ponctuelle &eacute;quivalente.</li><li>Poser le syst&egrave;me des axes <i>x</i> et <i>x</i> au point <i>B</i>.</li></ul></div><p><img src="ch2044_eq00981751352580198009.png" alt="$$ \sum M_O = 0\;\; \Longrightarrow \;&#xA;1 \times F_1 = s \times F_2 $$" style="width:216px;height:21px;"></p><p>D&eacute;terminer le bras de levier <i>s</i>.</p><p><img vspace="5" hspace="5" src="..\ch2044a.gif" alt=""> </p><pre class="codeinput">clear; clc
+m = 8*28; <span class="comment">% m&middot;kg/m</span>
+a = 9.821; <span class="comment">% m/s&sup2; (Annexe D) &agrave; 37.5&deg; de latitude</span>
+mF1 = m*a; <span class="comment">% N,  Norme de F = m a</span>
+mF2 = 90*a; <span class="comment">% N</span>
+s = 1*mF1/mF2;
+fprintf(<span class="string">'s = %.2f m\n'</span>,s);
+fprintf([<span class="string">'\nPour assurer la s&eacute;curit&eacute; du '</span>,<span class="keyword">...</span>
+   <span class="string">'travailleur,\nnoter que le segment du '</span>,<span class="keyword">...</span>
+   <span class="string">'plancher &agrave;\ndroite de B est trop long.\n'</span>]);
+</pre><pre class="codeoutput">s = 2.49 m
+
+Pour assurer la s&eacute;curit&eacute; du travailleur,
+noter que le segment du plancher &agrave;
+droite de B est trop long.
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Problème 2/44, Meriam p. 46
+% <<..\ch2044.gif>>
+%
+%%
+% *Démarche scalaire*
+%
+% * Ne pas tenir compte de l'épaisseur du plancher
+% de la plateforme.
+% * Remplacer la masse répartie des planchers par
+% une force ponctuelle équivalente.
+% * Poser le système des axes _x_ et _x_ au point
+% _B_.
+%
+% $$ \sum M_O = 0\;\; \Longrightarrow \;
+% 1 \times F_1 = s \times F_2 $$
+%
+% Déterminer le bras de levier _s_.
+%
+% <<..\ch2044a.gif>>
+%
+clear; clc
+m = 8*28; % m·kg/m
+a = 9.821; % m/s² (Annexe D) à 37.5° de latitude
+mF1 = m*a; % N,  Norme de F = m a
+mF2 = 90*a; % N
+s = 1*mF1/mF2;
+fprintf('s = %.2f m\n',s);
+fprintf(['\nPour assurer la sécurité du ',...
+   'travailleur,\nnoter que le segment du ',...
+   'plancher à\ndroite de B est trop long.\n']);
+##### SOURCE END #####
+--></body></html>

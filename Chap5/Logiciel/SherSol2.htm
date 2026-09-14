@@ -1,0 +1,113 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Solution : 2 scripts</title>
+<link rel="stylesheet" type="text/css" href="../../css/index.css">
+</head>
+
+<body>
+
+<h2>Solution&nbsp;: 2 scripts</h2>
+<ul>
+  <li>Nom du script principal&nbsp;: Auto</li>
+</ul>
+
+<table border="1" width="375">
+  <tr>
+    <td width="365">
+      <pre><font face="Courier New"><font COLOR="#228b22">% Auto  Script principal
+</font>clear
+clc
+<font SIZE="2" COLOR="#228b22">% Vecteurs temporaires
+</font>lu=[69,76,67,77];
+n=4;
+moyenne=mean(lu);
+<font SIZE="2" COLOR="#228b22">% Ce serait également une façon
+% de procéder si on ne pouvait
+% écrire le script 2 dans un examen.
+% On démontre alors ce que l'on
+% peut faire.
+</font>disp([<font SIZE="2" COLOR="#b22222">'Moyenne : '</font>,num2str(moyenne,4),<font SIZE="2" COLOR="#0000ff">...
+</font><font SIZE="2" COLOR="#b22222">' min après '</font>,num2str(n,2),<font SIZE="2" COLOR="#b22222">' essais.'</font>])
+disp(<font SIZE="2" COLOR="#b22222">' '</font>)
+format bank;
+disp(<font SIZE="2" COLOR="#b22222">' t(min) Déviation'</font>)<font SIZE="2" COLOR="#0000ff">
+for </font>i=1:n
+   disp([lu(i),lu(i)-moyenne])
+<font SIZE="2" COLOR="#0000ff">end
+</font>format short g</font></pre>
+    </td>
+  </tr>
+</table>
+<ul>
+  <li>Nom du script secondaire&nbsp;: Lecture.</li>
+</ul>
+<table border="1" width="375">
+  <tr>
+    <td width="365">
+      <pre><font face="Courier New"><font COLOR="#228b22">% Lecture
+</font>clear <font SIZE="2" COLOR="#228b22">% Instr. à enlever dans
+</font>clc <font SIZE="2" COLOR="#228b22">% la version finale
+</font>disp(<font SIZE="2" COLOR="#b22222">'Écrire zéro (0) pour terminer'</font>);
+Somme=0;
+n=0;
+x=input([<font SIZE="2" COLOR="#b22222">' donnée '</font>,num2str(n+1),<font SIZE="2" COLOR="#b22222">' : '</font>]);
+<font SIZE="2" COLOR="#0000ff">while</font>(x~=0)
+Somme=Somme+x
+n=n+1
+lu(n)=x;
+x=input([<font SIZE="2" COLOR="#b22222">' donnée '</font>,num2str(n+1),<font SIZE="2" COLOR="#b22222">' : '</font>])
+<font SIZE="2" COLOR="#0000ff">end
+</font>moyenne=Somme/n <font SIZE="2" COLOR="#228b22">%n est supposé ~=0
+</font>lu
+<font COLOR="#228b22">% Cette dernière instruction
+% devra être enlevée dans
+% la version finale.
+% On mettra également les «;»</font></font></pre>
+    </td>
+  </tr>
+</table>
+<h3>Versions finales</h3>
+<table border="1" width="375">
+  <tr>
+    <td width="365">
+      <pre><font face="Courier New"><font COLOR="#228b22">% Auto  Script principal
+</font>clear
+clc
+Lecture
+disp([<font COLOR="#b22222">'Moyenne : '</font>,num2str(moyenne,4),<font COLOR="#0000ff">...
+</font><font COLOR="#b22222">' min après '</font>,num2str(n,2),<font COLOR="#b22222">' essais.'</font>])
+disp(<font COLOR="#b22222">' '</font>)
+format bank;
+disp(<font COLOR="#b22222">' t(min) Déviation'</font>)<font COLOR="#0000ff">
+for </font>i=1:n
+   disp([lu(i),lu(i)-moyenne])
+<font COLOR="#0000ff">end
+</font>format short g</font></pre>
+    </td>
+  </tr>
+  <tr>
+    <td width="365">
+      <pre><font face="Courier New"><font COLOR="#228b22">% Lecture
+</font>disp(<font SIZE="2" COLOR="#b22222">'Écrire zéro (0) pour terminer'</font>);
+Somme=0;
+n=0;
+x=input([<font SIZE="2" COLOR="#b22222">' donnée '</font>,num2str(n+1),<font SIZE="2" COLOR="#b22222">' : '</font>]);
+<font SIZE="2" COLOR="#0000ff">while</font>(x~=0)
+&nbsp;&nbsp;&nbsp;Somme=Somme+x;
+&nbsp;&nbsp;&nbsp;n=n+1;
+&nbsp;&nbsp;&nbsp;lu(n)=x;
+&nbsp;&nbsp;&nbsp;x=input([<font SIZE="2" COLOR="#b22222">' donnée '</font>,num2str(n+1),<font SIZE="2" COLOR="#b22222">' : '</font>]);
+<font SIZE="2" COLOR="#0000ff">end
+</font>moyenne=Somme/n; <font SIZE="2" COLOR="#228b22">%n est supposé ~=0</font></font></pre>
+    </td>
+  </tr>
+</table>
+<p><img border="0" src="ligne.gif" width="536" height="5"></p>
+
+</body>
+
+</html>

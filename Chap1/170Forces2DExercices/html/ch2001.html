@@ -1,0 +1,185 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Probl&egrave;me 2/1, Meriam p. 32</title><meta name="generator" content="MATLAB 9.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-10-06"><meta name="DC.source" content="ch2001.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Probl&egrave;me 2/1, Meriam p. 32</h1><!--introduction--><p><img vspace="5" hspace="5" src="..\ch2001.gif" alt=""> </p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#2">Expression scalaire du vecteur F</a></li><li><a href="#3">Composantes scalaires de F</a></li><li><a href="#5">Expression vectorielle de F</a></li></ul></div><pre class="codeinput">clear; close <span class="string">all</span>; clc;
+mF = 800; <span class="comment">% N (norme de F)</span>
+</pre><h2 id="2">Expression scalaire du vecteur F</h2><pre class="codeinput">theta= 90+35; <span class="comment">% angle&deg; selon la convention de atan2</span>
+fprintf(<span class="string">'Norme = %.0f N, '</span>,mF);
+fprintf(<span class="string">'angle th&ecirc;ta = %0.f&deg;\n'</span>,theta);
+</pre><pre class="codeoutput">Norme = 800 N, angle th&ecirc;ta = 125&deg;
+</pre><h2 id="3">Composantes scalaires de F</h2><pre class="codeinput">angle = 35; <span class="comment">% angle&deg; indiqu&eacute; sur la figure</span>
+Fx = mF*sind(angle); Fy = mF*cosd(angle);
+<span class="comment">% Fx est n&eacute;gatif et Fy est positif selon la fig.</span>
+Fx = -Fx;
+fprintf(<span class="string">'Composantes scalaires\n'</span>);
+fprintf(<span class="string">'   Fx = %.0f N et '</span>,Fx);
+fprintf(<span class="string">'Fy = %.0f N.\n'</span>,Fy);
+</pre><pre class="codeoutput">Composantes scalaires
+   Fx = -459 N et Fy = 655 N.
+</pre><p>Utiliser plut&ocirc;t l'angle selon la convention de atan2. Calculer la composante en <i>x</i> en appliquant le cosinus, et la composante en <i>y</i> en appliquant le sinus. Le signe (+) ou (-) est correct et ne requiert pas d'analyse.</p><pre>Angle th&ecirc;ta = 90 + 35 degr&eacute;s</pre><pre class="codeinput">Fx = mF*cosd(theta); Fy = mF*sind(theta);
+fprintf(<span class="string">'\nComposantes scalaires, reprise\n'</span>);
+fprintf(<span class="string">'   Fx = %.0f N et '</span>,Fx);
+fprintf(<span class="string">'Fy = %.0f N.\n'</span>,Fy);
+</pre><pre class="codeoutput">
+Composantes scalaires, reprise
+   Fx = -459 N et Fy = 655 N.
+</pre><h2 id="5">Expression vectorielle de F</h2><p>Vecteur unitaire &#8211; revoir la d&eacute;finition (page 7) et l'exercice 2/1 (page 29) de Meriam.</p><p>Lorsque l'angle th&ecirc;ta en degr&eacute;s est sp&eacute;cifi&eacute; selon la convention de atan2, le signe de chaque composante est toujours correct.</p><pre class="codeinput">nF = [cosd(theta),sind(theta)]; <span class="comment">% vecteur unitaire</span>
+fprintf(<span class="string">'Vecteur unitaire nF = %+.3fi  %+.3fj\n'</span>,nF);
+
+<span class="comment">% Vecteur F</span>
+F = mF*nF;
+fprintf(<span class="string">'Vecteur F = %+.0fi  %+.0fj N\n'</span>,F);
+fprintf(<span class="string">'\nComposantes vectorielles\n'</span>);
+fprintf(<span class="string">'   vecteurs Fx = %.0fi N et '</span>,F(1));
+fprintf(<span class="string">'Fy = %.0fj N.\n'</span>,F(2));
+</pre><pre class="codeoutput">Vecteur unitaire nF = -0.574i  +0.819j
+Vecteur F = -459i  +655j N
+
+Composantes vectorielles
+   vecteurs Fx = -459i N et Fy = 655j N.
+</pre><p>Peut-on substituer les valeurs de Fx et Fy &agrave; celles de F(1) et F(2) ?</p><p>Bien que ce soit les m&ecirc;mes valeurs num&eacute;riques, elles proviennent d'une d&eacute;marche scalaire.</p><p>Le vecteur <b>F</b> contient implicitement les composantes vectorielles tandis que les composantes scalaires doivent &ecirc;tre calcul&eacute;es :</p><pre class="codeinput">F
+</pre><pre class="codeoutput">F =
+ -458.8611  655.3216
+</pre><p>Rappel &#8211; Dans Matlab, un vecteur est une fa&ccedil;on          de repr&eacute;senter les donn&eacute;es.</p><div><ul><li>Il s'&eacute;crit entre [crochets].</li><li>Il faut concevoir vous-m&ecirc;me la s&eacute;mantique, par exemple :</li></ul></div><pre>V = [3,&nbsp;5] repr&eacute;sente V = 3i + 5j en statique.
+A = [3,&nbsp;5] sont les coordonn&eacute;es (3,5) de A, etc.</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Problème 2/1, Meriam p. 32
+% <<..\ch2001.gif>>
+
+%%
+clear; close all; clc;
+mF = 800; % N (norme de F)
+
+%% Expression scalaire du vecteur F
+theta= 90+35; % angle° selon la convention de atan2
+fprintf('Norme = %.0f N, ',mF);
+fprintf('angle thêta = %0.f°\n',theta);
+
+%% Composantes scalaires de F
+angle = 35; % angle° indiqué sur la figure
+Fx = mF*sind(angle); Fy = mF*cosd(angle);
+% Fx est négatif et Fy est positif selon la fig.
+Fx = -Fx;
+fprintf('Composantes scalaires\n');
+fprintf('   Fx = %.0f N et ',Fx);
+fprintf('Fy = %.0f N.\n',Fy);
+
+%%
+% Utiliser plutôt l'angle selon la convention de
+% atan2. Calculer la composante en _x_ en
+% appliquant le cosinus, et la composante en _y_
+% en appliquant le sinus. Le signe (+) ou (-) est
+% correct et ne requiert pas d'analyse.
+%
+%  Angle thêta = 90 + 35 degrés
+Fx = mF*cosd(theta); Fy = mF*sind(theta);
+fprintf('\nComposantes scalaires, reprise\n');
+fprintf('   Fx = %.0f N et ',Fx);
+fprintf('Fy = %.0f N.\n',Fy);
+
+%% Expression vectorielle de F
+% Vecteur unitaire – revoir la définition (page 7)
+% et l'exercice 2/1 (page 29) de Meriam.
+%
+% Lorsque l'angle thêta en degrés est spécifié
+% selon la convention de atan2, le signe de chaque
+% composante est toujours correct.
+nF = [cosd(theta),sind(theta)]; % vecteur unitaire
+fprintf('Vecteur unitaire nF = %+.3fi  %+.3fj\n',nF);
+
+% Vecteur F
+F = mF*nF;
+fprintf('Vecteur F = %+.0fi  %+.0fj N\n',F);
+fprintf('\nComposantes vectorielles\n');
+fprintf('   vecteurs Fx = %.0fi N et ',F(1));
+fprintf('Fy = %.0fj N.\n',F(2));
+
+%%
+% Peut-on substituer les valeurs de Fx et Fy à
+% celles de F(1) et F(2) ?
+%
+% Bien que ce soit les mêmes valeurs numériques,
+% elles proviennent d'une démarche scalaire.
+%
+% Le vecteur *F* contient implicitement les
+% composantes vectorielles tandis que les
+% composantes scalaires doivent être calculées :
+F
+
+%%
+% Rappel – Dans Matlab, un vecteur est une façon
+%          de représenter les données.
+%
+% * Il s'écrit entre [crochets].
+% * Il faut concevoir vous-même la sémantique,
+% par exemple :
+%
+%  V = [3, 5] représente V = 3i + 5j en statique.
+%  A = [3, 5] sont les coordonnées (3,5) de A, etc.
+##### SOURCE END #####
+--></body></html>

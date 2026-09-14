@@ -1,0 +1,144 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Moyenne et valeur maximale de Fonderie.txt</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-11-06">
+      <meta name="m-file" content="FonderieAfficher"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Moyenne et valeur maximale de Fonderie.txt</h1>
+         <introduction></introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#1">Affichage avec 2 boucles</a></li>
+               <li><a href="#2">Affichage avec une boucle et la vectorisation</a></li>
+            </ul>
+         </div>
+         <h2>Affichage avec 2 boucles<a name="1"></a></h2><pre class="codeinput">clear <span class="string">all</span>; clc; close <span class="string">all</span>
+M = load(<span class="string">'Fonderie.txt'</span>);
+[nRangees,nColonnes] = size(M);
+
+<span class="keyword">for</span> i = 1:nRangees
+   <span class="keyword">for</span> j = 1:nColonnes
+      fprintf(<span class="string">'%5.2f  '</span>,M(i,j));
+   <span class="keyword">end</span>
+   fprintf(<span class="string">'\n'</span>);
+<span class="keyword">end</span>
+fprintf(<span class="string">'- - - - - - - - - - - - - - - - -\n'</span>);
+</pre><pre class="codeoutput">26.71  26.97  26.70  26.48  26.87  
+26.14  26.36  26.56  26.55  26.12  
+26.44  26.88  26.45  26.45  26.31  
+25.97  26.03  26.62  26.22  26.23  
+26.24  26.34  26.59  27.10  25.87  
+26.34  27.29  27.29  26.44  26.46  
+26.07  26.41  26.64  26.98  26.12  
+26.50  26.76  25.58  26.61  26.21  
+- - - - - - - - - - - - - - - - -
+</pre><h2>Affichage avec une boucle et la vectorisation<a name="2"></a></h2><pre class="codeinput"><span class="keyword">for</span> i = 1:nRangees
+   fprintf(<span class="string">'%5.2f  '</span>,M(i,:)); fprintf(<span class="string">'\n'</span>);
+<span class="keyword">end</span>
+fprintf(<span class="string">'- - - - - - - - - - - - - - - - -\n'</span>);
+</pre><pre class="codeoutput">26.71  26.97  26.70  26.48  26.87  
+26.14  26.36  26.56  26.55  26.12  
+26.44  26.88  26.45  26.45  26.31  
+25.97  26.03  26.62  26.22  26.23  
+26.24  26.34  26.59  27.10  25.87  
+26.34  27.29  27.29  26.44  26.46  
+26.07  26.41  26.64  26.98  26.12  
+26.50  26.76  25.58  26.61  26.21  
+- - - - - - - - - - - - - - - - -
+</pre><p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Moyenne et valeur maximale de Fonderie.txt
+
+%% Affichage avec 2 boucles
+clear all; clc; close all
+M = load('Fonderie.txt');
+[nRangees,nColonnes] = size(M);
+
+for i = 1:nRangees
+   for j = 1:nColonnes
+      fprintf('%5.2f  ',M(i,j));
+   end
+   fprintf('\n');
+end
+fprintf('- - - - - - - - - - - - - - - - -\n');
+
+%% Affichage avec une boucle et la vectorisation
+for i = 1:nRangees
+   fprintf('%5.2f  ',M(i,:)); fprintf('\n');
+end
+fprintf('- - - - - - - - - - - - - - - - -\n');
+##### SOURCE END #####
+-->
+   </body>
+</html>

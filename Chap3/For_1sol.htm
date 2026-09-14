@@ -1,0 +1,56 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft FrontPage 6.0">
+<TITLE>Exercice - boucle comptée - for end - solution</TITLE>
+<META NAME="Template" CONTENT="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffffff">
+
+<H3>Exercice - boucle compt&eacute;e - <FONT COLOR="#0000ff">for end</FONT> - solution</H3>
+<P>Écrire un programme qui demande à l'utilisateur de fournir cinq nombres
+    au clavier et qui en fait la somme. Utiliser uniquement des données scalaires
+    et ne pas conserver les valeurs lues.</P>
+
+<P>Rappel : Sur une ligne d'instruction, on peut écrire des commentaires
+en les faisant précéder du symbole %<font color="#008000">. <b> Les mots qui
+suivent sont généralement affichés en vert par l'éditeur.</b></font></P>
+
+<UL>
+<LI>Cr&eacute;er une boucle qui accomplit 5 cycles.<br>
+<FONT FACE="Courier New" COLOR="#0000ff">for </FONT><FONT FACE="Courier New">i=1:5<BR>
+</FONT><FONT FACE="Courier New" COLOR="#0000ff">end
+</FONT></LI>
+<LI>Ajouter &agrave; l'int&eacute;rieur une instruction de lecture. <BR>
+  <font face="Courier New" size="2">
+<FONT COLOR="#0000ff">for </FONT>i=1:5<BR>
+&nbsp;&nbsp;&nbsp;N=input(<FONT FACE="Courier New" COLOR="#800000">'N&nbsp;?&nbsp;'</FONT>);<BR>
+  <FONT COLOR="#0000ff">end
+</FONT></font></LI>
+<LI>Utiliser une variable qui fait la sommation. <BR>
+<FONT FACE="Courier New">Somme=0;<BR>
+</FONT><font face="Courier New" size="2"><FONT COLOR="#0000ff">for </FONT>i=1:5<BR>
+&nbsp;&nbsp;&nbsp;N=input(<FONT COLOR="#800000">'N&nbsp;?&nbsp;'</FONT>);<BR>
+&nbsp;&nbsp;&nbsp;Somme=Somme+N;<BR>
+<FONT COLOR="#0000ff">end
+</FONT></font></LI>
+<li>Afficher la somme &agrave; l'ext&eacute;rieur de la boucle.<BR>
+  <font FACE="Courier New" SIZE="2">Somme=0;<br>
+  </font><font FACE="Courier New" SIZE="2" COLOR="#0000ff">for </font><font FACE="Courier New" SIZE="2">i=1:5<br>
+  </font>&nbsp;&nbsp; <font FACE="Courier New" SIZE="2">N=input(</font><font FACE="Courier New" SIZE="2" COLOR="#800000">'N&nbsp;?&nbsp;'</font><font FACE="Courier New" SIZE="2">);<br>
+  </font>&nbsp;&nbsp; <font FACE="Courier New" SIZE="2">Somme=Somme+N;<br>
+  </font><font FACE="Courier New" SIZE="2" COLOR="#0000ff">end<br>
+  </font><font FACE="Courier New" SIZE="2">Somme</li>
+</font>
+<li>On peut aussi utiliser la fonction <i> input</i> comme
+  incrément de la somme.<br>
+  <font face="Courier New" size="2">Somme=0;<br>
+  <font color="#0000ff">for</font> i=1:5<br>
+  &nbsp;&nbsp; Somme=Somme+input('N&nbsp;?&nbsp;');<br>
+  <font color="#0000ff">end</font><br>
+  Somme</font></li>
+</UL>
+
+<P ALIGN="left"><img border="0" src="Ligne.GIF" width="492" height="19"></P></BODY>
+</HTML>

@@ -1,0 +1,71 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="Generator" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>MicroTest</title>
+<meta name="Template" content="C:\Program Files\Microsoft Office\Office\HTML.DOT">
+<link rel="stylesheet" type="text/css" href="Album/css/indexco.css">
+</head>
+
+<body text="#000000" link="#0000FF" vlink="#800080" bgcolor="#ffffff">
+
+<h1>Question – température journalières à Lennoxville</h1>
+<p>L'objectif est d'utiliser les boucles for et manipuler des indices de 
+vecteurs. Dans cette optique, les fonctions while, vectorisation, mean, max, min, sum, 
+etc. ne peuvent pas être utilisées.</p>
+<p>Le script doit s'exécuter correctement dans la fenêtre de Matlab et permettre 
+aussi <i>Publish to html</i>. La fonction <i>input</i> n'est donc pas 
+utilisable.</p>
+<p>Utiliser Gabarit.m pour répondre.</p>
+<h3>Vecteurs Tmin et Tmax</h3>
+<p>Quatre fichiers <b>xls</b> de données météo annuelles similaires sont 
+accessibles 
+pour la mise au point du script. Examiner ces fichiers. Comme les données non valides ont été retirées, il n'y a pas nécessairement 365 jours de données 
+par an. Les
+<font color="#0000FF"><b>noms</b></font> de variables <b><font color="#0000FF">
+demandés</font></b> sont <font color="#0000FF"><b>obligatoires</b></font>.</p>
+<ul>
+	<li>Lire le fichier de votre choix et attribuer les données à <b>
+	<font color="#0000FF">Matrice</font></b>. <br>
+&nbsp;</li>
+	<li>Extraire les températures maximales et minimales de <b>
+	<font color="#0000FF">Matrice</font></b> et l'attribuer respectivement à <b>
+	<font color="#0000FF">Tmax</font></b> et <b><font color="#0000FF">Tmin.</font></b></li>
+</ul>
+<h3>Écart journalier de températures</h3>
+<p>Constituer le vecteur <font color="#0000FF"><b>Ecart</b></font> contenant 
+l'écart journalier entre les températures maximale et minimale pour l'année. Tracer le vecteur
+<font color="#0000FF"><b>Ecart</b></font> en fonction des indices.<br>
+<br>
+Rechercher l'indice du jour où est observé l'écart le plus grand entre les 
+températures maximale et minimale. Ce jour est unique dans chacun des fichiers 
+de données.<br>
+<br>
+Écrire <b>hold on</b> et ajouter ce jour sur le graphique à l'aide d'un triangle 
+rouge. Documenter le graphique comme ci-dessous.<br>
+<br>
+<img border="0" src="Album/Graph.png" width="560" height="420"></p>
+<h3>Écart de températures – classification</h3>
+<p>Classer les écarts journaliers de températures de l'année en quatre groupes.<br>
+<img border="0" src="Album/QuatreClasses.gif" width="456" height="72"></p>
+<p>Chaque classe contient la borne de droite.</p>
+<ul>
+	<li><span style="background-color: #FFFF00">Les affichages doivent 
+	reproduire </span><font color="#008000"><b>
+<span style="background-color: #FFFF00">textuellement</span></b></font><span style="background-color: #FFFF00"> 
+	l'exemple indiqué ci-dessous.</span></li>
+</ul>
+<pre><b><font color="#008000">Écart de températures – classification
+   minime :  17 jours
+   petit  :  97 jours
+   moyen  : 169 jours
+   grand  :  52 jours</font></b></pre>
+<p>Déverminer un programme fait partie des compétences à acquérir 
+dans le cours. <font color="#008000"><b>Un script qui plante est noté zéro</b></font>.</p>
+<p><img border="0" src="Album/css/Feuilles.gif" width="500" height="19"></p>
+
+</body>
+
+</html>

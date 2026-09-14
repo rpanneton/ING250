@@ -1,0 +1,199 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Probl&egrave;me 2/40, Meriam p. 45</title><meta name="generator" content="MATLAB 9.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-10-06"><meta name="DC.source" content="ch2040.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Probl&egrave;me 2/40, Meriam p. 45</h1><!--introduction--><p><img vspace="5" hspace="5" src="..\ch2040a.gif" alt=""> </p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">&Eacute;tape 1 &#8211; D&eacute;marche vectorielle</a></li><li><a href="#2">&Eacute;tape 2 &#8211; Expression scalaire</a></li><li><a href="#3">D&eacute;marche scalaire (ajout)</a></li></ul></div><h2 id="1">&Eacute;tape 1 &#8211; D&eacute;marche vectorielle</h2><p>Le produit vectoriel est <b>M</b> = <b>r &times; F</b>.</p><p>D&eacute;terminer un vecteur <b>r</b> ayant comme origine le point <i>O</i> et se terminant au point d'application de la force.</p><pre class="codeinput">clear; close <span class="string">all</span>; clc
+angle = -90+55; <span class="comment">% selon la convention de atan2</span>
+<span class="comment">% Pour la force de 5 lb</span>
+roG = 6*[cosd(angle), sind(angle) 0]; <span class="comment">% po</span>
+<span class="comment">% Pour la force de 8 lb</span>
+roH = [13, 0, 0]; <span class="comment">% po</span>
+mF5_lb = 5; mF8_lb = 8;
+nF5_lb = [0, -1, 0]; F5_lb = nF5_lb*mF5_lb;
+nF8_lb = [0, -1, 0]; F8_lb = nF8_lb*mF8_lb;
+Mo_5_lb = cross(roG, F5_lb);
+Mo_8_lb = cross(roH, F8_lb);
+SommeMo = Mo_5_lb+Mo_8_lb; Norme = norm(SommeMo);
+
+fmt = <span class="string">' = %+6.1fi %+6.1fj %+6.1fk '</span>;
+fprintf([<span class="string">'    roG'</span>,fmt,<span class="string">'po\n'</span>],roG);
+fprintf([<span class="string">'  F5_lb'</span>,fmt,<span class="string">'lb\n'</span>],F5_lb);
+fprintf([<span class="string">'Mo_5_lb'</span>,fmt,<span class="string">'lb&middot;po\n\n'</span>],Mo_5_lb);
+fprintf([<span class="string">'    roH'</span>,fmt,<span class="string">'po\n'</span>],roH);
+fprintf([<span class="string">'  F8_lb'</span>,fmt,<span class="string">'lb\n'</span>],F8_lb);
+fprintf([<span class="string">'Mo_8_lb'</span>,fmt,<span class="string">'lb&middot;po\n\n'</span>],Mo_8_lb);
+fprintf([<span class="string">'sommeMo'</span>,fmt,<span class="string">'lb&middot;po\n'</span>],SommeMo);
+</pre><pre class="codeoutput">    roG =   +4.9i   -3.4j   +0.0k po
+  F5_lb =   +0.0i   -5.0j   +0.0k lb
+Mo_5_lb =   +0.0i   +0.0j  -24.6k lb&middot;po
+
+    roH =  +13.0i   +0.0j   +0.0k po
+  F8_lb =   +0.0i   -8.0j   +0.0k lb
+Mo_8_lb =   +0.0i   +0.0j -104.0k lb&middot;po
+
+sommeMo =   +0.0i   +0.0j -128.6k lb&middot;po
+</pre><h2 id="2">&Eacute;tape 2 &#8211; Expression scalaire</h2><pre class="codeinput">Norme = norm(SommeMo);
+fprintf(<span class="string">'Norme Mo = %.1f lb&middot;po'</span>,Norme);
+MomentPositif = SommeMo(3) &gt; 0; <span class="comment">% variable logique</span>
+<span class="keyword">if</span>(MomentPositif)
+   fprintf(<span class="string">' dans le sens antihoraire\n'</span>);
+<span class="keyword">else</span>
+   fprintf(<span class="string">' dans le sens horaire\n'</span>);
+<span class="keyword">end</span>
+<span class="comment">% T est parall&egrave;le et de sens oppos&eacute; aux deux</span>
+<span class="comment">% forces de 5 et 8 lb.</span>
+<span class="comment">%</span>
+<span class="comment">% Force * bras de levier = moment</span>
+T = Norme/2;
+fprintf(<span class="string">'\nNorme T = %.1f lb\n'</span>,T);
+</pre><pre class="codeoutput">Norme Mo = 128.6 lb&middot;po dans le sens horaire
+
+Norme T = 64.3 lb
+</pre><h2 id="3">D&eacute;marche scalaire (ajout)</h2><p>Poser le syst&egrave;me des axes <i>x</i> et <i>y</i> au point <i>O</i>. Calculer le moment de chaque force. Noter qu'il n'y a pas de composante en <i>x</i>.</p><p><img src="ch2040_eq03533784633399497086.png" alt="$$ \sum M_O = 0 $$" style="width:73px;height:21px;"></p><p><img src="ch2040_eq11329383621807915324.png" alt="$$ M_{\rm biceps} -M_{\rm avant-bras}&#xA;  -M_{\rm boule} = 0$$" style="width:210px;height:14px;"></p><p><img vspace="5" hspace="5" src="..\ch2040a.gif" alt=""> </p><pre class="codeinput">clear; close <span class="string">all</span>; clc
+OG = 6; CG = OG*sind(55); <span class="comment">% po (bras de levier)</span>
+BA = 13; <span class="comment">% po (bras de levier)</span>
+Mo_5_lb = CG * 5; <span class="comment">% lb&middot;po (sens horaire)</span>
+Mo_8_lb = BA * 8; <span class="comment">% lb&middot;po (sens horaire)</span>
+SommeMo = Mo_5_lb + Mo_8_lb; <span class="comment">% lb&middot;po, horaire</span>
+T = SommeMo/2; <span class="comment">% lb</span>
+fprintf(<span class="string">'Somme des Mo = %.1f lb&middot;po'</span>,SommeMo);
+fprintf(<span class="string">' dans le sens horaire\n'</span>);
+fprintf(<span class="string">'\nNorme de T = %.1f lb'</span>,T);
+</pre><pre class="codeoutput">Somme des Mo = 128.6 lb&middot;po dans le sens horaire
+
+Norme de T = 64.3 lb</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Problème 2/40, Meriam p. 45
+% <<..\ch2040a.gif>>
+%
+%% Étape 1 – Démarche vectorielle
+% Le produit vectoriel est *M* = *r × F*.
+%
+% Déterminer un vecteur *r* ayant comme origine le
+% point _O_ et se terminant au point d'application
+% de la force.
+clear; close all; clc
+angle = -90+55; % selon la convention de atan2
+% Pour la force de 5 lb
+roG = 6*[cosd(angle), sind(angle) 0]; % po
+% Pour la force de 8 lb
+roH = [13, 0, 0]; % po
+mF5_lb = 5; mF8_lb = 8;
+nF5_lb = [0, -1, 0]; F5_lb = nF5_lb*mF5_lb;
+nF8_lb = [0, -1, 0]; F8_lb = nF8_lb*mF8_lb;
+Mo_5_lb = cross(roG, F5_lb);
+Mo_8_lb = cross(roH, F8_lb);
+SommeMo = Mo_5_lb+Mo_8_lb; Norme = norm(SommeMo);
+
+fmt = ' = %+6.1fi %+6.1fj %+6.1fk ';
+fprintf(['    roG',fmt,'po\n'],roG);
+fprintf(['  F5_lb',fmt,'lb\n'],F5_lb);
+fprintf(['Mo_5_lb',fmt,'lb·po\n\n'],Mo_5_lb);
+fprintf(['    roH',fmt,'po\n'],roH);
+fprintf(['  F8_lb',fmt,'lb\n'],F8_lb);
+fprintf(['Mo_8_lb',fmt,'lb·po\n\n'],Mo_8_lb);
+fprintf(['sommeMo',fmt,'lb·po\n'],SommeMo);
+
+%% Étape 2 – Expression scalaire
+Norme = norm(SommeMo);
+fprintf('Norme Mo = %.1f lb·po',Norme);
+MomentPositif = SommeMo(3) > 0; % variable logique
+if(MomentPositif)
+   fprintf(' dans le sens antihoraire\n');
+else
+   fprintf(' dans le sens horaire\n');
+end
+% T est parallèle et de sens opposé aux deux
+% forces de 5 et 8 lb.
+%
+% Force * bras de levier = moment
+T = Norme/2;
+fprintf('\nNorme T = %.1f lb\n',T);
+
+%% Démarche scalaire (ajout)
+% Poser le système des axes _x_ et _y_ au point
+% _O_. Calculer le moment de chaque force. Noter
+% qu'il n'y a pas de composante en _x_.
+%
+% $$ \sum M_O = 0 $$
+%
+% $$ M_{\rm biceps} -M_{\rm avant-bras}
+%   -M_{\rm boule} = 0$$
+%
+% <<..\ch2040a.gif>>
+clear; close all; clc
+OG = 6; CG = OG*sind(55); % po (bras de levier)
+BA = 13; % po (bras de levier)
+Mo_5_lb = CG * 5; % lb·po (sens horaire)
+Mo_8_lb = BA * 8; % lb·po (sens horaire)
+SommeMo = Mo_5_lb + Mo_8_lb; % lb·po, horaire
+T = SommeMo/2; % lb
+fprintf('Somme des Mo = %.1f lb·po',SommeMo);
+fprintf(' dans le sens horaire\n');
+fprintf('\nNorme de T = %.1f lb',T);
+##### SOURCE END #####
+--></body></html>

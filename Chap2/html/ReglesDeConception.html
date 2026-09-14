@@ -1,0 +1,239 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>D&eacute;cision binaire &#8211; r&egrave;gles de conception</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-09-11"><meta name="DC.source" content="ReglesDeConception.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>D&eacute;cision binaire &#8211; r&egrave;gles de conception</h1><!--introduction--><p><img vspace="5" hspace="5" src="..\RegleDeConception.gif" alt=""> </p><p>L&#8217;&eacute;nonc&eacute; de d&eacute;cision est per&ccedil;u comme une seule s&eacute;quence comportant une entr&eacute;e et une sortie. Ce formalisme d'&eacute;criture respecte le concept de la programmation structur&eacute;e, une recette &eacute;prouv&eacute;e pour l'&eacute;criture efficace de programmes.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Variations</a></li><li><a href="#7">R&egrave;gles d'&eacute;criture</a></li></ul></div><h2 id="1">Variations</h2><p>Rappel &#8211; Dans chacun des probl&egrave;mes en statique sur les moments, il faut identifier le sens (horaire ou antihoraire) du moment.</p><pre class="codeinput">Moment = [0 0 -4]; <span class="comment">% composantes selon x, y et z</span>
+ComposantePositiveEnZ = Moment(3)&gt;0;
+<span class="keyword">if</span>(ComposantePositiveEnZ)
+   fprintf(<span class="string">'&reg; Le moment est antihoraire.\n'</span>);
+<span class="keyword">else</span>
+   fprintf(<span class="string">'&reg; Le moment est horaire.\n'</span>);
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">&reg; Le moment est horaire.
+</pre><p><b>Inclure la proposition logique dans le if</b></p><p>La proposition logique peut &ecirc;tre incluse dans le if, mais il y a une perte s&eacute;mantique qu'il faut compenser par l'ajout d'une remarque. Conserver la s&eacute;mantique dans les instructions Matlab.</p><pre class="codeinput">fprintf(<span class="string">'Version sans bool&eacute;en\n'</span>);
+<span class="keyword">if</span>(Moment(3)&gt;0) <span class="comment">% Composante en Z du moment</span>
+   fprintf(<span class="string">'&reg; Le moment est antihoraire.\n'</span>);
+<span class="keyword">else</span>
+   fprintf(<span class="string">'&reg; Le moment est horaire.\n'</span>);
+<span class="keyword">end</span>
+fprintf(<span class="string">'Choisir la version avec bool&eacute;en.\n'</span>);
+</pre><pre class="codeoutput">Version sans bool&eacute;en
+&reg; Le moment est horaire.
+Choisir la version avec bool&eacute;en.
+</pre><p><b>La branche &#8220;&nbsp;cot&eacute; faux&nbsp;&#8221; est absente.</b></p><p>La branche Sinon (else) peut &ecirc;tre absente.</p><pre class="codeinput">fprintf(<span class="string">'Version sans branche &#8220;&nbsp;else&nbsp;&#8221;\n'</span>);
+fprintf(<span class="string">'&#8212;&#8212; Le bool&eacute;en est faux.\n'</span>);
+Moment = [0 0 -4]; <span class="comment">% composantes selon x, y et z</span>
+ComposantePositiveEnZ = Moment(3)&gt;0;
+fprintf(<span class="string">'&reg; Le moment est '</span>);
+<span class="keyword">if</span>(ComposantePositiveEnZ)
+   fprintf(<span class="string">'anti'</span>);
+<span class="keyword">end</span>
+fprintf(<span class="string">'horaire.\n'</span>);
+</pre><pre class="codeoutput">Version sans branche &#8220;&nbsp;else&nbsp;&#8221;
+&#8212;&#8212; Le bool&eacute;en est faux.
+&reg; Le moment est horaire.
+</pre><pre class="codeinput">fprintf(<span class="string">'Version sans branche &#8220;&nbsp;else&nbsp;&#8221;\n'</span>);
+fprintf(<span class="string">'&#8212;&#8212; Le bool&eacute;en est vrai.\n'</span>);
+Moment = [0 0 5]; <span class="comment">% composantes selon x, y et z</span>
+ComposantePositiveEnZ = Moment(3)&gt;0;
+fprintf(<span class="string">'&reg; Le moment est '</span>);
+<span class="keyword">if</span>(ComposantePositiveEnZ)
+   fprintf(<span class="string">'anti'</span>);
+<span class="keyword">end</span>
+fprintf(<span class="string">'horaire.\n'</span>);
+</pre><pre class="codeoutput">Version sans branche &#8220;&nbsp;else&nbsp;&#8221;
+&#8212;&#8212; Le bool&eacute;en est vrai.
+&reg; Le moment est antihoraire.
+</pre><p><b>La branche &#8220;&nbsp;c&ocirc;t&eacute; vrai&nbsp;&#8221; ne doit pas &ecirc;tre absente.</b></p><pre class="codeinput">Moment = [0 0 5]; <span class="comment">% composantes selon x, y et z</span>
+ComposanteNegativeEnZ = Moment(3)&lt;0;
+fprintf(<span class="string">'&reg; Le moment est '</span>);
+<span class="keyword">if</span>(ComposanteNegativeEnZ)
+<span class="keyword">else</span>
+   fprintf(<span class="string">'anti'</span>);
+<span class="keyword">end</span>
+fprintf(<span class="string">'horaire.\n'</span>);
+</pre><pre class="codeoutput">&reg; Le moment est antihoraire.
+</pre><p>Cette structure suppose qu'il manque une s&eacute;quence dans la branche du &#8220;&nbsp;c&ocirc;t&eacute; vrai&nbsp;&#8221;. C'est donc une structure <b>&agrave; &eacute;viter</b>.</p><p><img vspace="5" hspace="5" src="..\Crayon.gif" alt=""> </p><h2 id="7">R&egrave;gles d'&eacute;criture</h2><p>Le d&eacute;but de l'instruction de d&eacute;cision d&eacute;bute par le mot &#8220;if&#8221;, elle comporte un &#8220;else&#8221; et elle se termine par un &#8220;end&#8221;.</p><p>Les autres instructions incluses entre les mots &#8220;if&#8221;, &#8220;else&#8221; et &#8220;end&#8221; sont des s&eacute;quences, et elles ne font pas partie de la syntaxe de la d&eacute;cision.</p><p>La branche &#8220;else&#8221; est optionnelle. Seuls les mots &#8220;if&#8221; et &#8220;end&#8221; sont obligatoires et ils indiquent le d&eacute;but et la fin de l'&eacute;nonc&eacute; de d&eacute;cision.</p><p>Ne pas &eacute;crire d'instruction sur la m&ecirc;me ligne que le &#8220;else&#8221;. C'est une source d'erreur et une conduite <b>&agrave; &eacute;viter !</b></p><p>Les instructions constituant une d&eacute;cision sont &eacute;crites comme un seul bloc : pas de lignes vides. Toutes ces lignes forment une s&eacute;quence coh&eacute;rente, comme un paragraphe contenant une seule id&eacute;e. L'espace &eacute;cran est suffisamment limit&eacute; sans ajouter de vides inutiles.</p><p>Les instructions entre &#8220;if-else-end&#8221; sont d&eacute;cal&eacute;es de trois espaces afin de faciliter la lecture. C'est un v&eacute;ritable code de conduite. L'&eacute;diteur de Matlab automatise cette technique d'&eacute;criture. Que dire de plus&nbsp;?</p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Décision binaire – règles de conception
+%
+% <<..\RegleDeConception.gif>>
+%
+% L’énoncé de décision est perçu comme une
+% seule séquence comportant une entrée
+% et une sortie. Ce formalisme d'écriture
+% respecte le concept de la programmation
+% structurée, une recette éprouvée pour l'écriture
+% efficace de programmes.
+
+
+%% Variations
+% Rappel – Dans chacun des problèmes en statique
+% sur les moments, il faut identifier le sens
+% (horaire ou antihoraire) du moment.
+Moment = [0 0 -4]; % composantes selon x, y et z
+ComposantePositiveEnZ = Moment(3)>0;
+if(ComposantePositiveEnZ)
+   fprintf('® Le moment est antihoraire.\n');
+else
+   fprintf('® Le moment est horaire.\n');
+end
+
+%%
+% *Inclure la proposition logique dans le if*
+%
+% La proposition logique peut être incluse dans le
+% if, mais il y a une perte sémantique qu'il faut
+% compenser par l'ajout d'une remarque. Conserver
+% la sémantique dans les instructions Matlab.
+
+fprintf('Version sans booléen\n');
+if(Moment(3)>0) % Composante en Z du moment
+   fprintf('® Le moment est antihoraire.\n');
+else
+   fprintf('® Le moment est horaire.\n');
+end
+fprintf('Choisir la version avec booléen.\n');
+
+%%
+% *La branche “ coté faux ” est absente.*
+%
+% La branche Sinon (else) peut être absente.
+
+fprintf('Version sans branche “ else ”\n');
+fprintf('—— Le booléen est faux.\n');
+Moment = [0 0 -4]; % composantes selon x, y et z
+ComposantePositiveEnZ = Moment(3)>0;
+fprintf('® Le moment est ');
+if(ComposantePositiveEnZ)
+   fprintf('anti');
+end
+fprintf('horaire.\n');
+
+%%
+fprintf('Version sans branche “ else ”\n');
+fprintf('—— Le booléen est vrai.\n');
+Moment = [0 0 5]; % composantes selon x, y et z
+ComposantePositiveEnZ = Moment(3)>0;
+fprintf('® Le moment est ');
+if(ComposantePositiveEnZ)
+   fprintf('anti');
+end
+fprintf('horaire.\n');
+
+%%
+% *La branche “ côté vrai ” ne doit pas être absente.*
+
+Moment = [0 0 5]; % composantes selon x, y et z
+ComposanteNegativeEnZ = Moment(3)<0;
+fprintf('® Le moment est ');
+if(ComposanteNegativeEnZ)
+else
+   fprintf('anti');
+end
+fprintf('horaire.\n');
+
+%%
+% Cette structure suppose qu'il manque
+% une séquence dans la branche du “ côté
+% vrai ”. C'est donc une structure *à éviter*.
+%
+% <<..\Crayon.gif>>
+
+%% Règles d'écriture
+% Le début de l'instruction de décision débute
+% par le mot “if”, elle comporte un “else” et elle
+% se termine par un “end”.
+%
+% Les autres instructions incluses entre les
+% mots “if”, “else” et “end” sont des séquences, et
+% elles ne font pas partie de la syntaxe de la
+% décision.
+%
+% La branche “else” est optionnelle. Seuls
+% les mots “if” et “end” sont obligatoires et ils
+% indiquent le début et la fin de l'énoncé de
+% décision.
+%
+% Ne pas écrire d'instruction sur la même ligne
+% que le “else”. C'est une source d'erreur et une
+% conduite *à éviter !*
+%
+% Les instructions constituant une décision sont
+% écrites comme un seul bloc : pas de lignes
+% vides. Toutes ces lignes forment une séquence
+% cohérente, comme un paragraphe contenant une
+% seule idée. L'espace écran est suffisamment
+% limité sans ajouter de vides inutiles.
+%
+% Les instructions entre “if-else-end” sont
+% décalées de trois espaces afin de faciliter la
+% lecture. C'est un véritable code de conduite.
+% L'éditeur de Matlab automatise cette technique
+% d'écriture. Que dire de plus ?
+##### SOURCE END #####
+--></body></html>

@@ -1,0 +1,234 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Probl&egrave;me 2/56, Meriam p. 49</title><meta name="generator" content="MATLAB 9.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-10-06"><meta name="DC.source" content="ch2056.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Probl&egrave;me 2/56, Meriam p. 49</h1><!--introduction--><p><img vspace="5" hspace="5" src="..\ch2056.gif" alt=""> </p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">D&eacute;marche scalaire (a et b)</a></li><li><a href="#4">D&eacute;marche vectorielle (c et d)</a></li></ul></div><h2 id="1">D&eacute;marche scalaire (a et b)</h2><p>Appliquer le th&eacute;or&egrave;me de Varignon.</p><div><ul><li>&Eacute;valuer les composantes rectangulaires de la force de 100 lb (<b>F</b>).</li></ul></div><pre class="codeinput">clear; clc; close <span class="string">all</span>;
+</pre><p>a) Norme de <b>P</b></p><pre class="codeinput">mF = 100; <span class="comment">% Norme de la force, lb</span>
+theta = 60; <span class="comment">% degr&eacute;s, selon la figure</span>
+<span class="comment">% Norme (+) : dans le sens antihoraire</span>
+Fx = mF*cosd(theta); Fy = mF*sind(60);
+Mc = Fx*4 - Fy*8;
+<span class="comment">% - P*8 = Mc</span>
+mP = -Mc/8; <span class="comment">% dans le sens de la fl&egrave;che</span>
+fprintf([<span class="string">'(a) P = %.1f lb dans le sens de '</span>,<span class="keyword">...</span>
+   <span class="string">'la fl&egrave;che\n'</span>],mP);
+</pre><pre class="codeoutput">(a) P = 61.6 lb dans le sens de la fl&egrave;che
+</pre><p>(b) La norme <i>R</i> de la r&eacute;sultante <b>R</b></p><pre class="codeinput">Rx = -Fx -mP; Ry = Fy;
+norme = sqrt(Rx^2+Ry^2);
+fprintf(<span class="string">'(b) Norme de R = %.1f lb\n'</span>,norme);
+</pre><pre class="codeoutput">(b) Norme de R = 141.3 lb
+</pre><h2 id="4">D&eacute;marche vectorielle (c et d)</h2><p>Coordonn&eacute;es du point <i>A</i> o&ugrave; le moment est au maximum en valeur absolue sur le cercle.</p><p>Le moment caus&eacute; par une force est au maximum &agrave; 90&deg; de l'axe d'application de la force. De plus, le bras de levier doit &ecirc;tre le plus long possible.</p><p><img vspace="5" hspace="5" src="..\ch2056a.gif" alt=""> </p><p>Exemple : DQ pour <b>F</b> et SQ pour <b>P</b></p><p>Des lignes parall&egrave;les inf&eacute;rieures &agrave; DQ produisent un bras de levier l&eacute;g&egrave;rement plus grand pour <b>F</b>. Par contre, le bras de levier de <b>P</b> est plus court.</p><p>Toutefois, en bas du point <i>S</i>, le moment de la force <b>P</b> s'oppose &agrave; celui g&eacute;n&eacute;r&eacute; par <b>F</b>.</p><p>Des lignes parall&egrave;les sup&eacute;rieures &agrave; DQ font diminuer le bras de levier de <b>F</b> et augmenter celui de <b>P</b> jusqu'&agrave; l'axe des <i>y</i>.</p><p>La solution est donc dans le premier quadrant. On recherche la solution en appliquant le produit vectoriel et le th&eacute;or&egrave;me de Varignon.</p><pre class="codeinput">F = [-Fx,Fy,0]; P = [-mP,0,0];
+xF = -8; yF = 0; yP = 4;
+POH = asind(4/8); xP = 8*cosd(POH); <span class="comment">% POH = 30&deg;</span>
+angle = 0:0.1:360;
+<span class="comment">% coordonn&eacute;es du point recherch&eacute; sur le cercle</span>
+x=8*cosd(angle); y=8*sind(angle);
+<span class="comment">% Pseudo-d&eacute;claration</span>
+MdeF = zeros(size(angle));
+MdeP = zeros(size(angle));
+M_A = zeros(size(angle));
+<span class="keyword">for</span> i = 1:length(angle)
+   rF=[xF-x(i),yF-y(i),0];
+   rP=[xP-x(i),yP-y(i),0];
+   M_F = cross(rF,F); M_P = cross(rP,P);
+   MdeF(i)=M_F(3); MdeP(i)=M_P(3);
+   <span class="comment">% afin de conserver le signe du moment en z.</span>
+   M_A(i) = M_F(3) + M_P(3);
+<span class="keyword">end</span>
+</pre><p>Comme le moment recherch&eacute; est dans le sens horaire, il faut identifier le moment minimum.</p><p>Calculer la norme avec la fonction <i>norm</i> parra&icirc;t une solution acceptable. Cependant, le signe du moment est une information n&eacute;cessaire pour tracer le moment r&eacute;sultant sur le cercle de 0 &agrave; 360&deg;, en tenant compte du sens de rotation.</p><pre class="codeinput">[valeur, indice]=min(M_A);
+plot(angle,MdeF,<span class="string">':b'</span>); hold <span class="string">on</span>;
+plot(angle,MdeP,<span class="string">':r'</span>);
+plot(angle,M_A,<span class="string">'-k'</span>); grid <span class="string">on</span>;
+plot(angle(indice),M_A(indice),<span class="string">'or'</span>);
+xlabel(<span class="string">'degr&eacute;s'</span>); ylabel(<span class="string">'M_A lb&middot;po'</span>);
+title(<span class="string">'M_A r&eacute;sultant de P et F'</span>)
+legend(<span class="string">'M de F'</span>,<span class="string">'M de P'</span>,<span class="string">'M_A r&eacute;sultant'</span>,<span class="keyword">...</span>
+   <span class="string">'M_A min'</span>,<span class="string">'location'</span>,<span class="string">'best'</span>);
+</pre><img vspace="5" hspace="5" src="ch2056_01.png" alt=""> <pre class="codeinput">fprintf([<span class="string">'(c) Coordonn&eacute;es de A: '</span>,<span class="keyword">...</span>
+   <span class="string">'(%.2f, %.2f) po,'</span>],x(indice),y(indice));
+fprintf(<span class="string">' soit &agrave; %.1f&deg;\n'</span>,angle(indice));
+fprintf(<span class="string">'(d) M_A = %.0f lb&middot;po'</span>,<span class="keyword">...</span>
+   abs(valeur)); <span class="comment">% abs : valeur absolue</span>
+MomentPositif = valeur &gt; 0;
+<span class="keyword">if</span>(valeur)
+   fprintf(<span class="string">' dans le sens antihoraire\n'</span>);
+<span class="keyword">else</span>
+   fprintf(<span class="string">' dans le sens horaire\n'</span>);
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">(c) Coordonn&eacute;es de A: (4.90, 6.32) po, soit &agrave; 52.2&deg;
+(d) M_A = 1577 lb&middot;po dans le sens antihoraire
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Problème 2/56, Meriam p. 49
+% <<..\ch2056.gif>>
+%
+%% Démarche scalaire (a et b)
+% Appliquer le théorème de Varignon.
+%
+% * Évaluer les composantes rectangulaires de
+% la force de 100 lb (*F*).
+
+clear; clc; close all;
+%%
+% a) Norme de *P*
+mF = 100; % Norme de la force, lb
+theta = 60; % degrés, selon la figure
+% Norme (+) : dans le sens antihoraire
+Fx = mF*cosd(theta); Fy = mF*sind(60);
+Mc = Fx*4 - Fy*8;
+% - P*8 = Mc
+mP = -Mc/8; % dans le sens de la flèche
+fprintf(['(a) P = %.1f lb dans le sens de ',...
+   'la flèche\n'],mP);
+
+
+%%
+% (b) La norme _R_ de la résultante *R*
+Rx = -Fx -mP; Ry = Fy;
+norme = sqrt(Rx^2+Ry^2);
+fprintf('(b) Norme de R = %.1f lb\n',norme);
+
+%% Démarche vectorielle (c et d)
+% Coordonnées du point _A_ où le moment est
+% au maximum en valeur absolue sur le cercle.
+% 
+% Le moment causé par une force est au maximum à
+% 90° de l'axe d'application de la force. De plus, 
+% le bras de levier doit être le plus long
+% possible.
+%
+% <<..\ch2056a.gif>>
+%
+% Exemple : DQ pour *F* et SQ pour *P*
+%
+% Des lignes parallèles inférieures à DQ
+% produisent un bras de levier légèrement plus
+% grand pour *F*. Par contre, le bras de levier de
+% *P* est plus court.
+%
+% Toutefois, en bas du point _S_,
+% le moment de la force *P* s'oppose à
+% celui généré par *F*.
+%
+% Des lignes parallèles supérieures à DQ font
+% diminuer le bras de levier de *F* et augmenter
+% celui de *P* jusqu'à l'axe des _y_.
+%
+% La solution est donc dans le premier quadrant.
+% On recherche la solution en appliquant le
+% produit vectoriel et le théorème de
+% Varignon.
+F = [-Fx,Fy,0]; P = [-mP,0,0];
+xF = -8; yF = 0; yP = 4;
+POH = asind(4/8); xP = 8*cosd(POH); % POH = 30°
+angle = 0:0.1:360;
+% coordonnées du point recherché sur le cercle
+x=8*cosd(angle); y=8*sind(angle);
+% Pseudo-déclaration
+MdeF = zeros(size(angle));
+MdeP = zeros(size(angle));
+M_A = zeros(size(angle));
+for i = 1:length(angle)
+   rF=[xF-x(i),yF-y(i),0];
+   rP=[xP-x(i),yP-y(i),0];
+   M_F = cross(rF,F); M_P = cross(rP,P);
+   MdeF(i)=M_F(3); MdeP(i)=M_P(3);
+   % afin de conserver le signe du moment en z.
+   M_A(i) = M_F(3) + M_P(3);
+end
+%%
+% Comme le moment recherché est dans le sens
+% horaire, il faut identifier le moment minimum.
+%
+% Calculer la norme avec la fonction _norm_
+% parraît une solution acceptable. Cependant, le
+% signe du moment est une information nécessaire
+% pour tracer le moment résultant sur le cercle de
+% 0 à 360°, en tenant compte du sens de rotation.
+[valeur, indice]=min(M_A);
+plot(angle,MdeF,':b'); hold on;
+plot(angle,MdeP,':r');
+plot(angle,M_A,'-k'); grid on;
+plot(angle(indice),M_A(indice),'or');
+xlabel('degrés'); ylabel('M_A lb·po');
+title('M_A résultant de P et F')
+legend('M de F','M de P','M_A résultant',...
+   'M_A min','location','best');
+%%
+fprintf(['(c) Coordonnées de A: ',...
+   '(%.2f, %.2f) po,'],x(indice),y(indice));
+fprintf(' soit à %.1f°\n',angle(indice));
+fprintf('(d) M_A = %.0f lb·po',...
+   abs(valeur)); % abs : valeur absolue
+MomentPositif = valeur > 0;
+if(valeur)
+   fprintf(' dans le sens antihoraire\n');
+else
+   fprintf(' dans le sens horaire\n');
+end
+##### SOURCE END #####
+--></body></html>

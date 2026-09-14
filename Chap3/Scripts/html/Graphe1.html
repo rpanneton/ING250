@@ -1,0 +1,185 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Cr&eacute;ation de graphiques</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-11-06"><meta name="DC.source" content="Graphe1.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Cr&eacute;ation de graphiques</h1><!--introduction--><p>Voir le fichier Graphe1.m</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">plot, grid, xlabel, ylabel, title et legend</a></li><li><a href="#2">Exemple</a></li></ul></div><h2 id="1">plot, grid, xlabel, ylabel, title et legend</h2><div><ul><li><b>plot(y)</b> trace les valeurs du vecteur y en fonction des indices du vecteur.</li></ul></div><div><ul><li><b>plot(x, y)</b> trace les valeurs du vecteur y en fonction de x.</li></ul></div><div><ul><li><b>plot(x, y, 'o-b')</b> trace un rond bleu par couple de donn&eacute;es et les relie par une courbe continue bleue.</li></ul></div><div><ul><li><b>plot(x, y, 'ob' , x, y, '-r')</b> trace un rond bleu par couple de donn&eacute;e et les relie par une courbe continue rouge.</li></ul></div><div><ul><li><b>plot(x1,y1, '-b', x2, y2, '-r')</b> trace x1 en fonction de y1 en bleu et x2 en fonction de y2 en rouge.</li></ul></div><div><ul><li><b>plot(x1,y1,'-b'); hold on; plot(x2,y2,'-r')</b> donne le m&ecirc;me r&eacute;sultat en deux &eacute;tapes. L'instruction <b>hold on</b> indique &agrave; Matlab d'ajouter la courbe suivante sur le m&ecirc;me graphique.</li></ul></div><div><ul><li><b>legend ('Courbe 1','Courbe 2')</b> identifie la ligne bleue et la ligne rouge ci-dessus.</li></ul></div><div><ul><li><b>grid on</b> ajoute un quadrillage au graphique.</li></ul></div><div><ul><li><b>xlabel('texte')</b> &eacute;crit le texte qui accompagne l'axe des x.</li></ul></div><div><ul><li><b>ylabel('texte')</b> &eacute;crit le texte qui accompagne l'axe des y.</li></ul></div><div><ul><li><b>title('texte')</b> &eacute;crit le titre en haut de la figure.</li></ul></div><p>Voil&agrave; pour l'essentiel !</p><h2 id="2">Exemple</h2><p>Une agence de location de voiture propose deux formules pour des vacances de 15 jours&nbsp;:</p><div><ol><li>un tarif forfaitaire de 30$ par jour plus 10 cents du km</li><li>un tarif forfaitaire de 25 $ par jour plus 15 cents du km.</li></ol></div><p>D&eacute;terminer graphiquement la distance au-del&agrave; de laquelle la premi&egrave;re formule devient plus int&eacute;ressante que la seconde.</p><pre class="codeinput">clear; clc
+</pre><p><b>Solution</b></p><p>Fixer 2 distances pour &eacute;valuer les co&ucirc;ts, par exemple : 100 et 4000 km.</p><p>Former le vecteur des distances :</p><pre class="codeinput">distance = [100, 4000];
+</pre><p>Calculer les prix selon les 2 formules :</p><pre class="codeinput">nJours = 15;
+tarif1 = 30; tarif2 = 25; <span class="comment">% $ fixe par jour</span>
+prix1(1) = tarif1*nJours + 0.10*distance(1);
+prix1(2) = tarif1*nJours + 0.10*distance(2);
+prix2(1) = tarif2*nJours + 0.15*distance(1);
+prix2(2) = tarif2*nJours + 0.15*distance(2);
+</pre><p>Tracer les deux vecteurs, l'un en bleu et l'autre en rouge :</p><pre class="codeinput">plot(distance,prix1,<span class="string">'b-'</span>, distance,prix2,<span class="string">'r-'</span>);
+
+<span class="comment">% Compl&eacute;ter le graphique.</span>
+grid <span class="string">on</span>;xlabel(<span class="string">'Distance km'</span>);ylabel(<span class="string">'Prix en $'</span>);
+title(<span class="string">'Prix pour la location d''une voiture'</span>);
+<span class="comment">% Rappel : 2 apostrophes cons&eacute;cutives =</span>
+<span class="comment">%          une seule apostrophe &agrave; l'affichage</span>
+legend(<span class="string">'Tarif 1'</span>, <span class="string">'Tarif 2'</span>)
+</pre><img vspace="5" hspace="5" src="Graphe1_01.png" style="width:560px;height:420px;" alt=""> <p>&Eacute;valuer visuellement le point de croisement. Utiliser la loupe du menu pour grossir le point de croisement.</p><p>Le graphique appara&icirc;t dans une fen&ecirc;tre auxiliaire qui demeure affich&eacute;e aussi longtemps que l'on d&eacute;sire. Pour comprendre la syntaxe de cette proc&eacute;dure, &eacute;crire&nbsp;:</p><p>&gt;&gt; doc plot</p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Création de graphiques
+% Voir le fichier Graphe1.m
+
+%% plot, grid, xlabel, ylabel, title et legend
+% * *plot(y)* trace les valeurs du vecteur y en
+% fonction des indices du vecteur.
+%
+% * *plot(x, y)* trace les valeurs du vecteur y en
+% fonction de x.
+%
+% * *plot(x, y, 'o-b')* trace un rond bleu par
+% couple de données et les relie par une courbe
+% continue bleue.
+%
+% * *plot(x, y, 'ob' , x, y, '-r')* trace un rond
+% bleu par couple de donnée et les relie par une
+% courbe continue rouge.
+%
+% * *plot(x1,y1, '-b', x2, y2, '-r')* trace x1 en
+% fonction de y1 en bleu et x2 en fonction de y2
+% en rouge.
+%
+% * *plot(x1,y1,'-b'); hold on; plot(x2,y2,'-r')*
+% donne le même résultat en deux étapes.
+% L'instruction *hold on* indique à Matlab d'ajouter
+% la courbe suivante sur le même graphique.
+%
+% * *legend ('Courbe 1','Courbe 2')* identifie la
+% ligne bleue et la ligne rouge ci-dessus.
+%
+% * *grid on* ajoute un quadrillage au graphique.
+%
+% * *xlabel('texte')* écrit le texte qui accompagne
+% l'axe des x.
+%
+% * *ylabel('texte')* écrit le texte qui accompagne
+% l'axe des y.
+%
+% * *title('texte')* écrit le titre en haut de la
+% figure.
+%
+% Voilà pour l'essentiel !
+
+%% Exemple
+% Une agence de location de voiture propose deux
+% formules pour des vacances de 15 jours :
+% 
+% # un tarif forfaitaire de 30$ par jour
+% plus 10 cents du km
+% # un tarif forfaitaire de 25 $ par jour
+% plus 15 cents du km.
+%
+% Déterminer graphiquement la distance au-delà de
+% laquelle la première formule devient plus
+% intéressante que la seconde.
+clear; clc
+%%
+% *Solution*
+%
+% Fixer 2 distances pour évaluer les coûts, par
+% exemple : 100 et 4000 km.
+%
+% Former le vecteur des distances :
+distance = [100, 4000];
+
+%%
+% Calculer les prix selon les 2 formules :
+nJours = 15;
+tarif1 = 30; tarif2 = 25; % $ fixe par jour
+prix1(1) = tarif1*nJours + 0.10*distance(1);
+prix1(2) = tarif1*nJours + 0.10*distance(2);
+prix2(1) = tarif2*nJours + 0.15*distance(1);
+prix2(2) = tarif2*nJours + 0.15*distance(2);
+
+%%
+% Tracer les deux vecteurs, l'un en bleu et
+% l'autre en rouge :
+plot(distance,prix1,'b-', distance,prix2,'r-');
+
+% Compléter le graphique.
+grid on;xlabel('Distance km');ylabel('Prix en $');
+title('Prix pour la location d''une voiture');
+% Rappel : 2 apostrophes consécutives =
+%          une seule apostrophe à l'affichage
+legend('Tarif 1', 'Tarif 2')
+
+%%
+% Évaluer visuellement le point de croisement.
+% Utiliser la loupe du menu pour grossir le
+% point de croisement.
+%
+% Le graphique apparaît dans une fenêtre
+% auxiliaire qui demeure affichée aussi longtemps
+% que l'on désire. Pour comprendre la syntaxe de
+% cette procédure, écrire :
+%
+% >> doc plot
+##### SOURCE END #####
+--></body></html>

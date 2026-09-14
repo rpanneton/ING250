@@ -1,0 +1,238 @@
+
+
+<head>
+<meta content="Microsoft FrontPage 4.0" name="Generator">
+<meta content="FrontPage.Editor.Document" name="ProgId">
+<meta content="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot" name="Template">
+<meta http-equiv="Content-Language" content="fr-ca">
+<link rel="stylesheet" type="text/css" href="../../css/index.css">
+</head>
+
+<h2>Réaliser un programme<br>
+produire un logiciel</h2>
+<p align="left">par Jean Lapointe et Yves Van&nbsp;Hoenacker, génie mécanique,<br>
+© Université de Sherbrooke, 2003.</p>
+<ol>
+  <li>Définir le problème</li>
+  <li>Organiser les idées
+    <ul>
+      <li>Commencer par la documentation</li>
+    </ul>
+  </li>
+  <li>Coder les grandes lignes
+    <ul>
+      <li>Coder les détails</li>
+    </ul>
+  </li>
+  <li>Procéder de façon systématique
+    <ul>
+      <li>Besoins de&nbsp;l'utilisateur</li>
+      <li>Spécifications</li>
+      <li>Conception&nbsp;</li>
+      <li>Construction</li>
+      <li>Vérification</li>
+      <li>Produit.</li>
+    </ul>
+  </li>
+</ol>
+<p>Les chapitres précédents présentent plusieurs techniques de programmation
+et la manière de documenter un programme. Celui-ci aborde l'art d'écrire un
+programme structuré. Il y a très peu de principes absolus sur lesquels
+s'appuyer.</p>
+<ul>
+  <li>Quelques mythes&nbsp;:
+    <ul>
+      <li>La programmation est l'art de faire exécuter un algorithme de la manière
+        la plus efficace possible.
+      <li>Lorsque l'on a appris un langage de programmation, tout ce que l'on
+        doit faire est connu.</li>
+    </ul>
+  <li>Quelques faits&nbsp;:
+    <ul>
+      <li>Un programme est une description d'instructions pour l'ordinateur.
+      <li>Mais c'est d'abord un document qui doit être lu et compris par le
+        programmeur ainsi que les autres lecteurs ou utilisateurs.</li>
+      <li>De plus, il faut penser à la possibilité de modifier ultérieurement
+        le programme, le réutiliser, le transporter sur une autre plate-forme,
+        etc.</li>
+    </ul>
+  </li>
+</ul>
+<h3>Étape&nbsp;1 - Définir le problème</h3>
+<p>Il plusieurs manières de résoudre un problème.</p>
+<ul>
+  <li>S'il s'agit d'un problème académique, l'auteur a probablement peaufiné
+    le texte descriptif du problème.
+    <ul>
+      <li>On peut alors simplement reformuler le problème pour s'assurer de
+        bien le comprendre.</li>
+    </ul>
+  <li>Par contre, s'il s'agit d'un projet, il faut comprendre les besoins des
+    différents clients (utilisateurs, autres programmes), le contexte
+    d’utilisation, les contraintes imposées au produit. Il faut écrire et réviser
+    les spécifications. Et le faire à maintes reprises.</li>
+</ul>
+<h3>Étape 2 -&nbsp; Organiser les idées</h3>
+<p>Concevoir un programme c’est d'abord organiser les idées et les consigner
+sur papier.</p>
+<ul>
+  <li>Pour un exercice de cours, cela consiste à identifier les principales étapes
+    du programme à réaliser.
+    <ul>
+      <li>On code ensuite ces étapes.</li>
+    </ul>
+  <li>Dans un mini-projet de trimestre, une façon efficace de saisir les
+    besoins de l’utilisateur est de rédiger le manuel de l'utilisateur avant
+    de commencer à écrire une ligne de code.
+  <li>Dans un projet de conception, fractionner la solution en fonctions,
+    chacune ayant un titre et effectuant des tâches bien identifiées.
+  <li>De plus, écrire des commentaires au début de chacune des fonctions.</li>
+</ul>
+<h4>Commencer par la documentation</h4>
+<ul>
+  <li>La documentation constitue aussi un outil de conception.
+    <ul>
+      <li>Le client lit le manuel préliminaire. La consultation de la structure
+        envisagée pour le programme ou le logiciel lui permet de s’assurer
+        que vous avez bien compris ses besoins.</li>
+      <li>Ainsi, <b><font color="#0000FF">la documentation place l'utilisateur
+        en premier</font></b>, là où il doit être dans un projet.</li>
+    </ul>
+  <li>Écrire la documentation dans un style concis.
+  <li><b><font color="#0000FF">Dans les projets, la documentation est toujours
+    requise.</font></b>
+  <li>Inclure régulièrement les modifications à la documentation.
+    <ul>
+      <li>Les soumettre à votre client, si celles-ci ont une incidences sur ses
+        attentes.</li>
+      <li>Être ouvert aux commentaires du client, ce qui améliore la
+        conception.</li>
+    </ul>
+</ul>
+<h3>Étape 3 - Coder les grandes lignes</h3>
+<p>Déterminer au moins deux manières de résoudre un problème. Si vous n'en
+trouvez pas, essayer d'écrire un programme mal conçu. C'est aussi un bon moyen
+d'éviter des écueils.</p>
+<ol>
+  <li>Écrire les grandes lignes en français.
+  <li>Écrire globalement en pseudo-code.
+    <ul>
+      <li>Remettre à plus tard les détails.</li>
+    </ul>
+  <li>Diviser en étapes.
+    <ul>
+      <li>Structurer chacune des étapes en fonctions et les documenter.</li>
+    </ul>
+  <li>Écrire les fonctions en série ou en parallèle.
+    <ul>
+      <li>Vérifier chacune des fonctions.</li>
+      <li>Suivre les normes de programmation.</li>
+      <li>Voir le chapitre <i>Écriture et style du code</i>.</li>
+    </ul>
+  <li>Raffiner au besoin.</li>
+</ol>
+<h4>Coder les détails</h4>
+<p>Dans un petit projet (une seule fonction par exemple), on retrouve&nbsp;à
+une échelle plus réduite&nbsp;:</p>
+<ol>
+  <li>Lire, identifier le sous-problème.</li>
+  <li>Déterminer les variables nécessaires&nbsp;:
+    <ul>
+      <li>types et dimension,</li>
+      <li>choisir des noms significatifs.</li>
+    </ul>
+  </li>
+  <li>Décomposer le problème en parties&nbsp;:
+    <ul>
+      <li>séquence d'instructions,</li>
+      <li>mécanismes de contrôle,</li>
+      <li>regroupement en fonctions ou sous-fonctions.</li>
+    </ul>
+  </li>
+  <li>S'il y a lieu, écrire le pseudo-code détaillé.
+    <ul>
+      <li>Coder.</li>
+    </ul>
+  </li>
+  <li>Vérifier chacune des structures.
+    <ul>
+      <li>Tester chaque fonction.</li>
+    </ul>
+  </li>
+</ol>
+<h3>Étape 4 - Procéder de façon systématique</h3>
+<p>La nature invisible du produit caractérise le développement d'un logiciel
+par rapport à un autre produit.</p>
+<ul>
+  <li>Chacun visualise le logiciel de façon différente ou même
+    contradictoire.</li>
+  <li>Les documents écrits tels que les organigrammes, les diagrammes
+    illustrant le contexte d’opération du logiciel, les transferts de données,
+    les entrées-sorties, sont donc des moyens de rendre visible le produit.</li>
+</ul>
+<p>La facilité avec laquelle l’envergure du projet et même les objectifs
+peuvent être changés caractérise le développement d'un logiciel.</p>
+<ul>
+  <li>Établir une procédure pour faire approuver les changements.</li>
+</ul>
+<p>Placer le client au centre des préoccupations a comme conséquence la nécessité
+d’être systématique et de vérifier à chaque étape que tous les besoins
+sont satisfaits.</p>
+<p>Dans un projet d'envergure, la démarche systématique est illustrée ainsi&nbsp;:</p>
+<ul>
+  <li>Besoins de&nbsp;l'utilisateur</li>
+  <li>Spécifications</li>
+  <li>Conception&nbsp;</li>
+  <li>Construction</li>
+  <li>Vérification</li>
+  <li>Produit.</li>
+</ul>
+<h4>Besoins de&nbsp;l'utilisateur</h4>
+La personne responsable de ce volet rencontre le client, les utilisateurs
+(techniques d’entrevues, de groupes de discussion, etc.).
+<ul>
+  <li>À cette étape, les besoins sont loin d’être tous énoncés&nbsp;: des
+    séances de brainstorming avec des outils de représentation appropriés
+    complètent la liste des besoins.</li>
+  <li>Rédiger un document de synthèse expliquant la situation actuelle, la
+    situation désirée et les contraintes, (un prototypage rapide dans certains
+    cas). Ce document doit être validé.</li>
+</ul>
+<h4>Spécifications</h4>
+<p>C'est la première étape de la conception du logiciel, au cours de laquelle
+les besoins sont traduits en rôles caractéristiques qui sont qualifiés ou
+quantifiés.</p>
+<h4>Conception</h4>
+Le produit est structuré, modules, fonctions etc.
+<h4>Construction</h4>
+C'est l'ébauche, le prototypage et le codage de chaque fonction.
+<ul>
+  <li>Une équipe peut travailler en parallèle sur tous les modules ou encore
+    en mener un à terme et l’intégrer à l'ensemble.</li>
+  <li>Le processus peut revenir en arrière pour que le projet soit validé auprès
+    du client. Et ceci sera d’autant plus nécessaire que les besoins sont mal
+    définis au départ .</li>
+</ul>
+<h4>Vérification</h4>
+La fonctionnalité de chaque fonction est vérifiée ainsi que celle de
+l’ensemble où elle est intégrée.
+<h4>Produit</h4>
+Une question spécifique au développement de logiciel a trait au traitement de
+situations exceptionnelles.
+<ul>
+  <li>Exemple&nbsp;: Microsoft déclare un module prêt à être commercialisé
+    lorsque 90% des situations sont couvertes.</li>
+  <li>C'est le client qui spécifie les exigences.</li>
+</ul>
+<h4><font size="4">Références</h4>
+</font>
+<ul>
+  <li>Phillips, D., <i>The software project manager's Handbook</i>, IEEE
+    Computer Society, ISBN - 0-8186-8300-7, 2000.
+  <li>Pressman R.S. <i>Software Engineering</i>, 4<sup>e</sup>&nbsp;édition,
+    McGraw-Hill, 1997, QA76.6P73 (un classique).
+  <li>Ledgard, Henry F., <i>C with excellence : programming proverbs</i>, Howard
+    W. Sams&nbsp;&amp;&nbsp;co, Hayden Books, 1987, QA76.73C15L43, (trucs pour
+    bien coder).</li>
+</ul>
+<p><img border="0" src="Galets.gif" width="528" height="30"></p>

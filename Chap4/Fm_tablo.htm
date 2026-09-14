@@ -1,0 +1,116 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="Generator" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Écriture formatée - Exercices</title>
+<meta name="Template" content="C:\Program Files\Microsoft Office\Office\HTML.DOT">
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+</head>
+
+<body link="#0000ff" vlink="#800080">
+
+<h3>Affichage d'un tableau ayant différents types de données</h3>
+<p>Le fichier etoile0.m contient la définition de magnitudes et de distances de
+plusieurs étoiles.</p>
+<table border="1">
+  <tr>
+    <td>
+      <pre>%Fichier etoile0.m
+clear
+Etoile=[
+'Sirius';'Altair';'Pollux';'Becrux';'Castor'
+'Adhara';'Alioth';'Shaula';'Alkaid';'Alhena'];
+Magnitude=[-1.42; 0.77; 1.16; 1.28; 1.58
+            1.63; 1.68; 1.71; 1.91; 1.92];
+Distance =[  8.7;   16;   33;  500;   47
+             330;   49;  200;  190;   78];</pre>
+    </td>
+  </tr>
+</table>
+<p>Le fichier etoile1.m permet d'effectuer l'affichage de ces données de types
+différents.</p>
+<table border="1">
+  <tr>
+    <td>
+      <pre><font color="#008000">% Fichier etoile1.m</font>
+clear
+etoile0
+n=length(Distance);
+fid=1;	%écran
+<font color="#0000FF">for</font> i=1:n
+   fprintf(fid,'%s %5.1f %5.2f\n',...
+      Etoile(i,:),Distance(i),Magnitude(i));
+<font color="#0000FF">end</font></pre>
+    </td>
+  </tr>
+</table>
+<p>&nbsp;Exemple&nbsp;: (plusieurs formats)</p>
+<table border="1" cellspacing="1" cellpadding="4">
+  <tr>
+    <td valign="top">
+      <pre>'%s&nbsp;%5.1f&nbsp;%5.2f\n'</pre>
+    </td>
+    <td valign="top">
+      <pre>'%s&nbsp;%.1f&nbsp;%.2f\n'</pre>
+    </td>
+    <td valign="top">
+      <pre>'%8s&nbsp;%5.1f&nbsp;%5.2f\n'</pre>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <pre>Sirius&nbsp;&nbsp;&nbsp;8.7&nbsp;-1.42
+Altair&nbsp;&nbsp;16.0&nbsp;&nbsp;0.77
+Pollux&nbsp;&nbsp;33.0&nbsp;&nbsp;1.16
+Becrux&nbsp;500.0&nbsp;&nbsp;1.28
+Castor&nbsp;&nbsp;47.0&nbsp;&nbsp;1.58
+Adhara&nbsp;330.0&nbsp;&nbsp;1.63
+Alioth&nbsp;&nbsp;49.0&nbsp;&nbsp;1.68
+Shaula&nbsp;200.0&nbsp;&nbsp;1.71
+Alkaid&nbsp;190.0&nbsp;&nbsp;1.91
+Alhena&nbsp;&nbsp;78.0&nbsp;&nbsp;1.92</pre>
+    </td>
+    <td valign="top">
+      <pre>Sirius&nbsp;8.7&nbsp;-1.42
+Altair&nbsp;16.0&nbsp;0.77
+Pollux&nbsp;33.0&nbsp;1.16
+Becrux&nbsp;500.0&nbsp;1.28
+Castor&nbsp;47.0&nbsp;1.58
+Adhara&nbsp;330.0&nbsp;1.63
+Alioth&nbsp;49.0&nbsp;1.68
+Shaula&nbsp;200.0&nbsp;1.71
+Alkaid&nbsp;190.0&nbsp;1.91
+Alhena&nbsp;78.0&nbsp;1.92</pre>
+    </td>
+    <td valign="top">
+      <pre>&nbsp;&nbsp;Sirius&nbsp;&nbsp;&nbsp;8.7&nbsp;-1.42
+&nbsp;&nbsp;Altair&nbsp;&nbsp;16.0&nbsp;&nbsp;0.77
+&nbsp;&nbsp;Pollux&nbsp;&nbsp;33.0&nbsp;&nbsp;1.16
+&nbsp;&nbsp;Becrux&nbsp;500.0&nbsp;&nbsp;1.28
+&nbsp;&nbsp;Castor&nbsp;&nbsp;47.0&nbsp;&nbsp;1.58
+&nbsp;&nbsp;Adhara&nbsp;330.0&nbsp;&nbsp;1.63
+&nbsp;&nbsp;Alioth&nbsp;&nbsp;49.0&nbsp;&nbsp;1.68
+&nbsp;&nbsp;Shaula&nbsp;200.0&nbsp;&nbsp;1.71
+&nbsp;&nbsp;Alkaid&nbsp;190.0&nbsp;&nbsp;1.91
+&nbsp;&nbsp;Alhena&nbsp;&nbsp;78.0&nbsp;&nbsp;1.92</pre>
+    </td>
+  </tr>
+</table>
+<ul>
+  <li>le gabarit spécifie un champ minimal pour l'écriture;</li>
+  <li>un point sépare le gabarit de la spécification du nombre de chiffres
+    après le point décimal;</li>
+  <li>on aligne à droite du champ spécifié par le gabarit; on peut aligner à
+    gauche en écrivant le symbole&nbsp;{-} au début du code de format;</li>
+  <li>les caractères (y compris les espaces) ajoutés entre les codes de format
+    sont affichés;</li>
+  <li>un signe {+} fait en sorte que le signe {+ ou -} soit toujours présent;</li>
+  <li>un zéro {0} fait précéder de zéro toute valeur non nulle.</li>
+</ul>
+<hr>
+
+</body>
+
+</html>

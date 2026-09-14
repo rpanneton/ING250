@@ -1,0 +1,55 @@
+Dans le langage C, un pointeur contient une adresse mémoire destinée à repérer la position d'un élément dans une liste.
+
+Dans Matlab, un « graphic handle » est apparenté à la notion de pointeur. Il contient un numéro qui l'associe avec la structure de données de l'objet graphique. Au sens littéral, « a handle » est une poignée, ce qui en fait une mauvaise traduction; préférons l'expression pointeur graphique.
+
+Un pointeur graphique est une classe de données au même titre que les réels ou les caractères. C'est un nombre qui permet d'atteindre la structure de données régulant les propriétés de l'objet graphique.
+
+<<..\HierarchieObjetsGraph.gif>>
+
+Une image ou un graphique (plot) est un objet du systèmes de coordonnées (axes).
+
+L'objet axes est un objet de la figure.
+
+L'objet axes peut contenir plusieurs objets dont image, text, plot, etc.
+
+Les propriétés de chaque objet sont régulées et décrites par une structure de données.
+
+À chaque objet est associée un nombre qui permet d'atteindre la structure de données de l'objet. En anglais, ce nombre est appelé « graphic handle », que  nous traduisons par pointeur graphique.
+
+
+Handle:
+http://www.math.carleton.ca/old/help/matlab/MathWorks_R13Doc/techdoc/matlab_prog/ch_funh2.html
+
+
+http://www.mathworks.co.uk/matlabcentral/newsreader/view_thread/264357
+
+
+regarding "handles.figure" it is just a matlab structure (unless maybe
+you're using the newer features in object oriented matlab?) but I
+think it is still just a structure, so handles.figure1 = gcf won't do
+anything except put the value of the current figure in those handles,
+nothing else.
+
+set(handles.figure1, gcf);
+
+wont work, it is equivalent to saying set(handle1, handle2) which is
+illegal afaik.
+
+figure handles are always doubles, they have integer values when the
+figure 'IntegerHandle' property is set to 'on' and non-integers
+otherwise.
+
+Matlab doesn't have pointers in the C sense, although in some way you
+could regard a handle as some sort of pointer.
+
+Autre opinion :
+A la création d'un objet, MATLAB lui attribue automatiquement un identifiant (handle), sous la forme d'un nombre réel unique qui peut être stocké dans une variable. Ceci permet de retrouver à tout moment un objet graphique au cours du fonctionnement d'une interface. Cet identifiant existe tant que l'objet existe. Dès que l'objet est détruit, cet identifiant disparaît.
+
+
+Think about a function handle as a pointer to a function. I C/C++ you can do similar things with function pointers. Matlab function handles are easier to use and have more features than C function pointers.
+
+Fonctions graphiques – compléments
+
+Accéder à la documentation de Matlab, en écrivant :
+ >> doc
+et choisir l'item Handle Graphics : Object properties

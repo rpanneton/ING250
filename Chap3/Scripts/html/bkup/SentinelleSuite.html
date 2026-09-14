@@ -1,0 +1,148 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Arr&ecirc;t sur donn&eacute;e sentinelle</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-10-28">
+      <meta name="m-file" content="SentinelleSuite"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Arr&ecirc;t sur donn&eacute;e sentinelle</h1>
+         <introduction>
+            <p>Comme la fonction <i>input</i> ne s'utilise pas avec &laquo;Publish to html&raquo;, la fonction <i>rand</i> est substitu&eacute;e &agrave; <i>input</i>.
+            </p>
+            <p>Remplacer cette modification pour utiliser la fonction <i>input</i> dans la fen&ecirc;tre de Matlab.
+            </p>
+         </introduction><pre class="codeinput">clear <span class="string">all</span>; clc
+fprintf(<span class="string">'&Eacute;crire un &agrave; un des nombres.\n'</span>);
+fprintf(<span class="string">'Pour terminer, &eacute;crire 0\n'</span>);
+N = round(9*rand);fprintf(<span class="string">'N ? %.0f\n'</span>,N);
+<span class="comment">%  N = input('N ? ');</span>
+Somme = N;
+k = 0;
+<span class="keyword">while</span>(N~=0)
+   k = k+1;
+   Nombre(k)=N;
+   Somme=Somme+N;
+   N = round(9*rand);fprintf(<span class="string">'N ? %.0f\n'</span>,N);
+   <span class="comment">%     N=input('N ? ');</span>
+<span class="keyword">end</span>
+fprintf(<span class="string">'Pour ces %.0f nombres, '</span>,k);
+fprintf(<span class="string">'la moyenne = %.2f\n'</span>,Somme/k);
+fprintf(<span class="string">'Donn&eacute;es :\n'</span>);
+Nombre
+</pre><pre class="codeoutput">&Eacute;crire un &agrave; un des nombres.
+Pour terminer, &eacute;crire 0
+N ? 5
+N ? 7
+N ? 8
+N ? 1
+N ? 5
+N ? 4
+N ? 0
+Pour ces 6 nombres, la moyenne = 5.83
+Donn&eacute;es :
+Nombre =
+     5     7     8     1     5     4
+</pre><p><img vspace="5" hspace="5" src="..\Feuilles.gif"> </p>
+         <p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Arrêt sur donnée sentinelle
+% Comme la fonction _input_ ne s'utilise pas
+% avec «Publish to html»,
+% la fonction _rand_ est substituée à _input_.
+%
+% Remplacer cette modification pour utiliser la
+% fonction _input_ dans la fenêtre de Matlab.
+%%
+clear all; clc
+fprintf('Écrire un à un des nombres.\n');
+fprintf('Pour terminer, écrire 0\n');
+N = round(9*rand);fprintf('N ? %.0f\n',N);
+%  N = input('N ? ');
+Somme = N;
+k = 0;
+while(N~=0)
+   k = k+1;
+   Nombre(k)=N;
+   Somme=Somme+N;
+   N = round(9*rand);fprintf('N ? %.0f\n',N);
+   %     N=input('N ? ');
+end
+fprintf('Pour ces %.0f nombres, ',k); 
+fprintf('la moyenne = %.2f\n',Somme/k);
+fprintf('Données :\n');
+Nombre
+%%
+% <<..\Feuilles.gif>>
+##### SOURCE END #####
+-->
+   </body>
+</html>

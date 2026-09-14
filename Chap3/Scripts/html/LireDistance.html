@@ -1,0 +1,200 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Exemple de lecture et d'analyse de donn&eacute;es</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2009-10-18">
+      <meta name="m-file" content="LireDistance"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Exemple de lecture et d'analyse de donn&eacute;es</h1>
+         <introduction></introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#2">Pour les 5 derniers &eacute;l&eacute;ments de D</a></li>
+               <li><a href="#6">Parmi tous les &eacute;l&eacute;ments de D</a></li>
+            </ul>
+         </div><pre class="codeinput">clear; clc
+Fichier=<span class="string">'Distance.dat'</span>; D=load(Fichier);
+</pre><h2>Pour les 5 derniers &eacute;l&eacute;ments de D<a name="2"></a></h2><pre class="codeinput">Dernieres=D(end-5:end); disp(Dernieres');
+</pre><pre class="codeoutput">   258    98   232   151   466    53
+</pre><div>
+            <ul>
+               <li>Fonctions sum et mean</li>
+            </ul>
+         </div><pre class="codeinput">Somme = sum(Dernieres)
+Moyenne = mean(Dernieres)
+</pre><pre class="codeoutput">Somme =
+        1258
+Moyenne =
+       209.67
+</pre><div>
+            <ul>
+               <li>Somme et moyenne avec une boucle</li>
+            </ul>
+         </div><pre class="codeinput">Somme = 0;
+<span class="keyword">for</span> i = 1:length(Dernieres)
+   Somme = Somme + Dernieres(i);
+<span class="keyword">end</span>
+Somme, Moyenne = Somme/length(Dernieres)
+</pre><pre class="codeoutput">Somme =
+        1258
+Moyenne =
+       209.67
+</pre><p>La fonction <b>length</b> permet d'obtenir le nombre exact d'&eacute;l&eacute;ments de <b>Dernieres</b>, peu importe le choix initial. L'utilisation du nombre 5 rendrait le programme moins robuste.
+         </p>
+         <h2>Parmi tous les &eacute;l&eacute;ments de D<a name="6"></a></h2><pre class="codeinput"><span class="keyword">for</span> i = 1:9:length(D) <span class="comment">% non demand&eacute;</span>
+   fprintf(<span class="string">'%4d '</span>,D(i:i+8)); fprintf(<span class="string">'\n'</span>);
+<span class="keyword">end</span>
+</pre><pre class="codeoutput"> 115  220  239  344  273  131  119   33  240 
+ 325  183  150  242  215   58  508  338  506 
+ 150   26  411  258   98  232  151  466   53 
+</pre><div>
+            <ul>
+               <li>Indice et valeur du plus petit &eacute;l&eacute;ment</li>
+            </ul>
+         </div><pre class="codeinput">indice=1;
+<span class="keyword">for</span> i=2:length(D)
+   <span class="keyword">if</span>(D(indice)&gt;D(i))
+      indice=i;
+   <span class="keyword">end</span>
+<span class="keyword">end</span>
+indice
+PlusPetiteValeur=D(indice)
+</pre><pre class="codeoutput">indice =
+    20
+PlusPetiteValeur =
+    26
+</pre><div>
+            <ul>
+               <li>Nombre d&#8217;&eacute;l&eacute;ments compris entre 250 et 400, bornes incluses</li>
+            </ul>
+         </div><pre class="codeinput">combien=0; <span class="comment">% compteur</span>
+<span class="keyword">for</span> i=1:length(D)
+   <span class="keyword">if</span>(D(i)&gt;=250 &amp;&amp; D(i)&lt;=400)
+      combien=combien+1;
+   <span class="keyword">end</span>
+<span class="keyword">end</span>
+combien
+</pre><pre class="codeoutput">combien =
+     5
+</pre><p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Exemple de lecture et d'analyse de données
+%%
+clear; clc
+Fichier='Distance.dat'; D=load(Fichier);
+%% Pour les 5 derniers éléments de D
+Dernieres=D(end-5:end); disp(Dernieres');
+%%
+% * Fonctions sum et mean
+Somme = sum(Dernieres)
+Moyenne = mean(Dernieres)
+%%
+% * Somme et moyenne avec une boucle
+Somme = 0;
+for i = 1:length(Dernieres)
+   Somme = Somme + Dernieres(i);
+end
+Somme, Moyenne = Somme/length(Dernieres)
+%%
+% La fonction *length* permet d'obtenir le nombre
+% exact d'éléments de *Dernieres*, peu importe le
+% choix initial. L'utilisation du nombre 5
+% rendrait le programme moins robuste.
+%% Parmi tous les éléments de D
+for i = 1:9:length(D) % non demandé
+   fprintf('%4d ',D(i:i+8)); fprintf('\n');
+end
+%%
+% * Indice et valeur du plus petit élément
+indice=1;
+for i=2:length(D)
+   if(D(indice)>D(i))
+      indice=i;
+   end
+end
+indice
+PlusPetiteValeur=D(indice)
+%%
+% * Nombre d’éléments compris entre 250 et 400,
+% bornes incluses
+combien=0; % compteur
+for i=1:length(D)
+   if(D(i)>=250 && D(i)<=400)
+      combien=combien+1;
+   end
+end
+combien
+##### SOURCE END #####
+-->
+   </body>
+</html>

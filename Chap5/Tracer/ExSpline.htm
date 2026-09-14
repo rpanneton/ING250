@@ -1,0 +1,32 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Lisser une courbe avec une spline</title>
+<link rel="stylesheet" type="text/css" href="../../css/index.css">
+</head>
+
+<body>
+
+<h2>Lisser une courbe avec une spline</h2>
+<p>Supposons que l'on désire faire passer une courbe par des points (x,y,z)
+définis dans l'espace. La fonction spline de Matlab permet de générer un
+autres ensemble (x,y,z) qui contient beaucoup plus de points. On peut alors les
+utiliser pour tracer une courbe plus lisse que le simple tracé de segments de
+droite reliant les points définis. Illustrons&nbsp;:</p>
+<p>Le fichier <i>Points.txt</i> contient les coordonnées (x,y,z) de points par
+lesquels on souhaite faire passer une courbe. Le fichier Approx.m contient un
+programme qui tire profit de la spline.</p>
+<p><img src="Approx.gif" width="349" height="472">&nbsp; <img src="Points.gif" width="214" height="387"></p>
+<p><img src="fig1.gif" width="528" height="302"></p>
+<p><img src="Fig2xz.gif" width="528" height="302"></p>
+<p><img src="Fig3.gif" width="528" height="302"></p>
+<p>Information supplémentaire&nbsp;:<br>
+<code>&gt;&gt; doc spline</code></p>
+<hr size="4" color="#0000FF">
+
+</body>
+
+</html>

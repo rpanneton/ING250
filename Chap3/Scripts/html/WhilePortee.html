@@ -1,0 +1,147 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Port&eacute;e P d'un projectile</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-10-14">
+      <meta name="m-file" content="WhilePortee"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Port&eacute;e P d'un projectile</h1>
+         <introduction>
+            <p>La port&eacute;e P d'un projectile en fonction de l'angle th&ecirc;ta variant entre 10 et 60 degr&eacute;s, &agrave; tous les 0.5&deg; (choix &eacute;ditorial).</p>
+         </introduction>
+         <p>La fonction input est remplac&eacute;e par des valeurs fixes afin d'utiliser &laquo; Publish to html &raquo;.</p><pre class="codeinput">clear; clc; close <span class="string">all</span>;
+V0 = 900; <span class="comment">% m/s &agrave; remplacer par</span>
+<span class="comment">% V0=input('V0 ? ');</span>
+g=9.8067;
+</pre><p><b>Pseudod&eacute;claration</b></p>
+         <p>Influence la vitesse d'ex&eacute;cution et r&eacute;duit la quantit&eacute; de m&eacute;moire requise pendant l'ex&eacute;cution.</p><pre>&gt;&gt; doc zeros</pre><pre class="codeinput">theta = zeros(1,101); <span class="comment">% pseudod&eacute;claration</span>
+p = zeros(1,101);
+</pre><p>Trac&eacute; du graphique</p><pre class="codeinput">i = 0;
+<span class="keyword">while</span>(i&lt;=100)
+   theta(i+1) = 10 + i*0.5;
+   P(i+1)=V0*V0/g*sind(2*theta(i+1));
+   i = i+1;
+<span class="keyword">end</span>
+plot(theta,P)
+xlabel(<span class="string">'Angle en degr&eacute;s'</span>)	<span class="comment">%axe des X</span>
+ylabel(<span class="string">'Port&eacute;e (m)'</span>)	<span class="comment">%axe des Y</span>
+title([<span class="string">'Port&eacute;e d''un projectile en fonction de '</span>,<span class="keyword">...</span>
+   <span class="string">'\theta,  V_0 : '</span>,num2str(V0),<span class="string">' m/s'</span>])
+grid <span class="string">on</span>;
+</pre><img vspace="5" hspace="5" src="WhilePortee_01.png"> <p>La r&eacute;ponse serait diff&eacute;rente si on tenait compte de la r&eacute;sistance de l'air.</p>
+         <p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Portée P d'un projectile
+% La portée P d'un projectile en fonction de
+% l'angle thêta variant entre 10 et 60 degrés, à
+% tous les 0.5° (choix éditorial).
+
+%%
+% La fonction input est remplacée par des valeurs
+% fixes afin d'utiliser « Publish to html ».
+clear; clc; close all;
+V0 = 900; % m/s à remplacer par
+% V0=input('V0 ? ');
+g=9.8067;
+
+%%
+% *Pseudodéclaration*
+%
+% Influence la vitesse d'exécution et réduit la
+% quantité de mémoire requise pendant l'exécution.
+%
+%  >> doc zeros
+theta = zeros(1,101); % pseudodéclaration
+p = zeros(1,101);
+
+%%
+% Tracé du graphique
+i = 0;
+while(i<=100)
+   theta(i+1) = 10 + i*0.5;
+   P(i+1)=V0*V0/g*sind(2*theta(i+1));
+   i = i+1;
+end
+plot(theta,P)
+xlabel('Angle en degrés')	%axe des X
+ylabel('Portée (m)')	%axe des Y
+title(['Portée d''un projectile en fonction de ',...
+   '\theta,  V_0 : ',num2str(V0),' m/s'])
+grid on;
+
+%%
+% La réponse serait différente si on tenait compte
+% de la résistance de l'air.
+##### SOURCE END #####
+-->
+   </body>
+</html>

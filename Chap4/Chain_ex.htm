@@ -1,0 +1,83 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="fr-ca">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Chaînes de caractères - exercices</title>
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+</head>
+
+<body>
+
+<h3>Chaînes de caractères - exercices</h3>
+<h4>Exercice&nbsp;1</h4>
+<p>Lire le fichier sommeil.txt à l'aide de la fonction <i>fscanf</i>.</p>
+<ul>
+  <li>Compter le nombre de mots dans le texte.</li>
+  <li>Compter le nombre de phrases.</li>
+  <li>Calculer la moyenne de mots par phrase.</li>
+</ul>
+<p>Solution&nbsp;: Sommeil.m</p>
+<h4>Exercice&nbsp;2</h4>
+Le fichier <i>desnoms.txt</i> contient six lignes représentant la vente de
+billets pour financer les projets de la promotion actuelle. Lire les données et
+afficher en ajoutant le n<sup>o</sup>&nbsp;de ligne&nbsp;:<br>
+<code>01&nbsp;&nbsp;Maryse&nbsp;&nbsp;32<br>
+02&nbsp;&nbsp;Lucie&nbsp;&nbsp;&nbsp;18<br>
+03&nbsp;&nbsp;Paul&nbsp;&nbsp;&nbsp;&nbsp;36<br>
+04&nbsp;&nbsp;Marc&nbsp;&nbsp;&nbsp;&nbsp;21<br>
+05&nbsp;&nbsp;Marthe&nbsp;&nbsp;39<br>
+06&nbsp;&nbsp;Jacques&nbsp;27<br>
+&nbsp;<br>
+</code>Chacun des billets coûte 20&nbsp;$. Remplacer le nombre de billets par les
+recettes de chacun et afficher à l'écran&nbsp;:<br>
+<code>Maryse&nbsp;&nbsp;640&nbsp;$<br>
+Lucie&nbsp;&nbsp;&nbsp;360&nbsp;$<br>
+Paul&nbsp;&nbsp;&nbsp;&nbsp;720&nbsp;$<br>
+</code>etc.
+<p>Écrire ensuite dans un fichier (<i>tmp.txt</i>).</p>
+<p>Solution&nbsp;: desnom.m</p>
+<h4>Exercice 3 - Analyse statistique d'un texte</h4>
+<p>Effectuer la lecture du fichier Materiau.txt sous la forme d'une longue
+chaîne de caractères appelée&nbsp;A.</p>
+<ul>
+  <li>Pour les besoins de l'analyse, tous les symboles de ponctuation ont été
+    retirés, et chaque mot est séparé par un espace (nombre 32 dans la classe
+    double).</li>
+  <li>Le fichier se termine également par un espace.</li>
+  <li>Rédiger votre programme en n'utilisant pas la vectorisation de Matlab.</li>
+</ul>
+<h4>3a) Analyse selon le mode de la classe caractère</h4>
+<p>Écrire un programme qui affiche combien de mots contiennent<br>
+1 caractère<br>
+2 caractères<br>
+<b>. . .</b><br>
+19 caractères<br>
+20 caractères.</p>
+<p>Aucun mot ne contient plus de 20 caractères. Chaque mot est séparé par un
+espace. Finalement, indiquer combien de mots de 5 lettres ou plus se terminent
+par 'te'.</p>
+<p>Solution&nbsp;: Mat_mots.m</p>
+<h4>3b) Analyse selon le mode de la classe double</h4>
+<p>Transformer le vecteur A ci-dessus de la classe caractère à la classe
+double&nbsp;:</p>
+<pre><b>A&nbsp;=&nbsp;double(A);</b></pre>
+<p>Le vecteur A contient maintenant des séries de nombres séparées par le
+nombre 32.</p>
+<p>Écrire un programme qui affiche combien de séries contiennent<br>
+1 nombre<br>
+2 nombres<br>
+<b>. . .</b><br>
+19 nombres<br>
+20 nombres.</p>
+<p>Aucune série ne contient plus de 20 nombres. Finalement, indiquer combien de
+série de 5 nombres ou plus se terminent par les deux&nbsp; nombres 116 et 101
+(dans cet ordre, ce qui correspond aux caractères «te»).</p>
+<p>Solution&nbsp;: Mat_nomb.m</p>
+<hr>
+
+</body>
+
+</html>

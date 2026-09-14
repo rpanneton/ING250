@@ -1,0 +1,9 @@
+/* CSS placed here will affect the print output, including [?&]printable=yes */
+
+.editlink, .noprint, .metadata, .dablink, .toc, .infobox, #catlinks, .subpages,
+.navigation, #privacy, #about, #disclaimer {
+  display: none !important;
+}
+
+div.expand-print { display: block !important; }
+span.expand-print { display: inline !important; }

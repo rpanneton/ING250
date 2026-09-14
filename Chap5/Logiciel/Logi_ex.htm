@@ -1,0 +1,188 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="Generator" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Éléments de génie logiciel - Exercices</title>
+<meta name="Template" content="C:\Program Files\Microsoft Office\Office\HTML.DOT">
+<link rel="stylesheet" type="text/css" href="../../css/index.css">
+</head>
+
+<body text="#000000" link="#0000ff" vlink="#800080" bgcolor="#ffffff">
+
+<h2>Éléments de génie logiciel - exercices</h2>
+<ul>
+	<li>Noter que la matière inclut les concepts présentés dans les chapitres
+précédents.</li>
+	<li>Il y aura cinq questions parmi les suivantes à l'examen final (1 pt 
+	chacune).</li>
+</ul>
+<h3>Introduction à Windows</h3>
+<ol>
+  <li>Définir et différencier&nbsp;:
+    <ul>
+      <li>fichier et programme,</li>
+      <li>éditeur de texte et traitement de texte,</li>
+      <li>normes ASCII et ANSI.</li>
+    </ul>
+  </li>
+  <li>Expliquer l'effet du formatage d'une disquette.</li>
+</ol>
+<h3>Introduction&nbsp; à Matlab</h3>
+<h4>Outil numérique</h4>
+<ol>
+  <li>Répondre aux questions suivantes&nbsp;:
+    <ul>
+      <li>Expliquer la différence entre une constante et une variable.</li>
+      <li>Qu'est-ce qu'une donnée&nbsp;?</li>
+      <li>Qu'est-ce qu'un scalaire&nbsp;?</li>
+    </ul>
+  </li>
+  <li>Section&nbsp; Exercices - Création de graphiques
+    <ul>
+      <li>Générer 300 valeurs entre -pi et +pi et attribuer à x.</li>
+      <li>Tracer le graphique de y&nbsp;=&nbsp;x + sin(x) pour ces valeurs
+        de&nbsp;x.</li>
+    </ul>
+  </li>
+</ol>
+<h4>Outil symbolique</h4>
+Répondre aux questions suivantes&nbsp;:
+<ol>
+  <li>Quelle est l'instruction Matlab permettant de faire afficher le type et
+    l'espace mémoire occupée par les variables
+    ?&nbsp;</li>
+  <li>Expliquer le résultat des opérations suivantes &nbsp;:<br>
+    <code>&gt;&gt; x='5';</code><br>
+    <code>&gt;&gt; x+3</code><br>
+    <code>ans = 56</code></li>
+</ol>
+<h3>Écrire un programme et gestion</h3>
+<ol>
+  <li>Quel est l'effet du point-virgule à la fin d'une instruction&nbsp;?</li>
+  <li>Quelle est la différence entre les fonctions input('nom') et
+    input('nom','s')&nbsp;?</li>
+  <li>Quelle est la valeur de A après l'exécution de l'instruction<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>disp('A = 23 + 5/2')</code></li>
+  <li>Écrire une instruction Matlab permettant d'identifier le répertoire
+    contenant la fonction date.</li>
+</ol>
+<h3><b>Mécanismes de contrôle - Décision</b></h3>
+<ol>
+  <li>Combien y-a-t-il de ko dans un 2&nbsp;Go&nbsp;?</li>
+  <li>Comparer l'affectation (ou attribution) et l'égalité mathématique.</li>
+  <li>Expliquer l'instruction&nbsp;:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>i = i + 1</code></li>
+  <li>Distinguer les opérateurs de relation des opérateurs logiques.
+    <ul>
+      <li>Expliquer le résultat de S = 6 &lt; y &lt; 9 et le correctif à
+        apporter.</li>
+    </ul>
+  </li>
+  <li>Sachant que A = 3 et B = 5 et en utilisant la règle de priorité des
+    opérateurs, décrire l'ordre des opérations et le résultat de&nbsp;:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>4 &gt; A &amp; B &lt; A + 7 / pi | A
+    &gt;= B</code></li>
+  <li>En justifiant, indiquer si les deux expressions produisent le même
+    résultat&nbsp;:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<code>L1 = (A &gt; B) &amp; (C &gt; (pi+3))</code><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<code>L2 = A &gt; B &amp; C &gt; pi+3</code></li>
+</ol>
+<h3>Mécanismes de contrôle - Boucles</h3>
+<ol>
+  <li>Donner la définition d'une donnée sentinelle&nbsp;et fournir un exemple
+    d'application.</li>
+  <li>Quelle est l'utilité de décaler des instructions dans un programme
+    Matlab&nbsp;?</li>
+  <li>Comparer le calcul parallèle et la vectorisation.</li>
+  <li>Remplacer la portion de programme par une seule instruction vectorisée :
+    <pre>a=input('a ? ');
+for i=1:1:256
+   x(i)=i-a;
+end
+x=x'</pre>
+  </li>
+  <li>Énoncer les critères pour choisir une structure de boucle.</li>
+  <li>Pourquoi faut-il éviter d'utiliser une instruction <i>break</i> dans une boucle&nbsp;?</li>
+</ol>
+<h3>Calcul itératif</h3>
+<ol>
+  <li>Qu'est-ce que l'on entend par une itération dans le contexte de la
+    méthode de Newton&nbsp;?</li>
+  <li>Décrire la représentation d'un réel avec le format double de la norme
+    IEEE-754.<br>
+	Référence&nbsp;:<a href="../../Chap1/110Ecrire/IEEE_754.htm"> IEEE_754.htm</a>.</li>
+  <li>Qu'est-ce qu'un entier à point-flottant&nbsp;? Expliquer le principe
+    permettant cette représentation.</li>
+  <li>Quelle est la valeur maximale que peut contenir un entier non signé à un
+    octet&nbsp;?</li>
+  <li>Quelle est la valeur maximale que peut contenir un entier signé à un
+    octet&nbsp;?</li>
+  <li>Sachant que A appartient à la classe «double» et que B appartient à la
+    classe int32. Supposer que
+    A&nbsp;=&nbsp;104 et B&nbsp;=&nbsp;104. Quelle est la différence entre A et B dans la
+    mémoire de l'ordinateur ?</li>
+  <li>Pourquoi faut-il éviter d'utiliser des données symboliques dans une
+    méthode de résolution numérique&nbsp;?</li>
+  <li>Donner un exemple où le résultat est un NaN.</li>
+</ol>
+<h3>Fonction</h3>
+<ol>
+  <li>Que signifie le passage des arguments en valeur&nbsp;?</li>
+  <li>Expliquer comment une modification des paramètres reçus dans la fonction
+    modifie ou non les arguments effectifs de la partie appelante&nbsp;?</li>
+  <li>Quel est l'avantage de ne pas modifier dans la fonction les éléments
+    d'une matrice passée en argument&nbsp;?</li>
+</ol>
+<h3>Tableaux et structures de données</h3>
+<ol>
+  <li>Expliquer la manière d'inverser l'ordre d'un vecteur en manipulant
+    seulement les éléments du vecteur et en utilisant la vectorisation.</li>
+  <li>Comparer tableau et structure de données.</li>
+  <li>Considérer un écran à cristaux liquides de la salle 5026 ou 5028.
+    Déterminer le nombre de pixels et indiquer la manière qu'il représente
+    les couleurs.</li>
+  <li>Comment produire la couleur jaune avec un système RGB&nbsp;?</li>
+  <li>Supposer un écran à cristaux liquides de 15&nbsp;po ayant un élancement
+    typique de 4/3. Spécifier la largeur et la hauteur de l'écran en po.</li>
+</ol>
+<h3>Éléments de génie logiciel</h3>
+<ol>
+  <li>Qu'est-ce que le génie logiciel&nbsp;?</li>
+  <li>Décrire le synoptique d'un micro-ordinateur en expliquant ses composants.</li>
+  <li>Définir les termes ou acronymes : mémoire vive, <i>RAM</i>,
+    <i>ROM</i> et ce qui les différencie.</li>
+  <li>Que signifie les acronymes MIPS et FLOP&nbsp;?</li>
+  <li>Distinguer les registres du microprocesseur des registres utilisés dans
+    LabVIEW.</li>
+  <li>Qu'est-ce que le microprocesseur&nbsp;? Quel est le rôle de l'horloge ?</li>
+  <li>Nommer les quatre groupes de logiciels et fournir un exemple pour chacun.</li>
+  <li>Qu'est-ce que le bus de communication et à quoi sert-il&nbsp;? Lorsqu'on
+    indique que le bus est sur 32 ou 64&nbsp;bits, qu'est-ce que cela
+    signifie&nbsp;?</li>
+  <li>Distinguer un compilateur d'un interprète.</li>
+  <li>Nommer deux paradigmes de langages informatiques et les définir.</li>
+  <li>Expliquer les quatre propriétés d'une
+    variable.</li>
+  <li>Décrire quatre aspects psychologiques impliqués dans le codage d'un
+    programme informatique.</li>
+  <li>Déclarer des tableaux avant leur utilisation augmente la vitesse
+    d'exécution. Pourquoi&nbsp;?</li>
+  <li>Comment augmenter la compréhension d'une instruction contenant une
+    expression relativement complexe sous la forme d'une fraction&nbsp;?</li>
+  <li>Comment organiser un programme qui contient 1000 lignes de code&nbsp;?</li>
+  <li>Décrire les 4 étapes requises pour réaliser un programme ou produire un
+    logiciel.</li>
+  <li>Décrire les grands principes de la documentation d'un programme.</li>
+  <li>Expliquer la méthode proposée par Matlab pour organiser un programme.</li>
+  <li>Commenter&nbsp;: concevoir un programme consiste à écrire des
+    instructions efficaces qui accomplissent le travail demandé.</li>
+  <li>Pour réaliser un programme et produire un logiciel, on suggère de
+    commencer par la documentation. En expliquer les fondements.</li>
+</ol>
+<p align="CENTER"><img src="Galets.gif" width="528" height="30"></p>
+
+</body>
+
+</html>

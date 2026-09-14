@@ -1,0 +1,129 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Du campus pricipal au campus Fleurimont</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-10-15">
+      <meta name="m-file" content="WhileVitenbus"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Du campus pricipal au campus Fleurimont</h1><pre class="codeinput">clear; clc; close <span class="string">all</span>
+Matrice = xlsread(<span class="string">'EnBus.xls'</span>);
+d = Matrice(:,1); <span class="comment">% distance en km</span>
+v = Matrice(:,2); <span class="comment">% vitesse en km/h</span>
+t = zeros(size(d)); <span class="comment">% pseudod&eacute;claration</span>
+<span class="comment">% temps cumulatif en min depuis le d&eacute;part</span>
+
+i = 1;
+<span class="keyword">while</span>(i&lt;length(d))
+   t(i+1) = t(i)+(d(i+1)-d(i))/<span class="keyword">...</span>
+      ((v(i+1)+v(i))/2) * 60; <span class="comment">% min</span>
+   i = i + 1;
+<span class="keyword">end</span>
+
+<span class="comment">% for i = 2:length(d)</span>
+<span class="comment">%    t(i) = t(i-1)+(d(i)-d(i-1))/...</span>
+<span class="comment">%       ((v(i)+v(i-1))/2) * 60; % min</span>
+<span class="comment">% end</span>
+
+plot(t,d,<span class="string">'o-b'</span>); grid <span class="string">on</span>;
+xlabel(<span class="string">'temps  min'</span>);
+ylabel(<span class="string">'distance  km'</span>)
+title(<span class="string">'VitenBus entre les 2 campus'</span>);
+</pre><img vspace="5" hspace="5" src="WhileVitenbus_01.png"> <p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Du campus pricipal au campus Fleurimont
+clear; clc; close all
+Matrice = xlsread('EnBus.xls');
+d = Matrice(:,1); % distance en km
+v = Matrice(:,2); % vitesse en km/h
+t = zeros(size(d)); % pseudodéclaration
+% temps cumulatif en min depuis le départ
+
+i = 1;
+while(i<length(d))
+   t(i+1) = t(i)+(d(i+1)-d(i))/...
+      ((v(i+1)+v(i))/2) * 60; % min
+   i = i + 1;
+end
+
+% for i = 2:length(d)
+%    t(i) = t(i-1)+(d(i)-d(i-1))/...
+%       ((v(i)+v(i-1))/2) * 60; % min
+% end
+
+plot(t,d,'o-b'); grid on;
+xlabel('temps  min');
+ylabel('distance  km')
+title('VitenBus entre les 2 campus');
+##### SOURCE END #####
+-->
+   </body>
+</html>

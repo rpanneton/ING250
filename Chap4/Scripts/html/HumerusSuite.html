@@ -1,0 +1,261 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Hypoth&egrave;se d'une sym&eacute;trie bilat&eacute;rale</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-11-20">
+      <meta name="m-file" content="HumerusSuite"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Hypoth&egrave;se d'une sym&eacute;trie bilat&eacute;rale</h1>
+         <introduction></introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#1">Analyse visuelle</a></li>
+               <li><a href="#2">Analyse statistique</a></li>
+               <li><a href="#3">Question</a></li>
+            </ul>
+         </div>
+         <h2>Analyse visuelle<a name="1"></a></h2>
+         <p>Avant de poursuivre, la figure est reprise. La question est formul&eacute;e &agrave; la fin du texte.</p>
+         <p><img vspace="5" hspace="5" src="..\Humerus.png"> </p>
+         <div>
+            <ul>
+               <li>Chaque point repr&eacute;sente une personne. L'examen visuel du graphique r&eacute;v&egrave;le qu'une personne ayant un hum&eacute;rus gauche long a aussi
+                  un hum&eacute;rus droit long, et ainsi de suite.
+               </li>
+            </ul>
+         </div>
+         <div>
+            <ul>
+               <li>Les points sont r&eacute;partis sur une droite dont la pente est &agrave; 45&deg;, puisque les hum&eacute;rus gauche et droit d'un individu ont des
+                  longueurs similaires.
+               </li>
+            </ul>
+         </div>
+         <div>
+            <ul>
+               <li>Si la sym&eacute;trie bilat&eacute;rale &eacute;tait compl&egrave;te, les points seraient sur la droite ou &eacute;galement r&eacute;partis de part et d'autres de la
+                  droite. Or, la majorit&eacute; des donn&eacute;es sont situ&eacute;es en haut de la droite, soit D &gt; G.
+               </li>
+            </ul>
+         </div>
+         <p>L'analyse statistique suivante &eacute;value l'hypoth&egrave;se d'une sym&eacute;trie bilat&eacute;rale compl&egrave;te.</p>
+         <h2>Analyse statistique<a name="2"></a></h2>
+         <p>Supposer que les hum&eacute;rus droits de la population pr&eacute;historique forment une distribution normale comme ci-dessous.</p>
+         <p><img vspace="5" hspace="5" src="..\Normale.bmp"> </p>
+         <p>Posons l'hypoth&egrave;se d'une sym&eacute;trie bilat&eacute;rale compl&egrave;te. Dans ce cas, la moyenne arithm&eacute;tique du quotient X de la population
+            est mXp = 1.0.
+         </p>
+         <p>Ainsi la valeur t de la population (<b>tp</b>) est
+         </p><pre>tp = (mXp -1)/1 = (1.0 -1)/1 = 0</pre><p>Par population, on entend tous les individus de ce groupe pr&eacute;historique, par opposition &agrave; l'&eacute;chantillon de 10 personnes.</p>
+         <p>Dans ce contexte, on pourrait se demander qu'elle est la probabilit&eacute; qu'une valeur de X soit &eacute;gale &agrave; la moyenne mXe de l'&eacute;chantillon.</p>
+         <p>L'&eacute;cart-type <b>Sp</b> de toute la population peut &ecirc;tre calcul&eacute; &agrave; partir de l'&eacute;cart-type de l'&eacute;chantillon (consid&eacute;rer ceci comme exact).
+         </p><pre>Sp = Se/sqrt(N)</pre><p>Sur l'axe <b>t</b> de la courbe normale,
+         </p><pre>tmXe = (mXe -1)/Sp</pre><p>Plus t = tmXe s'&eacute;loigne de tp = 0, moins il y a de probabilit&eacute; que tmXe fasse partie de la distribution centr&eacute;e sur tp, qui
+            suppose une sym&eacute;trie bilat&eacute;rale compl&egrave;te.
+         </p>
+         <p><img vspace="5" hspace="5" src="..\Normale.bmp"> </p>
+         <div>
+            <ul>
+               <li>Si tmXe &gt; 1.83, il y a seulement 5% de probabilit&eacute; qu'il fasse partie de la distribution centr&eacute;e &agrave; 0. En d'autres termes,
+                  il ne fait pas partie des donn&eacute;es validant l'hypoth&egrave;se d'une sym&eacute;trie bilat&eacute;rale compl&egrave;te 19 fois sur 20.
+               </li>
+            </ul>
+         </div>
+         <div>
+            <ul>
+               <li>De la m&ecirc;me fa&ccedil;on, tmXe &gt; 2.82 correspond &agrave; une probabilit&eacute; de 1%. Il est alors presque certain que la sym&eacute;trie bilat&eacute;rale
+                  n'est pas compl&egrave;te.
+               </li>
+            </ul>
+         </div>
+         <div>
+            <ul>
+               <li>Pour tmXe &gt; 4.30, la probabilit&eacute; n'est plus que de 0.1%, c'est-&agrave;-dire une quasi-certitude. Puisqu'un &eacute;chantillon diverge &agrave;
+                  ce point de t = 0, on peut donc affirmer que la sym&eacute;trie bilat&eacute;rale n'est pas compl&egrave;te 999 fois sur 1000.
+               </li>
+            </ul>
+         </div>
+         <h2>Question<a name="3"></a></h2>
+         <p>L'hypoth&egrave;se d'une sym&eacute;trie bilat&eacute;rale compl&egrave;te est-elle valable dans la population pr&eacute;historique d'o&ugrave; provient l'&eacute;chantillon
+            de 10 personnes ?
+         </p>
+         <p>&Eacute;crire 5 &agrave; 6 lignes <b>en commentaires</b>. L'explication doit s'afficher correctement en texte html contigu avec l'utilitaire <i>Publish to html</i>.
+         </p>
+         <p>Appuyer votre r&eacute;ponse par des calculs Matlab.</p>
+         <p><img vspace="5" hspace="5" src="..\Feuilles.gif"> </p>
+         <p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Hypothèse d'une symétrie bilatérale 
+
+%% Analyse visuelle
+% Avant de poursuivre, la figure est reprise. La
+% question est formulée à la fin du texte.
+%
+% <<..\Humerus.png>>
+%
+% * Chaque point représente une personne. L'examen
+% visuel du graphique révèle qu'une personne ayant
+% un humérus gauche long a aussi un humérus droit
+% long, et ainsi de suite.
+%
+% * Les points sont répartis sur une
+% droite dont la pente est à 45°, puisque les
+% humérus gauche et droit d'un individu ont des
+% longueurs similaires.
+%
+% * Si la symétrie bilatérale était complète, les
+% points seraient sur la droite ou également
+% répartis de part et d'autres de la droite. Or,
+% la majorité des données sont situées en haut de
+% la droite, soit D > G.
+%
+% L'analyse statistique suivante évalue l'hypothèse
+% d'une symétrie bilatérale complète.
+
+%% Analyse statistique
+% Supposer que les humérus droits de la population
+% préhistorique forment une distribution normale
+% comme ci-dessous.
+%
+% <<..\Normale.bmp>>
+%
+% Posons l'hypothèse d'une symétrie bilatérale
+% complète. Dans ce cas, la moyenne arithmétique
+% du quotient X de la population est mXp = 1.0.
+%
+% Ainsi la valeur t de la population (*tp*) est
+%
+%  tp = (mXp -1)/1 = (1.0 -1)/1 = 0
+%
+% Par population, on entend tous les individus de
+% ce groupe préhistorique, par opposition à
+% l'échantillon de 10 personnes.
+%
+% Dans ce contexte, on pourrait se demander
+% qu'elle est la
+% probabilité qu'une valeur de X soit égale à la
+% moyenne mXe de l'échantillon.
+%
+% L'écart-type *Sp* de toute la population peut
+% être calculé à partir de l'écart-type de
+% l'échantillon (considérer ceci comme exact).
+%
+%  Sp = Se/sqrt(N)
+%
+% Sur l'axe *t* de la courbe normale,
+%
+%  tmXe = (mXe -1)/Sp
+%
+% Plus t = tmXe s'éloigne de tp = 0, moins il y a de
+% probabilité que tmXe fasse partie de la
+% distribution centrée sur tp, qui suppose une
+% symétrie bilatérale complète.
+%
+% <<..\Normale.bmp>>
+%
+% * Si tmXe > 1.83, il y a seulement
+% 5% de probabilité qu'il fasse partie de la
+% distribution centrée à 0. En d'autres termes, il
+% ne fait pas partie des données validant
+% l'hypothèse d'une symétrie bilatérale complète 19
+% fois sur 20.
+%
+% * De la même façon, tmXe > 2.82 correspond à une
+% probabilité de 1%. Il est alors presque certain
+% que la symétrie bilatérale n'est pas complète.
+%
+% * Pour tmXe > 4.30, la probabilité n'est plus
+% que de 0.1%, c'est-à-dire une quasi-certitude.
+% Puisqu'un échantillon diverge à ce point de t =
+% 0, on peut donc affirmer que la symétrie
+% bilatérale n'est pas complète 999 fois sur 1000.
+%
+%% Question
+% 
+% L'hypothèse d'une symétrie bilatérale complète
+% est-elle valable dans la population
+% préhistorique d'où provient l'échantillon de 10
+% personnes ?
+%
+% Écrire 5 à 6 lignes *en commentaires*.
+% L'explication doit s'afficher correctement en
+% texte html contigu avec l'utilitaire _Publish to
+% html_.
+%
+% Appuyer votre réponse par des calculs Matlab.
+%
+% <<..\Feuilles.gif>>
+##### SOURCE END #####
+-->
+   </body>
+</html>

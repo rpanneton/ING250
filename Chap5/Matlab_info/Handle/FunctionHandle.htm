@@ -1,0 +1,146 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>Function Handles (Programming and Data Types)</title>
+<!-- $Revision: 1.8 $  $Date: 2002/06/21 22:34:10 $ -->
+
+<!-- DOCNAME: Programming and Data Types -->
+<!-- CHUNKNAME: Overview -->
+<!-- CHAPNAME: Function Handles -->
+<!-- HEADSTUFF -->
+<link rel="stylesheet" href="FunctionHandle_fichiers/docstyle1.css" type="text/css">
+</head><body bgcolor="#ffffff">
+<!-- NAVBARTOP -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0"><tbody><tr>
+<td valign="baseline" bgcolor="#ffe4b0"><b>Programming and Data Types</b></td>
+<td valign="baseline" align="right" bgcolor="#ffe4b0"><a href="http://www.math.carleton.ca/old/help/matlab/MathWorks_R13Doc/techdoc/matlab_prog/ch_funha.html"><img src="FunctionHandle_fichiers/b_prev.gif" border="0"></a>&nbsp;&nbsp;&nbsp;<a href="http://www.math.carleton.ca/old/help/matlab/MathWorks_R13Doc/techdoc/matlab_prog/ch_funh3.html"><img src="FunctionHandle_fichiers/b_next.gif" border="0"></a></td>
+</tr>
+</tbody></table>
+
+
+<a name="overview"></a><!-- H1 --><a name="759509"></a><p><font color="#990000" size="+2"><b>Overview</b></font><br>
+</p><p><a name="759754"></a>A <em>function <a name="overview_of_function_handles"></a>handle</em>
+is a MATLAB data type that contains information used in referencing a
+function. When you create a function handle, MATLAB stores in the
+handle all the information about the function that it needs to execute,
+or <em>evaluate</em>, it later on. Typically, a function handle is
+passed in an argument list to other functions. It is then used in
+conjunction with <code><a href="http://www.math.carleton.ca/old/help/matlab/MathWorks_R13Doc/techdoc/ref/feval.html">feval</a></code> to evaluate the function to which the handle belongs.</p>
+<p><a name="759510"></a>A MATLAB function handle is more than just a
+reference to a function. It often represents a collection of function
+methods, overloaded to handle different argument types. When you create
+a handle to a function, MATLAB takes a snapshot of all built-in and
+M-file methods of that name that are on the MATLAB path and in scope at
+that time, and stores access information for all of those methods in
+the handle.</p>
+<p><a name="759511"></a>When you evaluate a function handle, MATLAB
+considers only those functions that were stored within the handle when
+it was created. Other functions that might now be on the path or in
+scope are not considered. It is the combination of which function
+methods are mapped to by the handle and what arguments the handle is
+evaluated with that determines which is the actual function that MATLAB
+dispatches to.</p>
+<a name="benefits_of_using_function_handles"></a><!-- H1 --><a name="759501"></a><p><font color="#990000" size="+2"><b>Benefits of <a name="benefits_of_function_handles"></a>Using Function Handles</b></font><br>
+</p><p><a name="759263"></a>Function handles enable you to do all of the following:</p>
+<ul><li><a name="747345"></a><a href="http://www.math.carleton.ca/old/help/matlab/MathWorks_R13Doc/techdoc/matlab_prog/ch_funh2.html#funhandle_benefits_1">Pass function access information to other functions</a>
+</li>
+<li><a name="747350"></a><a href="http://www.math.carleton.ca/old/help/matlab/MathWorks_R13Doc/techdoc/matlab_prog/ch_funh2.html#funhandle_benefits_2">Capture all methods of an overloaded function</a>
+</li>
+<li><a name="747494"></a><a href="http://www.math.carleton.ca/old/help/matlab/MathWorks_R13Doc/techdoc/matlab_prog/ch_funh2.html#funhandle_benefits_3">Allow wider access to subfunctions and private functions</a>
+</li>
+<li><a name="749197"></a><a href="http://www.math.carleton.ca/old/help/matlab/MathWorks_R13Doc/techdoc/matlab_prog/ch_funh2.html#funhandle_benefits_4">Ensure reliability when evaluating functions</a>
+</li>
+<li><a name="749198"></a><a href="http://www.math.carleton.ca/old/help/matlab/MathWorks_R13Doc/techdoc/matlab_prog/ch_funh2.html#funhandle_benefits_5">Reduce the number of files that define your functions</a>
+</li>
+<li><a name="749199"></a><a href="http://www.math.carleton.ca/old/help/matlab/MathWorks_R13Doc/techdoc/matlab_prog/ch_funh2.html#funhandle_benefits_6">Improve performance in repeated operations</a>
+</li>
+<li><a name="748660"></a><a href="http://www.math.carleton.ca/old/help/matlab/MathWorks_R13Doc/techdoc/matlab_prog/ch_funh2.html#funhandle_benefits_7">Manipulate handles in arrays, structures, and cell arrays</a>
+</li>
+</ul>
+<p><a name="747377"></a>This section also includes an example of using a simple function handle. See <a href="http://www.math.carleton.ca/old/help/matlab/MathWorks_R13Doc/techdoc/matlab_prog/ch_funh3.html#747866">A Simple Function Handle</a>.</p>
+<a name="pass_function_access_information_to_other_functions"></a><!-- H3 --><a name="747370"></a><p><font color="#990000"><b><a name="funhandle_benefits_1"></a>Pass Function Access Information to Other Functions</b></font><br>
+</p><p><a name="747872"></a>You can pass a function handle as an
+argument in a call to another function. The handle contains access
+information that enables the receiving function to call the function
+for which the handle was constructed.</p>
+<p><a name="748217"></a>You can evaluate a function handle from within
+another function even if the handle's function is not in the scope of
+the evaluating function. This is because the function performing the
+evaluation has all the information it needs within the function handle.</p>
+<p><a name="748220"></a>For the same reason, you can also evaluate a
+function handle even when the handle's function is no longer on the
+MATLAB search path.</p>
+<p><a name="748173"></a>You must use the MATLAB <code><a href="http://www.math.carleton.ca/old/help/matlab/MathWorks_R13Doc/techdoc/ref/feval.html">feval</a></code>
+command to evaluate the function in a function handle. When you pass a
+function handle as an argument into another function, then the function
+receiving the handle uses <code>feval</code> to evaluate the function handle.</p>
+<a name="capture_all_methods_of_an_overloaded_function"></a><!-- H3 --><a name="747530"></a><p><font color="#990000"><b><a name="funhandle_benefits_2"></a>Capture All Methods of An Overloaded Function</b></font><br>
+</p><p><a name="748088"></a>Because many MATLAB functions are
+overloaded, a function handle often maps to a number of code sources
+(e.g., built-in code, M-files), that implement the function. A function
+handle stores the access to all of the overloaded sources, or <em>methods</em>, that are on the MATLAB path at the time the handle is created.</p>
+<p><a name="747533"></a>When you evaluate an overloaded function
+handle, MATLAB follows the usual rules of selecting which method to
+evaluate, basing the selection on the argument types passed in the
+function call. See <a href="http://www.math.carleton.ca/old/help/matlab/MathWorks_R13Doc/techdoc/matlab_prog/ch14_o65.html#35010">How MATLAB Determines Which Method to Call</a>, for more information on how MATLAB selects overloaded functions.</p>
+<p><a name="747535"></a>For example, there are three built-in functions and one M-file function that define the <code>abs</code> function on the standard MATLAB path. A function handle created for the <code>abs</code>
+function contains access information on all four of these function
+sources. If you evaluate the function with an argument of the <code>double</code> type, then the built-in function that takes a <code>double</code> argument is executed.</p>
+<a name="allow_wider_access_to_subfunctions_and_private_functions"></a><!-- H3 --><a name="747540"></a><p><font color="#990000"><b><a name="funhandle_benefits_3"></a>Allow Wider Access to Subfunctions and Private Functions</b></font><br>
+</p><p><a name="747541"></a>By definition, all MATLAB functions have a
+certain scope. They are visible to other MATLAB entities within that
+scope, but not visible outside of it. You can invoke a function
+directly from another function that is within its scope, but not from a
+function outside that scope.</p>
+<p><a name="747542"></a>Subfunctions and private functions are, by
+design, limited in their visibility to other MATLAB functions. You can
+invoke a subfunction only by another function that is defined within
+the same M-file. You can invoke a private function only from a function
+in the directory immediately above the <code>\private</code> subdirectory.</p>
+<p><a name="747543"></a>When you create a handle to a function that has
+limited scope, the function handle stores all the information MATLAB
+needs to evaluate the function from any location in the MATLAB
+environment. If you create a handle to a subfunction while the
+subfunction is in scope, (that is, you create it from within the M-file
+that defines the subfunction), you can then pass the handle to code
+that resides outside of that M-file and evaluate the subfunction from
+beyond its usual scope. The similar case holds true for private
+functions.</p>
+<a name="ensure_reliability_when_evaluating_functions"></a><!-- H3 --><a name="747372"></a><p><font color="#990000"><b><a name="funhandle_benefits_4"></a>Ensure Reliability When Evaluating Functions</b></font><br>
+</p><p><a name="753809"></a>Function handles allow you more control
+over what methods get executed when a function is evaluated. If you
+create a function handle for a function with overloaded methods, making
+sure that only the intended methods are within scope when the handle is
+created gives you control over which methods are executed when MATLAB
+evaluates the handle. This can isolate you from methods that might be
+in scope at the time of evaluation that you didn't know about.</p>
+<a name="reduce_the_number_of_files_that_define_your_functions"></a><!-- H3 --><a name="747373"></a><p><font color="#990000"><b><a name="funhandle_benefits_5"></a>Reduce the Number of Files That Define Your Functions</b></font><br>
+</p><p><a name="748363"></a>You can use function handles to help reduce
+the number of M-files required to define your functions. The problem
+with grouping a number of functions in one M-file is that this defines
+them as subfunctions, and thus reduces their scope in MATLAB. Using
+function handles to access these subfunctions removes this limitation.
+This enables you to group functions as you want and reduce the number
+of files you have to manage.</p>
+<a name="improve_performance_in_repeated_operations"></a><!-- H3 --><a name="747374"></a><p><font color="#990000"><b><a name="funhandle_benefits_6"></a>Improve Performance in Repeated Operations</b></font><br>
+</p><p><a name="754416"></a>MATLAB performs a lookup on a function at
+the time you create a function handle and then stores this access
+information in the handle itself. Once defined, you can use this handle
+in repeated evaluations without incurring the performance delay
+associated with function lookup each time.</p>
+<a name="manipulate_handles_in_arrays,_structures,_and_cell_arrays"></a><!-- H3 --><a name="747523"></a><p><font color="#990000"><b><a name="funhandle_benefits_7"></a>Manipulate Handles in Arrays, Structures, and Cell Arrays</b></font><br>
+</p><p><a name="747524"></a>As a standard MATLAB data type, a function
+handle can be manipulated and operated on in the same manner as other
+MATLAB data types. You can create arrays, structures, or cell arrays of
+function handles. Access individual function handles within these data
+structures in the same way that you access elements of a numeric array
+or structure.</p>
+<p><a name="747525"></a>Create n-dimensional arrays of handles using either of the concatenation methods used to form other types of MATLAB arrays, <code>[]</code> or <code>cat</code>. All operations involving matrix manipulation are supported for function handles.</p>
+
+<br>
+
+
+<p><table width="100%" bgcolor="#ffe4b0" border="0" cellpadding="0" cellspacing="0"><tbody><tr valign="top"><td width="20" align="left"><a href="http://www.math.carleton.ca/old/help/matlab/MathWorks_R13Doc/techdoc/matlab_prog/ch_funha.html"><img src="FunctionHandle_fichiers/b_prev.gif" align="bottom" border="0"></a>&nbsp;</td><td align="left">&nbsp;Function Handles</td><td>&nbsp;</td><td align="right">A Simple Function Handle&nbsp;</td><td width="20" align="right"><a href="http://www.math.carleton.ca/old/help/matlab/MathWorks_R13Doc/techdoc/matlab_prog/ch_funh3.html"><img src="FunctionHandle_fichiers/b_next.gif" align="bottom" border="0"></a></td></tr></tbody></table>
+
+<br>
+<!-- Copyright 2002 The MathWorks, Inc. -->
+<!-- Last updated: Fri Jun 21 17:53:05 2002 -->
+</p></body></html>

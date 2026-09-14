@@ -1,0 +1,108 @@
+/*<nowiki> Edit this file to customize the monobook skin for the entire site. See also: [[MediaWiki:Common.css]] */
+
+ /* Donations link to be uncommented during fund raising drives
+ #siteNotice {
+   margin-top:5px;
+   padding-left: 4px;
+   font-style: italic;
+   text-align: center;
+ }
+ */
+
+ /* BEGIN LIGHT BLUE SECTION
+    Make content area light blue in all namespaces except content namespaces.
+    This is done by setting the background color for all #content areas 
+    to light blue, and then overriding it back to white for any #content 
+    enclosed in a content namespace. We do the same for the "tab" 
+    backgrounds and some other elements. */
+
+ #content, #p-cactions li a:hover, #p-cactions li.selected a, #content div.thumb {
+   background: #F8FCFF; /* a light blue */
+ }
+ #p-cactions li a {
+   background-color: #F7F9FB;   /* Light blue-gray inactive tabs */
+ }
+
+ .ns-0 #content,
+ .ns-0 #p-cactions li a:hover,
+ .ns-0 #p-cactions li.selected a, 
+ .ns-0 #content div.thumb,
+ .ns-100 #content,
+ .ns-100 #p-cactions li a:hover,
+ .ns-100 #p-cactions li.selected a,
+ .ns-100 #content div.thumb
+ {
+   background-color: white;     /* Set back to white for books */
+ }
+
+ .ns-0 #p-cactions li a,
+ .ns-100 #p-cactions li a {
+   background-color: #FBFBFB;   /* Light gray inactive tabs in books */
+ }  
+
+ @media print {
+   #content { background: white; } /* White background on print */
+ }
+
+ /* END LIGHT BLUE SECTION */
+ 
+ /* Display "From Wikibooks, the open-content textbooks collection" */
+ #siteSub { display: inline; font-size: 100%; font-weight: normal; }
+ 
+ /* Bold 'edit this page' link to encourage newcomers */
+ #ca-edit a { font-weight: bold !important; }
+ #pt-login { font-weight: bold; font-size: 110%; }
+ 
+ /* Accessibility experiment: make diff changes not just color-based */  
+ .diffchange { font-weight: bold; background-color: inherit; }
+ 
+ td.diff-addedline, td.diff-deletedline, td.diff-context {
+   font-size: 85%;
+   color: inherit;
+ }
+ 
+ p.error { font-weight: bold; }
+ 
+ /* Class styles */
+ 
+ /* .toccolours added here because version in monobook/main.css wasn't being used by the print style */
+ .toccolours, .toccolors { 
+   border: 1px solid #aaaaaa;
+   background-color: #f9f9f9;
+   padding: 5px;
+   font-size: 95%;
+ }
+ 
+ /* Don't underline links in portlets and special characters list below edit window. */
+ .portlet a, #editpage-specialchars a { text-decoration: none; }
+ .portlet a:hover, #editpage-specialchars a:hover { text-decoration: underline; }
+ 
+ /* If you don't want to see special characters list at all, put the following
+    line in your User:You/monobook.css file (and remove the double slash comments) */
+ /* #editpage-specialchars { display: none; } */
+ 
+
+ /* position top icons near the first heading in this skin */
+ div.topicon { position: absolute; z-index: 100; top: 10px; display: block !important; }
+ div.topicon#infobox { right: 4.5em; }
+ div.topicon#pdf { right: 6.5em; }
+ div.topicon#pv { right: 8.5em; }
+
+ 
+ /* Makes the background of a framed image white instead of gray. */
+ /* Only visible with transparent images. */
+ div.thumb div a img {
+   background-color:#ffffff;
+ }
+   
+ #top-navigation {
+   position:absolute;
+   right: 1.15em;
+   top: 3.0em;
+ }
+ #bottom-navigation {
+   clear:both;
+   float:right;
+ }
+ 
+ /* End of Monobook skin </nowiki> */

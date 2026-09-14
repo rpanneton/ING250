@@ -1,0 +1,130 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>La fonction plot</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-10-02">
+      <meta name="m-file" content="PlotSinX"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>La fonction plot</h1>
+         <introduction></introduction><pre class="codeinput">clear; clc; close <span class="string">all</span>;
+<span class="keyword">for</span> i = 1:19
+   x(i)= (i-1)*20;
+   y(i)= sind(x(i));
+<span class="keyword">end</span>
+figure(1); <span class="comment">% Affiche fig. 1</span>
+plot(y,<span class="string">'o-b'</span>);
+grid <span class="string">on</span>; <span class="comment">% grillage sur la fig.</span>
+ylabel(<span class="string">'valeur de y'</span>) <span class="comment">% en ordonn&eacute;e</span>
+xlabel(<span class="string">'indice de y'</span>) <span class="comment">% en abscisse</span>
+
+figure(2);
+plot(x,y,<span class="string">'o-r'</span>); grid <span class="string">on</span>;
+ylabel(<span class="string">'valeur de y'</span>) <span class="comment">% en ordonn&eacute;e</span>
+xlabel(<span class="string">'angle x en degr&eacute;s'</span>)  <span class="comment">% en abscisse</span>
+</pre><img vspace="5" hspace="5" src="PlotSinX_01.png"> <img vspace="5" hspace="5" src="PlotSinX_02.png"> <p>On peut grossir les caract&egrave;res (information non mati&egrave;re &agrave; examen)</p><pre class="codeinput">figure(1); set(gca,<span class="string">'FontSize'</span>,12);
+xlabel(<span class="string">'indices de y'</span>,<span class="string">'FontSize'</span>,14)
+</pre><img vspace="5" hspace="5" src="PlotSinX_03.png"> <pre class="codeinput">figure(2); set(gca,<span class="string">'FontSize'</span>,14);
+xlabel(<span class="string">'x en degr&eacute;s'</span>,<span class="string">'FontSize'</span>,16);
+ylabel(<span class="string">'valeur de y'</span>,<span class="string">'FontSize'</span>,16);
+</pre><img vspace="5" hspace="5" src="PlotSinX_04.png"> <p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% La fonction plot
+%%
+clear; clc; close all;
+for i = 1:19
+   x(i)= (i-1)*20;
+   y(i)= sind(x(i));
+end
+figure(1); % Affiche fig. 1
+plot(y,'o-b');
+grid on; % grillage sur la fig.
+ylabel('valeur de y') % en ordonnée
+xlabel('indice de y') % en abscisse
+
+figure(2);
+plot(x,y,'o-r'); grid on;
+ylabel('valeur de y') % en ordonnée
+xlabel('angle x en degrés')  % en abscisse
+
+%%
+% On peut grossir les caractères
+% (information non matière à examen)
+figure(1); set(gca,'FontSize',12);
+xlabel('indices de y','FontSize',14)
+%%
+figure(2); set(gca,'FontSize',14);
+xlabel('x en degrés','FontSize',16);
+ylabel('valeur de y','FontSize',16);
+##### SOURCE END #####
+-->
+   </body>
+</html>

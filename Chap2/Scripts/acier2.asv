@@ -1,0 +1,17 @@
+clear all; clc % acier2
+Re = 350; % Re = input('Re ? ');
+if(Re<250 || Re>1100)
+   disp('Acier inconnu')
+end
+if(Re>=250 && Re<=350)
+   disp('Acier à basse teneur en carbone')
+end
+if(Re>=350 && Re<=700)
+   disp('Acier à teneur moyenne en carbone')
+end
+if(Re>=700 && Re<=1100)
+   disp('Acier à haute teneur en carbone')
+end
+% On peut remplacer
+% disp('texte')
+% par fprintf('texte\n');

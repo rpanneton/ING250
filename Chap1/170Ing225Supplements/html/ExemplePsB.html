@@ -1,0 +1,167 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Exemple PsB</title><meta name="generator" content="MATLAB 9.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-10-06"><meta name="DC.source" content="ExemplePsB.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Exemple PsB</h1><!--introduction--><p>L'exemple est une reprise de l'exemple 2/4, Meriam page 31.</p><p>En utilisant le produit scalaire, d&eacute;terminer les projections <b>Fa</b> et <b>Fb</b> du vecteur <b>R</b> r&eacute;sultant de la somme de <b>F1</b> et <b>F2</b> selon les axes obliques.</p><!--/introduction--><pre class="codeinput">clear; clc
+mF1 = 100; mF2 = 80; <span class="comment">% N (Normes)</span>
+</pre><p><img vspace="5" hspace="5" src="..\PsVecteurExB.gif" alt=""> </p><p>Proc&eacute;dure &#8211; d&eacute;terminer les vecteurs unitaires selon les axes <i>a</i> et <i>b</i>. Calculer le vecteur <b>R</b> et ensuite les projections <b>Fa</b> et <b>Fb</b>.</p><pre class="codeinput"><span class="comment">% vecteur unitaire dans la direction a</span>
+na = [cosd(30), sind(30)];
+<span class="comment">% vecteur unitaire dans la direction b</span>
+nb = [cosd(-20), sind(-20)]; <span class="comment">% convention de atan2</span>
+F1 = mF1*na; F2 = mF2*nb; <span class="comment">% voir Meriam page 7.</span>
+R = F1+F2;
+fprintf(<span class="string">'F1 = %+6.1fi %+6.1fj N,   '</span>,F1);
+fprintf(<span class="string">'norme = %6.1f N\n'</span>,norm(F1));
+fprintf(<span class="string">'F2 = %+6.1fi %+6.1fj N,   '</span>,F2);
+fprintf(<span class="string">'norme = %6.1f N\n'</span>,norm(F2));
+fprintf(<span class="string">' R = %+6.1fi %+6.1fj N,   '</span>,R);
+fprintf(<span class="string">'norme = %6.1f N\n'</span>,norm(R));
+</pre><pre class="codeoutput">F1 =  +86.6i  +50.0j N,   norme =  100.0 N
+F2 =  +75.2i  -27.4j N,   norme =   80.0 N
+ R = +161.8i  +22.6j N,   norme =  163.4 N
+</pre><pre class="codeinput">fprintf(<span class="string">'Projections scalaires\n'</span>);
+Fa = dot(R,na); Fb = dot(R,nb);
+fprintf(<span class="string">'Fa = %.1f N et '</span>,Fa);
+fprintf(<span class="string">'Fb = %.1f N\n'</span>,Fb);
+
+fprintf(<span class="string">'\nProjections vectorielles\n'</span>);
+VecteurFa = dot(R,na)*na; <span class="comment">% selon la d&eacute;finition</span>
+VecteurFb = dot(R,nb)*nb;
+fprintf(<span class="string">'Vecteur Fa = %+6.1fi %+6.1fj N,   '</span>,<span class="keyword">...</span>
+   VecteurFa);
+fprintf(<span class="string">'norme = %6.1f N\n'</span>,norm(VecteurFa));
+fprintf(<span class="string">'Vecteur Fb = %+6.1fi %+6.1fj N,   '</span>,<span class="keyword">...</span>
+   VecteurFb);
+fprintf(<span class="string">'norme = %6.1f N\n'</span>,norm(VecteurFb));
+</pre><pre class="codeoutput">Projections scalaires
+Fa = 151.4 N et Fb = 144.3 N
+
+Projections vectorielles
+Vecteur Fa = +131.1i  +75.7j N,   norme =  151.4 N
+Vecteur Fb = +135.6i  -49.3j N,   norme =  144.3 N
+</pre><p>Dans l'exemple 2/4 de la page 31, Meriam indique que les composantes obliques <b>F1</b> et <b>F2</b> du vecteur <b>R</b> ne sont pas &eacute;gales aux projections <b>Fa</b> et <b>Fb</b> sur les m&ecirc;mes axes.</p><p>Les projections et les composantes sont identiques seulement si les axes sont orthogonaux. Voir aussi les probl&egrave;mes types 2/17 et 2/18, page 35.</p><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Exemple PsB
+% L'exemple est une reprise de l'exemple 2/4,
+% Meriam page 31.
+%
+% En utilisant le produit scalaire, déterminer les
+% projections *Fa* et *Fb* du vecteur *R*
+% résultant de la somme de *F1* et *F2* selon les
+% axes obliques.
+
+%%
+clear; clc
+mF1 = 100; mF2 = 80; % N (Normes)
+%%
+% <<..\PsVecteurExB.gif>>
+%
+% Procédure – déterminer les vecteurs unitaires
+% selon les axes _a_ et _b_. Calculer le vecteur
+% *R* et ensuite les projections *Fa* et *Fb*.
+
+% vecteur unitaire dans la direction a
+na = [cosd(30), sind(30)];
+% vecteur unitaire dans la direction b
+nb = [cosd(-20), sind(-20)]; % convention de atan2
+F1 = mF1*na; F2 = mF2*nb; % voir Meriam page 7.
+R = F1+F2;
+fprintf('F1 = %+6.1fi %+6.1fj N,   ',F1);
+fprintf('norme = %6.1f N\n',norm(F1));
+fprintf('F2 = %+6.1fi %+6.1fj N,   ',F2);
+fprintf('norme = %6.1f N\n',norm(F2));
+fprintf(' R = %+6.1fi %+6.1fj N,   ',R);
+fprintf('norme = %6.1f N\n',norm(R));
+
+%%
+fprintf('Projections scalaires\n');
+Fa = dot(R,na); Fb = dot(R,nb);
+fprintf('Fa = %.1f N et ',Fa);
+fprintf('Fb = %.1f N\n',Fb);
+
+fprintf('\nProjections vectorielles\n');
+VecteurFa = dot(R,na)*na; % selon la définition
+VecteurFb = dot(R,nb)*nb;
+fprintf('Vecteur Fa = %+6.1fi %+6.1fj N,   ',...
+   VecteurFa);
+fprintf('norme = %6.1f N\n',norm(VecteurFa));
+fprintf('Vecteur Fb = %+6.1fi %+6.1fj N,   ',...
+   VecteurFb);
+fprintf('norme = %6.1f N\n',norm(VecteurFb));
+
+%%
+% Dans l'exemple 2/4 de la page 31, Meriam indique
+% que les composantes obliques *F1* et *F2* du
+% vecteur *R* ne sont pas égales aux projections
+% *Fa* et *Fb* sur les mêmes axes.
+%
+% Les projections et les composantes sont
+% identiques seulement si les axes sont
+% orthogonaux. Voir aussi les problèmes types 2/17
+% et 2/18, page 35.
+##### SOURCE END #####
+--></body></html>

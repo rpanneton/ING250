@@ -1,0 +1,63 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="fr-ca">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Lecture d'un fichier Excel (*.xls)</title>
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+</head>
+
+<body>
+
+<h3>Lire un fichier Excel (*.xls)</h3>
+<p>Matlab permet de lire directement un fichier Excel contenant un tableau <b>numérique.</b></p>
+<ul>
+  <li>Le fichier Refr_num.xls contient la portion numérique du fichier
+    Refract.dat.<br>
+    Exemple&nbsp;:<br>
+    <img border="0" src="Refr_num.gif" width="225" height="257"></li>
+</ul>
+<p>On peut charger le fichier dans la mémoire en exécutant la fonction <i>xlsread</i>.<br>
+Exemple&nbsp;:</p>
+<pre>&gt;&gt; clear
+&gt;&gt; Mat = xlsread('<font color="#FF0000">Refr_num.xls</font>');
+&gt;&gt; whos
+   Name   Size   Bytes  Class
+   Mat    14x5   560  double array</pre>
+<p>ou encore :</p>
+<pre>&gt;&gt; fichier ='<font color="#FF0000">Refr_num.xls</font>';
+&gt;&gt; matrice = xlsread(fichier);
+&gt;&gt; whos
+   Name     Size  Bytes  Class
+   fichier  1x12   24  char array
+   matrice  14x5  560  double array</pre>
+<h4>Rappel - load</h4>
+<p>C'est une méthode similaire à la lecture d'un fichier ASCII par la fonction
+<i>load</i>,<br>
+Exemple (rappel)&nbsp;:</p>
+<pre>&gt;&gt; fichier ='<font color="#FF0000">Refract.dat</font>';
+&gt;&gt; matrice = load(fichier);
+&gt;&gt; whos
+   Name     Size  Bytes  Class
+   fichier  1x11     22  char array
+   matrice  14x5    560  double array</pre>
+<h4>Lecture plus complète d'un fichier Excel</h4>
+<p>Il&nbsp; est également possible de lire un fichier Excel contenant aussi des
+titres à chacune des colonnes (et seulement).<br>
+Exemple&nbsp;:</p>
+<pre>&gt;&gt; clear
+&gt;&gt; Mat = xlsread('Refract.xls');
+&gt;&gt; whos
+  Name  Size  Bytes  Class
+  Mat   14x5  560  double array</pre>
+<p><img border="0" src="Refract1.gif" width="268" height="371"></p>
+<p>Pour plus de détails&nbsp;:<br>
+<code>&lt;&lt; doc xlsread</code></p>
+<hr>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

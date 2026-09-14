@@ -1,0 +1,145 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Probl&egrave;me 2/37, Meriam p. 44</title><meta name="generator" content="MATLAB 9.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-10-06"><meta name="DC.source" content="ch2037.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Probl&egrave;me 2/37, Meriam p. 44</h1><!--introduction--><p><img vspace="5" hspace="5" src="..\ch2037a.gif" alt=""> </p><p>Poser l'axe des <i>x</i> parall&egrave;le &agrave; la cl&eacute;.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">&Eacute;tape 1 &#8211; D&eacute;marche vectorielle</a></li><li><a href="#2">&Eacute;tape 2 &#8211; Expression scalaire</a></li><li><a href="#3">D&eacute;marche scalaire (ajout)</a></li></ul></div><h2 id="1">&Eacute;tape 1 &#8211; D&eacute;marche vectorielle</h2><p><b>r</b> = vecteur ayant comme origine le centre du boulon jusqu'au point d'application de F.</p><pre class="codeinput">clear; close <span class="string">all</span>; clc
+r = [0.095, 0, 0]; <span class="comment">% m</span>
+mF = 140; <span class="comment">% N</span>
+angle = (90-25) + 15; <span class="comment">% degr&eacute;s p/r &agrave; l'axe des x</span>
+nF = [cosd(angle), sind(angle), 0]; F = nF*mF;
+Mo = cross(r,F);
+fprintf(<span class="string">' r = %+7.2fi %+7.2fj %+7.2fk m\n'</span>,r);
+fprintf(<span class="string">' F = %+7.2fi %+7.2fj %+7.2fk kN\n'</span>,F);
+fprintf(<span class="string">'Mo = %+7.2fi %+7.2fj %+7.2fk N&middot;m\n'</span>,Mo);
+</pre><pre class="codeoutput"> r =   +0.10i   +0.00j   +0.00k m
+ F =  +24.31i +137.87j   +0.00k kN
+Mo =   +0.00i   +0.00j  +13.10k N&middot;m
+</pre><h2 id="2">&Eacute;tape 2 &#8211; Expression scalaire</h2><pre class="codeinput">fprintf(<span class="string">'\nNorme de Mo = %.2f N&middot;m'</span>,norm(Mo));
+MomentPositif = Mo(3) &gt; 0; <span class="comment">% variable logique</span>
+<span class="keyword">if</span>(MomentPositif)
+   fprintf(<span class="string">' dans le sens antihoraire\n'</span>);
+<span class="keyword">else</span>
+   fprintf(<span class="string">' dans le sens horaire\n'</span>);
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">
+Norme de Mo = 13.10 N&middot;m dans le sens antihoraire
+</pre><h2 id="3">D&eacute;marche scalaire (ajout)</h2><p>Poser l'axe des <i>x</i> dans le sens de la cl&eacute;. Remplacer la force par ses composantes rectangulaires et appliquer le th&eacute;or&egrave;me de Varignon.</p><p><img vspace="5" hspace="5" src="..\ch2037a.gif" alt=""> </p><p>Fx ne contribue pas au moment.</p><pre class="codeinput">clear <span class="string">all</span>; close <span class="string">all</span>; clc
+theta = 25-15; <span class="comment">% degr&eacute;s</span>
+mF = 140; <span class="comment">% N</span>
+d = 0.095; <span class="comment">%m (bras de levier)</span>
+Fy = mF*cosd(theta); Mo = Fy*d;
+fprintf(<span class="string">'Norme de Mo = %.2f N&middot;m'</span>,Mo);
+fprintf(<span class="string">' dans le sens antihoraire\n'</span>);
+</pre><pre class="codeoutput">Norme de Mo = 13.10 N&middot;m dans le sens antihoraire
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Problème 2/37, Meriam p. 44
+% <<..\ch2037a.gif>>
+%
+% Poser l'axe des _x_ parallèle à la clé.
+
+%% Étape 1 – Démarche vectorielle
+% *r* = vecteur ayant comme origine le centre du
+% boulon jusqu'au point d'application de F.
+clear; close all; clc
+r = [0.095, 0, 0]; % m  
+mF = 140; % N
+angle = (90-25) + 15; % degrés p/r à l'axe des x
+nF = [cosd(angle), sind(angle), 0]; F = nF*mF;
+Mo = cross(r,F);
+fprintf(' r = %+7.2fi %+7.2fj %+7.2fk m\n',r);
+fprintf(' F = %+7.2fi %+7.2fj %+7.2fk kN\n',F);
+fprintf('Mo = %+7.2fi %+7.2fj %+7.2fk N·m\n',Mo);
+
+%% Étape 2 – Expression scalaire
+fprintf('\nNorme de Mo = %.2f N·m',norm(Mo));
+MomentPositif = Mo(3) > 0; % variable logique
+if(MomentPositif)
+   fprintf(' dans le sens antihoraire\n');
+else
+   fprintf(' dans le sens horaire\n');
+end
+
+%% Démarche scalaire (ajout)
+%  
+% Poser l'axe des _x_ dans le sens de la clé.
+% Remplacer la force par ses composantes
+% rectangulaires et appliquer le théorème de
+% Varignon.
+%
+% <<..\ch2037a.gif>>
+%
+% Fx ne contribue pas au moment.
+clear all; close all; clc
+theta = 25-15; % degrés
+mF = 140; % N
+d = 0.095; %m (bras de levier)
+Fy = mF*cosd(theta); Mo = Fy*d;
+fprintf('Norme de Mo = %.2f N·m',Mo);
+fprintf(' dans le sens antihoraire\n');
+##### SOURCE END #####
+--></body></html>

@@ -1,0 +1,438 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html dir="ltr" lang="fr"><head>
+
+		
+
+
+
+<title>La programmation objet avec Matlab R2008</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+
+<link rel="stylesheet" href="PrgmObjetAvecR2008_fichiers/spip_style.css" type="text/css">
+
+<link rel="alternate" type="application/rss+xml" title="Syndiquer tout le site" href="http://www.ird.fr/us191/spip.php?page=backend">
+
+
+<link rel="stylesheet" href="PrgmObjetAvecR2008_fichiers/habillage.css" type="text/css" media="screen">
+<link rel="stylesheet" href="PrgmObjetAvecR2008_fichiers/habillage_print.css" type="text/css" media="print">
+
+<link rel="shortcut icon" href="http://www.ird.fr/us191/dist/favicon.ico">
+
+<script type="text/javascript" src="PrgmObjetAvecR2008_fichiers/menu.js"></script>
+</head><body onload="setHover('menu')">
+
+<div class="contenu" id="principal">
+	
+	<div style="margin-top: 0px; font-size: 80%;">
+	<a href="http://www.ird.fr/us191" title="Accueil du site">Accueil du site</a>
+	
+    		 <img src="PrgmObjetAvecR2008_fichiers/puce.gif" alt="-" width="8" height="11"> <a href="http://www.ird.fr/us191/spip.php?rubrique28">Informatique</a>
+	
+    		 <img src="PrgmObjetAvecR2008_fichiers/puce.gif" alt="-" width="8" height="11"> <a href="http://www.ird.fr/us191/spip.php?rubrique4">Programmation</a>
+	
+    		 <img src="PrgmObjetAvecR2008_fichiers/puce.gif" alt="-" width="8" height="11"> <a href="http://www.ird.fr/us191/spip.php?rubrique6">Langages</a>
+	
+	</div>
+	
+	<div class="encart">
+		
+		
+			<div class="menu">
+			<div class="divers">
+		
+			<div class="menu-titre" title="Poster un message">
+			<a href="mailto:Jacques.Grelet@ird.fr">Jacques Grelet</a> 
+			</div>
+			<ul>
+			
+			<li class="menu-item" style="text-align: center;">SST, Sea Surface Technician
+US191 IRD BREST</li>
+			
+			
+				<li class="menu-item">
+				<img src="PrgmObjetAvecR2008_fichiers/puce.gif" alt="-" width="8" height="11"> <a href="http://www.ird.fr/us191/spip.php?article6" title="Cygwin, c'est avant tout une librairie partagée windows (DLL), qui assure la transcription des appels UNIX POSIX en appel de fonctions de l'API Win32. Cette librairie permet de porter simplement un code écrit pour un système UNIX vers Windows.">Cygwin</a>
+				</li>
+			
+				<li class="menu-item">
+				<img src="PrgmObjetAvecR2008_fichiers/puce.gif" alt="-" width="8" height="11"> <a href="http://www.ird.fr/us191/spip.php?article46" title="Subversion est un logiciel de gestion de version (en anglais revision control). C'est un outil d'aide au développement de logiciels. Il permet une gestion efficace et riche des différentes versions des documents constituant un projet (programme, site Web, documentation, etc).">Subversion</a>
+				</li>
+			
+				<li class="menu-item">
+				<img src="PrgmObjetAvecR2008_fichiers/puce.gif" alt="-" width="8" height="11"> <a href="http://www.ird.fr/us191/spip.php?article48" title="Lors des campagnes océanographique, il est fréquemment réalisé des profils de mesures en temps réel par l'utilisation d'un treuil muni d'un câble électroporteur. L'instrument réalisant les mesures doit être raccordé électriquement au câble électroporteur, ce qui est réalisé par une soudure étanche appelée communément &quot;épissure&quot;. Cet article décrit comment réaliser rapidement, simplement et pour un cout modique une liaison électrique étanche et robuste mécaniquement.">Réaliser une épissure sur un câble électroporteur</a>
+				</li>
+			
+				<li class="menu-item">
+				<img src="PrgmObjetAvecR2008_fichiers/puce.gif" alt="-" width="8" height="11"> <a href="http://www.ird.fr/us191/spip.php?article3" title="Quelques notions et commandes de base pour une prise en main rapide de Matlab.">Introduction à Matlab</a>
+				</li>
+			
+				<li class="menu-item">
+				<img src="PrgmObjetAvecR2008_fichiers/puce.gif" alt="-" width="8" height="11"> <a href="http://www.ird.fr/us191/spip.php?article1" title="CVS est un outils de travail collaboratif pour le développement de logiciel ou la mise au point de code source.">CVS Guide de l&#8217;utilisateur</a>
+				</li>
+			
+			</ul>
+		
+			</div>
+			</div>
+		
+		
+		
+			<div class="menu">
+			<div class="breves">
+			<div class="menu-titre"> Dans la même rubrique </div>
+			<ul>
+		
+			<li class="menu-item">
+			<img src="PrgmObjetAvecR2008_fichiers/puce.gif" alt="-" width="8" height="11"> <a href="http://www.ird.fr/us191/spip.php?article53" title="Le paquetage us191.netcdf facilite et simplifie l'écriture de fichier NetCDF sous Matlab. Utilisant la gestion native des fichiers NetCDF disponible depuis la dernière version R2008b de Matlab, il permet par une méthode originale de générer simplement des fichiers NetCDF sans avoir à ouvrir le &quot;capot&quot; ni mettre ses mains dans la mécanique interne de ces fichiers.">Matlab et NetCDF (2)</a>
+			</li>
+		
+			<li class="menu-item">
+			<img src="PrgmObjetAvecR2008_fichiers/puce.gif" alt="-" width="8" height="11"> <a href="http://www.ird.fr/us191/spip.php?article56" title="Écrit en Matlab R2008, dynaload est une classe permettant de manipuler dynamiquement et très simplement des structures données complexes dont la description est réalisée dans un fichier externe ASCII ou Excel.">Dynaload&nbsp;: créer dynamiquement des structures de données complexes avec Matlab</a>
+			</li>
+		
+			<li class="menu-item">
+			<img src="PrgmObjetAvecR2008_fichiers/puce.gif" alt="-" width="8" height="11"> <a href="http://www.ird.fr/us191/spip.php?article3" title="Quelques notions et commandes de base pour une prise en main rapide de Matlab.">Introduction à Matlab</a>
+			</li>
+		
+			<li class="menu-item">
+			<img src="PrgmObjetAvecR2008_fichiers/puce.gif" alt="-" width="8" height="11"> <a href="http://www.ird.fr/us191/spip.php?article57" title="Un tableau associatif ou table de hashage (hashtable en anglais) est une structure de données assez semblables à un tableau mais ou les données sont indexées non pas par des nombres (indices) mais par des clés uniques (chaines de caractères).">Hashtable&nbsp;: utiliser les tableaux associatifs avec Matlab</a>
+			</li>
+		
+			<li class="menu-item">
+			<img src="PrgmObjetAvecR2008_fichiers/puce.gif" alt="-" width="8" height="11"> <a href="http://www.ird.fr/us191/spip.php?article2" title="Perl est un puissant langage de script. Son ensemble très riche d'opérateurs facilite l'écriture de programmes concis et robustes pour manipuler des données.">Perl</a>
+			</li>
+		
+			</ul>
+			</div>
+			</div>
+		
+	</div>
+	
+	<div class="cartouche">
+	
+	
+	<h1 class="titre-texte">La programmation objet avec Matlab R2008</h1>
+	
+	Publié le dimanche 22 février 2009.
+	</div>
+	<br> <br>
+	
+	<div class="texte"><p class="spip">Dernière mise à jour&nbsp;: 22/02/2008</p>
+
+<p class="spip"><strong class="spip">Introduction</strong></p>
+
+<hr class="spip">
+<p class="spip">A part la documentation officielle sur le site de
+Matlab, on ne trouve guère sur le net, de littérature sur la
+programmation objet sous Matlab. Depuis la version R2008, le modèle
+d&#8217;implémentation objet a changé et reprend les règles d&#8217;écritures que
+l&#8217;on retrouve habituellement dans d&#8217;autres langages objets comme Java
+ou VB.net</p>
+
+<p class="spip">La documentation en ligne de Matlab sur le sujet est
+complète mais il est parfois difficile d&#8217;y retrouver rapidement et
+précisément des informations sur un point particulier.</p>
+
+<p class="spip">Le but de cet article est de fournir au lecteur les principaux liens pour débuter rapidement la programmation objet sous Matlab.</p>
+
+<p class="spip"><strong class="spip">Une implémentation d&#8217;une pile LIFO (Last In, First Out) en Matlab</strong></p>
+
+<hr class="spip">
+<p class="spip">Cet exemple est directement tiré de l&#8217;algorithme en pseudo-code d&#8217;un article sur l&#8217;implémentation d&#8217;une pile LIFO sur <a href="http://en.wikipedia.org/wiki/Stack_%28data_structure%29" class="spip_out">Wikipédia</a>.</p>
+
+<p class="spip">Le code de ces classes est disponible sous subversion&nbsp;:
+<a href="https://svn.mpl.ird.fr/us191/oceano/trunk/matlab/+us191/node.m" class="spip_out">node</a> et <a href="https://svn.mpl.ird.fr/us191/oceano/trunk/matlab/+us191/stack.m" class="spip_out">stack</a></p>
+<form action="/" method="get"><div><textarea readonly="readonly" cols="40" rows="35" class="spip_cadre" dir="ltr">% class definition
+% --------------
+classdef node
+  
+  % Properties definition
+  % ---------------------
+  properties (SetAccess = private, GetAccess = public)
+    data = {};
+    next = {};
+  end
+  
+  % Class public methods
+  % --------------------
+  methods
+    
+    % Constructor
+    % -----------
+    function self = node(data, next)
+      self.data = data;
+      self.next = next;
+    end
+    
+    % get access methods for properties 
+    % ---------------------------------
+    function next = get.next(self)
+      next = self.next;
+    end
+    
+    function data = get.data(self)
+      data = self.data;
+    end
+    
+  end  % end of public methods
+  
+end  % end of class definition</textarea></div></form>
+<form action="/" method="get"><div><textarea readonly="readonly" cols="40" rows="57" class="spip_cadre" dir="ltr">% class definition
+% --------------
+classdef stack &lt; handle
+  
+  % Properties definition
+  % ---------------------
+  properties (SetAccess = private, GetAccess = private)
+    stack_pointer = {};
+  end
+  
+  % Class public methods
+  % --------------------
+  methods
+    
+    % push
+    % -----------
+    function self = push(self, element)
+      self.stack_pointer = us191.node(element, ...
+      self.stack_pointer);
+    end
+    
+    % pop, increase the stack pointer and return 
+    % 'top' node data
+    % ----------------------------------------
+    function element = pop(self)
+      if isempty(self.stack_pointer)
+        element = {};
+      else
+        element = self.stack_pointer.data;
+        self.stack_pointer = self.stack_pointer.next;
+      end
+    end
+    
+    % top, return 'top' node
+    % -----------------------
+    function element = top(self)
+      if isempty(self.stack_pointer)
+        element = {};
+      else
+        element = self.stack_pointer.data;
+      end
+    end
+    
+    % length, return the amount of nodes in the stack
+    % -----------------------------------------------
+    function length = length(self)
+      length = 0;
+      node = self.stack_pointer;
+      while ~isempty(node)
+        length = length + 1;
+        node = node.next;
+      end
+    end
+    
+  end
+  
+end</textarea></div></form>
+<p class="spip">La classe stack est une classe par référence (handle classe) car elle hérite de la classe handle. Voir la <a href="http://www.mathworks.fr/access/helpdesk/help/techdoc/matlab_oop/brfylq3.html" class="spip_out">documentation</a> sur le sujet.</p>
+
+<ul class="spip"><li class="spip"> <a href="http://www.mathworks.fr/access/helpdesk/help/techdoc/matlab_oop/bree1u6.html" class="spip_out">Définition</a> d&#8217;une classe et de ses <a href="http://www.mathworks.fr/access/helpdesk/help/techdoc/matlab_oop/bree1qu.html" class="spip_out">attributs</a>.</li><li class="spip"> <a href="http://www.mathworks.fr/access/helpdesk/help/techdoc/matlab_oop/bqs9ybb-1.html" class="spip_out">Définition des propriétés</a> et de leurs <a href="http://www.mathworks.fr/access/helpdesk/help/techdoc/matlab_oop/brjjwby.html" class="spip_out">attributs</a>.</li><li class="spip"> <a href="http://www.mathworks.fr/access/helpdesk/help/techdoc/matlab_oop/brgsek9-1.html" class="spip_out">Contrôle des accès</a> aux propriétés.</li></ul>
+<p class="spip"><strong class="spip">Class Constructor Methods</strong></p>
+
+<hr class="spip">
+<p class="spip"><a href="http://www.mathworks.fr/access/helpdesk/help/techdoc/matlab_oop/brdqinq.html#brd2n2o-1" class="spip_out">Determining Which Method Is Invoked</a></p>
+
+<p class="spip"><a href="http://www.mathworks.fr/access/helpdesk/help/techdoc/matlab_oop/brdqinq.html#brdqjju-1" class="spip_out">Invoking Superclass Methods in Subclass Methods</a></p>
+
+<p class="spip"><a href="http://www.mathworks.fr/access/helpdesk/help/techdoc/matlab_oop/brd2m9e-1.html#brd2m9e-3" class="spip_out">Rules for Constructors</a>&nbsp;:</p>
+
+<p class="spip">A constructor method is a special function that creates
+an instance of the class. Typically, constructor methods accept input
+arguments to assign the data stored in properties and always return an
+initialized object.</p>
+
+<ul class="spip"><li class="spip"> The constructor has the same name as the class.</li><li class="spip"> he only output argument from a constructor is the object constructed.</li><li class="spip">
+If the class being created is a subclass, the MATLAB class system calls
+the constructor of each superclass class to initialize the object.
+Implicit calls to the superclass constructor are made with no
+arguments. If superclass constructors require arguments, you must call
+them from the subclass constructor explicitly.</li><li class="spip"> A
+class does not need to define a constructor method unless it is a
+subclass of a superclass whose constructor requires arguments. In this
+case, you must explicitly call the superclass constructor with the
+required arguments. See Constructing Subclasses</li><li class="spip">
+If a class does not define a constructor, the MATLAB class system
+supplies a constructor that takes no arguments and returns a scalar
+object whose properties are initialized to empty or the values
+specified as defaults in the property definitions. The constructor
+supplied by MATLAB also calls all superclass constructors with no
+arguments.</li><li class="spip"> If you create a class constructor, you
+should implement class constructors so that they can be called with no
+input arguments, in addition to whatever arguments are normally
+required See Supporting the No Input Argument Case and Basic Structure
+of Constructor Methods.</li><li class="spip"> Constructors must always return objects of their own class. A superclass constructor cannot return an object of a subclass.</li><li class="spip">
+Calls to superclass constructors cannot be conditonal This means
+superclass construction calls cannot be placed in loops, conditions,
+switches, try/catch, or nested functions. See No Conditional Calls to
+Superclass Constructors for more information.</li><li class="spip"> You can restrict access to constructors using method attributes, as with any method.</li></ul>
+<p class="spip"><a href="http://www.mathworks.fr/access/helpdesk/help/techdoc/matlab_oop/brd2m9e-1.html#brd2m9e-8" class="spip_out">Basic Structure of Constructor Methods</a></p>
+
+<p class="spip"><strong class="spip">Fonctionnalités propres à Matlab&nbsp;:</strong></p>
+
+<hr class="spip">
+<ul class="spip"><li class="spip"> <a href="http://www.mathworks.com/access/helpdesk/help/techdoc/matlab_prog/f6-39071.html" class="spip_out">Classes et objets</a>, documentation Matlab.</li><li class="spip"> <a href="http://www.mathworks.com/access/helpdesk/help/techdoc/ref/subsasgn.html" class="spip_out">subsassign</a></li><li class="spip"> <a href="http://www.mathworks.com/access/helpdesk/help/techdoc/ref/subsref.html" class="spip_out">subsref</a></li><li class="spip"> <a href="http://www.mathworks.fr/access/helpdesk/help/techdoc/matlab_oop/brfylq3.html" class="spip_out">Value or Handle Class</a> &#8212; Which to Use</li><li class="spip"> <a href="http://www.mathworks.fr/access/helpdesk/help/techdoc/matlab_oop/brqzfut-1.html#brqzfut-3" class="spip_out">Some Differences from C++ and Sun Java Code</a></li></ul>
+<p class="spip"><strong class="spip">Liens externes utiles</strong></p>
+
+<hr class="spip">
+<ul class="spip"><li class="spip"> Pile LIFO ou <a href="http://en.wikipedia.org/wiki/Stack_%28data_structure%29" class="spip_out">stack</a>&nbsp;: wikipedia</li><li class="spip"> Documentation Matlab&nbsp;: <a href="http://www.mathworks.fr/access/helpdesk/help/techdoc/matlab.html" class="spip_out">Object-Oriented Programming</a> </li><li class="spip"> <a href="http://www.ird.fr/us191/spip.php?article56" class="spip_out">Dynaload</a>&nbsp;: créer dynamiquement des structures de données complexes avec Matlab</li></ul></div>
+	
+	
+	
+	
+	
+	<br>
+	<div class="forum-repondre"><b><a href="http://www.ird.fr/us191/spip.php?page=forum&amp;id_article=47">Répondre à cet article</a></b></div>
+	<br>
+	
+	
+
+	
+</div>
+
+
+<div id="navigation">
+	<a href="http://www.ird.fr/"><img src="PrgmObjetAvecR2008_fichiers/logo_ird.jpg" title="Accueil du site" alt="logo" border="0"></a>
+<div class="info"><p class="spip">US191 IMAGO</p>
+
+<p class="spip">Instrumentation, Moyens Analytiques, Observations en Géophysique et Océanographie</p>
+
+<p class="spip">IRD   BP 70</p>
+
+<p class="spip">29810 PLOUZANE</p>
+
+<p class="spip">Tel&nbsp;: 33(0)298224510</p></div>
+
+	<div style="margin-left: 10px;">
+  <ul id="menu">
+  <li><a href="http://www.ird.fr/us191">Accueil du site</a></li>
+
+  
+  
+
+  
+
+  
+
+  
+  
+	<li><a href="http://www.ird.fr/us191/spip.php?rubrique34">Chimie</a>
+  	
+	</li>
+  
+	<li class="smenu"><a href="http://www.ird.fr/us191/spip.php?rubrique28">Informatique</a>
+  	
+		<ul>
+  	
+		<li class="smenu"><a href="http://www.ird.fr/us191/spip.php?rubrique30">Administration</a>
+  		
+		<ul>
+  	
+		<li><a href="http://www.ird.fr/us191/spip.php?rubrique14">Réseaux</a>
+  		</li>
+  	
+		</ul>
+   	
+  	
+		</li><li><a href="http://www.ird.fr/us191/spip.php?rubrique19">Bases de données</a>
+  		</li>
+  	
+		<li class="smenu"><a href="http://www.ird.fr/us191/spip.php?rubrique4">Programmation</a>
+  		
+		<ul>
+  	
+		<li><a href="http://www.ird.fr/us191/spip.php?rubrique6">Langages</a>
+  		</li>
+  	
+		<li><a href="http://www.ird.fr/us191/spip.php?rubrique5">Outils</a>
+  		</li>
+  	
+		</ul>
+   	
+  	
+		</li><li class="smenu"><a href="http://www.ird.fr/us191/spip.php?rubrique29">Systèmes d&#8217;exploitation</a>
+  		
+		<ul>
+  	
+		<li><a href="http://www.ird.fr/us191/spip.php?rubrique13">Cygwin</a>
+  		</li>
+  	
+		<li class="smenu"><a href="http://www.ird.fr/us191/spip.php?rubrique11">Linux</a>
+  		
+		<ul>
+  	
+		<li><a href="http://www.ird.fr/us191/spip.php?rubrique15">Sécuriser son serveur</a>
+  		</li>
+  	
+		</ul>
+   	
+  	
+		</li></ul>
+   	
+  	
+		</li></ul>
+   	
+	</li>
+  
+	<li class="smenu"><a href="http://www.ird.fr/us191/spip.php?rubrique16">Océanographie</a>
+  	
+		<ul>
+  	
+		<li><a href="http://www.ird.fr/us191/spip.php?rubrique25">Calibration</a>
+  		</li>
+  	
+		<li><a href="http://www.ird.fr/us191/spip.php?rubrique27">PIRATA</a>
+  		</li>
+  	
+		<li><a href="http://www.ird.fr/us191/spip.php?rubrique17">SeaBird</a>
+  		</li>
+  	
+		<li><a href="http://www.ird.fr/us191/spip.php?rubrique35">Techniques</a>
+  		</li>
+  	
+		<li><a href="http://www.ird.fr/us191/spip.php?rubrique36">TSG (Thermosalinographe)</a>
+  		</li>
+  	
+		<li><a href="http://www.ird.fr/us191/spip.php?rubrique24">VM-ADCP</a>
+  		</li>
+  	
+		</ul>
+   	
+	</li>
+  
+
+  <li class="smenu"><a href="http://www.ird.fr/us191/ecrire">Le site</a>
+  <ul>
+  <li><a href="http://www.ird.fr/us191/spip.php?page=articles">Articles</a></li>
+  <li><a href="http://www.ird.fr/us191/spip.php?page=le_site">Participer</a></li>
+  <li><a href="http://www.ird.fr/us191/ecrire">Espace privé</a></li>
+  </ul>
+  </li>
+  <li><a href="http://www.ird.fr/us191/spip.php?page=plan">Plan du site</a></li>
+  </ul>
+</div>
+
+	<div class="formulaire" title="recherche"> <div class="formulaire_spip formulaire_recherche">
+<a name="formulaire_recherche" id="formulaire_recherche"></a>
+<form action="http://www.ird.fr/us191/spip.php?page=recherche" method="get"><div>
+	
+<input name="page" value="recherche" type="hidden">
+	
+	<label for="recherche">Rechercher</label>
+	<input class="forml" name="recherche" id="recherche" value="Rechercher" onfocus="this.value='';" type="text">
+</div>
+</form>
+</div> </div>
+	
+	<div class="info"> Site réalisé avec <a href="http://www.spip.net/fr">SPIP</a> sous licence <a href="http://www.gnu.org/copyleft/gpl.html">GPL</a> </div>
+</div>
+</body></html>

@@ -1,0 +1,188 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Exercice 2 &#8211; vecteur et matrice</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-10-12">
+      <meta name="m-file" content="VecteurMatrice"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Exercice 2 &#8211; vecteur et matrice</h1>
+         <introduction></introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#2">Vecteur colonne contenant 2 &eacute;l&eacute;ments</a></li>
+               <li><a href="#3">Vecteur rang&eacute;e contenant 3 &eacute;l&eacute;ments</a></li>
+               <li><a href="#4">Matrice de 2 rang&eacute;es x 3 colonnes</a></li>
+               <li><a href="#5">Afficher</a></li>
+               <li><a href="#6">Attribuer</a></li>
+               <li><a href="#7">Ajouter</a></li>
+               <li><a href="#10">D&eacute;terminer la nouvelle dimension de C.</a></li>
+            </ul>
+         </div><pre class="codeinput">clear <span class="string">all</span>; clc
+</pre><h2>Vecteur colonne contenant 2 &eacute;l&eacute;ments<a name="2"></a></h2><pre class="codeinput">A = [101;201]
+</pre><pre class="codeoutput">A =
+   101
+   201
+</pre><h2>Vecteur rang&eacute;e contenant 3 &eacute;l&eacute;ments<a name="3"></a></h2><pre class="codeinput">B = [101 102 103] <span class="comment">% ou B = [101,102,103]</span>
+</pre><pre class="codeoutput">B =
+   101   102   103
+</pre><h2>Matrice de 2 rang&eacute;es x 3 colonnes<a name="4"></a></h2><pre class="codeinput">C = [<span class="keyword">...</span>
+   11 12 13
+   21 22 23]
+</pre><pre class="codeoutput">C =
+    11    12    13
+    21    22    23
+</pre><h2>Afficher<a name="5"></a></h2>
+         <div>
+            <ul>
+               <li>le 2e &eacute;l&eacute;ment de A et B,</li>
+               <li>l'&eacute;l&eacute;ment de C valant 21.</li>
+            </ul>
+         </div><pre class="codeinput">A2 = A(2), B2 = B(2), C21 = C(2,1)
+</pre><pre class="codeoutput">A2 =
+   201
+B2 =
+   102
+C21 =
+    21
+</pre><h2>Attribuer<a name="6"></a></h2>
+         <p>toute la 2e ligne de C &agrave; R2C.</p><pre class="codeinput">R2C = C(2,:)
+</pre><pre class="codeoutput">R2C =
+    21    22    23
+</pre><h2>Ajouter<a name="7"></a></h2>
+         <div>
+            <ul>
+               <li>B comme 3e ligne de C,</li>
+            </ul>
+         </div><pre class="codeinput">C(3,:) = B
+</pre><pre class="codeoutput">C =
+    11    12    13
+    21    22    23
+   101   102   103
+</pre><div>
+            <ul>
+               <li>R2C comme 6e ligne de C.</li>
+            </ul>
+         </div><pre class="codeinput">C(6,:) = R2C
+</pre><pre class="codeoutput">C =
+    11    12    13
+    21    22    23
+   101   102   103
+     0     0     0
+     0     0     0
+    21    22    23
+</pre><p>Noter la pr&eacute;sence de z&eacute;ros aux lignes 4 et 5.</p>
+         <h2>D&eacute;terminer la nouvelle dimension de C.<a name="10"></a></h2><pre class="codeinput">[nLigne,nCol]=size(C)
+</pre><pre class="codeoutput">nLigne =
+     6
+nCol =
+     3
+</pre><p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Exercice 2 – vecteur et matrice
+%%
+clear all; clc
+
+%% Vecteur colonne contenant 2 éléments
+A = [101;201]
+
+%% Vecteur rangée contenant 3 éléments
+B = [101 102 103] % ou B = [101,102,103]
+
+%% Matrice de 2 rangées x 3 colonnes
+C = [...
+   11 12 13
+   21 22 23]
+
+%% Afficher
+% * le 2e élément de A et B,
+% * l'élément de C valant 21.
+A2 = A(2), B2 = B(2), C21 = C(2,1)
+
+%% Attribuer
+% toute la 2e ligne de C à R2C.
+R2C = C(2,:)
+
+%% Ajouter
+% * B comme 3e ligne de C,
+C(3,:) = B
+%%
+% * R2C comme 6e ligne de C.
+C(6,:) = R2C
+%%
+% Noter la présence de zéros aux lignes 4 et 5.
+%% Déterminer la nouvelle dimension de C.
+[nLigne,nCol]=size(C)
+##### SOURCE END #####
+-->
+   </body>
+</html>

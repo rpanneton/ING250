@@ -1,0 +1,124 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Vectorisation pour tracer une courbe</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2009-11-22">
+      <meta name="m-file" content="TracerSinus"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Vectorisation pour tracer une courbe</h1>
+         <introduction>
+            <p>Tracer un sinus de 0 &agrave; 360&deg; par pas de 10&deg;.</p>
+         </introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#1">Programmation traditionnelle</a></li>
+               <li><a href="#2">Vectorisation</a></li>
+            </ul>
+         </div>
+         <h2>Programmation traditionnelle<a name="1"></a></h2><pre class="codeinput">clear <span class="string">all</span>; clc; close <span class="string">all</span>;
+figure(1);
+<span class="keyword">for</span> i = 1:36+1
+   theta(i) = (i-1)*10;
+   Y(i) = sind(theta(i));
+<span class="keyword">end</span>
+plot(theta,Y); grid <span class="string">on</span>;
+</pre><img vspace="5" hspace="5" src="TracerSinus_01.png"> <h2>Vectorisation<a name="2"></a></h2>
+         <p>Matlab g&eacute;n&egrave;re la boucle afin de calculer une valeur de Y pour chaque valeur de theta.</p><pre class="codeinput">clear <span class="string">all</span>; figure(2);
+theta = 0:10:360;
+Y = sind(theta);
+plot(theta,Y); grid <span class="string">on</span>;
+</pre><img vspace="5" hspace="5" src="TracerSinus_02.png"> <p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Vectorisation pour tracer une courbe
+% Tracer un sinus de 0 à 360° par pas de 10°.
+
+%% Programmation traditionnelle
+clear all; clc; close all;
+figure(1);
+for i = 1:36+1
+   theta(i) = (i-1)*10;
+   Y(i) = sind(theta(i));
+end
+plot(theta,Y); grid on;
+
+%% Vectorisation
+% Matlab génère la boucle afin de calculer une
+% valeur de Y pour chaque valeur de theta.
+clear all; figure(2);
+theta = 0:10:360;
+Y = sind(theta);
+plot(theta,Y); grid on;
+##### SOURCE END #####
+-->
+   </body>
+</html>

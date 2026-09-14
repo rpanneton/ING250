@@ -1,0 +1,132 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Probl&egrave;me 2/4, Meriam p. 32</title><meta name="generator" content="MATLAB 9.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-10-06"><meta name="DC.source" content="ch2004.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Probl&egrave;me 2/4, Meriam p. 32</h1><!--introduction--><p><img vspace="5" hspace="5" src="..\ch2004.gif" alt=""> </p><p>D&eacute;placer le syst&egrave;me d'axes <i>x</i> et <i>y_au point _A</i> et r&eacute;soudre le probl&egrave;me.</p><p>Les coordonn&eacute;es cart&eacute;siennes de A et B sont exprim&eacute;es sous la forme d'un tableau 2D de Matlab ou d'un vecteur. Noter la diff&eacute;rence de s&eacute;mantique. Ce ne sont pas des vecteurs en statique.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Expression scalaire du vecteur F</a></li><li><a href="#2">Composantes scalaires du vecteur F</a></li><li><a href="#3">Expression vectorielle de F</a></li></ul></div><h2 id="1">Expression scalaire du vecteur F</h2><pre class="codeinput">clear; close <span class="string">all</span>; clc;
+mF = 4800; <span class="comment">% lb (norme de F)</span>
+A =[-15,-20]; B = [30,10]; <span class="comment">% coordonn&eacute;es</span>
+theta = atan2(B(2)-A(2), B(1)-A(1))*180/pi;
+fprintf(<span class="string">'Norme = %.0f lb, '</span>,mF);
+fprintf(<span class="string">'angle th&ecirc;ta = %0.f&deg;\n'</span>,theta);
+</pre><pre class="codeoutput">Norme = 4800 lb, angle th&ecirc;ta = 34&deg;
+</pre><h2 id="2">Composantes scalaires du vecteur F</h2><pre class="codeinput">Fx = mF*cosd(theta); Fy = mF*sind(theta);
+fprintf(<span class="string">'\nComposantes scalaires\n'</span>);
+fprintf(<span class="string">'   Fx = %.0f lb et '</span>,Fx);
+fprintf(<span class="string">'Fy = %.0f lb.\n'</span>,Fy);
+</pre><pre class="codeoutput">
+Composantes scalaires
+   Fx = 3994 lb et Fy = 2663 lb.
+</pre><h2 id="3">Expression vectorielle de F</h2><pre class="codeinput">nF = [cosd(theta),sind(theta)]; <span class="comment">% vecteur unitaire</span>
+fprintf(<span class="string">'Vecteur unitaire nF = %+.3fi  %+.3fj\n'</span>,nF);
+F = mF*nF;
+fprintf(<span class="string">'Vecteur F = %+.0fi  %+.0fj lb\n'</span>,F);
+fprintf(<span class="string">'\nComposantes vectorielles\n'</span>);
+fprintf(<span class="string">'   vecteurs Fx = %.0fi lb et '</span>,F(1));
+fprintf(<span class="string">'Fy = %.0fj lb.\n'</span>,F(2));
+</pre><pre class="codeoutput">Vecteur unitaire nF = +0.832i  +0.555j
+Vecteur F = +3994i  +2663j lb
+
+Composantes vectorielles
+   vecteurs Fx = 3994i lb et Fy = 2663j lb.
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Problème 2/4, Meriam p. 32
+% <<..\ch2004.gif>>
+%
+% Déplacer le système d'axes _x_ et _y_au point
+% _A_ et résoudre le problème.
+%
+% Les coordonnées cartésiennes de A et B sont
+% exprimées sous la forme d'un tableau 2D de
+% Matlab ou d'un vecteur. Noter la différence de
+% sémantique. Ce ne sont pas des vecteurs en
+% statique.
+
+%% Expression scalaire du vecteur F
+clear; close all; clc;
+mF = 4800; % lb (norme de F)
+A =[-15,-20]; B = [30,10]; % coordonnées
+theta = atan2(B(2)-A(2), B(1)-A(1))*180/pi;
+fprintf('Norme = %.0f lb, ',mF);
+fprintf('angle thêta = %0.f°\n',theta);
+
+%% Composantes scalaires du vecteur F
+Fx = mF*cosd(theta); Fy = mF*sind(theta);
+fprintf('\nComposantes scalaires\n');
+fprintf('   Fx = %.0f lb et ',Fx);
+fprintf('Fy = %.0f lb.\n',Fy);
+
+%% Expression vectorielle de F
+nF = [cosd(theta),sind(theta)]; % vecteur unitaire
+fprintf('Vecteur unitaire nF = %+.3fi  %+.3fj\n',nF);
+F = mF*nF;
+fprintf('Vecteur F = %+.0fi  %+.0fj lb\n',F);
+fprintf('\nComposantes vectorielles\n');
+fprintf('   vecteurs Fx = %.0fi lb et ',F(1));
+fprintf('Fy = %.0fj lb.\n',F(2));
+##### SOURCE END #####
+--></body></html>

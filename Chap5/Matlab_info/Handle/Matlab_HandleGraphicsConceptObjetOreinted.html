@@ -1,0 +1,473 @@
+<html><head>
+
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <meta name="Author" content="P.Venkataraman">
+   <meta name="GENERATOR" content="Mozilla/4.05 [en] (WinNT; I) [Netscape]">
+   <title>Matlab_HandleGraphics</title>
+</head><body background="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/legalpad.GIF">
+
+<h1>
+<font color="#ff9900">Matlab Handle Graphics</font></h1>
+
+<blockquote><font face="Arial,Helvetica"><font color="#000000">One of the
+places where you can see</font><b><font color="#009900"> object oriented
+</font></b><font color="#000000">concepts in Matlab is in the <b>graphics</b>
+created by Matlab.&nbsp; These features are extensive and Matlab offers
+unlimited access to it through&nbsp; </font><b><i><font color="#cc0000">Handle
+Graphics</font><font color="#000000"> .&nbsp;&nbsp; </font></i></b><font color="#000000">Using
+the</font><b><font color="#009900"> functions</font></b><font color="#000000">
+available here the graphical image can be modified in any conceivable way.&nbsp;
+Also knowledge of the functions in</font><font color="#ff0000"> Handle
+Graphics </font><font color="#000000">will allow us to design&nbsp;</font><b><font color="#993366">
+GUI </font></b><font color="#000000">for the program or create graphics
+that is not standard in Matlab.&nbsp; Note these features are primitive&nbsp;
+compared to VB but they are reasonable and sufficient from a technical
+computation point of view.&nbsp;&nbsp; If you are using the full version
+of Matlab then you can use the GUI&nbsp; tool to build GUI's.&nbsp;&nbsp;
+If you are using the Student version then you are out of luck.&nbsp;&nbsp;
+These notes<b> do not </b>use the tool</font></font></blockquote>
+
+<h2>
+<a name="HandleGraphics"></a><font face="Times New Roman,Times"><font color="#999900">Handle
+Graphics</font></font></h2>
+
+<blockquote><font face="Arial,Helvetica"><font color="#000000">Handle Graphics
+refers to collection of low level graphics functions that are used to generate
+the graphics.&nbsp; From the help desk the tree for the Handle Graphics
+(HG)&nbsp; objects are show below</font></font>
+<center><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/Handle_Graphics1.jpg" width="501" height="143"></center>
+
+<center><b><font face="Times New Roman,Times"><font color="#009900">Figure.&nbsp;
+Handle Graphics Object and Hierarchy</font></font></b></center>
+
+
+<p><font face="Arial,Helvetica"><font color="#000000">HG is built on the
+consideration that each</font><b><font color="#cc0000"> graphical element</font></b><font color="#000000">
+is an </font><b><font color="#009900">Object.&nbsp;</font></b><font color="#000000">&nbsp;
+As before every</font><font color="#009900"> Object</font><font color="#000000">
+has a set </font><b><font color="#cc0000">of properties/</font><font color="#ff6600">data</font></b><font color="#ff6600">
+</font><font color="#000000">and </font><b><font color="#cc0000">method/</font><font color="#ff6600">procedures</font></b><font color="#ffcccc">
+</font><font color="#000000">that operate on the data.&nbsp;&nbsp; Every
+graphics command creates an object.</font></font>
+
+</p><p><font face="Arial,Helvetica"><font color="#000000">The hierarchy above
+illustrates the </font><b><font color="#cc0000">Parent/Child</font></b><font color="#000000">
+relationship among the various graphical <b>objects</b> defined by Matlab.</font></font>
+</p><blockquote><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/Bullet4.gif" width="13" height="12">&nbsp;&nbsp;&nbsp;
+<font face="Times New Roman,Times">The <b><font color="#cc0000">Root </font></b>object
+is the Computer screen.</font>
+
+<p><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/Bullet4.gif" width="13" height="12">&nbsp;&nbsp;&nbsp; All graphics
+objects will be contained in a <b><font color="#cc0000">Figure </font></b>window
+
+</p><p><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/Bullet4.gif" width="13" height="12">&nbsp;&nbsp;&nbsp; The <font color="#cc0000">Root
+</font>object can have one or several <font color="#cc0000">Figure </font>windows
+
+</p><p><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/Bullet4.gif" width="13" height="12">&nbsp;&nbsp;&nbsp; Each <b><font color="#cc0000">Figure
+</font></b>window can contain <b><font color="#cc0000">Axes, Uicontrol,
+Uimenu, Uicontextmenu</font></b>
+
+</p><p><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/Bullet4.gif" width="13" height="12">&nbsp;&nbsp;&nbsp; Each <b><font color="#cc0000">Axes</font></b>
+can contain&nbsp; other objects including<b><font color="#cc0000"> line,
+surface, text</font></b> etc.</p></blockquote>
+<font face="Arial,Helvetica"><b>HG</b> works by identifying every <b>object
+</b>created through a unique <b><font color="#cc0000">Handle</font></b>.&nbsp;
+The handle of the <b><font color="#009900">Root</font></b> object is always&nbsp;<b><font color="#009900">
+0&nbsp; .</font></b>&nbsp; To change properties or invoke methods for a
+specific <b>object </b>- for example change the color of the axes object
+- you will need to refer to the specific axes by its handle.&nbsp; This
+terminology is standard in all <font color="#993366">platforms.</font></font>
+
+<p><font face="Arial,Helvetica"><font color="#000000">Before we proceed
+further lets examine some of the properties of these objects through the
+helpdesk ( browser version of help).</font></font>
+</p><blockquote><b><font face="Arial,Helvetica"><font color="#009900">In the
+menu - Help Desk - Click on Graphic objects - You should see above figure</font></font></b>
+
+<p><b><font face="Arial,Helvetica"><font color="#009900">Click on the </font><font color="#cc0000">Figure</font><font color="#009900">
+Object</font></font></b>
+
+</p><p><b><font face="Arial,Helvetica"><font color="#009900">You should see
+a definition/description of the useful </font><font color="#993366">properties
+</font><font color="#009900">of the </font><font color="#cc0000">Figure</font><font color="#009900">
+object</font></font></b></p></blockquote>
+<font face="Arial,Helvetica"><font color="#000000">Working ith<b> HG</b>
+typically&nbsp; involves changing object properties you saw in the list
+previously.&nbsp;&nbsp; There are</font><b><font color="#cc0000"> two </font></b><font color="#000000">functions
+available to accomplish this.&nbsp; They are</font><b><font color="#3333ff">
+get </font></b><font color="#000000">and</font><b><font color="#3333ff">
+set</font></b><font color="#000000">.&nbsp; Once again these functions
+are <b>universal</b> across most platfoms.&nbsp; </font><b><font color="#009900">VB
+</font></b><font color="#000000">actually has </font><b><font color="#cc0000">three
+</font></b><font color="#000000">- </font><b><font color="#009900">Get,
+Set</font></b><font color="#000000"> and</font><b><font color="#009900">
+Let.&nbsp;&nbsp; </font></b><font color="#000000">We will accept that </font><font color="#3333ff">get</font><font color="#000000">
+will obtain the value of an object's property while </font><font color="#3333ff">set
+</font><font color="#000000">will cause the property to change to a new
+value.</font></font>
+
+<p><font face="Arial,Helvetica"><font color="#000000">The format for the
+get statement is : </font><b><font color="#3333ff">get</font></b><font color="#000000">
+( </font><b><font color="#cc0000">handle</font></b><font color="#000000">,&nbsp;&nbsp;
+</font><b><font color="#009900">'PropertyName'</font></b><font color="#000000">
+)</font></font>
+
+</p><p><font face="Arial,Helvetica"><font color="#000000">The format for the
+set statement is:&nbsp;&nbsp;</font><b><font color="#3333ff"> set&nbsp;</font></b><font color="#000000">
+( </font><b><font color="#cc0000">handle</font></b><font color="#000000">,
+'</font><b><font color="#009900">PropertyName'</font></b><font color="#000000">,
+</font><b><font color="#993366">Value&nbsp; </font><font color="#000000">[
+</font><font color="#cc0000">handle</font></b><font color="#000000">, '</font><b><font color="#009900">PropertyName'</font></b><font color="#000000">,
+</font><b><font color="#993366">Value</font><font color="#000000">]....</font><font color="#993366">
+)</font></b></font>
+
+</p><p><b><font face="Arial,Helvetica"><font color="#000000">Lets see if we
+can understand this stuff by applying it to the Bezier curve we generated
+previously.</font></font></b>
+<br><b><font face="Arial,Helvetica"><font color="#ff6600">We will create
+a new script file</font></font></b>
+<br>&nbsp;
+</p><blockquote><a name="UsingHandleraphics"></a><b><font face="Times New Roman,Times"><font color="#3333ff">Run
+Matlab</font></font></b>
+<br><b><font face="Times New Roman,Times"><font color="#3333ff">Open new
+M-file - this should open the Matlab editor</font></font></b>
+
+<p><b><font face="Times New Roman,Times"><font color="#cc0000">&gt;&gt;&nbsp;
+addpath&nbsp; C:\Emem899\Matlab_Course</font></font></b>
+
+</p><p><b><font face="Times New Roman,Times"><font color="#009900">Type the
+following script</font></font></b>
+
+</p><p><font face="Courier New,Courier"><font color="#009900">%---------------------------------------------------------------------------</font></font>
+<br><font face="Courier New,Courier"><font color="#009900">% script file
+for exploring Matlab Handle Graphics</font></font>
+<br><font face="Courier New,Courier"><font color="#009900">%</font></font>
+
+</p><p><font face="Courier New,Courier"><font color="#000000">[file,path] =
+uigetfile('*.dat', ' Ascii data file',100,100);</font></font>
+<br><font face="Courier New,Courier"><font color="#009900">%get the file
+XY1,dat</font></font>
+
+</p><p><font face="Courier New,Courier"><font color="#000000">loadpathfile
+= ['load ',path,file];&nbsp; </font><font color="#009900">% the space after
+d is important</font></font>
+
+</p><p><font face="Courier New,Courier"><font color="#000000">eval(loadpathfile);&nbsp;
+</font><font color="#009900">% new command - evalutes the string and executes</font></font>
+<br><font face="Courier New,Courier"><font color="#009900">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+% functions if present in string</font></font>
+
+</p><p><font face="Courier New,Courier"><font color="#000000">who&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font><font color="#009900">% check the existence of&nbsp; XY1</font></font>
+
+</p><p><font face="Courier New,Courier"><font color="#000000">get(H_fig,'Color')&nbsp;
+</font><font color="#009900">% get the Back color property of the figure</font></font>
+
+</p><p><font face="Courier New,Courier"><font color="#000000">set(H_fig,'Color',[0.3
+0.5 0.9]) </font><font color="#009900">% note that value of the color</font></font>
+<br><font face="Courier New,Courier"><font color="#009900">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+%
+is a vector of 3 values for RGB</font></font>
+<br><font color="#009900">&nbsp;</font>
+
+</p><p><font face="Courier New,Courier"><font color="#000000">set(H_fig,'NumberTitle','off','Name','Testing
+Handle Graphics')</font></font>
+
+</p><p><font face="Courier New,Courier"><font color="#000000">get(H_fig)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font><font color="#009900">% this should list all the current values
+for the properties</font></font>
+
+</p><p><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/multi_1.JPG" width="600" height="10">
+<br><b><font face="Times New Roman,Times"><font color="#ff9900">The following
+is the output - do not include it in your script file</font></font></b>
+</p><blockquote><font face="Arial,Helvetica"><font color="#993366">BackingStore
+= on</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;CloseRequestFcn
+= closereq</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;Color = [0.3
+0.5 0.9]</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;Colormap =
+[ (64 by 3) double array]</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;CurrentAxes
+= [7.00012]</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;CurrentCharacter
+=</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;CurrentObject
+= [8.00012]</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;CurrentPoint
+= [473 207]</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;Dithermap
+= [ (64 by 3) double array]</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;DithermapMode
+= manual</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;FixedColors
+= [ (10 by 3) double array]</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;IntegerHandle
+= on</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;InvertHardcopy
+= on</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;KeyPressFcn
+=</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;MenuBar =
+figure</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;MinColormap
+= [64]</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;Name = Testing
+Handle Graphics</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;NextPlot =
+add</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;NumberTitle
+= off</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;PaperUnits
+= inches</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;PaperOrientation
+= portrait</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;PaperPosition
+= [0.25 2.5 8 6]</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;PaperPositionMode
+= manual</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;PaperSize
+= [8.5 11]</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;PaperType
+= usletter</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;Pointer =
+arrow</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;PointerShapeCData
+= [ (16 by 16) double array]</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;PointerShapeHotSpot
+= [1 1]</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;Position =
+[436 283 560 420]</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;Renderer =
+painters</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;RendererMode
+= auto</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;Resize = on</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;ResizeFcn
+=</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;SelectionType
+= normal</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;ShareColors
+= on</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;Units = pixels</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;WindowButtonDownFcn
+=</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;WindowButtonMotionFcn
+=</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;WindowButtonUpFcn
+=</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;WindowStyle
+= normal</font></font>
+
+<p><font face="Arial,Helvetica"><font color="#993366">&nbsp;ButtonDownFcn
+=</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;Children =
+[ (2 by 1) double array]</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;Clipping =
+on</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;CreateFcn
+=</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;DeleteFcn
+=</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;BusyAction
+= queue</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;HandleVisibility
+= on</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;HitTest =
+on</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;Interruptible
+= on</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;Parent = [0]</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;Selected =
+off</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;SelectionHighlight
+= on</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;Tag =</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;Type = figure</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;UIContextMenu
+= []</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;UserData =
+[]</font></font>
+<br><font face="Arial,Helvetica"><font color="#993366">&nbsp;Visible =
+on</font></font>
+<br>&nbsp;</p></blockquote>
+<img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/slashes3.GIF" width="889" height="31">
+
+<p><font face="Courier New,Courier">H_plot = plot(XY1(:,1),XY1(:,2),'b-')</font>
+
+</p><p><font face="Courier New,Courier"><font color="#009900">% matlab sets
+up the default values for all the graphic objects</font></font>
+<br><font face="Courier New,Courier"><font color="#009900">% used to display
+the plot on the figure</font></font>
+<br><font face="Courier New,Courier"><font color="#009900">% the plot object
+is contained in the axes object</font></font>
+
+</p><p><font face="Courier New,Courier">H_ax = gca&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="#009900">% get handle to current axes</font></font>
+
+</p><p><font face="Courier New,Courier">set(H_plot,'Color',[1 0.5 0],'LineWidth',3)</font>
+
+</p><p><font face="Courier New,Courier">H_xlab = get(gca,'Xlabel')&nbsp; <font color="#009900">%
+gets the handle for the child - XLabel</font></font>
+
+</p><p><font face="Courier New,Courier">set(H_xlab,'FontSize',18,'String','X-Values')</font>
+
+</p><p><font face="Courier New,Courier">set(get(gca,'YLabel'),'FontSize',14,'String','Y-Values','FontName','Arial')</font>
+
+</p><p><font face="Courier New,Courier">set(gca, 'YAxisLocation','Right','YColor','r','YDir','Reverse','Box','Off')</font>
+
+</p><p><font face="Courier New,Courier">set(get(0,'CurrentFigure'),'Position',[0
+0 300 300])</font>
+
+</p><p><font face="Courier New,Courier"><font color="#009900">% the Position&nbsp;&nbsp;
+property is a vector og [ left bottom width height]</font></font>
+
+</p><p>
+</p><hr width="100%" size="4">
+<br><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/position.JPG" width="959" height="719">
+<br>
+<hr width="100%" size="4">
+
+<p><font face="Courier New,Courier"><font color="#009900">% Default values</font></font>
+<br><font face="Courier New,Courier"><font color="#009900">% matlab has
+built in default values for all the properties.</font></font>
+<br><font face="Courier New,Courier"><font color="#009900">% You can set
+your own default properties using a special</font></font>
+<br><font face="Courier New,Courier"><font color="#009900">% property-name
+string concatenated with 'Default'&nbsp; plus</font></font>
+<br><font face="Courier New,Courier"><font color="#009900">% 'Object type'
+plus 'PropertyName'</font></font>
+
+</p><p><font face="Courier New,Courier"><font color="#009900">%&nbsp; For example
+- DefaultFigureColor</font></font>
+
+</p><p><font face="Courier New,Courier"><font color="#009900">% you can place
+these in the startup file for effectiveness</font></font>
+
+</p><p><font face="Courier New,Courier">set(0,'DefaultAxesXGrid','on')</font>
+
+</p><p><font face="Courier New,Courier">set(0,'DefaultAxesYGrid','on')</font>
+
+</p><p><font face="Courier New,Courier">set(0,'DefaultAxesFontSize',14)</font>
+
+</p><p><font face="Courier New,Courier">set(0,'DefaultAxesXColor','y')</font>
+
+</p><p><font face="Courier New,Courier">set(0,'DefaultAxesYColor','g')</font>
+<br>&nbsp;
+<br><font face="Courier New,Courier">set(0,'DefaultFigureColor',[0.5 0.5
+0.5])</font>
+<br>&nbsp;</p></blockquote>
+</blockquote>
+
+<h2>
+<font color="#999900">&nbsp;<a name="GraphicalUserInterface"></a>Graphical
+User InterFace</font></h2>
+
+<blockquote><font face="Arial,Helvetica"><font color="#000000">Matlab provides
+reasonable facility for greating<b> GUI.</b>&nbsp; As an engineer there
+probably may </font><b><font color="#cc0000">not </font></b><font color="#000000">be
+a reason to develop a <b>GUI</b> - after all we can </font><b><font color="#cc0000">read</font></b><font color="#000000">
+information into Matlab through </font><b><font color="#009900">Stdin(typing
+at screen prompts)</font></b><font color="#000000">&nbsp; or through reading
+</font><b><font color="#cc0000">files.</font></b><font color="#000000">&nbsp;
+In the event you have a program that several people can use, or you have
+a utility that you will use many times,&nbsp; or you want to create an
+interactive program, or you want to impress your boss..</font></font>
+
+<p><font face="Arial,Helvetica"><font color="#000000">Knowledge og <b>HG</b>
+is very important in designing and implmenting a <b>GUI </b>in Matlab.</font></font>
+
+</p><p><font face="Arial,Helvetica"><font color="#000000">Once again using
+the help desk the following information can be located regarding GUI creation</font></font>
+<br><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/dialbox.jpg" width="596" height="469">
+<br>&nbsp;
+<br><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/Otherstuff.jpg" width="677" height="416">
+
+</p><p><b><font face="Arial,Helvetica">Much of the Controls needed for the
+GUI are in the uicontrol object</font></b>
+
+</p><p><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/UIControl.jpg" width="985" height="504">
+
+</p><p><font face="Arial,Helvetica">While it will be difficult to explore all
+the items here we will look at some useful ones.</font>
+
+</p><p><font face="Arial,Helvetica">The <b>important </b>thing to remember
+about <b><font color="#cc0000">GUI</font></b> <b>objects </b>that we place
+on the screen is that:</font>
+</p><blockquote><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/Bullet5.gif" width="13" height="13">&nbsp;&nbsp;&nbsp;
+<font face="Times New Roman,Times"><font size="+1">All objects should be
+associated with a <font color="#cc0000">handle</font></font></font>
+
+<p><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/Bullet5.gif" width="13" height="13"><font face="Times New Roman,Times"><font size="+1">&nbsp;&nbsp;&nbsp;
+Most objects must have a<font color="#cc0000"> name</font> to display</font></font>
+
+</p><p><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/Bullet5.gif" width="13" height="13"><font face="Times New Roman,Times"><font size="+1">&nbsp;&nbsp;&nbsp;
+All objects must be associated with a <font color="#cc0000">Callback</font>
+string/function.&nbsp; This is the string that </font><b><font color="#cc0000">eval&nbsp;
+</font></b><font size="+1">will execute in response to the user <font color="#009900">event.</font></font></font></p></blockquote>
+<font face="Arial,Helvetica">The most difficult thing about <b>GUI </b>creation
+is the '<b><font color="#cc0000">Callback</font></b>'&nbsp; string.&nbsp;
+Some of the things to remember about the implementation of Callback are:</font>
+<br><font face="Arial,Helvetica">&nbsp;</font>
+<blockquote><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/gr_oval_bul.gif" width="11" height="11">&nbsp;&nbsp;&nbsp;
+<font face="Times New Roman,Times">The GUI is best designed using a<b>
+Script</b> file rather than interactively</font>
+
+<p><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/gr_oval_bul.gif" width="11" height="11"><font face="Times New Roman,Times">&nbsp;&nbsp;&nbsp;
+The Callback is a <b><font color="#009900">string </font></b>that will
+be passed to the<b><font color="#cc0000"> eval </font></b>function when
+the <b><font color="#009900">event</font></b> corresponding to the control
+is triggered</font>
+
+</p><p><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/gr_oval_bul.gif" width="11" height="11"><font face="Times New Roman,Times">&nbsp;&nbsp;&nbsp;
+For multiple MATLAB Commands/Statements&nbsp;<b> enclose</b> the entire
+callback<b><font color="#cc0000"> string in square brackets</font></b>.
+Make sure to include the final&nbsp;&nbsp;<b><font color="#cc0000"> )</font></b></font>
+
+</p><p><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/gr_oval_bul.gif" width="11" height="11"><font face="Times New Roman,Times">&nbsp;&nbsp;&nbsp;
+Enclose each MATLAB statement in&nbsp;<b> 'single quote'</b></font>
+
+</p><p><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/gr_oval_bul.gif" width="11" height="11"><font face="Times New Roman,Times">&nbsp;&nbsp;&nbsp;
+Quotes within a quoted string have double quotes like<b><font color="#cc0000">
+' ' String ' '</font></b></font>
+
+</p><p><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/gr_oval_bul.gif" width="11" height="11"><font face="Times New Roman,Times">&nbsp;&nbsp;&nbsp;
+Each statement will have a <b>Comma or Semicolon within the quote </b>-
+and a<b> comma or space after the qoutes</b></font>
+
+</p><p><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/gr_oval_bul.gif" width="11" height="11"><font face="Times New Roman,Times">&nbsp;&nbsp;&nbsp;
+Each line to be continued ends with&nbsp; <b>three periods&nbsp; . . .</b></font>
+
+</p><p><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/gr_oval_bul.gif" width="11" height="11"><font face="Times New Roman,Times">&nbsp;&nbsp;&nbsp;
+The Callback can be executed using (i)<b><font color="#009900">&nbsp; Scripts</font></b>
+or (ii) <b><font color="#009900">Using Callback functions.</font></b>&nbsp;
+We will use the<b> first option</b></font>
+
+</p><p><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/gr_oval_bul.gif" width="11" height="11"><font face="Times New Roman,Times">&nbsp;&nbsp;&nbsp;
+A very important consideration is that <b><font color="#990000">Callback
+strings are passed to eval and executed in the Command Workspace, </font><font color="#009900">while
+the rest of the code executes in the function workspace</font></b>- including
+the GUI script function</font>
+</p><blockquote><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/teal_oval_bul.gif" width="11" height="11"><font face="Times New Roman,Times">&nbsp;&nbsp;&nbsp;
+<b>Variables defined within functions are not availble in the Command Workspace&nbsp;
+and variables used in the Command workspace are not available in the function
+workspace.</b></font>
+
+<p><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/teal_oval_bul.gif" width="11" height="11"><font face="Times New Roman,Times">&nbsp;&nbsp;&nbsp;
+<b>Global variables can be used to transfer this data</b></font>
+
+</p><p><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/teal_oval_bul.gif" width="11" height="11"><font face="Times New Roman,Times">&nbsp;&nbsp;&nbsp;
+<b>Since GUI control elements report strings - particular attention must
+be paid to string to number conversion for using the numerical data</b></font></p></blockquote>
+<img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/gr_oval_bul.gif" width="11" height="11"><font face="Times New Roman,Times">&nbsp;&nbsp;&nbsp;
+There is&nbsp; a<b><font color="#cc0000"> lot more </font></b>to know about
+GUI and Callback.&nbsp; Here we will only deal with basic design.&nbsp;
+In the next exercise we will construct a working GUI for the <b>TPBVP program
+we developed in Matlab</b>.</font>
+<br>&nbsp;</blockquote>
+<a href="file:///C%7C/EMEM899/Matlab_Course/Matlab_UI_Tpbvp.html"><img src="Matlab_HandleGraphicsConceptObjetOreinted_fichiers/blu_rt_ar.GIF" width="20" border="0" height="30"></a>
+<br>&nbsp;
+<blockquote>&nbsp;</blockquote>
+</blockquote>
+
+</body></html>

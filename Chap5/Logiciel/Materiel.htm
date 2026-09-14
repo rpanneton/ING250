@@ -1,0 +1,220 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="Generator" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Éléments de génie logiciel - Matériel et logiciels</title>
+<meta name="Template" content="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+<link rel="stylesheet" type="text/css" href="../../css/index.css">
+</head>
+
+<body link="#0000ff" vlink="#800080">
+
+<h1>Éléments de génie logiciel</h1>
+<p>Le génie logiciel comprend les méthodes, les outils et les procédures pour
+concevoir des logiciels. Dans cette perspective, il importe de distinguer le
+matériel (<i>hardware</i>) du logiciel (<i>software</i>), pour lequel
+l'écriture du code est une conséquence naturelle de la conception d’un
+programme.</p>
+<h4>Évaluation</h4>
+<ul>
+  <li>Elle s'effectue sous la forme d'un examen écrit (papier ou dans un
+    fichier).</li>
+  <li>Elle porte sur les notions présentées dans ce chapitre ainsi que sur
+    celles de tous les chapitres précédents.</li>
+  <li>Aucune documentation n'est permise.</li>
+</ul>
+<h2>Matériel et logiciels</h2>
+<ul>
+  <li>Processeur</li>
+  <li>Synoptique d'un ordinateur
+    <ul>
+      <li><i>RAM</i>, <i>ROM</i>, microprocesseur</li>
+      <li>Achat d'un ordinateur</li>
+    </ul>
+  </li>
+  <li>Logiciels
+    <ul>
+      <li>Systèmes d'exploitation, langages, progiciels</li>
+      <li>Éditeur, compilateur, interprète</li>
+    </ul>
+  </li>
+</ul>
+<p>Le matériel est constitué de toutes les pièces physiques de la machine :
+écran, microprocesseur, clavier, modem, etc. Le logiciel désigne tous les
+programmes ou séries d'instructions utilisées pour faire opérer le matériel.</p>
+<h3>Processeur</h3>
+<p>La complexité d'un ordinateur est telle que nous devons l'analyser sous la
+forme de sous-ensembles fonctionnels, sans nous attacher aux circuits qui
+composent la machine. Un ensemble ou bloc qui effectue un travail de traitement
+d'information est appelé un processeur. L'ordinateur est considéré comme un
+processeur qui contrôle d'autres processeurs (ceux des périphériques). On
+illustre cette définition avec le schéma suivant&nbsp;:</p>
+<p><img border="0" src="PROCESS.GIF" width="415" height="84"></p>
+<p>Avec ce schéma simplifié, l'unité centrale de traitement (UT) est un
+sous-ensemble fonctionnel permettant de traiter des données pour produire des
+résultats ou informations à la sortie. L'unité centrale de traitement opère
+sous le contrôle d'un programme, lequel est constitué d'instructions.</p>
+<h3>Synoptique d'un ordinateur</h3>
+<p>Le synoptique suivant est simplifié, car il est possible qu'il y ait plus
+d'une UT, plus d'un bus, etc.</p>
+<p><img border="0" src="SYNOPTIQ.GIF" width="431" height="225"><br>
+Synoptique d'un micro-ordinateur</p>
+<p>Le matériel se divise en trois classes&nbsp;:</p>
+<ol>
+  <li>Visible&nbsp;: écran, clavier, lecteurs, souris, imprimante, modem.</li>
+  <li>Cachée&nbsp;: interfaces, bus de communication (voir plus loin), disques,
+    mémoires <i>RAM</i> et <i>ROM</i>, divers, modem Internet.<br>
+    E/S indique une interface d'entrée et de sortie.</li>
+  <li>Le microprocesseur ou UT (unité de traitement).</li>
+</ol>
+<h4><i>RAM</i></h4>
+<p>La <i>RAM</i> (<i>random access mémory</i>) est la mémoire adressable de
+l'ordinateur, ou <i>mémoire vive</i>. Elle est utilisée pour ranger le
+programme et les données qui l'accompagnent. Lorsque l'on achète un
+ordinateur, c'est le type de mémoire que spécifie le devis, par exemple, un
+Pentium à 5&nbsp;Ghz et 512&nbsp;Mo de mémoire avec un disque de 80&nbsp;Go.
+La mémoire est habituellement vendue en ko pour la mémoire cache et en Mo pour
+la mémoire <i>RAM</i>. C'est une mémoire «dynamique» à maintenir en vie
+60&nbsp;fois par seconde. Elle perd l'information à la mise hors tension.</p>
+<h4><i>ROM</i></h4>
+<p>La <i>ROM</i> (<i>Read only memory</i>) est la mémoire permanente de
+l'ordinateur; elle contient la configuration de l'ordinateur (Bios) ainsi que
+les programmes permettant des opérations spécifiques, par exemple, la
+vérification des mémoires lors du lancement, les programmes d'accès au disque
+dur, etc. Il est impossible de la modifier à moins d'utiliser des moyens
+spéciaux. Par contre, la <i>RAM</i> est effacée à chaque fois que
+l'ordinateur est mis hors tension.</p>
+<h4>Microprocesseur (Pentium)</h4>
+<p>Le microprocesseur ou unité de traitement (UT) (<i>micro processing unit</i>
+ou <i>MPU</i>) traite les données et régit le mouvement de l'information vers
+les sous-ensembles. Pour un PC, c'est le Pentium qui forme le cœur de
+l'ordinateur. D'une manière générale, le microprocesseur se divise en
+plusieurs sous-ensembles&nbsp;:</p>
+<p><img border="0" src="MICROPRO.GIF" width="347" height="211"></p>
+<p>Le microprocesseur reçoit la cadence d'une horloge. L'unité de séquence et
+de contrôle dirige les opérations et donne suite aux instructions reçues. Ces
+dernières passent par des circuits de commande dont le rythme suit le battement
+de l'horloge qui synchronise ainsi toutes les opérations. La vitesse de
+l'horloge est habituellement donnée en GHz; plus la vitesse est rapide et plus
+le microprocesseur est performant. Cette caractéristique permet de comparer les
+microprocesseurs entre eux. Cependant, il faut considérer aussi les autres
+composantes du microprocesseur. Souvent la cadence est trop rapide pour le bus,
+et il faut introduire des temps d'attente pour synchroniser correctement les
+informations qui transitent sur le bus (<i>wait states</i>).</p>
+<p>Une caractéristique du microprocesseur est le nombre d'instructions qu'il
+peut faire en un temps défini, mesuré en <b><font color="#0000FF">MIPS</font></b>
+(million d'instructions par seconde). Cependant, chacune des instructions
+reçues par le microprocesseur est décodée en une série de micro-instructions
+par le décodeur. Ainsi, une instruction reçue peut comporter plusieurs
+micro-instructions. Une micro-instruction prend un cycle d'horloge pour son
+exécution. Une instruction peut donc prendre plusieurs cycles d'horloge pour sa
+réalisation.</p>
+<p>Utiliser uniquement la vitesse de l'horloge comme critère de comparaison
+entre les microprocesseurs donne des résultats inexacts. Dans les applications
+comprenant du calcul scientifique, il est plus juste d'utiliser le méga<font color="#0000FF"><b>flop</b></font>
+(million d'opérations à point flottant par seconde) pour comparer les
+microprocesseurs que le concept trompeur de MIPS.</p>
+<p>Les <b><font color="#0000FF">registres</font></b> sont les mémoires internes
+du microprocesseur qui lui servent de brouillon et par lesquelles transitent le
+plus souvent les données. L'unité arithmétique et logique (UAL ou <i>ALU</i>)
+est chargée d'exécuter les opérations arithmétiques et logiques des
+programmes.</p>
+<p>Les instructions et les données transitent dans l'ordinateur par un <b><font color="#0000FF">bus</font></b>.
+C'est une sorte d'autoroute à plusieurs voies parallèles. Un bus de
+32&nbsp;bits de largeur indique que la communication s'effectue 32&nbsp;bits à
+la fois sur un circuit qui possède 32&nbsp;fils (ou voies) en parallèle. Plus
+il y a de voies, et plus la performance du microprocesseur augmente.</p>
+<h4>Achat d'un ordinateur</h4>
+<p>Les caractéristiques d'un ordinateur évoluent sans cesse. Il est difficile
+d'exprimer une opinion correcte. Par contre, certains éditeurs émettent
+régulièrement une opinion dépourvue d'intérêt commercial et qui constitue
+une bonne base de comparaison telle que&nbsp;: <a href="http://www.atoutmicro.ca/">http://www.atoutmicro.ca</a>.</p>
+<h3>Logiciels</h3>
+<p>Les logiciels dont regroupés en quatre grandes classes&nbsp;: systèmes
+d'exploitation, langages, progiciels, éditeurs-compilateurs-interprètes.</p>
+<h4>1. Systèmes d'exploitation</h4>
+Ils gèrent la globalité des ressources.
+<ul>
+  <li>Exemples&nbsp;:
+    <ul>
+      <li>Système Linux</li>
+      <li>Windows 2000</li>
+      <li>Windows XP</li>
+      <li>FreeBSD</li>
+    </ul>
+  </li>
+  <li>Référence&nbsp;: Silberschatz A, Galvin P.B., Gagné G,, <i>Operating
+    System Concepts</i>, 6e édition, John Wiley&nbsp;&amp;&nbsp;Sons, Inc.,
+    2003, 951&nbsp;p.</li>
+</ul>
+<h4>2. Langages</h4>
+<ul>
+  <li>Calcul scientifique&nbsp;: Fortran, C, Ada</li>
+  <li>Gestion&nbsp;: Cobol, Rexx, Ada</li>
+  <li>Autres&nbsp;: Basic, Pascal, Algol, APL, Forth, Modula, Java, etc.</li>
+</ul>
+<p>Tous ces langages nécessitent&nbsp;:</p>
+<ul>
+  <li>un éditeur (pour les écrire)</li>
+  <li>un compilateur (pour les traduire)</li>
+  <li>un éditeur de liens (pour créer un exécutable)</li>
+  <li>un déboggeur (pour la mise au point)</li>
+  <li>éventuellement, un gestionnaire de bibliothèques (sources et binaires)</li>
+</ul>
+<h4>3. Progiciels</h4>
+Ensemble de fonctions programmées pour remplir des tâches précises.<br>
+Exemple&nbsp;:
+<ul>
+  <li>Traitement de texte&nbsp;: Word, WordPerfect, etc.</li>
+  <li>Tableurs&nbsp;: Excel, Lotus 123, QuattroPro, Foxpro, etc.</li>
+  <li>Gestionnaire de base de données&nbsp;: dBaseIV, FileMaker, etc.</li>
+  <li>Calculs&nbsp;: Matlab, MapleV, Mathematica, etc.</li>
+  <li>Table à dessin informatisée&nbsp;: AutoCad, Catia, etc.</li>
+  <li>Jeux, simulateurs, etc.</li>
+</ul>
+<h4>4. Éditeurs - compilateurs - interprètes</h4>
+<h5>Éditeurs</h5>
+Ce sont des outils pour la création et la modification de fichiers
+alphanumériques (ASCII et ANSI).
+<ul>
+  <li>Ils sont parfois associés à un gestionnaire de modifications.</li>
+  <li>Ils ne disposent pas des fonctions d'un traitement de texte.</li>
+  <li>Ils ne contiennent pas de caractères de contrôle cachés.</li>
+  <li>Ils numérotent les lignes et repèrent les colonnes.</li>
+  <li>Ils ont un chargement rapide.</li>
+  <li>Ils sont configurables selon le langage.</li>
+  <li>Exemple&nbsp;:
+    <ul>
+      <li>Unix&nbsp;: Ed, VI, Emacs</li>
+      <li>PC&nbsp;: Bloc-Notes, Éditeur de Matlab</li>
+      <li>Mac&nbsp;: TeachText</li>
+    </ul>
+  </li>
+</ul>
+<h5>Compilateurs</h5>
+Rappel<br>
+Ils traduisent le code de programmation en langage machine spécifique pour
+l'ordinateur. Le code est habituellement écrit dans un langage de haut niveau
+et contenu dans un fichier alphanumérique.
+<p>La traduction génère un fichier binaire (*.obj). Par la suite, un linkeur
+lie les fichiers *.obj à des routines pour produire un fichier exécutable (*.com
+ou *.exe).</p>
+<h5>Interprètes</h5>
+Rappel<br>
+Les interprète traduisent et font exécuter une ligne de code à la fois, à
+partir d'un code de haut niveau contenu dans un fichier alphanumérique.
+L'exécution est donc plus lente que celle d'un fichier déjà compilé.
+<p>Matlab est un interprète. Lorsqu'il interprète une première fois une
+fonction, il conserve le résultat de la compilation en mémoire. Un appel
+subséquent s'exécute alors aussi rapidement qu'une routine compilée par la
+méthode classique (compilateur et linkeur). C'est de cette manière que Matlab
+s'approche des performances d'un compilateur.</p>
+<p><font color="#0000FF"><b>C'est une bonne raison pour organiser un programme
+Matlab en fonctions.</b></font></p>
+<p align="center"><img border="0" src="Galets.gif" width="528" height="30"></p>
+
+</body>
+
+</html>

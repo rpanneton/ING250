@@ -1,0 +1,138 @@
+/* <nowiki> Common CSS for all skins - copy to your user CSS to change */
+
+@import url("https://secure.wikimedia.org/wikibooks/en/w/index.php?title=MediaWiki:Common.css/WikiTable.css&action=raw&ctype=text/css") screen;
+@import url("/w/index.php?title=MediaWiki:Common.css/WikiTable.css&action=raw&ctype=text/css") screen;
+@import url("https://secure.wikimedia.org/wikibooks/en/w/index.php?title=MediaWiki:Common.css/CommonsTicker.css&action=raw&ctype=text/css") screen;
+@import url("/w/index.php?title=MediaWiki:Common.css/CommonsTicker.css&action=raw&ctype=text/css") screen;
+@import url("https://secure.wikimedia.org/wikibooks/en/w/index.php?title=MediaWiki:Common.css/Infobox.css&action=raw&ctype=text/css") screen;
+@import url("/w/index.php?title=MediaWiki:Common.css/Infobox.css&action=raw&ctype=text/css") screen;
+@import url("https://secure.wikimedia.org/wikibooks/en/w/index.php?title=MediaWiki:Common.css/Messagebox.css&action=raw&ctype=text/css") screen;
+@import url("/w/index.php?title=MediaWiki:Common.css/Messagebox.css&action=raw&ctype=text/css") screen;
+@import url("https://secure.wikimedia.org/wikibooks/en/w/index.php?title=MediaWiki:Common.css/Hoverbox.css&action=raw&ctype=text/css");
+@import url("/w/index.php?title=MediaWiki:Common.css/Hoverbox.css&action=raw&ctype=text/css") screen;
+@import url("https://secure.wikimedia.org/wikibooks/en/w/index.php?title=MediaWiki:Common.css/Autocount.css&action=raw&ctype=text/css");
+@import url("/w/index.php?title=MediaWiki:Common.css/Autocount.css&action=raw&ctype=text/css") screen;
+@import url("https://secure.wikimedia.org/wikibooks/en/w/index.php?title=MediaWiki:Common.css/toc.css&action=raw&ctype=text/css");
+@import url("/w/index.php?title=MediaWiki:Common.css/toc.css&action=raw&ctype=text/css") screen;
+@import url("https://secure.wikimedia.org/wikibooks/en/w/index.php?title=MediaWiki:Common.css/Multilingual.css&action=raw&ctype=text/css");
+@import url("/w/index.php?title=MediaWiki:Common.css/Multilingual.css&action=raw&ctype=text/css") screen;
+
+/*****************/
+/* miscellaneous */
+/*****************/
+
+/* hiddenStructure class from Monobook - allows selective hiding of markup in templates */
+.hiddenStructure { display:none; speak:none; }
+ 
+/* audiolink class for links with loudspeaker icon next to them - like in {{Audio}} template */
+.audiolink a {
+  background: url("http://upload.wikimedia.org/wikipedia/commons/f/f7/Loudspeaker.png") center left no-repeat !important;
+  padding-left: 16px !important;
+  padding-right: 0 !important;
+}
+ 
+/* make redirects appear as italic on [[Special:Allpages]] */
+.allpagesredirect { font-style: italic }
+ 
+.PrettyTextBox {
+  background-color: #F9F9F9; 
+  color: #000000; 
+  border: 1px solid #AAAAAA;
+  padding: .2em; 
+}
+ 
+.archive-box {
+  border: 1px solid #aaaaff;
+  background-color: #f2f2f9;
+  color: black;
+  margin-bottom: 0.5em;
+  margin-left: 1em;
+  padding: 0.2em;
+  float: right;
+  clear: right;
+  text-align: center;
+}
+ 
+/* Collapsible Containers */
+div.NavFrame, .collapsible { margin:0px; border:1px solid #aaaaaa; border-collapse:collapse; text-align:center; font-size:100%; clear:both; }
+div.NavFrame + div.NavFrame, .collapsible + .collapsible { border-top:0px; margin-top:0px; }
+div.NavPic { margin:0px; padding:2px; float:left; }
+div.NavFrame div.NavHead, .collapsible .title, .collapsible th { cursor:pointer; padding:0.2em; font-weight:bold; font-size:95%; background:#ccccff; } 
+div.NavFrame div.NavHead:hover, .collapsible .title:hover, .collapsible th:hover { background: #aaaaff; } 
+div.NavFrame div.NavHead .action, .collapsible .action {
+  float:right; font-weight:normal; font-size:10px; margin:auto 0.5em; white-space:nowrap; text-align:right; width:auto;
+}
+/* Fix for collision of collapsible class used in Vector's collapsible tabs extension */
+body.skin-vector .vectorTabs .collapsible {
+ border: none;
+ clear: none;
+}
+
+/* Default skin for navigation boxes */
+table.navbox { border:1px solid #aaaaaa; width:100%; margin:0.5em auto; clear:both; font-size:88%; text-align:center; padding:1px; }
+.navbox-title, .navbox-abovebelow, table.navbox th { text-align:center; padding-left:1em; padding-right:1em; }
+.navbox-group { white-space:nowrap; text-align:right; font-weight:bold; padding-left:1em; padding-right:1em; }
+.navbox, .navbox-subgroup { background:#fdfdfd; }
+.navbox-list { border-color:#fdfdfd; }
+.navbox-title, table.navbox th { background:#ccccff; }
+.navbox-abovebelow, .navbox-group, .navbox-subgroup .navbox-title { background: #ddddff; }
+.navbox-subgroup .navbox-group, .navbox-subgroup .navbox-abovebelow { background: #e6e6ff; }
+.navbox-even { background: #f7f7f7; }
+.navbox-odd { background: transparent; }
+ 
+/* Remove padding from external links displayed without icon */
+.plainlinks .urlexpansion { display: none !important;}
+.plainlinks a { background:none !important; padding:0px !important;}
+.plainlinks a.external.text:after {display: none !important;}
+.plainlinks a.external.autonumber:after {display: none !important;}
+ 
+/** Bytecounter colours **/ 
+strong.mw-plusminus-neg { color: #cc0000; }
+span.mw-plusminus-neg   { color: #990000; }
+span.mw-plusminus-pos   { color: #006600; }
+ 
+/* Navigation Tabs */
+.navtabs .tabs li { list-style:none; }
+.navtabs .tabs a { text-decoration:none; text-transform:uppercase; outline-width:0px; font-size:x-small; font-weight:bold; color:black; } 
+.navtabs .tabs .inactive { background:#bbb; padding:1ex; }
+.navtabs .tabs .selected { background:#999; padding:1.1ex; }
+.navtabs .tabs .inactive:hover { background:#f75; }
+.navtabs .contents { padding:1ex; border:3px solid #999; }
+ 
+/* Style for horizontal UL lists */
+.horizontal ul, .DPLFlat ul { padding:0em; margin:0em; }
+.horizontal li, .DPLFlat li { display:inline; padding:0em 0.6em 0em 0.4em; border-right:1px solid #AAA; }
+.horizontal li:last-child, .DPLFlat li:last-child { border-right:0em; padding-right:0em; }
+ 
+ @media screen, projection {
+    .printonly { display: none !important; }
+ }
+ 
+ body.page-Main_Page h1.firstHeading, .page-Main_Page #siteSub { display: none; }
+ .page-Main_Page h2 { font-size:16pt; margin:0; padding: 0; border-bottom:0; font-weight: bold; }
+
+ /* Put a checker background at the image description page only visible if the image has transparent background */
+ 
+ #file img {background: url("http://upload.wikimedia.org/wikipedia/commons/5/5d/Checker-16x16.png") repeat;}
+
+ /* Fix the background color on the sitenotice */
+ table#mw-dismissable-notice {
+   background-color: transparent;
+ }
+
+/* Flagged revision fails to set the font color which can cause readability problems.
+   Since the colors needed to be adjusted anyways, use different colors for each
+   option for more usability.
+ */
+select { background:white; color:black; }
+select option.fr-rating-option-0 { color:red; }
+select option.fr-rating-option-1 { color:olive; }
+select option.fr-rating-option-2 { color:purple; }
+select option.fr-rating-option-3 { color:green; }
+select option.fr-rating-option-4 { color:navy; }
+
+.fr-rating-options option[selected="selected"] {
+  font-weight:bold;
+}
+
+/* End of Common CSS skin </nowiki>*/

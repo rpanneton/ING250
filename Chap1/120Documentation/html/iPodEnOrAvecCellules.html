@@ -1,0 +1,132 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Masse d'un iPod en or</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2010-08-26">
+      <meta name="m-file" content="iPodEnOrAvecCellules"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Masse d'un iPod en or</h1>
+         <introduction></introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#1">&Eacute;nonc&eacute;</a></li>
+               <li><a href="#2">Donn&eacute;es</a></li>
+               <li><a href="#3">Question A</a></li>
+               <li><a href="#4">Question B</a></li>
+            </ul>
+         </div>
+         <h2>&Eacute;nonc&eacute;<a name="1"></a></h2>
+         <p>Un iPod nano de 4e g&eacute;n&eacute;ration mesure environ 5&nbsp;mm d'&eacute;paisseur, 38&nbsp;mm de largeur par 91&nbsp;mm de longueur. Il poss&egrave;de une masse
+            de 36&nbsp;g.
+         </p><pre class="codeinput">clear <span class="string">all</span>; clc <span class="comment">% iPodEnOrAvecCellules.m</span>
+</pre><h2>Donn&eacute;es<a name="2"></a></h2><pre class="codeinput">Epaisseur = 5; Largeur = 38; Longueur = 91; <span class="comment">% mm</span>
+Masse = 36; <span class="comment">% g</span>
+MasseVolumiqueOr = 19.28; <span class="comment">% g/cm&sup3;</span>
+</pre><h2>Question A<a name="3"></a></h2>
+         <p>Calculer la masse volumique (g/cm&sup3;) du iPod.</p><pre class="codeinput">Volume = Epaisseur*Largeur*Longueur/1000; <span class="comment">% cm&sup3;</span>
+MasseVolumique = Masse/Volume <span class="comment">% g/cm&sup3;</span>
+</pre><pre class="codeoutput">MasseVolumique =
+       2.0821
+</pre><h2>Question B<a name="4"></a></h2>
+         <p>L'or poss&egrave;de une masse volumique de 19.28&nbsp;g/cm&sup3;. Calculer la masse d'un iPod en or&nbsp;pur.</p><pre class="codeinput">MasseEnOr = MasseVolumiqueOr * Volume <span class="comment">% g</span>
+</pre><pre class="codeoutput">MasseEnOr =
+       333.35
+</pre><p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Masse d'un iPod en or
+
+%% Énoncé
+% Un iPod nano de 4e génération mesure
+% environ 5 mm d'épaisseur, 38 mm de
+% largeur par 91 mm de longueur. Il possède une
+% masse de 36 g.
+clear all; clc % iPodEnOrAvecCellules.m
+
+%% Données
+Epaisseur = 5; Largeur = 38; Longueur = 91; % mm
+Masse = 36; % g
+MasseVolumiqueOr = 19.28; % g/cm³
+
+%% Question A
+% Calculer la masse volumique (g/cm³) du iPod.
+Volume = Epaisseur*Largeur*Longueur/1000; % cm³
+MasseVolumique = Masse/Volume % g/cm³
+
+%% Question B
+% L'or possède une masse volumique de 19.28 g/cm³.
+% Calculer la masse d'un iPod en or pur.
+MasseEnOr = MasseVolumiqueOr * Volume % g
+##### SOURCE END #####
+-->
+   </body>
+</html>

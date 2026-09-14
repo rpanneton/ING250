@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>Refroidissement &eacute;olien en janvier</title>
+<meta name="generator" content="MATLAB 24.2">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2025-11-19">
+<meta name="DC.source" content="EolienSol.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<h1>Refroidissement &eacute;olien en janvier</h1>
+<!--introduction-->
+<!--/introduction-->
+<h2>Contents</h2>
+<div>
+<ul>
+<li>
+<a href="#1">Lecture</a>
+</li>
+<li>
+<a href="#2">Temp&eacute;rature la plus froide du mois</a>
+</li>
+<li>
+<a href="#3">Extrait</a>
+</li>
+<li>
+<a href="#4">Calcul du refroidissement &eacute;olien</a>
+</li>
+<li>
+<a href="#5">Graphique des temp&eacute;ratures</a>
+</li>
+</ul>
+</div>
+<h2 id="1">Lecture</h2>
+<pre class="codeinput">clear;close <span class="string">all</span>;clc
+T=load(<span class="string">'TempC.txt'</span>); [nr,nc]=size(T);
+</pre>
+<h2 id="2">Temp&eacute;rature la plus froide du mois</h2>
+<pre class="codeinput">imin=1; jmin=1;
+<span class="keyword">for</span> i=1:nr
+   <span class="keyword">for</span> j=1:nc
+      <span class="keyword">if</span>(T(imin,jmin)&gt;T(i,j))
+         imin=i; jmin=j;
+      <span class="keyword">end</span>
+   <span class="keyword">end</span>
+<span class="keyword">end</span>
+fprintf([<span class="string">'&Agrave; %.0fh le %.0f janvier, '</span>,<span class="keyword">...</span>
+   <span class="string">'T = %.1f &deg;C.\n\n'</span>],jmin,imin,T(imin,jmin));
+somme=0;
+<span class="keyword">for</span> j=1:nc
+   somme=somme+T(imin,j);
+<span class="keyword">end</span>
+fprintf([<span class="string">'La temp&eacute;rature moyenne du jour '</span>,<span class="keyword">...</span>
+   <span class="string">'= %.1f &deg;C.\n\n'</span>],somme/nc);
+</pre>
+<pre class="codeoutput">&Agrave; 6h le 25 janvier, T = -29.2 &deg;C.
+
+La temp&eacute;rature moyenne du jour = -16.1 &deg;C.
+
+</pre>
+<h2 id="3">Extrait</h2>
+<pre class="codeinput">fprintf(<span class="keyword">...</span>
+   <span class="string">'Jour     1h     6h    11h    16h    21h\n'</span>);
+<span class="keyword">for</span> i=1:5:31
+   fprintf(<span class="string">'%4d'</span>,i);
+   fprintf(<span class="string">'%7.1f'</span>,T(i,1:5:21));
+   fprintf(<span class="string">'\n'</span>)
+<span class="keyword">end</span>
+</pre>
+<pre class="codeoutput">Jour     1h     6h    11h    16h    21h
+   1   -5.4   -6.0   -3.3   -3.4   -4.0
+   6   -2.3   -1.3    1.0    1.0    2.3
+  11   -4.2   -2.9    0.8    1.9    2.3
+  16  -11.8  -11.0  -10.3   -9.4  -15.3
+  21  -21.1  -24.9  -17.6  -13.1  -17.7
+  26   -9.7  -10.4   -9.5   -7.8  -15.6
+  31  -10.3  -11.3   -8.5   -7.2  -15.8
+</pre>
+<h2 id="4">Calcul du refroidissement &eacute;olien</h2>
+<pre class="codeinput">V=load(<span class="string">'Vents.txt'</span>); V10m=V(21,:);
+T_air = T(21,:); h = 1:24;
+R = 13.12 + 0.6215.*T_air <span class="keyword">...</span>
+   - 11.37.*V10m.^0.16 <span class="keyword">...</span>
+   +0.3965.*T_air.*V10m.^0.16;
+fprintf(<span class="string">'\nVecteur R (refroidissement &eacute;olien) :\n'</span>);
+<span class="keyword">for</span> i=1:6:length(R)
+   fprintf(<span class="string">'%7.1f'</span>,R(i:i+5));
+   fprintf(<span class="string">'\n'</span>)
+<span class="keyword">end</span>
+</pre>
+<pre class="codeoutput">
+Vecteur R (refroidissement &eacute;olien) :
+  -29.0  -32.4  -33.8  -30.4  -32.7  -32.5
+  -32.9  -32.7  -28.3  -25.5  -25.5  -25.4
+  -27.1  -24.9  -22.6  -22.2  -22.4  -20.7
+  -20.9  -21.5  -22.4  -22.0  -25.6  -24.6
+</pre>
+<h2 id="5">Graphique des temp&eacute;ratures</h2>
+<pre class="codeinput">plot(h,T_air,<span class="string">'ro-'</span>, h,R,<span class="string">'b*-'</span>); grid <span class="string">on</span>;
+xlabel(<span class="string">'heure'</span>);ylabel(<span class="string">'Temp&eacute;rature &deg;C'</span>);
+title(<span class="string">'Temp&eacute;rature le 21 janvier 2008'</span>);
+legend(<span class="string">'Temp. de l''air'</span>,<span class="string">'Temp. &eacute;olienne'</span>,<span class="keyword">...</span>
+   <span class="string">'Location'</span>,<span class="string">'SouthEast'</span>);
+</pre>
+<img vspace="5" hspace="5" src="EolienSol_01.png" alt=""> <p>
+<img vspace="5" hspace="5" src="..\Feuilles.gif" alt=""> </p>
+<p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2024b</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+%% Refroidissement éolien en janvier
+%% Lecture
+clear;close all;clc
+T=load('TempC.txt'); [nr,nc]=size(T);
+
+%% Température la plus froide du mois
+imin=1; jmin=1;
+for i=1:nr
+   for j=1:nc
+      if(T(imin,jmin)>T(i,j))
+         imin=i; jmin=j;
+      end
+   end
+end
+fprintf(['À %.0fh le %.0f janvier, ',...
+   'T = %.1f °C.\n\n'],jmin,imin,T(imin,jmin));
+somme=0;
+for j=1:nc
+   somme=somme+T(imin,j);
+end
+fprintf(['La température moyenne du jour ',...
+   '= %.1f °C.\n\n'],somme/nc);
+
+%% Extrait
+fprintf(...
+   'Jour     1h     6h    11h    16h    21h\n');
+for i=1:5:31
+   fprintf('%4d',i);
+   fprintf('%7.1f',T(i,1:5:21));
+   fprintf('\n')
+end
+
+%% Calcul du refroidissement éolien
+V=load('Vents.txt'); V10m=V(21,:);
+T_air = T(21,:); h = 1:24;
+R = 13.12 + 0.6215.*T_air ...
+   - 11.37.*V10m.^0.16 ...
+   +0.3965.*T_air.*V10m.^0.16;
+fprintf('\nVecteur R (refroidissement éolien) :\n');
+for i=1:6:length(R)
+   fprintf('%7.1f',R(i:i+5));
+   fprintf('\n')
+end
+
+%% Graphique des températures
+plot(h,T_air,'ro-', h,R,'b*-'); grid on;
+xlabel('heure');ylabel('Température °C');
+title('Température le 21 janvier 2008');
+legend('Temp. de l''air','Temp. éolienne',...
+   'Location','SouthEast');
+%%
+% <<..\Feuilles.gif>>
+##### SOURCE END #####
+-->
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="fr-ca">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Mise en œuvre de l</title>
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+</head>
+
+<body>
+
+<h4>Mise en oeuvre de l'instruction 
+vectorielle</h4>
+
+<p>Voici la solution de l'exercice précédent</p>
+<pre>clear all;
+clc;
+format short g
+V=load('Autos.dat');
+Hybrides=mean(V(V&gt;=3 &amp; V&lt;=5))
+Conventionnelles=mean(V(V&gt;=6 &amp; V&lt;10))</pre>
+<p>Traduire l'instruction <code>V(V&gt;=6 &amp; V&lt;10)</code> en instructions non 
+vectorisées. C'est-à-dire, créer un vecteur B qui ne contient que les 
+valeurs de V comprises entre 6 et&nbsp;10.</p>
+
+<p>Solution&nbsp;: VecExAs3.m</p>
+<hr>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

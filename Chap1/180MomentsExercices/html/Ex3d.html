@@ -1,0 +1,127 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Normale = A &times; B</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-07-04">
+      <meta name="m-file" content="Ex3d"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Normale = A &times; B</h1>
+         <introduction>
+            <p>Dans la structure cubique &agrave; face centr&eacute;e de l'aluminium, d&eacute;terminer les indices du plan compact o&ugrave; sont situ&eacute;s les deux vecteurs.</p>
+            <p>La r&eacute;ponse correspond &agrave; la normale du plan.</p>
+            <p>Calculer la surface du triangle d&eacute;limit&eacute; par les deux vecteurs compacts (droite o&ugrave; les atomes se touchent). Consid&eacute;rez que
+               l'ar&ecirc;te du cube est l'unit&eacute;.
+            </p>
+            <p><img vspace="5" hspace="5" src="..\cfcAl.gif"> </p>
+         </introduction><pre class="codeinput">clear <span class="string">all</span>; clc
+A = [0 1 -1];
+B = [-1 1 0];
+Normale = cross(A,B);
+plan = <span class="string">'Indice du plan compact : '</span>;
+fprintf([plan,<span class="string">'(%.0f %.0f %.0f)\n'</span>],Normale);
+<span class="comment">% La surface du triangle est la moiti&eacute; de celle du</span>
+<span class="comment">% parall&eacute;logramme.</span>
+Surface = norm(Normale)/2;
+fprintf(<span class="string">'Surface du triangle = %.4f\n'</span>,Surface);
+</pre><pre class="codeoutput">Indice du plan compact : (1 1 1)
+Surface du triangle = 0.8660
+</pre><p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Normale = A × B
+% Dans la structure cubique à face centrée de
+% l'aluminium, déterminer les indices du plan
+% compact où sont situés les deux vecteurs.
+%
+% La réponse correspond à la normale du plan.
+%
+% Calculer la surface du triangle délimité par
+% les deux vecteurs compacts (droite où les atomes
+% se touchent). Considérez que l'arête du cube est
+% l'unité.
+%
+% <<..\cfcAl.gif>>
+%%
+clear all; clc
+A = [0 1 -1];
+B = [-1 1 0];
+Normale = cross(A,B);
+plan = 'Indice du plan compact : ';
+fprintf([plan,'(%.0f %.0f %.0f)\n'],Normale);
+% La surface du triangle est la moitié de celle du
+% parallélogramme.
+Surface = norm(Normale)/2;
+fprintf('Surface du triangle = %.4f\n',Surface);
+
+##### SOURCE END #####
+-->
+   </body>
+</html>

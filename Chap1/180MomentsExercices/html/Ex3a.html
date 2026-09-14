@@ -1,0 +1,158 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>M = A &times; B</title><meta name="generator" content="MATLAB 8.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2015-09-28"><meta name="DC.source" content="Ex3a.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, tt, code { font-size:12px; }
+pre { margin:0px 0px 20px; }
+pre.error { color:red; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>M = A &times; B</h1><!--introduction--><p>Calculer le produit vectoriel des vecteurs <b>A</b> par <b>B</b>. D&eacute;terminer la norme du vecteur <b>M</b> r&eacute;sultant. Trouver l'angle entre  <b>A</b> et <b>B</b>.</p><p><img vspace="5" hspace="5" src="..\Exa1.gif" alt=""> </p><!--/introduction--><pre class="codeinput">clear <span class="string">all</span>; clc
+A = [+5 +3 -1];
+B = [+3 -2 +1];
+</pre><p>La solution propos&eacute;e illustre la manipulation des &eacute;l&eacute;ments de vecteurs.</p><p><img vspace="5" hspace="5" src="..\Ex3aAparB.gif" alt=""> </p><pre class="codeinput">NormeA = sqrt(A(1)^2 + A(2)^2 + A(3)^2);
+NormeB = sqrt(B(1)^2 + B(2)^2 + B(3)^2);
+M = [<span class="keyword">...</span>
+   + (A(2)*B(3)-A(3)*B(2)), <span class="keyword">...</span>
+   - (A(1)*B(3)-A(3)*B(1)), <span class="keyword">...</span>
+   + (A(1)*B(2)-A(2)*B(1))];
+NormeM = sqrt(M(1)^2 + M(2)^2 + M(3)^2);
+sin_theta = NormeM/NormeA/NormeB;
+theta = asind(sin_theta);
+</pre><p>Noter la pr&eacute;sence des points de suspension; ces caract&egrave;res permettent de passer &agrave; la ligne pour continuer l'instruction. Cette proc&eacute;dure favorise la lecture. Il n'y a donc pas d'excuse pour &eacute;crire des lignes d'instructions impossibles &agrave; lire sans faire d&eacute;filer l'&eacute;cran.</p><pre class="codeinput">fprintf(<span class="string">'Norme de A = %.2f\n'</span>,NormeA);
+fprintf(<span class="string">'Norme de B = %.2f\n\n'</span>,NormeB);
+fprintf(<span class="string">'M = %.0fi %+.0fj %+.0fk\n'</span>,M);
+fprintf(<span class="string">'Norme de M = %.2f\n'</span>,NormeM);
+fprintf(<span class="string">'Angle entre A et B = %.2f&deg;\n\n'</span>,theta);
+</pre><pre class="codeoutput">Norme de A = 5.92
+Norme de B = 3.74
+
+M = 1i -8j -19k
+Norme de M = 20.64
+Angle entre A et B = 68.81&deg;
+
+</pre><p><b>Utilisation des fonctions cross et norm</b></p><pre class="codeinput">VecteurM = cross(A,B);
+mA = norm(A); mB = norm(B); mM = norm(M);
+theta = asind(mM/mA/mB);
+fprintf(<span class="string">'M = %.0fi %+.0fj %+.0fk\n'</span>,VecteurM);
+fprintf(<span class="string">'Norme de M = %.2f\n'</span>,mM);
+fprintf(<span class="string">'Angle entre A et B = %.2f&deg;\n\n'</span>,theta);
+</pre><pre class="codeoutput">M = 1i -8j -19k
+Norme de M = 20.64
+Angle entre A et B = 68.81&deg;
+
+</pre><p>Lire les informations concernant les fonctions <i>cross</i> et <i>norm</i>.</p><pre>&gt;&gt; doc cross
+&gt;&gt; doc norm</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2013a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% M = A × B
+% Calculer le produit vectoriel des vecteurs *A*
+% par *B*. Déterminer la norme du vecteur *M*
+% résultant. Trouver l'angle entre  *A* et *B*.
+%
+% <<..\Exa1.gif>>
+%%
+clear all; clc
+A = [+5 +3 -1];
+B = [+3 -2 +1];
+%%
+% La solution proposée illustre la manipulation
+% des éléments de vecteurs.
+%
+% <<..\Ex3aAparB.gif>>
+NormeA = sqrt(A(1)^2 + A(2)^2 + A(3)^2);
+NormeB = sqrt(B(1)^2 + B(2)^2 + B(3)^2);
+M = [...
+   + (A(2)*B(3)-A(3)*B(2)), ...
+   - (A(1)*B(3)-A(3)*B(1)), ...
+   + (A(1)*B(2)-A(2)*B(1))];
+NormeM = sqrt(M(1)^2 + M(2)^2 + M(3)^2);
+sin_theta = NormeM/NormeA/NormeB;
+theta = asind(sin_theta);
+%%
+% Noter la présence des points de suspension; ces
+% caractères permettent de passer à la ligne pour
+% continuer l'instruction. Cette procédure
+% favorise la lecture. Il n'y a donc pas d'excuse
+% pour écrire des lignes d'instructions
+% impossibles à lire sans faire défiler l'écran.
+fprintf('Norme de A = %.2f\n',NormeA);
+fprintf('Norme de B = %.2f\n\n',NormeB);
+fprintf('M = %.0fi %+.0fj %+.0fk\n',M);
+fprintf('Norme de M = %.2f\n',NormeM);
+fprintf('Angle entre A et B = %.2f°\n\n',theta);
+
+%%
+% *Utilisation des fonctions cross et norm*
+VecteurM = cross(A,B);
+mA = norm(A); mB = norm(B); mM = norm(M);
+theta = asind(mM/mA/mB);
+fprintf('M = %.0fi %+.0fj %+.0fk\n',VecteurM);
+fprintf('Norme de M = %.2f\n',mM);
+fprintf('Angle entre A et B = %.2f°\n\n',theta);
+
+%%
+% Lire les informations concernant les fonctions
+% _cross_ et _norm_.
+%
+%  >> doc cross
+%  >> doc norm
+##### SOURCE END #####
+--></body></html>

@@ -1,0 +1,256 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Exercice A &#8211; Fonderie.txt</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2010-11-21">
+      <meta name="m-file" content="Fonderie"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Exercice A &#8211; Fonderie.txt</h1>
+         <introduction></introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#1">A1 &#8211; Affichage de la matrice</a></li>
+               <li><a href="#4">A2 &#8211; Calcul des moyennes</a></li>
+               <li><a href="#7">A3 &#8211; Manipulation d&#8217;&eacute;l&eacute;ments</a></li>
+            </ul>
+         </div>
+         <h2>A1 &#8211; Affichage de la matrice<a name="1"></a></h2><pre class="codeinput">type <span class="string">Fonderie.txt</span>
+</pre><pre class="codeoutput">
+% Fonderie.txt &#8211; Laboratoire de m&eacute;trologie
+% R&eacute;sultats du lot 161.16
+
+% 12min  24min  36min  48min  60min
+  26.71  26.97  26.70  26.48  26.87  %  8h &agrave;  9h
+  26.14  26.36  26.56  26.55  26.12  %  9h &agrave; 10h
+  26.44  26.88  26.45  26.45  26.31  % 10h &agrave; 11h
+  25.97  26.03  26.62  26.22  26.23  % 11h &agrave; 12h
+  26.24  26.34  26.59  27.10  25.87  % 12h &agrave; 13h
+  26.34  27.29  26.53  26.44  26.46  % 13h &agrave; 14h
+  26.07  26.41  26.64  26.98  26.12  % 14h &agrave; 15h
+  26.50  26.76  25.58  26.61  26.21  % 15h &agrave; 16h
+
+% Exemple :
+% 8h12  8h24  8h36  8h48  9h00
+%   Diam&egrave;tre en cm de pi&egrave;ces
+%   coul&eacute;es en alliage 2024-T4.
+%   Une pi&egrave;ce est analys&eacute;e par lot 
+%   &agrave; toutes les 12 min pendant
+%   les 8h de travail (40 pi&egrave;ces).
+</pre><p><b>Donn&eacute;es lues</b></p><pre class="codeinput">clear <span class="string">all</span>; clc
+D = load(<span class="string">'Fonderie.txt'</span>); [nr,nc]=size(D);
+<span class="keyword">for</span> i=1:nr
+   fprintf(<span class="string">'%7.2f'</span>,D(i,:));
+   fprintf(<span class="string">'\n'</span>)
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">  26.71  26.97  26.70  26.48  26.87
+  26.14  26.36  26.56  26.55  26.12
+  26.44  26.88  26.45  26.45  26.31
+  25.97  26.03  26.62  26.22  26.23
+  26.24  26.34  26.59  27.10  25.87
+  26.34  27.29  26.53  26.44  26.46
+  26.07  26.41  26.64  26.98  26.12
+  26.50  26.76  25.58  26.61  26.21
+</pre><p>Donn&eacute;es arrondies au cm</p><pre class="codeinput"><span class="keyword">for</span> i=1:nr
+   fprintf(<span class="string">'%4.0f   '</span>,D(i,:));
+   fprintf(<span class="string">'\n'</span>)
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">  27     27     27     26     27   
+  26     26     27     27     26   
+  26     27     26     26     26   
+  26     26     27     26     26   
+  26     26     27     27     26   
+  26     27     27     26     26   
+  26     26     27     27     26   
+  27     27     26     27     26   
+</pre><h2>A2 &#8211; Calcul des moyennes<a name="4"></a></h2>
+         <p>Pi&egrave;ces mesur&eacute;es &agrave; la 12e minute</p><pre class="codeinput">Somme=0; Colonne = 1; <span class="comment">% correspond &agrave; la 12e min</span>
+<span class="keyword">for</span> i=1:nr
+   Somme=Somme+D(i,Colonne);
+<span class="keyword">end</span>
+fprintf(<span class="string">'La moyenne est %.2f\n'</span>,Somme/nr);
+</pre><pre class="codeoutput">La moyenne est 26.30
+</pre><p>Pi&egrave;ces mesur&eacute;es de 14h &agrave; 15h</p><pre class="codeinput">Somme=0; Ligne = 7;
+<span class="keyword">for</span> j=1:nc
+   Somme=Somme+D(Ligne,j);
+<span class="keyword">end</span>
+fprintf(<span class="string">'La moyenne est %.2f\n'</span>,Somme/nc);
+</pre><pre class="codeoutput">La moyenne est 26.44
+</pre><p>Ensemble des pi&egrave;ces mesur&eacute;es</p><pre class="codeinput">Somme=0;
+<span class="keyword">for</span> i=1:nr
+   <span class="keyword">for</span> j=1:nc
+      Somme=Somme+D(i,j);
+   <span class="keyword">end</span>
+<span class="keyword">end</span>
+fprintf(<span class="string">'La moyenne est %.2f\n'</span>,Somme/nr/nc);
+</pre><pre class="codeoutput">La moyenne est 26.45
+</pre><h2>A3 &#8211; Manipulation d&#8217;&eacute;l&eacute;ments<a name="7"></a></h2>
+         <p>Indices et valeur du plus petit &eacute;l&eacute;ment de la matrice.</p><pre class="codeinput">Imin=1; Jmin=1;
+<span class="keyword">for</span> i = 1:nr
+   <span class="keyword">for</span> j = 1:nc
+      <span class="keyword">if</span>(D(Imin,Jmin) &gt; D(i,j))
+         Imin=i; Jmin=j;
+      <span class="keyword">end</span>
+   <span class="keyword">end</span>
+<span class="keyword">end</span>
+fprintf([<span class="string">'\nLa plus petite est D(%d,%d)\net '</span>,<span class="keyword">...</span>
+   <span class="string">'elle vaut %.2f\n'</span>],Imin,Jmin,D(Imin,Jmin));
+</pre><pre class="codeoutput">
+La plus petite est D(8,3)
+et elle vaut 25.58
+</pre><p>Pour les donn&eacute;es de 11h &agrave; 12h (ligne 4), combien de fois la donn&eacute;e de droite est sup&eacute;rieure &agrave; celle de gauche&nbsp;?</p><pre class="codeinput">combien=0; Ligne = 4;
+<span class="keyword">for</span> j=2:nc
+   <span class="keyword">if</span>(D(Ligne,j)&gt;D(Ligne,j-1))
+      combien=combien+1;
+   <span class="keyword">end</span>
+<span class="keyword">end</span>
+fprintf(<span class="string">'R&eacute;ponse : %d fois.\n'</span>,combien);
+</pre><pre class="codeoutput">R&eacute;ponse : 3 fois.
+</pre><p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Exercice A – Fonderie.txt
+%
+%% A1 – Affichage de la matrice
+%
+type Fonderie.txt
+
+%%
+% *Données lues*
+clear all; clc
+D = load('Fonderie.txt'); [nr,nc]=size(D);
+for i=1:nr
+   fprintf('%7.2f',D(i,:));
+   fprintf('\n')
+end
+%%
+% Données arrondies au cm
+for i=1:nr
+   fprintf('%4.0f   ',D(i,:));
+   fprintf('\n')
+end
+
+%% A2 – Calcul des moyennes
+% Pièces mesurées à la 12e minute
+Somme=0; Colonne = 1; % correspond à la 12e min
+for i=1:nr
+   Somme=Somme+D(i,Colonne);
+end
+fprintf('La moyenne est %.2f\n',Somme/nr);
+
+%%
+% Pièces mesurées de 14h à 15h
+Somme=0; Ligne = 7;
+for j=1:nc
+   Somme=Somme+D(Ligne,j);
+end
+fprintf('La moyenne est %.2f\n',Somme/nc);
+
+%%
+% Ensemble des pièces mesurées
+Somme=0;
+for i=1:nr
+   for j=1:nc
+      Somme=Somme+D(i,j);
+   end
+end
+fprintf('La moyenne est %.2f\n',Somme/nr/nc);
+
+%% A3 – Manipulation d’éléments
+% Indices et valeur du plus petit élément de la
+% matrice.
+
+Imin=1; Jmin=1;
+for i = 1:nr
+   for j = 1:nc
+      if(D(Imin,Jmin) > D(i,j))
+         Imin=i; Jmin=j;
+      end
+   end
+end
+fprintf(['\nLa plus petite est D(%d,%d)\net ',...
+   'elle vaut %.2f\n'],Imin,Jmin,D(Imin,Jmin));
+%%
+% Pour les données de 11h à 12h (ligne 4), combien
+% de fois la donnée de droite est supérieure à
+% celle de gauche ?
+
+combien=0; Ligne = 4;
+for j=2:nc
+   if(D(Ligne,j)>D(Ligne,j-1))
+      combien=combien+1;
+   end
+end
+fprintf('Réponse : %d fois.\n',combien);
+##### SOURCE END #####
+-->
+   </body>
+</html>

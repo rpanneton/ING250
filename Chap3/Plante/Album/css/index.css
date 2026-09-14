@@ -1,0 +1,35 @@
+body {
+	background-image: url('index.gif');
+	margin:10px;
+}
+h1,h2,h3,h4,h5 { 
+  font-family: Arial, Helvetica, sans-serif ; 
+}
+h1 { 
+	font-size:160%;
+	color: #000080;
+}
+h2 { 
+	font-size:140%;
+	background: #DDEEFF;
+	/*margin-right: 10%;*/
+}
+h3 {
+	font-size:125%;
+	background: #FFFF99;
+}
+h4 {
+	font-size:125%;
+	background: #DCDCFF;
+}
+h5 {
+	font-size:125%;
+	background-color: #FFCCFF;
+}
+/* Permettre au texte de s'ajuster automatiquement
+   à la fenêtre et limiter la largeur maximale. */ 
+p,dd, div.content div {
+  max-width: 550px;
+  /* modification pour Internet explorer */
+width: auto !important; width: 550px;
+}

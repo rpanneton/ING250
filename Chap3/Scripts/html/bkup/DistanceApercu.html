@@ -1,0 +1,158 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Aper&ccedil;u graphique des donn&eacute;es</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-10-09">
+      <meta name="m-file" content="DistanceApercu"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Aper&ccedil;u graphique des donn&eacute;es</h1>
+         <introduction>
+            <p>En examinant les donn&eacute;es &agrave; l'aide de l'&eacute;diteur ou de Excel, on peut obtenir un aper&ccedil;u des valeurs que contient le fichier
+               de donn&eacute;es.
+            </p>
+            <p>Une autre fa&ccedil;on est d'utiliser <i>plot</i> pour obtenir un aper&ccedil;u graphique des donn&eacute;es.
+            </p>
+         </introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#1">load et plot</a></li>
+               <li><a href="#3">xlsread et plot</a></li>
+               <li><a href="#4">Information suppl&eacute;mentaire</a></li>
+            </ul>
+         </div>
+         <h2>load et plot<a name="1"></a></h2><pre class="codeinput">clear <span class="string">all</span>; clc; close <span class="string">all</span>;
+</pre><p>L'instruction <i>close all</i> ferme toutes les fen&ecirc;tres graphiques. C'est une instruction utile &agrave; placer au d&eacute;but d'un programme, car il arrive souvent
+            que des instructions fautives laissent un graphique imparfait dans une fen&ecirc;tre.
+         </p><pre class="codeinput">load <span class="string">Distance.dat</span>
+plot(Distance,<span class="string">'ob'</span>);
+xlabel(<span class="string">'indice des &eacute;l&eacute;ments du vecteur Distance'</span>)
+ylabel(<span class="string">'valeur des &eacute;l&eacute;ments, cm'</span>)
+title(<span class="string">'Aper&ccedil;u graphique des donn&eacute;es'</span>)
+grid <span class="string">on</span>;
+</pre><img vspace="5" hspace="5" src="DistanceApercu_01.png"> <h2>xlsread et plot<a name="3"></a></h2><pre class="codeinput">d = xlsread(<span class="string">'Distance.xls'</span>);
+plot(d,<span class="string">'^r'</span>);
+xlabel(<span class="string">'indice des &eacute;l&eacute;ments du vecteur d'</span>)
+ylabel(<span class="string">'valeur des &eacute;l&eacute;ments, cm'</span>)
+title(<span class="string">'Aper&ccedil;u graphique des donn&eacute;es'</span>)
+grid <span class="string">on</span>;
+</pre><img vspace="5" hspace="5" src="DistanceApercu_02.png"> <h2>Information suppl&eacute;mentaire<a name="4"></a></h2>
+         <p>Pour obtenir de l'information sur une fonction Matlab, &eacute;crire&nbsp;:</p><pre>&gt;&gt; doc plot
+&gt;&gt; doc title
+&gt;&gt; doc xlabel
+&gt;&gt; doc grid</pre><p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Aperçu graphique des données
+% En examinant les données à l'aide de l'éditeur
+% ou de Excel, on peut obtenir un aperçu des
+% valeurs que contient le fichier de données.
+%
+% Une autre façon est d'utiliser _plot_ pour obtenir
+% un aperçu graphique des données.
+
+%% load et plot
+clear all; clc; close all;
+%%
+% L'instruction _close all_ ferme toutes les
+% fenêtres graphiques. C'est une
+% instruction utile à placer au début d'un
+% programme, car il arrive souvent que des
+% instructions fautives laissent un graphique
+% imparfait dans une fenêtre.
+
+load Distance.dat
+plot(Distance,'ob');
+xlabel('indice des éléments du vecteur Distance')
+ylabel('valeur des éléments, cm')
+title('Aperçu graphique des données')
+grid on;
+
+%% xlsread et plot
+d = xlsread('Distance.xls');
+plot(d,'^r');
+xlabel('indice des éléments du vecteur d')
+ylabel('valeur des éléments, cm')
+title('Aperçu graphique des données')
+grid on;
+
+%% Information supplémentaire
+% Pour obtenir de l'information sur une
+% fonction Matlab, écrire :
+%
+%  >> doc plot
+%  >> doc title
+%  >> doc xlabel
+%  >> doc grid
+##### SOURCE END #####
+-->
+   </body>
+</html>

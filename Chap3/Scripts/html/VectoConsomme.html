@@ -1,0 +1,175 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Consommation d'essence (litres/100km)</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2011-11-06">
+      <meta name="m-file" content="VectoConsomme"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Consommation d'essence (litres/100km)</h1>
+         <introduction></introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#1">M&eacute;thode traditionnelle</a></li>
+               <li><a href="#2">Vectorisation</a></li>
+            </ul>
+         </div>
+         <h2>M&eacute;thode traditionnelle<a name="1"></a></h2><pre class="codeinput">clear; clc; close <span class="string">all</span>;
+V=load(<span class="string">'Autos.dat'</span>);
+<span class="comment">% * * * * * * * * * * * * * * * * * * * * * * * * *</span>
+SommeHybrides=0;                               <span class="comment">% 01</span>
+nHybrides=0;                                   <span class="comment">% 02</span>
+SommeConventionnelles=0;                       <span class="comment">% 03</span>
+nConventionnelles=0;                           <span class="comment">% 04</span>
+<span class="keyword">for</span> i=1:length(V)                              <span class="comment">% 05</span>
+   <span class="keyword">if</span>(V(i)&gt;=3 &amp;&amp; V(i)&lt;=5)                      <span class="comment">% 06</span>
+      nHybrides=nHybrides+1;                   <span class="comment">% 07</span>
+      SommeHybrides=SommeHybrides+V(i);        <span class="comment">% 08</span>
+   <span class="keyword">elseif</span>(V(i)&gt;=6 &amp;&amp; V(i)&lt;10)                  <span class="comment">% 09</span>
+      nConventionnelles=nConventionnelles+1;   <span class="comment">% 10</span>
+      SommeConventionnelles=<span class="keyword">...</span><span class="comment">                % 11</span>
+         SommeConventionnelles+V(i);           <span class="comment">% 12</span>
+   <span class="keyword">end</span>                                         <span class="comment">% 13</span>
+<span class="keyword">end</span>                                            <span class="comment">% 14</span>
+Hybrides=SommeHybrides/nHybrides;              <span class="comment">% 15</span>
+Conventionnelles=SommeConventionnelles/<span class="keyword">...</span><span class="comment">     % 16</span>
+   nConventionnelles;                          <span class="comment">% 17</span>
+<span class="comment">% * * * * * * * * * * * * * * * * * * * * * * * * *</span>
+fprintf(<span class="string">'Consommation des voitures\n'</span>);
+fprintf(<span class="string">'a) hybrides : %.2f litres/100 km\n'</span>,<span class="keyword">...</span>
+   Hybrides);
+fprintf(<span class="string">'b) convent. : %.2f litres/100 km\n'</span>,<span class="keyword">...</span>
+   Conventionnelles);
+</pre><pre class="codeoutput">Consommation des voitures
+a) hybrides : 3.81 litres/100 km
+b) convent. : 8.20 litres/100 km
+</pre><h2>Vectorisation<a name="2"></a></h2><pre class="codeinput">clear; clc; close <span class="string">all</span>;
+V=load(<span class="string">'Autos.dat'</span>);
+<span class="comment">% * * * * * * * * * * * * * * * * * * * * * * * * *</span>
+Hybrides=mean(V(V&gt;=3 &amp; V&lt;=5));                 <span class="comment">% 01</span>
+Conventionnelles=mean(V(V&gt;=6 &amp; V&lt;10));         <span class="comment">% 02</span>
+<span class="comment">% * * * * * * * * * * * * * * * * * * * * * * * * *</span>
+fprintf(<span class="string">'Consommation des voitures\n'</span>);
+fprintf(<span class="string">'a) hybrides : %.2f litres/100 km\n'</span>,<span class="keyword">...</span>
+   Hybrides);
+fprintf(<span class="string">'b) convent. : %.2f litres/100 km\n'</span>,<span class="keyword">...</span>
+   Conventionnelles);
+</pre><pre class="codeoutput">Consommation des voitures
+a) hybrides : 3.81 litres/100 km
+b) convent. : 8.20 litres/100 km
+</pre><p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Consommation d'essence (litres/100km)
+%% Méthode traditionnelle
+clear; clc; close all;
+V=load('Autos.dat');
+% * * * * * * * * * * * * * * * * * * * * * * * * *
+SommeHybrides=0;                               % 01
+nHybrides=0;                                   % 02
+SommeConventionnelles=0;                       % 03
+nConventionnelles=0;                           % 04
+for i=1:length(V)                              % 05
+   if(V(i)>=3 && V(i)<=5)                      % 06
+      nHybrides=nHybrides+1;                   % 07
+      SommeHybrides=SommeHybrides+V(i);        % 08
+   elseif(V(i)>=6 && V(i)<10)                  % 09
+      nConventionnelles=nConventionnelles+1;   % 10
+      SommeConventionnelles=...                % 11
+         SommeConventionnelles+V(i);           % 12
+   end                                         % 13
+end                                            % 14
+Hybrides=SommeHybrides/nHybrides;              % 15
+Conventionnelles=SommeConventionnelles/...     % 16
+   nConventionnelles;                          % 17
+% * * * * * * * * * * * * * * * * * * * * * * * * *
+fprintf('Consommation des voitures\n');
+fprintf('a) hybrides : %.2f litres/100 km\n',...
+   Hybrides);
+fprintf('b) convent. : %.2f litres/100 km\n',...
+   Conventionnelles);
+
+%% Vectorisation
+clear; clc; close all;
+V=load('Autos.dat');
+% * * * * * * * * * * * * * * * * * * * * * * * * *
+Hybrides=mean(V(V>=3 & V<=5));                 % 01
+Conventionnelles=mean(V(V>=6 & V<10));         % 02
+% * * * * * * * * * * * * * * * * * * * * * * * * *
+fprintf('Consommation des voitures\n');
+fprintf('a) hybrides : %.2f litres/100 km\n',...
+   Hybrides);
+fprintf('b) convent. : %.2f litres/100 km\n',...
+   Conventionnelles);
+##### SOURCE END #####
+-->
+   </body>
+</html>

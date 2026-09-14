@@ -1,0 +1,280 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Probl&egrave;me 2/17, Meriam p. 35</title><meta name="generator" content="MATLAB 9.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-10-06"><meta name="DC.source" content="ch2017.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Probl&egrave;me 2/17, Meriam p. 35</h1><!--introduction--><p><img vspace="5" hspace="5" src="..\ch2017.gif" alt=""> </p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#2">D&eacute;marche scalaire</a></li><li><a href="#4">Remarque de Meriam</a></li><li><a href="#7">D&eacute;marche vectorielle (r&eacute;soudre 2 &eacute;quations)</a></li></ul></div><pre class="codeinput">clear; close <span class="string">all</span>; clc;
+mF = 2; <span class="comment">% kN (Norme)</span>
+</pre><h2 id="2">D&eacute;marche scalaire</h2><p>Construire le parall&eacute;logramme. Choisir un triangle et appliquer la loi des sinus (3 angles + 1 c&ocirc;t&eacute; connus).</p><p>Composantes obliques</p><pre class="codeinput">Fa = sind(15)/sind(120)*mF;
+Fb = sind(45)/sind(120)*mF;
+Q1 = <span class="string">'Composantes de F selon les axes a et b\n'</span>;
+fprintf(Q1);
+fprintf(<span class="string">'Fa = %.3f kN et '</span>,Fa);
+fprintf(<span class="string">'Fb = %.3f kN\n'</span>,Fb);
+</pre><pre class="codeoutput">Composantes de F selon les axes a et b
+Fa = 0.598 kN et Fb = 1.633 kN
+</pre><p><img vspace="5" hspace="5" src="..\ch2017a.gif" alt=""> </p><p>Projections orthogonales</p><pre class="codeinput">Pa = mF*cosd(45); Pb = mF*cosd(15);
+Q2 = <span class="string">'\nProjections de F sur les axes a et b\n'</span>;
+fprintf(Q2);
+fprintf(<span class="string">'Pa = %.3f kN et '</span>,Pa);
+fprintf(<span class="string">'Pb = %.3f kN\n'</span>,Pb);
+</pre><pre class="codeoutput">
+Projections de F sur les axes a et b
+Pa = 1.414 kN et Pb = 1.932 kN
+</pre><h2 id="4">Remarque de Meriam</h2><p>&laquo; Note that the components of a vector are in general not equal to the projections of the vector onto the same axes. If the <i>a</i>-axis had been perpendicular to the <i>b</i>-axis, the the projections and components of <b>R</b> would have been equal. &raquo; Meriam page 31.</p><p>Noter que les composantes obliques d'un vecteur ne sont pas &eacute;gales aux projections de ce vecteur sur les m&ecirc;mes axes. Les projections et les composantes sont identiques seulement si les axes <i>a</i> et <i>b</i> sont orthogonaux.</p><p>Le concept de norme doit &ecirc;tre calcul&eacute; diff&eacute;remment :</p><pre class="codeinput">F = [Fa, Fb];
+fprintf([<span class="string">'\nVecteur F = %+.3f %+.3f kN, '</span>,<span class="keyword">...</span>
+   <span class="string">'selon a et b\n'</span>],F);
+</pre><pre class="codeoutput">
+Vecteur F = +0.598 +1.633 kN, selon a et b
+</pre><p>Calcul de la norme en utilisant  la d&eacute;finition classique</p><pre class="codeinput">norme = sqrt(F(1)^2+F(2)^2);
+fprintf(<span class="string">'Norme de F = %.1f kN,'</span>,norme);
+fprintf(<span class="string">' ce qui est faux.\n'</span>);
+</pre><pre class="codeoutput">Norme de F = 1.7 kN, ce qui est faux.
+</pre><p>Calcul correct de la norme : tracer le parall&eacute;logramme d'addition et utiliser la loi des cosinus.</p><p><img vspace="5" hspace="5" src="..\ch2017b.gif" alt=""> </p><pre class="codeinput">a = Fa; b = Fb; C = 120; <span class="comment">% degr&eacute;s</span>
+c = sqrt(a^2+b^2-2*a*b*cosd(C)); <span class="comment">% = norme de F</span>
+fprintf(<span class="string">'Norme de F = %.1f kN (correct)\n\n'</span>,c);
+</pre><pre class="codeoutput">Norme de F = 2.0 kN (correct)
+
+</pre><h2 id="7">D&eacute;marche vectorielle (r&eacute;soudre 2 &eacute;quations)</h2><p>Pour calculer les composantes obliques de <b>F</b>, il faut &eacute;tablir les vecteurs unitaires de <b>a</b>, <b>b</b> et <b>F</b>, d&eacute;terminer les trois vecteurs, poser et r&eacute;soudre deux &eacute;quations portant sur la somme des composantes.</p><p><b>A</b> et <b>B</b> sont les composantes obliques de <b>F</b> dans les directions <b>a</b> et <b>b</b>.</p><pre>F = mF*nF = mF*[nF(1), nF(2)]
+A = mA*nA = mA*[nA(1), nA(2)]
+B = mB*nB = mB*[nB(1), nB(2)]
+o&ugrave;
+   mF, mA et mB sont les normes des vecteurs,
+   nF, nA et nB sont les vecteurs unitaires.</pre><p>Poser les &eacute;quations des deux composantes et r&eacute;soudre mA et mB. L'axe des <i>x</i> est parall&egrave;le &agrave; l'axe <i>a</i>.</p><p><img vspace="5" hspace="5" src="..\ch2017c.gif" alt=""> </p><p><a href="Resoudre2equations.html">R&eacute;soudre un syst&egrave;me de 2 &eacute;quations</a></p><pre class="codeinput">nF = [cosd(45), sind(45)]; <span class="comment">% vecteur unitaire</span>
+nA = [1,0]; nB = [cosd(60), sind(60)];
+Eq1 = <span class="string">'mA*nA(1) + mB*nB(1) = mF*nF(1)'</span>;
+Eq2 = <span class="string">'mA*nA(2) + mB*nB(2) = mF*nF(2)'</span>;
+S=solve(Eq1,Eq2,<span class="string">'mA'</span>,<span class="string">'mB'</span>);
+mA = eval(S.mA); mB = eval(S.mB);
+A = mA*nA; B = mB*nB;
+fprintf(<span class="string">'\nComposantes obliques\n'</span>);
+fprintf(<span class="string">'A = %+6.3fi %+6.3fj kN,   '</span>,A);
+fprintf(<span class="string">'norme = %6.3f kN\n'</span>,norm(A));
+fprintf(<span class="string">'B = %+6.3fi %+6.3fj kN,   '</span>,B);
+fprintf(<span class="string">'norme = %6.3f kN\n'</span>,norm(B));
+R = A + B; F = mF*nF; <span class="comment">% V&eacute;rification</span>
+fprintf(<span class="string">'R&eacute;sultante R = A+B (= F)\n'</span>);
+fprintf(<span class="string">'R = %+6.3fi %+6.3fj kN,   '</span>,R);
+fprintf(<span class="string">'norme = %6.3f kN\n'</span>,norm(R));
+fprintf(<span class="string">'F = %+6.3fi %+6.3fj kN,   '</span>,F);
+fprintf(<span class="string">'norme = %6.3f kN\n'</span>,norm(F));
+</pre><pre class="codeoutput error">Error using solve&gt;getEqns (line 418)
+List of equations must not be empty.
+Error in solve (line 226)
+[eqns,vars,options] = getEqns(varargin{:});
+Error in ch2017 (line 98)
+S=solve(Eq1,Eq2,'mA','mB');</pre><p>Projection orthogonales</p><p>On peut obtenir la projection orthogonale en utilisant le produit scalaire. Voir la section 2/7 de Meriam &agrave; la page 67.</p><pre class="codeinput">Pa = dot(F,nA); Pb = dot(F,nB);
+Q2 = [<span class="string">'\nProjections orthogonales de F '</span>,<span class="keyword">...</span>
+   <span class="string">'sur les axes a et b\n'</span>];
+fprintf(Q2);
+fprintf(<span class="string">'Pa = %.3f kN et '</span>,Pa);
+fprintf(<span class="string">'Pb = %.3f kN\n'</span>,Pb)
+fprintf(<span class="string">'sous la forme vectorielle\n'</span>);
+VecteurPa = dot(F,nA)*nA; <span class="comment">% selon la d&eacute;finition</span>
+VecteurPb = dot(F,nB)*nB;
+fprintf(<span class="string">'Vecteur Pa = %+6.3fi %+6.3fj kN,   '</span>,<span class="keyword">...</span>
+   VecteurPa);
+fprintf(<span class="string">'norme = %6.3f kN\n'</span>,norm(VecteurPa));
+fprintf(<span class="string">'Vecteur Pb = %+6.3fi %+6.3fj kN,   '</span>,<span class="keyword">...</span>
+   VecteurPb);
+fprintf(<span class="string">'norme = %6.3f kN\n'</span>,norm(VecteurPb));
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Problème 2/17, Meriam p. 35
+% <<..\ch2017.gif>>
+
+%%
+clear; close all; clc;
+mF = 2; % kN (Norme)
+
+%% Démarche scalaire
+% Construire le parallélogramme. Choisir un
+% triangle et appliquer la loi des sinus
+% (3 angles + 1 côté connus).
+%
+% Composantes obliques
+Fa = sind(15)/sind(120)*mF;
+Fb = sind(45)/sind(120)*mF;
+Q1 = 'Composantes de F selon les axes a et b\n';
+fprintf(Q1);
+fprintf('Fa = %.3f kN et ',Fa);
+fprintf('Fb = %.3f kN\n',Fb);
+
+%%
+% <<..\ch2017a.gif>>
+%
+% Projections orthogonales
+Pa = mF*cosd(45); Pb = mF*cosd(15);
+Q2 = '\nProjections de F sur les axes a et b\n';
+fprintf(Q2);
+fprintf('Pa = %.3f kN et ',Pa);
+fprintf('Pb = %.3f kN\n',Pb);
+
+%% Remarque de Meriam
+% « Note that the components of a vector are in
+% general not equal to the projections of the
+% vector onto the same axes. If the _a_-axis had
+% been perpendicular to the _b_-axis, the the
+% projections and components of *R* would have
+% been equal. » Meriam page 31.
+%
+% Noter que les composantes obliques d'un
+% vecteur ne sont pas égales aux projections de
+% ce vecteur sur les mêmes axes. Les projections
+% et les composantes sont identiques seulement si
+% les axes _a_ et _b_ sont orthogonaux.
+%
+% Le concept de norme doit être calculé
+% différemment :
+F = [Fa, Fb];
+fprintf(['\nVecteur F = %+.3f %+.3f kN, ',...
+   'selon a et b\n'],F);
+%%
+% Calcul de la norme en utilisant  la
+% définition classique
+%
+norme = sqrt(F(1)^2+F(2)^2);
+fprintf('Norme de F = %.1f kN,',norme);
+fprintf(' ce qui est faux.\n');
+
+
+%%
+% Calcul correct de la norme : tracer le
+% parallélogramme d'addition et utiliser la loi
+% des cosinus.
+%
+% <<..\ch2017b.gif>>
+a = Fa; b = Fb; C = 120; % degrés
+c = sqrt(a^2+b^2-2*a*b*cosd(C)); % = norme de F
+fprintf('Norme de F = %.1f kN (correct)\n\n',c);
+
+%% Démarche vectorielle (résoudre 2 équations)
+% Pour calculer les composantes obliques de *F*,
+% il faut établir les vecteurs unitaires de *a*,
+% *b* et *F*, déterminer les trois vecteurs, poser
+% et résoudre deux équations portant sur la somme
+% des composantes.
+%
+% *A* et *B* sont les composantes obliques de *F*
+% dans les directions *a* et *b*.
+%
+%  F = mF*nF = mF*[nF(1), nF(2)]
+%  A = mA*nA = mA*[nA(1), nA(2)]
+%  B = mB*nB = mB*[nB(1), nB(2)]
+%  où
+%     mF, mA et mB sont les normes des vecteurs,
+%     nF, nA et nB sont les vecteurs unitaires.
+%
+% Poser les équations des deux composantes et
+% résoudre mA et mB. L'axe des _x_ est
+% parallèle à l'axe _a_.
+%
+% <<..\ch2017c.gif>>
+%
+% <Resoudre2equations.html
+% Résoudre un système de 2 équations>
+nF = [cosd(45), sind(45)]; % vecteur unitaire
+nA = [1,0]; nB = [cosd(60), sind(60)];
+Eq1 = 'mA*nA(1) + mB*nB(1) = mF*nF(1)';
+Eq2 = 'mA*nA(2) + mB*nB(2) = mF*nF(2)';
+S=solve(Eq1,Eq2,'mA','mB');
+mA = eval(S.mA); mB = eval(S.mB);
+A = mA*nA; B = mB*nB;
+fprintf('\nComposantes obliques\n');
+fprintf('A = %+6.3fi %+6.3fj kN,   ',A);
+fprintf('norme = %6.3f kN\n',norm(A));
+fprintf('B = %+6.3fi %+6.3fj kN,   ',B);
+fprintf('norme = %6.3f kN\n',norm(B));
+R = A + B; F = mF*nF; % Vérification
+fprintf('Résultante R = A+B (= F)\n');
+fprintf('R = %+6.3fi %+6.3fj kN,   ',R);
+fprintf('norme = %6.3f kN\n',norm(R));
+fprintf('F = %+6.3fi %+6.3fj kN,   ',F);
+fprintf('norme = %6.3f kN\n',norm(F));
+
+%%
+% Projection orthogonales
+%
+% On peut obtenir la projection orthogonale en
+% utilisant le produit scalaire.
+% Voir la section 2/7 de Meriam à la page 67.
+Pa = dot(F,nA); Pb = dot(F,nB);
+Q2 = ['\nProjections orthogonales de F ',...
+   'sur les axes a et b\n'];
+fprintf(Q2);
+fprintf('Pa = %.3f kN et ',Pa);
+fprintf('Pb = %.3f kN\n',Pb)
+fprintf('sous la forme vectorielle\n');
+VecteurPa = dot(F,nA)*nA; % selon la définition
+VecteurPb = dot(F,nB)*nB;
+fprintf('Vecteur Pa = %+6.3fi %+6.3fj kN,   ',...
+   VecteurPa);
+fprintf('norme = %6.3f kN\n',norm(VecteurPa));
+fprintf('Vecteur Pb = %+6.3fi %+6.3fj kN,   ',...
+   VecteurPb);
+fprintf('norme = %6.3f kN\n',norm(VecteurPb));
+##### SOURCE END #####
+--></body></html>

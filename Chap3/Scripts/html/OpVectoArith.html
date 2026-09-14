@@ -1,0 +1,198 @@
+﻿
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>Op&eacute;rateurs vectoriels arithm&eacute;tiques</title>
+      <meta name="generator" content="MATLAB 7.5">
+      <meta name="date" content="2009-10-30">
+      <meta name="m-file" content="OpVectoArith"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>Op&eacute;rateurs vectoriels arithm&eacute;tiques</h1>
+         <introduction>
+            <p>Matlab pr&eacute;sente plusieurs op&eacute;rateurs arithm&eacute;tiques permettant de vectoriser des instructions.</p>
+            <p>La vectorisation consiste &agrave; convertir une boucle compt&eacute;e <i>for</i> en une op&eacute;ration vectorielle &eacute;quivalente.
+            </p>
+         </introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#2">Addition selon la m&eacute;thode traditionnelle</a></li>
+               <li><a href="#3">Addition selon la version vectoris&eacute;e</a></li>
+               <li><a href="#4">Soustraction</a></li>
+               <li><a href="#5">Multiplication</a></li>
+               <li><a href="#6">Multiplication &eacute;l&eacute;ment par &eacute;l&eacute;ment</a></li>
+               <li><a href="#7">Division &eacute;l&eacute;ment par &eacute;l&eacute;ment</a></li>
+               <li><a href="#8">&Eacute;lever &agrave; une puissance quelconque</a></li>
+               <li><a href="#9">&Eacute;lever &agrave; une puissance &eacute;l&eacute;ment par &eacute;l&eacute;ment</a></li>
+               <li><a href="#10">Information suppl&eacute;mentaire</a></li>
+            </ul>
+         </div><pre class="codeinput">clear; clc; <span class="comment">% Exemple :</span>
+A = [3 2 0; 4 0 6; 0 2 2]
+B = [1 2 3; 1 1 2; 2 1 2]
+</pre><pre class="codeoutput">A =
+     3     2     0
+     4     0     6
+     0     2     2
+B =
+     1     2     3
+     1     1     2
+     2     1     2
+</pre><h2>Addition selon la m&eacute;thode traditionnelle<a name="2"></a></h2><pre class="codeinput">[nLignes,nColonnes]=size(A);
+<span class="keyword">for</span> i = 1:nLignes
+   <span class="keyword">for</span> j = 1:nColonnes
+      Addition(i,j) = A(i,j) + B(i,j);
+   <span class="keyword">end</span>
+<span class="keyword">end</span>
+Addition
+</pre><pre class="codeoutput">Addition =
+     4     4     3
+     5     1     8
+     2     3     4
+</pre><h2>Addition selon la version vectoris&eacute;e<a name="3"></a></h2><pre class="codeinput">Addition = A + B
+</pre><pre class="codeoutput">Addition =
+     4     4     3
+     5     1     8
+     2     3     4
+</pre><h2>Soustraction<a name="4"></a></h2><pre class="codeinput">Soustraction = A - B
+</pre><pre class="codeoutput">Soustraction =
+     2     0    -3
+     3    -1     4
+    -2     1     0
+</pre><h2>Multiplication<a name="5"></a></h2><pre class="codeinput">Multiplication = A*B <span class="comment">% i.e. rang&eacute;e * par colonne</span>
+</pre><pre class="codeoutput">Multiplication =
+     5     8    13
+    16    14    24
+     6     4     8
+</pre><h2>Multiplication &eacute;l&eacute;ment par &eacute;l&eacute;ment<a name="6"></a></h2><pre class="codeinput">MultiplicationElementParElement = A.*B
+</pre><pre class="codeoutput">MultiplicationElementParElement =
+     3     4     0
+     4     0    12
+     0     2     4
+</pre><h2>Division &eacute;l&eacute;ment par &eacute;l&eacute;ment<a name="7"></a></h2><pre class="codeinput">DivisionElementParElement = A./B
+</pre><pre class="codeoutput">DivisionElementParElement =
+     3     1     0
+     4     0     3
+     0     2     1
+</pre><h2>&Eacute;lever &agrave; une puissance quelconque<a name="8"></a></h2><pre class="codeinput">Puissance = A^2 <span class="comment">% La matrice doit &ecirc;tre carr&eacute;e.</span>
+</pre><pre class="codeoutput">Puissance =
+    17     6    12
+    12    20    12
+     8     4    16
+</pre><h2>&Eacute;lever &agrave; une puissance &eacute;l&eacute;ment par &eacute;l&eacute;ment<a name="9"></a></h2><pre class="codeinput">PuissanceElementParElement = A.^2
+</pre><pre class="codeoutput">PuissanceElementParElement =
+     9     4     0
+    16     0    36
+     0     4     4
+</pre><h2>Information suppl&eacute;mentaire<a name="10"></a></h2><pre>&gt;&gt; help *
+&gt;&gt; doc arith</pre><p><html> <hr> </html></p>
+         <p class="footer"><br>
+            Published with MATLAB&reg; 7.5<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% Opérateurs vectoriels arithmétiques
+% Matlab présente plusieurs opérateurs arithmétiques
+% permettant de vectoriser des instructions.
+%
+% La vectorisation consiste à convertir une
+% boucle comptée _for_ en une opération
+% vectorielle équivalente.
+%%
+clear; clc; % Exemple :
+A = [3 2 0; 4 0 6; 0 2 2]
+B = [1 2 3; 1 1 2; 2 1 2]
+%% Addition selon la méthode traditionnelle
+[nLignes,nColonnes]=size(A);
+for i = 1:nLignes
+   for j = 1:nColonnes
+      Addition(i,j) = A(i,j) + B(i,j);
+   end
+end
+Addition
+%% Addition selon la version vectorisée
+Addition = A + B
+%% Soustraction
+Soustraction = A - B
+%% Multiplication
+Multiplication = A*B % i.e. rangée * par colonne
+%% Multiplication élément par élément
+MultiplicationElementParElement = A.*B
+%% Division élément par élément
+DivisionElementParElement = A./B
+%% Élever à une puissance quelconque
+Puissance = A^2 % La matrice doit être carrée.
+%% Élever à une puissance élément par élément
+PuissanceElementParElement = A.^2
+%% Information supplémentaire
+%  >> help *
+%  >> doc arith
+% 
+% <html> <hr> </html>
+##### SOURCE END #####
+-->
+   </body>
+</html>

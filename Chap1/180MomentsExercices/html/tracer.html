@@ -1,0 +1,182 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>tracer</title><meta name="generator" content="MATLAB 9.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-10-06"><meta name="DC.source" content="tracer.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#3">&Eacute;tape 1</a></li><li><a href="#4">&Eacute;tape 2</a></li></ul></div><pre class="codeinput"><span class="keyword">function</span> tracer(Va,Vb)
+</pre><pre class="codeinput"><span class="comment">% Illustre graphiquement l'addition de deux</span>
+<span class="comment">% vecteur libres Va et Vb dans le plan.</span>
+close <span class="string">all</span>; axis <span class="string">equal</span>; hold <span class="string">on</span>; grid <span class="string">on</span>;
+gris = [0.8,0.8,0.8]; set(gca,<span class="string">'Color'</span>,gris);
+Vr = Va + Vb;
+</pre><pre class="codeoutput error">Not enough input arguments.
+Error in tracer (line 6)
+Vr = Va + Vb;</pre><h2 id="3">&Eacute;tape 1</h2><p>En tra&ccedil;ant les vecteurs comme des segments de droite, Matlab d&eacute;termine automatiquement la cl&ocirc;ture de la figure.</p><pre class="codeinput"><span class="comment">% Vecteurs Va+Vb</span>
+plot([0,Va(1),Vr(1)],[0,Va(2),Vr(2)]);
+<span class="comment">% On ajuste un peu</span>
+Cloture = round(axis + [-0.5 +0.5 -0.5 +0.5]);
+</pre><h2 id="4">&Eacute;tape 2</h2><pre class="codeinput">figure(2);
+set(gca,<span class="string">'Color'</span>,gris);
+axis <span class="string">equal</span>; hold <span class="string">on</span>; axis(Cloture); grid <span class="string">on</span>;
+<span class="comment">% Vecteur Va</span>
+Vecteur(Cloture,Va,[0,0],<span class="string">'b'</span>);
+text(Va(1)/2,Va(2)/2,<span class="string">' V_a '</span>,<span class="keyword">...</span>
+   <span class="string">'FontWeight'</span>,<span class="string">'bold'</span>,<span class="string">'FontSize'</span>,14,<span class="keyword">...</span>
+   <span class="string">'BackGroundColor'</span>,gris,<span class="keyword">...</span>
+   <span class="string">'EraseMode'</span>,<span class="string">'background'</span>);
+
+<span class="comment">% Vecteur Vb</span>
+Vecteur(Cloture,Vb,Va,<span class="string">'r'</span>);
+text(Va(1)+Vb(1)/2,Va(2)+Vb(2)/2,<span class="string">' V_b '</span>,<span class="keyword">...</span>
+   <span class="string">'FontWeight'</span>,<span class="string">'bold'</span>,<span class="string">'FontSize'</span>,14,<span class="keyword">...</span>
+   <span class="string">'BackGroundColor'</span>,gris,<span class="keyword">...</span>
+   <span class="string">'EraseMode'</span>,<span class="string">'background'</span>);
+
+<span class="comment">% Vecteur Vr</span>
+Vecteur(Cloture,Vr,[0,0],<span class="string">'y'</span>);
+text(Vr(1)/2,Vr(2)/2,<span class="string">' V_r '</span>,<span class="keyword">...</span>
+   <span class="string">'FontWeight'</span>,<span class="string">'bold'</span>,<span class="string">'FontSize'</span>,16,<span class="keyword">...</span>
+   <span class="string">'BackGroundColor'</span>,gris,<span class="keyword">...</span>
+   <span class="string">'EraseMode'</span>,<span class="string">'background'</span>);
+title(<span class="string">'V_r  =  V_a + V_b'</span>,<span class="keyword">...</span>
+   <span class="string">'FontWeight'</span>,<span class="string">'bold'</span>,<span class="string">'FontSize'</span>,12)
+
+norme = norm(Vr);
+<span class="comment">% angle selon la convention de atan2</span>
+theta = atan2(Vr(2),Vr(1))*180/pi;
+
+xlabel([<span class="keyword">...</span>
+   <span class="string">'V_a= '</span>,num2str(Va(1)),<span class="string">'i, '</span>,<span class="keyword">...</span>
+   num2str(Va(2)),<span class="string">'j,   '</span>,<span class="keyword">...</span>
+   <span class="string">'V_b= '</span>,num2str(Vb(1)),<span class="string">'i, '</span>,<span class="keyword">...</span>
+   num2str(Vb(2)),<span class="string">'j,   '</span>,<span class="keyword">...</span>
+   <span class="string">'V_r= '</span>,num2str(Vr(1)),<span class="string">'i, '</span>,<span class="keyword">...</span>
+   num2str(Vr(2)),<span class="string">'j,  norme = '</span>,<span class="keyword">...</span>
+   num2str(norme,<span class="string">'%.1f'</span>),<span class="string">',  '</span>,<span class="keyword">...</span>
+   <span class="string">'\theta = '</span>,num2str(theta,<span class="string">'%.1f'</span>),<span class="keyword">...</span>
+   <span class="string">'&deg;'</span>],<span class="string">'FontSize'</span>,12)
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+function tracer(Va,Vb)
+% Illustre graphiquement l'addition de deux
+% vecteur libres Va et Vb dans le plan.
+close all; axis equal; hold on; grid on;
+gris = [0.8,0.8,0.8]; set(gca,'Color',gris);
+Vr = Va + Vb;
+
+%% Étape 1
+% En traçant les vecteurs comme des segments de
+% droite, Matlab détermine automatiquement la
+% clôture de la figure.
+
+% Vecteurs Va+Vb
+plot([0,Va(1),Vr(1)],[0,Va(2),Vr(2)]);
+% On ajuste un peu
+Cloture = round(axis + [-0.5 +0.5 -0.5 +0.5]);
+
+%% Étape 2
+figure(2);
+set(gca,'Color',gris);
+axis equal; hold on; axis(Cloture); grid on;
+% Vecteur Va
+Vecteur(Cloture,Va,[0,0],'b');
+text(Va(1)/2,Va(2)/2,' V_a ',...
+   'FontWeight','bold','FontSize',14,...
+   'BackGroundColor',gris,...
+   'EraseMode','background');
+
+% Vecteur Vb
+Vecteur(Cloture,Vb,Va,'r');
+text(Va(1)+Vb(1)/2,Va(2)+Vb(2)/2,' V_b ',...
+   'FontWeight','bold','FontSize',14,...
+   'BackGroundColor',gris,...
+   'EraseMode','background');
+
+% Vecteur Vr
+Vecteur(Cloture,Vr,[0,0],'y');
+text(Vr(1)/2,Vr(2)/2,' V_r ',...
+   'FontWeight','bold','FontSize',16,...
+   'BackGroundColor',gris,...
+   'EraseMode','background');
+title('V_r  =  V_a + V_b',...
+   'FontWeight','bold','FontSize',12)
+
+norme = norm(Vr);
+% angle selon la convention de atan2
+theta = atan2(Vr(2),Vr(1))*180/pi;
+
+xlabel([...
+   'V_a= ',num2str(Va(1)),'i, ',...
+   num2str(Va(2)),'j,   ',...
+   'V_b= ',num2str(Vb(1)),'i, ',...
+   num2str(Vb(2)),'j,   ',...
+   'V_r= ',num2str(Vr(1)),'i, ',...
+   num2str(Vr(2)),'j,  norme = ',...
+   num2str(norme,'%.1f'),',  ',...
+   '\theta = ',num2str(theta,'%.1f'),...
+   '°'],'FontSize',12)
+##### SOURCE END #####
+--></body></html>

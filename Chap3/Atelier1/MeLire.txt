@@ -1,0 +1,4 @@
+Fichiers utilisés pour un exercice de déverminage
+dans le chapitre sur les boucles.
+Voir ce chapitre pour plus d'informations. 
+- Jean L.
