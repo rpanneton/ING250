@@ -89,7 +89,9 @@ class Bilan:
 
     @property
     def modifies(self) -> int:
-        return len(set(self.convertis) | set(self.declarations))
+        return len(
+            set(self.convertis) | set(self.declarations) | set(self.metas_ajoutes)
+        )
 
 
 def decoder(donnees: bytes) -> tuple[str, str, bool]:
