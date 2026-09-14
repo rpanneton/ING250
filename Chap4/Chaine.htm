@@ -1,32 +1,32 @@
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="Generator" content="Microsoft FrontPage 4.0">
 <meta name="ProgId" content="FrontPage.Editor.Document">
-<title>Les chaînes de caractères</title>
+<title>Les chaÃ®nes de caractÃ¨res</title>
 <meta name="Template" content="C:\Program Files\Microsoft Office\Office\HTML.DOT">
 <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
 
 <body link="#0000ff" vlink="#800080">
 
-<h2>Les chaînes de caractères</h2>
-<p>Objectif&nbsp;: être capable de manipuler les éléments des chaînes de
-caractères (ou vecteurs de caractères).</p>
+<h2>Les chaÃ®nes de caractÃ¨res</h2>
+<p>Objectif&nbsp;: Ãªtre capable de manipuler les Ã©lÃ©ments des chaÃ®nes de
+caractÃ¨res (ou vecteurs de caractÃ¨res).</p>
 <ul>
-  <li>Représentation dans la mémoire de l'ordinateur</li>
-  <li><i>fcanf</i> - lecture d'un fichier de caractères</li>
-  <li><i>textread</i> - lecture d'un fichier de différents types de données</li>
-  <li><i>fgetl</i> - lecture ligne à ligne d'un fichier de différents types de
-    données</li>
+  <li>ReprÃ©sentation dans la mÃ©moire de l'ordinateur</li>
+  <li><i>fcanf</i> - lecture d'un fichier de caractÃ¨res</li>
+  <li><i>textread</i> - lecture d'un fichier de diffÃ©rents types de donnÃ©es</li>
+  <li><i>fgetl</i> - lecture ligne Ã  ligne d'un fichier de diffÃ©rents types de
+    donnÃ©es</li>
 </ul>
-<h3>Représentation dans la mémoire de l'ordinateur</h3>
-<p>Le type de base <i>chaîne de caractères</i> se trouve dans la plupart des
-logiciels de programmation. Une chaîne est une vecteur dont les éléments sont
-des caractères.</p>
-<p>Les caractères sont conservés sous la forme de nombres entiers dans la
-mémoire de l'ordinateur.</p>
+<h3>ReprÃ©sentation dans la mÃ©moire de l'ordinateur</h3>
+<p>Le type de base <i>chaÃ®ne de caractÃ¨res</i> se trouve dans la plupart des
+logiciels de programmation. Une chaÃ®ne est une vecteur dont les Ã©lÃ©ments sont
+des caractÃ¨res.</p>
+<p>Les caractÃ¨res sont conservÃ©s sous la forme de nombres entiers dans la
+mÃ©moire de l'ordinateur.</p>
 <p><code>&gt;&gt; 'Bonjour !' + 0<br>
 ans = 66 111 110 106 111 117 114 32 33<br>
 &gt;&gt; 'B'==66<br>
@@ -35,11 +35,11 @@ ans = 1<br>
 ans = 1<br>
 &gt;&gt; 'n'== 110<br>
 ans = 1</code></p>
-<p>Les codes de 1 à 127 représentent les caractères appelés ASCII. Windows
-utilise des codes de 1 à 255 pour représenter des caractères appelés ANSI.
+<p>Les codes de 1 Ã  127 reprÃ©sentent les caractÃ¨res appelÃ©s ASCII. Windows
+utilise des codes de 1 Ã  255 pour reprÃ©senter des caractÃ¨res appelÃ©s ANSI.
 Les 127 premiers correspondent aux codes ASCII.</p>
-<p>Matlab possède une bibliothèque de fonctions pour traiter les
-caractères&nbsp;:</p>
+<p>Matlab possÃ¨de une bibliothÃ¨que de fonctions pour traiter les
+caractÃ¨res&nbsp;:</p>
 <pre>&gt;&gt; doc strfun
 
 char - Create character array (string).
@@ -49,37 +49,37 @@ blanks - String of blanks.
 deblank - Remove trailing blanks.
 eval - Execute string with MATLAB expression.
 etc.</pre>
-<h3><i>fscanf</i> - lecture d'un fichier de caractères -</h3>
+<h3><i>fscanf</i> - lecture d'un fichier de caractÃ¨res -</h3>
 <ul>
-  <li>La fonction <i>load</i> est appropriée pour lire des fichiers ne
+  <li>La fonction <i>load</i> est appropriÃ©e pour lire des fichiers ne
     contenant que des nombres.</li>
   <li>La fonction <i>fscanf</i> permet de lire le contenu d'un fichier comme une
-    longue chaîne de caractères.
+    longue chaÃ®ne de caractÃ¨res.
     <ul>
-      <li>C'est une fonction qui ressemble à <i>fprintf</i>.</li>
-      <li>On peut lire également des données numériques, mais nous allons
-        nous limiter à la lecture de fichiers contenant du texte.</li>
+      <li>C'est une fonction qui ressemble Ã  <i>fprintf</i>.</li>
+      <li>On peut lire Ã©galement des donnÃ©es numÃ©riques, mais nous allons
+        nous limiter Ã  la lecture de fichiers contenant du texte.</li>
     </ul>
   </li>
 </ul>
 <h4>Utilisation typique de <i>fscanf</i></h4>
 <p><b><i>fid</i> = <i>open</i>('Nom_du_fichier','r');<br>
-A = <i>fscanf</i></b>(où,comment);</p>
+A = <i>fscanf</i></b>(oÃ¹,comment);</p>
 <ul>
-  <li><i>où</i> : no de fichier (correspond à <b><i>fid</i></b> ci-haut)
+  <li><i>oÃ¹</i> : no de fichier (correspond Ã  <b><i>fid</i></b> ci-haut)
     <ul>
-      <li><b><i>open</i></b> ouvre le fichier appelé Nom_de_fichier en lecture
-        seulement ('r') et lui attribue un numéro.</li>
-      <li><b><i>fid</i></b> obtient ce numéro.</li>
+      <li><b><i>open</i></b> ouvre le fichier appelÃ© Nom_de_fichier en lecture
+        seulement ('r') et lui attribue un numÃ©ro.</li>
+      <li><b><i>fid</i></b> obtient ce numÃ©ro.</li>
     </ul>
   </li>
-  <li><i>comment</i> : le format de lecture. On utilise des caractères dans
-    cette présentation, <code>%c</code>.</li>
-  <li><b>A</b> contient la chaîne de caractères lus.</li>
+  <li><i>comment</i> : le format de lecture. On utilise des caractÃ¨res dans
+    cette prÃ©sentation, <code>%c</code>.</li>
+  <li><b>A</b> contient la chaÃ®ne de caractÃ¨res lus.</li>
 </ul>
 <h4>Exemple de lecture</h4>
 <pre>% Ch_fscan.m  Lire un fichier
-%    comme une grande chaîne.
+%    comme une grande chaÃ®ne.
 clear; clc
 fclose('all'); % Ferme tous les fichiers.
 fid=fopen('Sommeil.txt','r');
@@ -94,18 +94,18 @@ for i=1:length(Texte)
    end
 end
 fprintf(1,'%s %d\n',...
-   'Nombre de caractères « e » :',...
+   'Nombre de caractÃ¨res Â« e Â» :',...
    NombreDeLettre_e);</pre>
-<p>Résultat&nbsp;:</p>
+<p>RÃ©sultat&nbsp;:</p>
 <pre>Auteure =
 Lisa Lipman, Associated Press
-Nombre de caractères « e » : 220</pre>
-<h3><i>textread</i> - lecture d'un fichier de différents types de données</h3>
-<p>La fonction <i>textread</i> permet de lire facilement des fichiers où des
-données caractères et numériques sont bien formulées, c'est-à-dire lorsque
-les données sont alignées en colonnes et séparées par des virgules ou des
-espaces. Il suffit alors de spécifier un format correspondant au type de
-données à lire.<br>
+Nombre de caractÃ¨res Â« e Â» : 220</pre>
+<h3><i>textread</i> - lecture d'un fichier de diffÃ©rents types de donnÃ©es</h3>
+<p>La fonction <i>textread</i> permet de lire facilement des fichiers oÃ¹ des
+donnÃ©es caractÃ¨res et numÃ©riques sont bien formulÃ©es, c'est-Ã -dire lorsque
+les donnÃ©es sont alignÃ©es en colonnes et sÃ©parÃ©es par des virgules ou des
+espaces. Il suffit alors de spÃ©cifier un format correspondant au type de
+donnÃ©es Ã  lire.<br>
 Exemple&nbsp;:</p>
 <table border="1">
   <tr>
@@ -121,24 +121,24 @@ Shaula 200.0  1.71
 Alkaid 190.0  1.91
 Alhena  78.0  1.92</pre>
     </td>
-    <td><b>colonne&nbsp;1</b> - caractères,<br>
+    <td><b>colonne&nbsp;1</b> - caractÃ¨res,<br>
       <i>nom</i>, sans apostrophes
       <p><b>colonne&nbsp;2</b> - nombre,<br>
-      <i>distance</i>, années-lunières</p>
+      <i>distance</i>, annÃ©es-luniÃ¨res</p>
       <p><b>colonne&nbsp;3</b> - nombre,<br>
       magnitude.</td>
   </tr>
 </table>
 <ul>
-  <li>[<i>quoi</i>] = <i>textread</i>('<i>où</i>', '<i>comment</i>']
+  <li>[<i>quoi</i>] = <i>textread</i>('<i>oÃ¹</i>', '<i>comment</i>']
     <ul>
       <li><i>quoi</i> : nom du vecteur pour chacune des colonnes,</li>
-      <li><i>où</i>&nbsp;: nom du fichier à lire,</li>
-      <li><i>comment</i>&nbsp;: indique le type de données à lire. Le format
+      <li><i>oÃ¹</i>&nbsp;: nom du fichier Ã  lire,</li>
+      <li><i>comment</i>&nbsp;: indique le type de donnÃ©es Ã  lire. Le format
         peut comprendre la largeur du champ. Les formats les plus utiles sont
         <ul>
-          <li>%c - caractère, le champ ou nombre de caractères est requis.</li>
-          <li>%n - numérique, le champ est souvent superflu.</li>
+          <li>%c - caractÃ¨re, le champ ou nombre de caractÃ¨res est requis.</li>
+          <li>%n - numÃ©rique, le champ est souvent superflu.</li>
         </ul>
       </li>
     </ul>
@@ -160,25 +160,25 @@ Alhena  78.0  1.92</pre>
   <tr>
     <td>
       <pre>'%6c%n%n'
-%6c - 6 caractères pour <i>nom</i>
+%6c - 6 caractÃ¨res pour <i>nom</i>
 %n  - un nombre pour <i>distance</i>
 %n  - un nombre pour <i>magnitude</i></pre>
     </td>
   </tr>
 </table>
-<h3><i>fgetl</i> - lecture ligne à ligne d'un fichier de différents types de
-données</h3>
+<h3><i>fgetl</i> - lecture ligne Ã  ligne d'un fichier de diffÃ©rents types de
+donnÃ©es</h3>
 <ul>
   <li><i>fgetl</i> - Lecture ligne par ligne</li>
-  <li>Détection de la fin du fichier</li>
+  <li>DÃ©tection de la fin du fichier</li>
 </ul>
-<p>Supposer qu'il faut lire un très long fichier, et que l'analyse doit
+<p>Supposer qu'il faut lire un trÃ¨s long fichier, et que l'analyse doit
 s'effectuer ligne par ligne. Les fonctions <i>textread</i> et <i>fscanf</i>
-effectueraient la lecture du fichier complet en mémoire, ce qui pourrait ne pas
-être approprié. Solution alternative&nbsp;: <i>fgetl</i></p>
+effectueraient la lecture du fichier complet en mÃ©moire, ce qui pourrait ne pas
+Ãªtre appropriÃ©. Solution alternative&nbsp;: <i>fgetl</i></p>
 <h4>Lecture ligne par ligne - fonction <i>fgetl</i></h4>
-<p>Cette opération est plus complexe que la lecture par <i>textread.</i></p>
-<p>Exemple&nbsp;: lire la première ligne du fichier <i>Etoile.dat</i>.</p>
+<p>Cette opÃ©ration est plus complexe que la lecture par <i>textread.</i></p>
+<p>Exemple&nbsp;: lire la premiÃ¨re ligne du fichier <i>Etoile.dat</i>.</p>
 <ul>
   <li>
     <pre><font color="#228b22">%Fichier Etoile3.m</font>
@@ -187,20 +187,20 @@ fid=fopen(<font color="#b22222">'Etoile.dat'</font>,<font color="#b22222">'r'</f
 Ligne = fgetl(fid);
 fclose(fid);
 Nombre_de_caracteres=length(Ligne)
-<font color="#228b22">%Arrangement permettant de repérer
-% la position des caractères.
+<font color="#228b22">%Arrangement permettant de repÃ©rer
+% la position des caractÃ¨res.
 </font>Ligne
 disp(<font color="#b22222">'----+----+----+----+'</font>)
-<font color="#228b22">%Conversion d'une chaîne en nombre
+<font color="#228b22">%Conversion d'une chaÃ®ne en nombre
 %   (string to number).
 </font>Etoile=Ligne(1:6);
 Distance = str2num(Ligne(8:12));
 Magnitude = str2num(Ligne(14:18));
-fprintf(<font color="#b22222">'Étoile : %s\nDistance :%5.1f\nMagnitude :%6.2f\n'</font>,<font color="#0000ff">...
+fprintf(<font color="#b22222">'Ã‰toile : %s\nDistance :%5.1f\nMagnitude :%6.2f\n'</font>,<font color="#0000ff">...
 &nbsp;&nbsp;</font>&nbsp;&nbsp;&nbsp;Etoile,Distance,Magnitude);</pre>
   </li>
 </ul>
-<p>Résultat :</p>
+<p>RÃ©sultat :</p>
 <ul>
   <li>
     <pre>Nombre_de_caracteres =
@@ -208,26 +208,26 @@ fprintf(<font color="#b22222">'Étoile : %s\nDistance :%5.1f\nMagnitude :%6.2f\n'
 Ligne =
 Sirius 8.7 -1.42
 ----+----+----+----+
-Étoile : Sirius
+Ã‰toile : Sirius
 Distance : 8.7
 Magnitude : -1.42</pre>
     <ul>
-      <li>La lecture s'effectue sous la forme d'une ligne de caractères.</li>
+      <li>La lecture s'effectue sous la forme d'une ligne de caractÃ¨res.</li>
       <li>Il faut manipuler le contenu pour en extraire les informations
-        souhaitées.</li>
+        souhaitÃ©es.</li>
     </ul>
   </li>
 </ul>
-<h4>Détection de la fin du fichier</h4>
+<h4>DÃ©tection de la fin du fichier</h4>
 <p>On peut ainsi lire successivement toutes les lignes du fichier. Mais que se
-passe-t-il à la fin du fichier&nbsp;?&nbsp;</p>
-<p>Lorsque Matlab détecte la fin du fichier, il indique {-1} comme donnée, ce
+passe-t-il Ã  la fin du fichier&nbsp;?&nbsp;</p>
+<p>Lorsque Matlab dÃ©tecte la fin du fichier, il indique {-1} comme donnÃ©e, ce
 qui permet de terminer la lecture.</p>
 <ul>
   <li>
     <pre><font color="#008000">%Fichier&nbsp;etoile4.m
 </font>clear&nbsp;
-disp(<font color="#800000">'Début&nbsp;de&nbsp;la&nbsp;lecture&nbsp;:'</font>);
+disp(<font color="#800000">'DÃ©but&nbsp;de&nbsp;la&nbsp;lecture&nbsp;:'</font>);
 fid=fopen(<font color="#800000">'Etoile.dat'</font>,<font color="#800000">'r'</font>);
 Ligne&nbsp;=&nbsp;fgetl(fid);
 j=0;
@@ -248,11 +248,11 @@ fprintf(<font color="#800000">'fin.\n\n'</font>)
 <font color="#0000ff">end</font></pre>
   </li>
 </ul>
-<p>Résultat&nbsp;:</p>
+<p>RÃ©sultat&nbsp;:</p>
 <ul>
   <li>
     <pre>&gt;&gt;&nbsp;etoile4
-Début&nbsp;de&nbsp;la&nbsp;lecture&nbsp;:
+DÃ©but&nbsp;de&nbsp;la&nbsp;lecture&nbsp;:
 1,&nbsp;2,&nbsp;3,&nbsp;4,&nbsp;5,&nbsp;6,&nbsp;7,&nbsp;8,&nbsp;9,&nbsp;10,&nbsp;fin.
 &nbsp;
 Sirius&nbsp;&nbsp;&nbsp;8.7&nbsp;-1.42

@@ -1,80 +1,80 @@
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="Generator" content="Microsoft FrontPage 4.0">
 <meta name="ProgId" content="FrontPage.Editor.Document">
-<title>Écriture formatée - introduction et objectifs</title>
+<title>Ã‰criture formatÃ©e - introduction et objectifs</title>
 <meta name="Template" content="C:\Program Files\Microsoft Office\Office\HTML.DOT">
 <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
 
 <body link="#0000ff" vlink="#800080">
 
-<h2>Écriture formatée</h2>
+<h2>Ã‰criture formatÃ©e</h2>
 <ul>
   <li>Introduction</li>
   <li>Objectifs</li>
-  <li>Fonction d'écriture <i>fprintf</i>
+  <li>Fonction d'Ã©criture <i>fprintf</i>
     <ul>
-      <li>La focntion <i>disp</i> est limitée</li>
+      <li>La focntion <i>disp</i> est limitÃ©e</li>
       <li>Comparaison de <i>frprintf</i> avec <i>disp</i></li>
     </ul>
   </li>
   <li>Description de <i>fprintf</i>
     <ul>
       <li>Codes de format les plus utiles</li>
-      <li>Étude des différents paramètres de <code>%f</code></li>
+      <li>Ã‰tude des diffÃ©rents paramÃ¨tres de <code>%f</code></li>
     </ul>
   </li>
 </ul>
 <h3>Introduction</h3>
-<p>Dans la plupart des langages de programmation, pour lire ou écrire des
-données dans des fichiers, on procède de la manière suivante&nbsp;:</p>
+<p>Dans la plupart des langages de programmation, pour lire ou Ã©crire des
+donnÃ©es dans des fichiers, on procÃ¨de de la maniÃ¨re suivante&nbsp;:</p>
 <ul>
-  <li>Ouverture du fichier (<i>fopen, file open</i>) en spécifiant des
+  <li>Ouverture du fichier (<i>fopen, file open</i>) en spÃ©cifiant des
     attributs tels&nbsp;:
     <ul>
       <li>lecture seulement (<i>r</i>, <i>read only</i>),</li>
-      <li>écriture seulement (<i>w</i>, <i>write only</i>)</li>
-      <li>écriture après les données déjà contenues dans le fichier (<i>a</i>,
+      <li>Ã©criture seulement (<i>w</i>, <i>write only</i>)</li>
+      <li>Ã©criture aprÃ¨s les donnÃ©es dÃ©jÃ  contenues dans le fichier (<i>a</i>,
         <i>append</i>), etc.</li>
     </ul>
   </li>
-  <li>Boucle contenant une instruction d'écriture (<i>fprintf</i>) ou de
-    lecture des données en spécifiant des protocoles de conversion selon le
-    type de données, tels
+  <li>Boucle contenant une instruction d'Ã©criture (<i>fprintf</i>) ou de
+    lecture des donnÃ©es en spÃ©cifiant des protocoles de conversion selon le
+    type de donnÃ©es, tels
     <ul>
       <li>des entiers (%d <i>digits</i>),</li>
-      <li>des réels (%f, <i>float</i>),</li>
-      <li>des chaînes de caractères (%s, <i>string</i>), etc.</li>
+      <li>des rÃ©els (%f, <i>float</i>),</li>
+      <li>des chaÃ®nes de caractÃ¨res (%s, <i>string</i>), etc.</li>
     </ul>
   </li>
   <li>Fermeture du fichier (<i>fclose, file close</i>).</li>
 </ul>
-<p>Par ailleurs, Matlab possède des fonctions permettant d'accomplir
-automatiquement ces opérations comme <i>load</i>(nom_du_fichier) et <i>save</i>(nom_du_fichier).
-Elles sont présentées dans la section portant sur les boucles.</p>
+<p>Par ailleurs, Matlab possÃ¨de des fonctions permettant d'accomplir
+automatiquement ces opÃ©rations comme <i>load</i>(nom_du_fichier) et <i>save</i>(nom_du_fichier).
+Elles sont prÃ©sentÃ©es dans la section portant sur les boucles.</p>
 <h3>Objectifs</h3>
 <ul>
-  <li>Utiliser <i>fprintf</i> pour afficher à l'écran.</li>
-  <li>Lire ou écrire dans un fichier une combinaison de nombres et de
-    caractères.</li>
-  <li>Afficher les matrices de façon plus soignée que la manière par défaut
+  <li>Utiliser <i>fprintf</i> pour afficher Ã  l'Ã©cran.</li>
+  <li>Lire ou Ã©crire dans un fichier une combinaison de nombres et de
+    caractÃ¨res.</li>
+  <li>Afficher les matrices de faÃ§on plus soignÃ©e que la maniÃ¨re par dÃ©faut
     de Matlab.</li>
-  <li>Étudier le comportement des principaux formats&nbsp;: %d, %f, %s.</li>
+  <li>Ã‰tudier le comportement des principaux formats&nbsp;: %d, %f, %s.</li>
 </ul>
-<h3>Fonction d'écriture <i>fprintf</i></h3>
-<p>Un programme doit communiquer des résultats pour présenter un intérêt
-pratique. La plupart des langages de programmation possèdent une fonction
-similaire à <i>fprintf</i> pour l'affichage et l'archivage de différents types
-de fichiers dans des fichiers. C'est ce qui rend son étude pertinente dans le
+<h3>Fonction d'Ã©criture <i>fprintf</i></h3>
+<p>Un programme doit communiquer des rÃ©sultats pour prÃ©senter un intÃ©rÃªt
+pratique. La plupart des langages de programmation possÃ¨dent une fonction
+similaire Ã  <i>fprintf</i> pour l'affichage et l'archivage de diffÃ©rents types
+de fichiers dans des fichiers. C'est ce qui rend son Ã©tude pertinente dans le
 curriculum du cours.</p>
-<h4>La fonction <i>disp</i> est limitée</h4>
+<h4>La fonction <i>disp</i> est limitÃ©e</h4>
 <p>Les instructions <i>disp</i>, <i>format</i>, <i>nom_de_variable_sans_point_virgule</i>
-déjà présentées sont efficaces, mais ont des possibilités esthétiques
-limitées, et il est difficile d'afficher plus d'un type de données sans
-recourir à des artifices.<br>
+dÃ©jÃ  prÃ©sentÃ©es sont efficaces, mais ont des possibilitÃ©s esthÃ©tiques
+limitÃ©es, et il est difficile d'afficher plus d'un type de donnÃ©es sans
+recourir Ã  des artifices.<br>
 Exemple&nbsp;:</p>
 <ul>
   <li>Supposer X1&nbsp;=&nbsp;74.2 et X2&nbsp;=&nbsp;7.8&nbsp;:
@@ -84,7 +84,7 @@ Exemple&nbsp;:</p>
         X2</code></li>
     </ul>
   </li>
-  <li>Résultat&nbsp;:
+  <li>RÃ©sultat&nbsp;:
     <ul>
       <li><code>Les&nbsp;moyennes&nbsp;des&nbsp;examens&nbsp;sont&nbsp;:<br>
         X1&nbsp;=<br>
@@ -93,9 +93,9 @@ Exemple&nbsp;:</p>
         &nbsp;&nbsp;&nbsp;&nbsp;7.8000</code></li>
     </ul>
   </li>
-  <li>Les valeurs sont présentées sans plus.
-    <p>La fonction <i>num2str</i> permet de transformer des données numériques
-    en données caractères, ce qui rend possible un affichage plus élégant.
+  <li>Les valeurs sont prÃ©sentÃ©es sans plus.
+    <p>La fonction <i>num2str</i> permet de transformer des donnÃ©es numÃ©riques
+    en donnÃ©es caractÃ¨res, ce qui rend possible un affichage plus Ã©lÃ©gant.
     <ul>
       <li><code>Texte='Les&nbsp;moyennes&nbsp;des&nbsp;examens&nbsp;sont ';<br>
         disp([Texte,num2str(X1,3),'&nbsp;et&nbsp;',num2str(X2,2)])</code></li>
@@ -108,11 +108,11 @@ Exemple&nbsp;:</p>
   </li>
 </ul>
 <p>Cependant, ces fonctions ne peuvent pas offrir un moyen de communication
-toujours adéquat. De plus, elles ne peuvent pas être utilisées pour
-communiquer avec des périphériques de communication, archiver ou lire des
-données dans les fichiers.</p>
+toujours adÃ©quat. De plus, elles ne peuvent pas Ãªtre utilisÃ©es pour
+communiquer avec des pÃ©riphÃ©riques de communication, archiver ou lire des
+donnÃ©es dans les fichiers.</p>
 <h4>Comparaison de <i>fprintf</i> avec <i>disp</i></h4>
-<p>Abréviation anglaise de <i>file-print-formated</i>, soit écriture formatée
+<p>AbrÃ©viation anglaise de <i>file-print-formated</i>, soit Ã©criture formatÃ©e
 dans un fichier, la fonction <i>fprintf</i>&nbsp; permet d'afficher toutes les
 combinaisons de valeurs.<br>
 Exemple&nbsp;:</p>
@@ -131,54 +131,54 @@ disp([chaine,num2str(X1,3)])</pre>
 </ul>
 <p>Explications&nbsp;:</p>
 <ul>
-  <li><i>num2str</i>(X1,3) : transforme un nombre en caractères;
+  <li><i>num2str</i>(X1,3) : transforme un nombre en caractÃ¨res;
     <ul>
-      <li>une précision de 3&nbsp;chiffres est spécifiée;</li>
-      <li>disp affiche uniquement des données caractères.</li>
+      <li>une prÃ©cision de 3&nbsp;chiffres est spÃ©cifiÃ©e;</li>
+      <li>disp affiche uniquement des donnÃ©es caractÃ¨res.</li>
     </ul>
   </li>
   <li><i>frprintf</i> est une fonction d'affichage comportant plusieurs
     arguments&nbsp;:
     <ul>
-      <li>la chaîne de caractères à l'intérieur de <i>fprintf</i> est
-        appelée le format;</li>
-      <li><i>chaine</i> et&nbsp;<i> X1</i> sont les variables à afficher.</li>
+      <li>la chaÃ®ne de caractÃ¨res Ã  l'intÃ©rieur de <i>fprintf</i> est
+        appelÃ©e le format;</li>
+      <li><i>chaine</i> et&nbsp;<i> X1</i> sont les variables Ã  afficher.</li>
     </ul>
   </li>
 </ul>
 <p>Le format <font color="#b22222"><code>'%s%4.1f\n'</code></font></p>
 <ul>
-  <li>«&nbsp;%&nbsp;» début d'un code de format,
+  <li>Â«&nbsp;%&nbsp;Â» dÃ©but d'un code de format,
     <ul>
-      <li><font color="#b22222"><code>%s </code></font>affichage d'une donnée
-        constituée d'une chaîne de caractères (<i>string</i>) dont la
-        longueur est indéterminée.</li>
+      <li><font color="#b22222"><code>%s </code></font>affichage d'une donnÃ©e
+        constituÃ©e d'une chaÃ®ne de caractÃ¨res (<i>string</i>) dont la
+        longueur est indÃ©terminÃ©e.</li>
     </ul>
   </li>
   <li><font color="#b22222"><code>%4.1f</code></font>
     <ul>
-      <li>4 :&nbsp; un champ de 4 colonnes est réservé pour l'affichage,</li>
-      <li>.1&nbsp;: écrire 1 chiffre après le point décimal,</li>
-      <li>f&nbsp;:&nbsp; écrire la donnée en point flottant (<i>float</i>).</li>
+      <li>4 :&nbsp; un champ de 4 colonnes est rÃ©servÃ© pour l'affichage,</li>
+      <li>.1&nbsp;: Ã©crire 1 chiffre aprÃ¨s le point dÃ©cimal,</li>
+      <li>f&nbsp;:&nbsp; Ã©crire la donnÃ©e en point flottant (<i>float</i>).</li>
     </ul>
   </li>
 </ul>
 <h3>Description de <i>fprintf</i></h3>
-<p>Il y a trois arguments différents dans la fonction, que l'on peut résumer
+<p>Il y a trois arguments diffÃ©rents dans la fonction, que l'on peut rÃ©sumer
 ainsi&nbsp;:<br>
-fprintf(<font color="#0000FF"><b>où, comment, quoi</b></font>)&nbsp;:</p>
+fprintf(<font color="#0000FF"><b>oÃ¹, comment, quoi</b></font>)&nbsp;:</p>
 <ul>
-  <li><b><font color="#0000FF">où</font></b>&nbsp;: variable spécifiant le
-    périphérique;
+  <li><b><font color="#0000FF">oÃ¹</font></b>&nbsp;: variable spÃ©cifiant le
+    pÃ©riphÃ©rique;
     <ul>
-      <li>Lorsque la variable&nbsp;=&nbsp;1, elle spécifie l'écran comme
-        périphérique. Dans ce cas, il n'est pas nécessaire de l'indiquer;</li>
+      <li>Lorsque la variable&nbsp;=&nbsp;1, elle spÃ©cifie l'Ã©cran comme
+        pÃ©riphÃ©rique. Dans ce cas, il n'est pas nÃ©cessaire de l'indiquer;</li>
     </ul>
   </li>
-  <li><b><font color="#0000FF">comment</font></b> : chaîne de caractères qui
-    précise la manière d'écrire les données;</li>
-  <li><b><font color="#0000FF">quoi</font></b>&nbsp;: indique les données à
-    écrire.</li>
+  <li><b><font color="#0000FF">comment</font></b> : chaÃ®ne de caractÃ¨res qui
+    prÃ©cise la maniÃ¨re d'Ã©crire les donnÃ©es;</li>
+  <li><b><font color="#0000FF">quoi</font></b>&nbsp;: indique les donnÃ©es Ã 
+    Ã©crire.</li>
 </ul>
 <p>Exemple&nbsp;:</p>
 <ul>
@@ -189,8 +189,8 @@ fid=1;
 fprintf(fid,<font color="#b22222">'%s%4.1f\n'</font>,chaine,X1);</pre>
     <pre>donne&nbsp;: La moyenne est 74.2</pre>
   </li>
-  <li><font color="#0000FF">Lorsqu'on affiche à l'écran, il n'est pas
-    nécessaire de spécifier un périphérique.</font></li>
+  <li><font color="#0000FF">Lorsqu'on affiche Ã  l'Ã©cran, il n'est pas
+    nÃ©cessaire de spÃ©cifier un pÃ©riphÃ©rique.</font></li>
   <li>
     <pre>X1=74.2;
 chaine=<font color="#b22222">'La moyenne est '</font>;
@@ -198,17 +198,17 @@ fprintf(<font color="#b22222">'%s%4.1f\n'</font>,chaine,X1);</pre>
     <pre>donne&nbsp;: La moyenne est 74.2</pre>
   </li>
 </ul>
-<p>Le deuxième argument de <i>fprintf</i> est appelé le <b>format</b>. Il est
-constitué d'une chaîne de caractères que l'on place entre apostrophes et qui
-contient un libellé et des codes. Ces codes de format débutent par le symbole
-% qu'il faut éviter de confondre avec un commentaire. Il existe différents
-codes permettant d'afficher des variables de type différent. Noter que
-l'instruction Matlab&nbsp; <i>format</i> spécifie la manière par défaut
-d'afficher une <i>variable_sans_point_virgule</i>. Ce concept est différent du
+<p>Le deuxiÃ¨me argument de <i>fprintf</i> est appelÃ© le <b>format</b>. Il est
+constituÃ© d'une chaÃ®ne de caractÃ¨res que l'on place entre apostrophes et qui
+contient un libellÃ© et des codes. Ces codes de format dÃ©butent par le symbole
+% qu'il faut Ã©viter de confondre avec un commentaire. Il existe diffÃ©rents
+codes permettant d'afficher des variables de type diffÃ©rent. Noter que
+l'instruction Matlab&nbsp; <i>format</i> spÃ©cifie la maniÃ¨re par dÃ©faut
+d'afficher une <i>variable_sans_point_virgule</i>. Ce concept est diffÃ©rent du
 format de <i>fprintf</i>.</p>
 <ul>
-  <li>Les codes de format peuvent aussi être considérés comme des codes de
-    conversion. Une donnée dans la mémoire de l'ordinateur est convertie pour
+  <li>Les codes de format peuvent aussi Ãªtre considÃ©rÃ©s comme des codes de
+    conversion. Une donnÃ©e dans la mÃ©moire de l'ordinateur est convertie pour
     affichage &nbsp;:
     <ul>
       <li>
@@ -229,31 +229,31 @@ format de <i>fprintf</i>.</p>
 R</pre>
       </li>
       <li>
-        <pre>Noter que «1» n'est pas nécessaire&nbsp;:
+        <pre>Noter que Â«1Â» n'est pas nÃ©cessaire&nbsp;:
 &gt;&gt;&nbsp;fprintf('%s\n',A)
 R</pre>
       </li>
     </ul>
   </li>
-  <li>La variable A, qui contient la valeur&nbsp;82, est affichée
-    respectivement comme un nombre entier, un nombre réel en notation
-    décimale, un nombre réel en notation exponentielle et une notation pour
-    une donnée de type caractère (R est le caractère no&nbsp;82 en ASCII).</li>
+  <li>La variable A, qui contient la valeur&nbsp;82, est affichÃ©e
+    respectivement comme un nombre entier, un nombre rÃ©el en notation
+    dÃ©cimale, un nombre rÃ©el en notation exponentielle et une notation pour
+    une donnÃ©e de type caractÃ¨re (R est le caractÃ¨re no&nbsp;82 en ASCII).</li>
 </ul>
 <h4>Codes de format les plus utiles</h4>
 <ul>
-  <li><code>%d</code>&nbsp;: valeur numérique entière (digit)</li>
-  <li><code>%f</code>&nbsp;: valeur numérique réelle (float)</li>
-  <li><code>%e</code>&nbsp;: valeur numérique réelle affichée en notation
+  <li><code>%d</code>&nbsp;: valeur numÃ©rique entiÃ¨re (digit)</li>
+  <li><code>%f</code>&nbsp;: valeur numÃ©rique rÃ©elle (float)</li>
+  <li><code>%e</code>&nbsp;: valeur numÃ©rique rÃ©elle affichÃ©e en notation
     exponentielle</li>
-  <li><code>%g</code>&nbsp;: valeur numérique réelle affichée en point
+  <li><code>%g</code>&nbsp;: valeur numÃ©rique rÃ©elle affichÃ©e en point
     flottant ou en notation exponentielle selon sa grandeur</li>
-  <li><code>%s</code>&nbsp;: chaîne de caractères</li>
-  <li><code>\n</code>&nbsp;: passer à la ligne suivante</li>
-  <li>Informations supplémentaires&nbsp;: <code>&gt;&gt; doc fprintf</code></li>
+  <li><code>%s</code>&nbsp;: chaÃ®ne de caractÃ¨res</li>
+  <li><code>\n</code>&nbsp;: passer Ã  la ligne suivante</li>
+  <li>Informations supplÃ©mentaires&nbsp;: <code>&gt;&gt; doc fprintf</code></li>
 </ul>
-<p>On peut spécifier un gabarit (souvent appelé le champ) ainsi qu'une
-précision dans un code format, par exemple&nbsp;:</p>
+<p>On peut spÃ©cifier un gabarit (souvent appelÃ© le champ) ainsi qu'une
+prÃ©cision dans un code format, par exemple&nbsp;:</p>
 <ul>
   <li>
     <pre>&gt;&gt;&nbsp;disp('123456789') <font color="#008000">% Pour indiquer le no des colonnes</font>
@@ -265,23 +265,23 @@ précision dans un code format, par exemple&nbsp;:</p>
 &nbsp;&nbsp;&nbsp;45.86</pre>
   </li>
   <b>
-  <li>{%}</b> indique le début d'un code format.<b>
+  <li>{%}</b> indique le dÃ©but d'un code format.<b>
   <ul>
-    <li>{8} </b>spécifie le gabarit, c'est-à-dire le nombre de colonnes
-    minimales (espace) réservées pour l'écriture.</li>
+    <li>{8} </b>spÃ©cifie le gabarit, c'est-Ã -dire le nombre de colonnes
+    minimales (espace) rÃ©servÃ©es pour l'Ã©criture.</li>
   <b>
-  <li>{.2}</b> détermine la précision requise, soit le nombre de chiffres
-  souhaités après le point décimal.</li>
+  <li>{.2}</b> dÃ©termine la prÃ©cision requise, soit le nombre de chiffres
+  souhaitÃ©s aprÃ¨s le point dÃ©cimal.</li>
   <b>
-  <li>{f} </b>stipule l'utilisation d'une notation décimale comme code du
+  <li>{f} </b>stipule l'utilisation d'une notation dÃ©cimale comme code du
   format.</li>
-  <li>Les caractères {<b>\n}</b> entraînent le passage à la ligne suivante
-    lors de l'exécution (<i>nouvelle ligne</i>).</li>
+  <li>Les caractÃ¨res {<b>\n}</b> entraÃ®nent le passage Ã  la ligne suivante
+    lors de l'exÃ©cution (<i>nouvelle ligne</i>).</li>
   </ul>
   </li>
 </ul>
-<p>Le format est <i>vectorisé</i>, c'est-à-dire qu'il est répété selon le
-nombre de données à écrire. C'est également le cas en Fortran, <font color="#0000FF">mais
+<p>Le format est <i>vectorisÃ©</i>, c'est-Ã -dire qu'il est rÃ©pÃ©tÃ© selon le
+nombre de donnÃ©es Ã  Ã©crire. C'est Ã©galement le cas en Fortran, <font color="#0000FF">mais
 noter que ce n'est pas le cas dans le langage&nbsp;C</font>.<br>
 Exemple&nbsp;:</p>
 <ul>
@@ -297,36 +297,36 @@ Exemple&nbsp;:</p>
 &nbsp;&nbsp;&nbsp;45.86&nbsp;305.0
 &nbsp;&nbsp;&nbsp;&nbsp;0.37&nbsp;&gt;&gt;</pre>
   </li>
-  <li>L'invite de Matlab est demeurée après 0.37, car il n'y a pas de <b>\n</b>
-    après le troisième terme (%8.2f).<br>
+  <li>L'invite de Matlab est demeurÃ©e aprÃ¨s 0.37, car il n'y a pas de <b>\n</b>
+    aprÃ¨s le troisiÃ¨me terme (%8.2f).<br>
     &nbsp;</li>
-  <li>Note&nbsp;: <i>fprintf</i> est également une instruction en&nbsp; C<sup>&nbsp;+&nbsp;+</sup>,
-    mais dans ce langage, le format n'est pas vectorisé et il est d'un usage
-    capricieux. De toute façon, l'instruction d'écriture normale en&nbsp; C<sup>&nbsp;+&nbsp;+</sup>
+  <li>Note&nbsp;: <i>fprintf</i> est Ã©galement une instruction en&nbsp; C<sup>&nbsp;+&nbsp;+</sup>,
+    mais dans ce langage, le format n'est pas vectorisÃ© et il est d'un usage
+    capricieux. De toute faÃ§on, l'instruction d'Ã©criture normale en&nbsp; C<sup>&nbsp;+&nbsp;+</sup>
     est&nbsp; <i>cout</i>.</li>
 </ul>
-<p>Si le nombre de données à écrire est inférieur au nombre de codes de
-format, les codes sont tout simplement ignorés. Exemple&nbsp;:</p>
+<p>Si le nombre de donnÃ©es Ã  Ã©crire est infÃ©rieur au nombre de codes de
+format, les codes sont tout simplement ignorÃ©s. Exemple&nbsp;:</p>
 <ul>
   <li>
     <pre>&gt;&gt;&nbsp;fprintf('%8.2f&nbsp;%5.1f\n',45.857)
 &nbsp;&nbsp;&nbsp;45.86&nbsp;&gt;&gt;</pre>
   </li>
 </ul>
-<h4>Études des différents paramètres de %f</h4>
+<h4>Ã‰tudes des diffÃ©rents paramÃ¨tres de %f</h4>
 <table border="1">
   <tr>
     <td>
       <pre><font color="#008000">%Fichier fmt1.m
 </font>clear
 home
-<font color="#008000">% Réglage de l'affichage
+<font color="#008000">% RÃ©glage de l'affichage
 % de A sans point-virgule</font>
 format compact
 format short g
 A=12.56
 
-<font color="#008000">%Étude du format &quot; f &quot;</font>
+<font color="#008000">%Ã‰tude du format &quot; f &quot;</font>
 fprintf(<font color="#800000">'%f\n'</font>,A)
 fprintf(<font color="#800000">'%.0f\n'</font>,A)
 fprintf(<font color="#800000">'%.1f\n'</font>,A)
@@ -372,8 +372,8 @@ A&nbsp;vaut&nbsp;12.56</font></pre>
     </td>
   </tr>
 </table>
-<p>Noter l'effet&nbsp;:&nbsp; %6.4f&nbsp; force l'affichage de 4 décimales
-malgré un champ trop étroit. Il y a débordement, ce qui affecte l'alignement.</p>
+<p>Noter l'effet&nbsp;:&nbsp; %6.4f&nbsp; force l'affichage de 4 dÃ©cimales
+malgrÃ© un champ trop Ã©troit. Il y a dÃ©bordement, ce qui affecte l'alignement.</p>
 <hr>
 
 </body>

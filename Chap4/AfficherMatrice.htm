@@ -1,7 +1,7 @@
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="Generator" content="Microsoft FrontPage 6.0">
 <meta name="ProgId" content="FrontPage.Editor.Document">
 <title>Affichage d'une matrice</title>
@@ -13,7 +13,7 @@
 <body link="#0000FF" vlink="#800080">
 
 <h1>Affichage d'une matrice</h1>
-<p>L'affichage par défaut d'une matrice est souvent médiocre. La fonction <i>fprintf</i>
+<p>L'affichage par dÃ©faut d'une matrice est souvent mÃ©diocre. La fonction <i>fprintf</i>
 produit un affichage plus satisfaisant&nbsp;:</p>
 <table border="1">
   <tr>
@@ -52,17 +52,17 @@ for i=1:ligne
 end
 % ' %04.1f '
 %     4 colonnes, 
-%       1 chiffre après le point décimal,
+%       1 chiffre aprÃ¨s le point dÃ©cimal,
 %    0 force l'affichage de chiffres
 %       dans le champ complet (4 colonnes)
-%  il y a un espace avant et après
+%  il y a un espace avant et aprÃ¨s
 %       chaque affichage.
 
-%'\n' fait aller à la ligne suivante.</pre>
+%'\n' fait aller Ã  la ligne suivante.</pre>
     </td>
   </tr>
 </table>
-<p>Résultat de l'affichage&nbsp;:</p>
+<p>RÃ©sultat de l'affichage&nbsp;:</p>
 <table border="1">
   <tr>
     <td>
@@ -85,11 +85,11 @@ end
 </table>
 <p>Dans cet exemple, constater&nbsp;:</p>
 <ul>
-  <li>qu'il y a 2 chiffres après le point décimal,</li>
-  <li>que chaque donnée occupe 4 espaces,</li>
-  <li>que les deux espaces compris dans la spécification <code>' %04.1f '</code>
+  <li>qu'il y a 2 chiffres aprÃ¨s le point dÃ©cimal,</li>
+  <li>que chaque donnÃ©e occupe 4 espaces,</li>
+  <li>que les deux espaces compris dans la spÃ©cification <code>' %04.1f '</code>
     sont reproduits,</li>
-  <li>qu'une boucle comptée est requise pour chaque ligne&nbsp;: <code>for
+  <li>qu'une boucle comptÃ©e est requise pour chaque ligne&nbsp;: <code>for
     i=1:ligne</code>,</li>
   <li>qu'une boucle implicite fait afficher toute la ligne, soit l'instruction <code>(1:col)</code>.</li>
 </ul>

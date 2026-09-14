@@ -1,7 +1,7 @@
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="Generator" content="Microsoft FrontPage 6.0">
 <meta name="ProgId" content="FrontPage.Editor.Document">
 <title>Choix de la boucle</title>
@@ -12,14 +12,14 @@
 <body text="#000000" link="#0000ff" vlink="#800080" bgcolor="#ffffff">
 
 <h1>Choix de boucle</h1>
-Voici quelques questions à se poser pour déterminer quelle est la structure de
-boucle la plus appropriée.
+Voici quelques questions Ã  se poser pour dÃ©terminer quelle est la structure de
+boucle la plus appropriÃ©e.
 <ol>
   <li>
-    <h3>Est-ce bien des itérations qu'il faut effectuer&nbsp;?</h3>
+    <h3>Est-ce bien des itÃ©rations qu'il faut effectuer&nbsp;?</h3>
     <ul>
-      <li>Si vous répondez qu'il faut effectuer <b>1&nbsp;cycle</b>, la
-        structure à envisager est probablement la <b>décision</b>.<br>
+      <li>Si vous rÃ©pondez qu'il faut effectuer <b>1&nbsp;cycle</b>, la
+        structure Ã  envisager est probablement la <b>dÃ©cision</b>.<br>
         &nbsp;</li>
     </ul>
   </li>
@@ -27,24 +27,24 @@ boucle la plus appropriée.
     <h3>Est-ce que le nombre de cycles est connu&nbsp;?</h3>
     <ul>
       <li>
-        <h4><b>Oui</b> - le nombre est connu avant de commencer l'itération.</h4>
+        <h4><b>Oui</b> - le nombre est connu avant de commencer l'itÃ©ration.</h4>
         <ul>
-          <li><b>Une boucle comptée <i>for-end</b></i> est utilisée lorsque le
-            nombre de cycles est connu à l'avance. Le début, l'incrément et
-            la fin sont déterminés.
+          <li><b>Une boucle comptÃ©e <i>for-end</b></i> est utilisÃ©e lorsque le
+            nombre de cycles est connu Ã  l'avance. Le dÃ©but, l'incrÃ©ment et
+            la fin sont dÃ©terminÃ©s.
             <ul>
-              <li>Exemple&nbsp;: lire 5 nombres; effectuer <i>n</i>&nbsp;opérations
-                similaires; accroître d'une façon monotone les indices d'un
+              <li>Exemple&nbsp;: lire 5 nombres; effectuer <i>n</i>&nbsp;opÃ©rations
+                similaires; accroÃ®tre d'une faÃ§on monotone les indices d'un
                 tableau; calculer la moyenne d'une liste connue.<br>
                 &nbsp;</li>
             </ul>
           </li>
-          <li><b>Est-ce que la boucle comptée peut être remplacée par des
-            opérations pouvant être vectorisées&nbsp;?</b>
+          <li><b>Est-ce que la boucle comptÃ©e peut Ãªtre remplacÃ©e par des
+            opÃ©rations pouvant Ãªtre vectorisÃ©es&nbsp;?</b>
             <ul>
               <li>Par exemple,<b> </b>la multiplication matricielle, la division
-                élément par élément entre deux tableaux, une opération par
-                filtre logique sont exécutées plus efficacement par
+                Ã©lÃ©ment par Ã©lÃ©ment entre deux tableaux, une opÃ©ration par
+                filtre logique sont exÃ©cutÃ©es plus efficacement par
                 vectorisation.<br>
                 &nbsp;</li>
             </ul>
@@ -55,18 +55,18 @@ boucle la plus appropriée.
     <b>
     <ul>
       <li>
-        <h4>Non -</b> le nombre dépend de conditions modifiées à l'intérieur
+        <h4>Non -</b> le nombre dÃ©pend de conditions modifiÃ©es Ã  l'intÃ©rieur
         de la boucle.</h4>
       <ul>
-        <li><b>Une boucle à fin conditionnelle <i>while-end</b></i> suppose
-          qu'une condition d'arrêt doit être déterminée pendant l'exécution
+        <li><b>Une boucle Ã  fin conditionnelle <i>while-end</b></i> suppose
+          qu'une condition d'arrÃªt doit Ãªtre dÃ©terminÃ©e pendant l'exÃ©cution
           de la boucle. Il faut une condition initiale vraie pour initier la
-          boucle, et la condition doit devenir fausse pendant l'exécution de la
+          boucle, et la condition doit devenir fausse pendant l'exÃ©cution de la
           boucle.
           <ul>
-            <li>Exemple&nbsp;: compter avec un incrément variable; lire des
-              données et cesser lorsqu'une condition est atteinte; effectuer un
-              calcul itératif.</li>
+            <li>Exemple&nbsp;: compter avec un incrÃ©ment variable; lire des
+              donnÃ©es et cesser lorsqu'une condition est atteinte; effectuer un
+              calcul itÃ©ratif.</li>
           </ul>
         </li>
       </ul>

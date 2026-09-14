@@ -1,30 +1,30 @@
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="Generator" content="Microsoft FrontPage 4.0">
 <meta name="ProgId" content="FrontPage.Editor.Document">
-<title>Écriture et style du code - Aspects psychologiques et éléments de
+<title>Ã‰criture et style du code - Aspects psychologiques et Ã©lÃ©ments de
 style</title>
 <link rel="stylesheet" type="text/css" href="../../css/index.css">
 </head>
 
 <body>
 
-<h2>Écriture et style du code</h2>
+<h2>Ã‰criture et style du code</h2>
 <ul>
   <li>Aspect psychologiques</li>
-  <li>Éléments de style
+  <li>Ã‰lÃ©ments de style
     <ul>
       <li>Documentation
         <ul>
-          <li>Écrire un programme structurée</li>
+          <li>Ã‰crire un programme structurÃ©e</li>
           <li>Commenter le code s'il y a lieu</li>
         </ul>
       </li>
-      <li>Données - types - tableaux - arguments</li>
-      <li>Structures de contrôle et calculs</li>
-      <li>Entrées et sorties</li>
+      <li>DonnÃ©es - types - tableaux - arguments</li>
+      <li>Structures de contrÃ´le et calculs</li>
+      <li>EntrÃ©es et sorties</li>
       <li>Mise au point du code</li>
       <li>Organiser un programme en fonctions
         <ul>
@@ -32,69 +32,69 @@ style</title>
           <li>Programme principal</li>
         </ul>
       </li>
-      <li>Références</li>
+      <li>RÃ©fÃ©rences</li>
     </ul>
   </li>
 </ul>
-<p>Cette section traite de la manière d'écrire et de documenter le code de
-programmes de langages procéduraux comme Matlab. Le codage représente une
-traduction des spécifications du programme dans le langage de réalisation
+<p>Cette section traite de la maniÃ¨re d'Ã©crire et de documenter le code de
+programmes de langages procÃ©duraux comme Matlab. Le codage reprÃ©sente une
+traduction des spÃ©cifications du programme dans le langage de rÃ©alisation
 Matlab.</p>
 <h3>Aspects psychologiques</h3>
 <p>Comme il faut s'efforcer de penser selon le langage de traduction,
-l'écriture de programmes permet une meilleure compréhension de la science de
-l'informatique. Toutefois, le codage implique des considérations
+l'Ã©criture de programmes permet une meilleure comprÃ©hension de la science de
+l'informatique. Toutefois, le codage implique des considÃ©rations
 psychologiques, qui se manifestent non seulement avec l'utilisation de Matlab,
 mais avec tous les langages de programmation.</p>
 <ul>
-  <li>L'écriture d'un programme représente un travail de traduction.</li>
-  <li>L'interprétation des structures peut être perçue différemment par un
-    humain et par le compilateur. Doté d'un langage technique limité,
-    l'ordinateur est un robot qui peut difficilement reconnaître une qualité
-    sémantique à ce qui est écrit.</li>
+  <li>L'Ã©criture d'un programme reprÃ©sente un travail de traduction.</li>
+  <li>L'interprÃ©tation des structures peut Ãªtre perÃ§ue diffÃ©remment par un
+    humain et par le compilateur. DotÃ© d'un langage technique limitÃ©,
+    l'ordinateur est un robot qui peut difficilement reconnaÃ®tre une qualitÃ©
+    sÃ©mantique Ã  ce qui est Ã©crit.</li>
   <li>Comme la reconnaissance des structures est globale chez l'humain, il est
     plus facile de percevoir une structure lorsque les instructions sont
-    regroupées linéairement en blocs. Le codage doit respecter ce trait
+    regroupÃ©es linÃ©airement en blocs. Le codage doit respecter ce trait
     psychologique de l'humain.</li>
-  <li>La linéarité est une autre caractéristique humaine qui est facilitée
-    par l'écriture de suites de séquences logiques. Il faut donc éviter les
+  <li>La linÃ©aritÃ© est une autre caractÃ©ristique humaine qui est facilitÃ©e
+    par l'Ã©criture de suites de sÃ©quences logiques. Il faut donc Ã©viter les
     instructions qui ne tiennent pas compte de ce principe; par exemple des
     instructions <i>Goto</i>, <i>Return</i> ou <i>Break</i> qui peuvent
-    provoquer des sorties anormales des structures de boucle, de décision ou de
+    provoquer des sorties anormales des structures de boucle, de dÃ©cision ou de
     fonction.</li>
-  <li>L'apprentissage d'un langage influence la manière de communiquer avec un
-    ordinateur. L'habitude et la tradition peuvent affecter la créativité dans
+  <li>L'apprentissage d'un langage influence la maniÃ¨re de communiquer avec un
+    ordinateur. L'habitude et la tradition peuvent affecter la crÃ©ativitÃ© dans
     le processus d'utilisation d'un nouveau langage. Il va de soi que la
-    connaissance de plusieurs langages influence la manière de concevoir un
+    connaissance de plusieurs langages influence la maniÃ¨re de concevoir un
     projet informatique.</li>
 </ul>
-<h3>Éléments de style</h3>
-<p>L'écriture de textes en français nécessite rigueur, concision et clarté.
-Ces considérations s'appliquent à l'écriture du code informatique. Le style
-est une qualité importante du code et affecte l'intelligibilité du programme.</p>
-<p>Le programme doit aussi contenir une documentation interne, des méthodes
-pour déclarer les variables, des outils pour la construction de structures et
-l'utilisation des données. En s'appuyant sur les considérations
-psychologiques, voici des critères à respecter lors de l'écriture de
+<h3>Ã‰lÃ©ments de style</h3>
+<p>L'Ã©criture de textes en franÃ§ais nÃ©cessite rigueur, concision et clartÃ©.
+Ces considÃ©rations s'appliquent Ã  l'Ã©criture du code informatique. Le style
+est une qualitÃ© importante du code et affecte l'intelligibilitÃ© du programme.</p>
+<p>Le programme doit aussi contenir une documentation interne, des mÃ©thodes
+pour dÃ©clarer les variables, des outils pour la construction de structures et
+l'utilisation des donnÃ©es. En s'appuyant sur les considÃ©rations
+psychologiques, voici des critÃ¨res Ã  respecter lors de l'Ã©criture de
 programmes.</p>
 <h4>Documentation</h4>
-<p>Le programme n'est habituellement pas écrit dans notre langue maternelle.
-C'est plutôt le résultat d'une traduction et d'une interprétation des
-spécifications. Le programme doit donc être écrit de façon à être lisible
-et facile à interpréter. Écrire pour être compris.</p>
-<p>Documenter un programme ne veut pas dire ajouter des commentaires après la
-rédaction du programme.</p>
-<h5>Écrire un programme structurée&nbsp;:</h5>
+<p>Le programme n'est habituellement pas Ã©crit dans notre langue maternelle.
+C'est plutÃ´t le rÃ©sultat d'une traduction et d'une interprÃ©tation des
+spÃ©cifications. Le programme doit donc Ãªtre Ã©crit de faÃ§on Ã  Ãªtre lisible
+et facile Ã  interprÃ©ter. Ã‰crire pour Ãªtre compris.</p>
+<p>Documenter un programme ne veut pas dire ajouter des commentaires aprÃ¨s la
+rÃ©daction du programme.</p>
+<h5>Ã‰crire un programme structurÃ©e&nbsp;:</h5>
 <ol type="A">
-  <li>En-tête
+  <li>En-tÃªte
     <ul>
       <li>L'instruction <i>help</i> de Matlab affiche les lignes de commentaires
-        depuis le début du fichier (après l'instruction <i>function</i>)
-        jusqu'à la première ligne de code. Le prologue d'une fonction indique
+        depuis le dÃ©but du fichier (aprÃ¨s l'instruction <i>function</i>)
+        jusqu'Ã  la premiÃ¨re ligne de code. Le prologue d'une fonction indique
         ce qu'elle accomplit.</li>
-      <li>Fournir le nom de l'auteur et, le cas échéant,&nbsp; les dates de
+      <li>Fournir le nom de l'auteur et, le cas Ã©chÃ©ant,&nbsp; les dates de
         modifications.</li>
-      <li>Tout programme doit avoir un en-tête; ceci est un strict minimum.</li>
+      <li>Tout programme doit avoir un en-tÃªte; ceci est un strict minimum.</li>
     </ul>
   </li>
   <li>Explications
@@ -103,37 +103,37 @@ rédaction du programme.</p>
         besoin, un exemple d'utilisation.</li>
       <li>Lister les variables pertinentes, leur utilisation ainsi que leur
         limitation.</li>
-      <li>Ajouter également la liste de toutes les sous-fonctions externes
-        utilisées.</li>
+      <li>Ajouter Ã©galement la liste de toutes les sous-fonctions externes
+        utilisÃ©es.</li>
     </ul>
   </li>
-  <li>Déclarations
+  <li>DÃ©clarations
     <ul>
-      <li>En Fortran ou en C, il faut déclarer toutes les variables au début
+      <li>En Fortran ou en C, il faut dÃ©clarer toutes les variables au dÃ©but
         du code du programme.</li>
       <li>Dans Matlab, bien qu'il soit permis d'utiliser des variables sans
-        déclaration préalable, déclarer au moins tous les tableaux à l'aide
-        des fonctions <i>zero</i> ou <i>ones</i>. Cela améliore grandement
-        l'efficacité du code et évite de fragmenter la mémoire.&nbsp;</li>
+        dÃ©claration prÃ©alable, dÃ©clarer au moins tous les tableaux Ã  l'aide
+        des fonctions <i>zero</i> ou <i>ones</i>. Cela amÃ©liore grandement
+        l'efficacitÃ© du code et Ã©vite de fragmenter la mÃ©moire.&nbsp;</li>
     </ul>
   </li>
   <li>Lignes de code
     <ul>
-      <li>Écrire pas plus de 50 lignes de code (une page d'impression) par
+      <li>Ã‰crire pas plus de 50 lignes de code (une page d'impression) par
         fonction.</li>
-      <li>Éviter d'écrire plus d'un énoncé par ligne, car c'est plus
-        difficile à lire et à interpréter.</li>
-      <li>Ne pas dépasser 60 colonnes par instruction, car c'est plus difficile
-        à lire (et à imprimer). Une ligne d'instruction Matlab peut se
+      <li>Ã‰viter d'Ã©crire plus d'un Ã©noncÃ© par ligne, car c'est plus
+        difficile Ã  lire et Ã  interprÃ©ter.</li>
+      <li>Ne pas dÃ©passer 60 colonnes par instruction, car c'est plus difficile
+        Ã  lire (et Ã  imprimer). Une ligne d'instruction Matlab peut se
         continuer en ajoutant trois points...</li>
-      <li>Indenter les lignes de code dans les structures de contrôle.
+      <li>Indenter les lignes de code dans les structures de contrÃ´le.
         <ul>
-          <li>Deux à cinq espaces suffisent.</li>
-          <li>Utiliser un outil automatique, tel l'éditeur de Matlab, pour
-            cette tâche répétitive.</li>
-          <li>Reformater au besoin. Dans l'éditeur de Matlab, il suffit&nbsp;
+          <li>Deux Ã  cinq espaces suffisent.</li>
+          <li>Utiliser un outil automatique, tel l'Ã©diteur de Matlab, pour
+            cette tÃ¢che rÃ©pÃ©titive.</li>
+          <li>Reformater au besoin. Dans l'Ã©diteur de Matlab, il suffit&nbsp;
             d'appuyer sur les touches Ctrl-A et Ctrl-I pour effectuer une
-            indentation automatique de tout le fichier en édition.</li>
+            indentation automatique de tout le fichier en Ã©dition.</li>
         </ul>
       </li>
     </ul>
@@ -141,16 +141,16 @@ rédaction du programme.</p>
 </ol>
 <h5>Commenter le code s'il y a lieu</h5>
 <ul>
-  <li>En français, chaque mot a un sens, tout comme dans un programme.</li>
+  <li>En franÃ§ais, chaque mot a un sens, tout comme dans un programme.</li>
   <li>Choisir des noms de variables significatifs
     <ul>
-      <li>La documentation interne d'un programme débute par le choix
-        judicieux, bref et précis des noms de variables.</li>
+      <li>La documentation interne d'un programme dÃ©bute par le choix
+        judicieux, bref et prÃ©cis des noms de variables.</li>
       <li>Exemple&nbsp;:<br>
         B - trop court comme nom d'une variable importante<br>
         Indice - un peu long comme indice de variables, utiliser i, j ou k<br>
-        Compteurs - le pluriel est étrange<br>
-        Suite_num - qu'est-ce que ça signifie&nbsp;?<br>
+        Compteurs - le pluriel est Ã©trange<br>
+        Suite_num - qu'est-ce que Ã§a signifie&nbsp;?<br>
         x - c'est probablement l'abscisse ou l'argument d'une fonction
         y&nbsp;=&nbsp;f(x); si c'est autre chose, choisir un autre nom de
         variable.</li>
@@ -158,27 +158,27 @@ rédaction du programme.</p>
   </li>
   <li>Ajouter des commentaires pertinents&nbsp;:
     <ul>
-      <li>sans exagérer et en évitant les évidences,</li>
-      <li>en les écrivant en retrait, afin de ne pas nuire à la lisibilité,</li>
+      <li>sans exagÃ©rer et en Ã©vitant les Ã©vidences,</li>
+      <li>en les Ã©crivant en retrait, afin de ne pas nuire Ã  la lisibilitÃ©,</li>
       <li>en n'oubliant pas d'effacer ceux qui ne sont plus utiles,</li>
-      <li>en évitant de paraphraser le code (irritant),</li>
-      <li>en décrivant des blocs de codes plutôt que de commenter chaque
+      <li>en Ã©vitant de paraphraser le code (irritant),</li>
+      <li>en dÃ©crivant des blocs de codes plutÃ´t que de commenter chaque
         ligne.</li>
     </ul>
   </li>
   <li>Un programme lisible contient habituellement peu de commentaires dans la
     portion code.</li>
 </ul>
-<h4>Données - types - tableaux - arguments</h4>
+<h4>DonnÃ©es - types - tableaux - arguments</h4>
 <ul>
   <li>Matlab permet de modifier le type d'une variable en cours de programme,<b>
-    mais il faut éviter de le faire</b>.</li>
-  <li>Ne pas utiliser la notation matricielle pour une variable représentant un
+    mais il faut Ã©viter de le faire</b>.</li>
+  <li>Ne pas utiliser la notation matricielle pour une variable reprÃ©sentant un
     vecteur,</li>
-  <li>Déclarer les tableaux chaque fois que c'est possible.<br>
+  <li>DÃ©clarer les tableaux chaque fois que c'est possible.<br>
     Exemple&nbsp;:
     <ul>
-      <li>Une boucle comptée doit créer une à une&nbsp; <i><font color="#0000FF">n</font></i>
+      <li>Une boucle comptÃ©e doit crÃ©er une Ã  une&nbsp; <i><font color="#0000FF">n</font></i>
         valeurs de A et B et les manipuler.
         <ul>
           <li><code>for i=1:<i><font color="#0000FF">n</font></i></code><br>
@@ -187,46 +187,46 @@ rédaction du programme.</p>
             <code>end</code></li>
         </ul>
       </li>
-      <li>Matlab recopie ailleurs dans la mémoire tout le vecteur chaque fois
-        qu'il y a ajout d'un élément. Cela consomme temps et mémoire.</li>
-      <li>Déclarer : <code>A = zeros(<font color="#0000FF"><i>n</i></font>), B
+      <li>Matlab recopie ailleurs dans la mÃ©moire tout le vecteur chaque fois
+        qu'il y a ajout d'un Ã©lÃ©ment. Cela consomme temps et mÃ©moire.</li>
+      <li>DÃ©clarer : <code>A = zeros(<font color="#0000FF"><i>n</i></font>), B
         = zeros(<font color="#0000FF"><i>n</i></font>)</code><br>
-        Matlab réserve l'espace nécessaire aux vecteurs et ils ne sont pas
-        recopiés <i><font color="#0000FF">n</font></i> fois pendant la
+        Matlab rÃ©serve l'espace nÃ©cessaire aux vecteurs et ils ne sont pas
+        recopiÃ©s <i><font color="#0000FF">n</font></i> fois pendant la
         manipulation.</li>
     </ul>
   </li>
-  <li>Une valeur numérique qui ne change pas est définie par une constante.
+  <li>Une valeur numÃ©rique qui ne change pas est dÃ©finie par une constante.
     Exemple&nbsp;:
     <ul>
-      <li>S'il y a <i>n</i> données à lire, ne pas écrire 50, parce qu'il y a
-        50 données dans le fichier. Si le fichier change, le programme ne
-        s'exécute pas correctement. Laisser le programme déterminer la valeur
+      <li>S'il y a <i>n</i> donnÃ©es Ã  lire, ne pas Ã©crire 50, parce qu'il y a
+        50 donnÃ©es dans le fichier. Si le fichier change, le programme ne
+        s'exÃ©cute pas correctement. Laisser le programme dÃ©terminer la valeur
         de&nbsp;<i>n</i>.</li>
-      <li>Au lieu de abs(A-B)&nbsp;&lt;&nbsp;0.001, écrire<br>
-        epsilon = 0.001 au début du programme et<br>
+      <li>Au lieu de abs(A-B)&nbsp;&lt;&nbsp;0.001, Ã©crire<br>
+        epsilon = 0.001 au dÃ©but du programme et<br>
         abs(A-B)&nbsp;&lt;&nbsp;epsilon.</li>
     </ul>
   </li>
-  <li>Une fonction ne modifie jamais la valeur des arguments reçus.
+  <li>Une fonction ne modifie jamais la valeur des arguments reÃ§us.
     <ul>
-      <li>L'argument est un paramètre passé en valeur, ce qui permet d'éviter
-        qu'une modification apportée dans la fonction ne modifie le tableau de
+      <li>L'argument est un paramÃ¨tre passÃ© en valeur, ce qui permet d'Ã©viter
+        qu'une modification apportÃ©e dans la fonction ne modifie le tableau de
         la partie appelante.</li>
-      <li>Pour être plus efficace, Matlab examine le code de la fonction pour
-        déterminer si des modifications sont apportées à l'argument. S'il n'y
-        en a pas, Matlab passe l'<b>adresse</b> mémoire de l'argument sans
-        effectuer de copie. Il y a donc une économie de temps d'exécution
-        ainsi que d'espace mémoire.</li>
+      <li>Pour Ãªtre plus efficace, Matlab examine le code de la fonction pour
+        dÃ©terminer si des modifications sont apportÃ©es Ã  l'argument. S'il n'y
+        en a pas, Matlab passe l'<b>adresse</b> mÃ©moire de l'argument sans
+        effectuer de copie. Il y a donc une Ã©conomie de temps d'exÃ©cution
+        ainsi que d'espace mÃ©moire.</li>
     </ul>
   </li>
 </ul>
-<h4>Structures de contrôle et calculs</h4>
+<h4>Structures de contrÃ´le et calculs</h4>
 <ul>
-  <li>Écrire des conditions simples.
+  <li>Ã‰crire des conditions simples.
     <ul>
-      <li>Éliminer les tests sur des conditions négatives.</li>
-      <li>Éliminer une instruction <i>else</i> sans autre instruction.
+      <li>Ã‰liminer les tests sur des conditions nÃ©gatives.</li>
+      <li>Ã‰liminer une instruction <i>else</i> sans autre instruction.
         <ul>
           <li>Exemple&nbsp;:<br>
             <code>if (...)</code><br>
@@ -235,113 +235,113 @@ rédaction du programme.</p>
             <code>end</code></li>
         </ul>
       </li>
-      <li>Éviter d'imbriquer trop de conditions ou de boucles.</li>
-      <li>Utiliser des parenthèses pour clarifier des expressions logiques ou
-        des expressions arithmétiques.</li>
-      <li>Ne pas mélanger les types de données.</li>
-      <li>Retirer toutes les expressions exécutables à l'extérieur d'une
-        structure de contrôle.</li>
+      <li>Ã‰viter d'imbriquer trop de conditions ou de boucles.</li>
+      <li>Utiliser des parenthÃ¨ses pour clarifier des expressions logiques ou
+        des expressions arithmÃ©tiques.</li>
+      <li>Ne pas mÃ©langer les types de donnÃ©es.</li>
+      <li>Retirer toutes les expressions exÃ©cutables Ã  l'extÃ©rieur d'une
+        structure de contrÃ´le.</li>
     </ul>
   </li>
   <li>Espaces et lignes vides
     <ul>
       <li>Utiliser des espaces seulement pour clarifier la lecture.</li>
-      <li>Utiliser des lignes vides pour séparer les blocs.<b> Par contre</b>,
-        il faut éviter d'en mettre partout, car elles diminuent le nombres de
-        lignes de code visibles à l'écran. Et il y a risque de réduire la
+      <li>Utiliser des lignes vides pour sÃ©parer les blocs.<b> Par contre</b>,
+        il faut Ã©viter d'en mettre partout, car elles diminuent le nombres de
+        lignes de code visibles Ã  l'Ã©cran. Et il y a risque de rÃ©duire la
         perception globale des blocs d'instructions.</li>
-      <li>Indenter les lignes à l'intérieur des structures de contrôle.</li>
-      <li>Mettre un espace avant et après le symbole d'égalité, ou un
-        opérateur de relation.</li>
+      <li>Indenter les lignes Ã  l'intÃ©rieur des structures de contrÃ´le.</li>
+      <li>Mettre un espace avant et aprÃ¨s le symbole d'Ã©galitÃ©, ou un
+        opÃ©rateur de relation.</li>
       <li>Mettre des espaces dans les expressions ou les commentaires, comme en
-        français.</li>
+        franÃ§ais.</li>
     </ul>
   </li>
-  <li>Utiliser des expressions entières ou booléennes, lorsque c'est possible.</li>
-  <li>Utiliser des variables intermédiaires, pour simplifier une expression
-    arithmétique jugée trop longue.
+  <li>Utiliser des expressions entiÃ¨res ou boolÃ©ennes, lorsque c'est possible.</li>
+  <li>Utiliser des variables intermÃ©diaires, pour simplifier une expression
+    arithmÃ©tique jugÃ©e trop longue.
     <ul>
-      <li>Pour une fraction, écrire une ligne pour le numérateur et une autre
-        pour le dénominateur.</li>
-      <li>Une longue ligne d'instruction peut être étalée sur plusieurs
-        lignes, à l'aide de l'instruction de continuation&nbsp;{...}.</li>
+      <li>Pour une fraction, Ã©crire une ligne pour le numÃ©rateur et une autre
+        pour le dÃ©nominateur.</li>
+      <li>Une longue ligne d'instruction peut Ãªtre Ã©talÃ©e sur plusieurs
+        lignes, Ã  l'aide de l'instruction de continuation&nbsp;{...}.</li>
     </ul>
   </li>
-  <li>Effectuer des opérations vectorisées lorsque c'est possible.</li>
-  <li>Sans sacrifier la lisibilité, simplifier le plus possible.</li>
+  <li>Effectuer des opÃ©rations vectorisÃ©es lorsque c'est possible.</li>
+  <li>Sans sacrifier la lisibilitÃ©, simplifier le plus possible.</li>
 </ul>
-<h4>Entrées et sorties</h4>
+<h4>EntrÃ©es et sorties</h4>
 <ul>
-  <li>Indiquer l'organisation des données, les entrées et les sorties
-    utilisées par le programme ou la fonction.</li>
+  <li>Indiquer l'organisation des donnÃ©es, les entrÃ©es et les sorties
+    utilisÃ©es par le programme ou la fonction.</li>
   <li>Les sorties d'un programme doivent faire du sens pour l'utilisateur.</li>
-  <li>Valider les entrées ou les combinaisons.</li>
-  <li>Uniformiser la manière de lire ou d'écrire.</li>
-  <li>Utiliser une donnée sentinelle ou la fin d'un fichier plutôt que
-    demander à l'utilisateur de spécifier le nombre de données à lire.</li>
-  <li>Utiliser le moyen de lecture ou d'écriture le plus simple.</li>
+  <li>Valider les entrÃ©es ou les combinaisons.</li>
+  <li>Uniformiser la maniÃ¨re de lire ou d'Ã©crire.</li>
+  <li>Utiliser une donnÃ©e sentinelle ou la fin d'un fichier plutÃ´t que
+    demander Ã  l'utilisateur de spÃ©cifier le nombre de donnÃ©es Ã  lire.</li>
+  <li>Utiliser le moyen de lecture ou d'Ã©criture le plus simple.</li>
 </ul>
 <h4>Mise au point du code</h4>
 <ul>
-  <li>Écrire des petits bouts de programme à la fois, et les tester au fur et
-    à mesure.</li>
-  <li>Corriger une ligne à la fois. Très souvent, une instruction fautive tire
-    son origine des lignes qui précèdent ou qui suivent.</li>
-  <li>Efficacité&nbsp;:
+  <li>Ã‰crire des petits bouts de programme Ã  la fois, et les tester au fur et
+    Ã  mesure.</li>
+  <li>Corriger une ligne Ã  la fois. TrÃ¨s souvent, une instruction fautive tire
+    son origine des lignes qui prÃ©cÃ¨dent ou qui suivent.</li>
+  <li>EfficacitÃ©&nbsp;:
     <ul>
-      <li>C'est une spécification implicite et requise dans un programme.</li>
-      <li>Une bonne conception améliore l'efficacité d'un programme.</li>
-      <li>La clarté du code ne doit pas être compromise par des trucs visant
-        à améliorer l'efficacité.</li>
-      <li>Un code simplifié améliore l'efficacité.</li>
+      <li>C'est une spÃ©cification implicite et requise dans un programme.</li>
+      <li>Une bonne conception amÃ©liore l'efficacitÃ© d'un programme.</li>
+      <li>La clartÃ© du code ne doit pas Ãªtre compromise par des trucs visant
+        Ã  amÃ©liorer l'efficacitÃ©.</li>
+      <li>Un code simplifiÃ© amÃ©liore l'efficacitÃ©.</li>
     </ul>
   </li>
 </ul>
 <h4>Organiser un programme en&nbsp; fonctions</h4>
-<p>Un programme est défini comme une séquence d'instructions destinées à
-résoudre un problème. La plupart des solutions aux exercices des chapitres
-précédents nécessitent la rédaction d'un programme qui comporte un seul
+<p>Un programme est dÃ©fini comme une sÃ©quence d'instructions destinÃ©es Ã 
+rÃ©soudre un problÃ¨me. La plupart des solutions aux exercices des chapitres
+prÃ©cÃ©dents nÃ©cessitent la rÃ©daction d'un programme qui comporte un seul
 script.</p>
-<p>L'expérience démontre qu'il faut parfois décomposer un problème en
-parties pour produire une solution. De plus, dès qu'un programme dépasse cent
-lignes d'instructions, il devient plus difficile à gérer, et il convient de le
+<p>L'expÃ©rience dÃ©montre qu'il faut parfois dÃ©composer un problÃ¨me en
+parties pour produire une solution. De plus, dÃ¨s qu'un programme dÃ©passe cent
+lignes d'instructions, il devient plus difficile Ã  gÃ©rer, et il convient de le
 diviser en portions significatives.</p>
-<p>Pour organiser méthodiquement un programme en plusieurs étapes et pour
-simplifier la résolution d'un problème, Matlab propose de diviser le programme
-en fonctions. Chacune constitue un véritable petit programme regroupant une
-séquence d'instructions qui accomplit une tâche précise dans la solution du
-problème.</p>
+<p>Pour organiser mÃ©thodiquement un programme en plusieurs Ã©tapes et pour
+simplifier la rÃ©solution d'un problÃ¨me, Matlab propose de diviser le programme
+en fonctions. Chacune constitue un vÃ©ritable petit programme regroupant une
+sÃ©quence d'instructions qui accomplit une tÃ¢che prÃ©cise dans la solution du
+problÃ¨me.</p>
 <h5>Avantages</h5>
 <ul>
-  <li>La fonction regroupe des instructions qu'il suffit d'écrire et de mettre
-    au point une seule fois. La mise au point de chacune s'effectue de manière
-    indépendante du reste du programme, ce qui diminue les risques d'erreurs.</li>
-  <li>Les&nbsp; variables ont des noms locaux, c'est-à-dire que le même nom de
+  <li>La fonction regroupe des instructions qu'il suffit d'Ã©crire et de mettre
+    au point une seule fois. La mise au point de chacune s'effectue de maniÃ¨re
+    indÃ©pendante du reste du programme, ce qui diminue les risques d'erreurs.</li>
+  <li>Les&nbsp; variables ont des noms locaux, c'est-Ã -dire que le mÃªme nom de
     variable peut se retrouver dans plusieurs fonctions, tout en ayant une
-    valeur indépendante et différente dans chaque fonction.</li>
-  <li>Il est possible d'utiliser la même fonction plus d'une fois à
-    l'intérieur d'un programme.</li>
+    valeur indÃ©pendante et diffÃ©rente dans chaque fonction.</li>
+  <li>Il est possible d'utiliser la mÃªme fonction plus d'une fois Ã 
+    l'intÃ©rieur d'un programme.</li>
   <li>La programmation par fonction permet le partage et le regroupement de
-    plusieurs fonctions spécialisées dans la résolution de tâches
+    plusieurs fonctions spÃ©cialisÃ©es dans la rÃ©solution de tÃ¢ches
     similaires&nbsp;: c'est l'ensemble de fonctions (<i>toolbox</i>).</li>
 </ul>
 <h5>Programme principal</h5>
-<p>C'est le script qui lance l'exécution d'un programme, et dans un programme
-bien structuré, c'est également le script qui termine l'exécution du
-programme. Dans un long programme, sa tâche principale consiste à gérer les
-fonctions afin de réaliser de façon ordonnée les différentes étapes
-nécessaires à la solution du problème.</p>
-<h4>Références</h4>
+<p>C'est le script qui lance l'exÃ©cution d'un programme, et dans un programme
+bien structurÃ©, c'est Ã©galement le script qui termine l'exÃ©cution du
+programme. Dans un long programme, sa tÃ¢che principale consiste Ã  gÃ©rer les
+fonctions afin de rÃ©aliser de faÃ§on ordonnÃ©e les diffÃ©rentes Ã©tapes
+nÃ©cessaires Ã  la solution du problÃ¨me.</p>
+<h4>RÃ©fÃ©rences</h4>
 <ul>
-  <li>Pressman R.S. <i>Software Engineering</i>, 4<sup>e</sup>&nbsp;édition,
+  <li>Pressman R.S. <i>Software Engineering</i>, 4<sup>e</sup>&nbsp;Ã©dition,
     McGraw-Hill, 1997, QA76.6P73, (un classique).</li>
   <li>McConnell, Steeve, <i>Programmation professionnelle</i>, Microsoft Press,
-    1993, QA76.76.D47.M3914, (vaut le détour).</li>
-  <li>Meyer, Bertrand, <i>Introduction à la théorie des langages de
+    1993, QA76.76.D47.M3914, (vaut le dÃ©tour).</li>
+  <li>Meyer, Bertrand, <i>Introduction Ã  la thÃ©orie des langages de
     programmation,</i> 1992, QA76.7.M4814.</li>
   <li>Ledgard, Henry F., <i>C with excellence : programming proverbs</i>, Howard
     W. Sams&nbsp;&amp;&nbsp;co, Hayden Books, 1987, QA76.73C15L43, (bons trucs
-    pour écrire en&nbsp;C).</li>
+    pour Ã©crire en&nbsp;C).</li>
 </ul>
 <p align="center"><img border="0" src="Galets.gif" width="528" height="30"></p>
 
