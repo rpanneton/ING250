@@ -1132,8 +1132,8 @@ mso-border-bottom-alt:solid windowtext .5pt;padding:0cm 0cm 1.0pt 0cm'>
 
 <p style='border:none;mso-border-bottom-alt:solid windowtext .5pt;padding:0cm;
 mso-padding-alt:0cm 0cm 1.0pt 0cm'>Cette section explique comment lire et créer
-des fichiers de données. Les fichiers proposés sont contenus dans le répertoire
-Chap3\Scripts. Les copier dans le répertoire de travail.</p>
+des fichiers de données. Les fichiers proposés sont contenus dans le répertoire <a href="https://github.com/rpanneton/ING250/tree/main/Chap3/Scripts">
+Chap3\Scripts</a>. Les copier dans le répertoire de travail.</p>
 
 </div>
 
@@ -1147,7 +1147,7 @@ style='mso-bookmark:_Toc86741469'></span><span style='mso-fareast-font-family:
 des fichiers <a href="DT_ANSI.HTM">ASCII </a>pour contenir ces données.
 L'instruction <span class=SpellE><i>load</i></span> permet de les lire.</p>
 
-<p>Contexte - Le fichier <i>Distance.dat</i> contient les distances parcourues
+<p>Contexte - Le fichier <a href="Scripts/Distance.dat">Distance.dat</a> contient les distances parcourues
 en cm par de minuscules véhicules expérimentaux en nanotechnologie.<br>
 <span style='mso-no-proof:yes'><img border=0 width=224 height=271
 id="_x0000_i1025" src=Distance.gif></span></p>
@@ -1320,7 +1320,7 @@ lire des données numériques, il suffit de substituer <span class=SpellE><b><i>
 style='color:blue'>xlsread</span></i></b></span> (<span class=SpellE><i
 style='mso-bidi-font-style:normal'><span style='color:red'>readmatrix</span></i></span>)
 à l'instruction <span class=SpellE><b><i><span style='color:blue'>load</span></i></b></span>,
-par exemple&nbsp;:</p>
+par exemple&nbsp; avec <a href="Scripts/Distance.xls">Distance.xls</a>:</p>
 
 <pre><span lang=EN-CA style='mso-ansi-language:EN-CA'>&gt;&gt; clear<o:p></o:p></span></pre><pre><span
 lang=EN-CA style='mso-ansi-language:EN-CA'>&gt;&gt; D1 = </span><span
